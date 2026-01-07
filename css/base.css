@@ -1,0 +1,186 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(0, 255, 65, 0.02) 0%, transparent 50%);
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 255, 65, 0.02) 1px,
+            rgba(0, 255, 65, 0.02) 2px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 255, 65, 0.02) 1px,
+            rgba(0, 255, 65, 0.02) 2px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ASCII символы на фоне */
+.ascii-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.ascii-char {
+    position: fixed;
+    font-family: var(--font-family-ascii);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    user-select: none;
+    animation: fallDown linear infinite;
+    white-space: nowrap;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
+    z-index: 0;
+    will-change: transform;
+}
+
+@keyframes fallDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Container */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Кликабельные элементы - специальный курсор в стиле терминала */
+a,
+button,
+.portfolio-card,
+.filter-btn,
+.modal__close,
+[onclick],
+[role="button"] {
+    cursor: crosshair;
+}
+
+/* Улучшенный курсор при наведении */
+a:hover,
+button:hover,
+.portfolio-card:hover,
+.filter-btn:hover,
+.modal__close:hover {
+    cursor: pointer;
+}
+
+/* Кастомная полоса прокрутки в стиле терминала */
+/* Для WebKit браузеров (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background-dark);
+    border-left: 1px solid var(--color-border-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        var(--color-background-light) 0%,
+        rgba(0, 255, 65, 0.2) 50%,
+        var(--color-background-light) 100%
+    );
+    border: 1px solid var(--color-border-light);
+    border-radius: 7px;
+    transition: all var(--transition-normal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        to bottom,
+        var(--color-primary-dark) 0%,
+        var(--color-primary) 50%,
+        var(--color-primary-dark) 100%
+    );
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.6), inset 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--color-background-dark);
+    border-top: 1px solid var(--color-border-light);
+    border-left: 1px solid var(--color-border-light);
+}
+
+/* Для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 65, 0.3) var(--color-background-dark);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}

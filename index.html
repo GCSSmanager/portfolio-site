@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ГКСС - Портфолио команды</title>
+    <meta name="description" content="Портфолии IT команды ГКСС. Здесь собраны работы, которыми мы порадовали своих клиентов за время существования проекта!">
+    <meta name="author" content="ГКСС">
+    <meta http-equiv="Content-Language" content="ru">
+    <link rel="canonical" href="https://gcss-portfolio.ru">
+    <meta name="robots" content="index, follow">
+
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="icons/512x512.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/180x180.png">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__top">
+                <div class="header__contacts">
+                    <a href="#" target="_blank" class="header__contact-link" id="telegramLink">
+                        <svg class="header__contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.169 1.858-.896 6.557-1.268 8.699-.171 1.003-.508 1.338-.833 1.371-.708.064-1.246-.468-1.931-.917-1.07-.703-1.675-1.139-2.712-1.826-1.2-.78-.422-1.21.261-1.912.18-.184 3.247-2.977 3.307-3.23.007-.031.014-.15-.056-.212-.07-.062-.173-.041-.248-.024-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.038.297.021.459z"/>
+                        </svg>
+                        <span class="header__contact-text">Telegram: <span id="telegramUsername"></span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="header__content">
+                <h1 class="header__title">ГКСС - Наше портфолио</h1>
+                <p class="header__subtitle">Мы создаем ведущие IT-решения, которые помогают людям и обогащают сообщества</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="tg_bot">Телеграм боты</button>
+                    <button class="filter-btn" data-filter="website">Вебсайты</button>
+                    <button class="filter-btn" data-filter="excel">Excel</button>
+                </div>
+            </div>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Проекты будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно для проекта -->
+    <div class="modal" id="projectModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="modalClose"></button>
+            <div class="modal__header">
+                <h2 class="modal__title" id="modalTitle"></h2>
+            </div>
+            <div class="modal__body">
+                <div class="modal__description" id="modalDescription"></div>
+                <div class="modal__images" id="modalImages">
+                    <div class="modal__images-column" id="modalImagesColumn1"></div>
+                    <div class="modal__images-column" id="modalImagesColumn2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__company">
+                    <h3 class="footer__company-name">ГКСС</h3>
+                    <p class="footer__company-description">Компания по разработке IT-решений</p>
+                </div>
+                <div class="footer__contacts">
+                    <h4 class="footer__contacts-title">Контакты</h4>
+                    <a href="#" target="_blank" class="footer__contact-link" id="footerTelegramLink">
+                        <svg class="footer__contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.169 1.858-.896 6.557-1.268 8.699-.171 1.003-.508 1.338-.833 1.371-.708.064-1.246-.468-1.931-.917-1.07-.703-1.675-1.139-2.712-1.826-1.2-.78-.422-1.21.261-1.912.18-.184 3.247-2.977 3.307-3.23.007-.031.014-.15-.056-.212-.07-.062-.173-.041-.248-.024-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.038.297.021.459z"/>
+                        </svg>
+                        <span class="footer__contact-text">Telegram: <span id="footerTelegramUsername"></span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 ГКСС. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript модули -->
+    <script src="js/data.js"></script>
+    <script src="js/contacts.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/ascii-animation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

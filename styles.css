@@ -1,0 +1,7 @@
+/* Main stylesheet - импортирует все модули */
+@import url('css/variables.css');
+@import url('css/base.css');
+@import url('css/header.css');
+@import url('css/main.css');
+@import url('css/modal.css');
+@import url('css/footer.css');

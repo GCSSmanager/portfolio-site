@@ -1,0 +1,85 @@
+/* CSS Variables */
+:root {
+    /* Colors - Программистская тема */
+    --color-primary: #00ff41;
+    --color-primary-dark: #00cc33;
+    --color-primary-light: #33ff66;
+    --color-secondary: #1a1a1a;
+    --color-accent: #00d4ff;
+    --color-accent-dark: #0099cc;
+    --color-text: #00ff41;
+    --color-text-light: #00cc33;
+    --color-text-lighter: #66ff88;
+    --color-background: #1a1a1a;
+    --color-background-light: #252525;
+    --color-background-dark: #151515;
+    --color-border: #00ff41;
+    --color-border-light: rgba(0, 255, 65, 0.3);
+    --color-overlay: rgba(0, 0, 0, 0.75);
+    --color-ascii: rgba(0, 255, 65, 0.4);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+
+    /* Typography */
+    --font-family-primary: 'Courier New', 'Monaco', 'Menlo', 'Consolas', monospace;
+    --font-family-ascii: 'Courier New', monospace;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.125rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.5rem;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+
+    /* Layout */
+    --container-max-width: 1200px;
+    --container-padding: var(--spacing-md);
+
+    /* Grid */
+    --grid-gap: var(--spacing-md);
+    --card-border-radius: 0.5rem;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 255, 65, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 255, 65, 0.15);
+    --shadow-lg: 0 10px 15px rgba(0, 255, 65, 0.2);
+    --shadow-glow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+@media (max-width: 600px) {
+    :root {
+        --font-size-xl: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --spacing-md: 0.5rem;
+        --spacing-xl: 1.5rem;
+        --spacing-xxl: 2rem;
+
+        --grid-gap: 1rem;
+
+        --font-size-xl: 1rem;
+    }
+}
