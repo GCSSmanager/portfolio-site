@@ -127,7 +127,7 @@ const projects = [
     {
         id: 8,
         title: 'Интеграция в Excel WB статистики заказов, остатков и расходов',
-        category: 'excel',
+        category: 'crm',
         description: 'Интеграция в Excel WB статистики заказов, остатков и расходов. Позволяет автоматически загружать данные из WB в Excel и анализировать их. Реализована интеграция с помощью API WB.',
         images: {
             column1: [
@@ -216,12 +216,35 @@ const projects = [
             ]
         },
         thumbnail: 'data/esbbot/thumbnail.webp'
+    },
+    {
+        id: 13,
+        title: 'Собственная CRM-система',
+        category: 'crm',
+        description: 'Стильная и удобная платформа, созданная специально для бизнеса в сфере дезинсекции. Она обеспечивает полный контроль над работой: от обработки заявок до детального анализа статистики за любой срок. Это не шаблонный продукт, а индивидуальное решение.',
+        images: {
+            column1: [
+                'data/crm_dis/1.webp',
+                'data/crm_dis/2.webp',
+                'data/crm_dis/3.webp',
+                'data/crm_dis/4.webp',
+                'data/crm_dis/10.webp'
+            ],
+            column2: [
+                'data/crm_dis/6.webp',
+                'data/crm_dis/7.webp',
+                'data/crm_dis/8.webp',
+                'data/crm_dis/9.webp',
+                'data/crm_dis/5.webp'
+            ]
+        },
+        thumbnail: 'data/crm_dis/thumbnail.webp'
     }
 ]
 
 const categoryLabels = {
     'tg_bot': 'Телеграм боты',
     'website': 'Вебсайты',
-    'excel': 'Excel'
+    'crm': 'CRM'
 };
 
