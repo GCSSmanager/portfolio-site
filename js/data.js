@@ -239,11 +239,102 @@ const projects = [
             ]
         },
         thumbnail: 'data/crm_dis/thumbnail.webp'
+    },
+    {
+        id: 14,
+        title: 'Бот-помощник для студенческого сервиса',
+        category: 'tg_bot',
+        description: 'Бот позволяет студентам удобно выбирать услуги сервиса и получать подарки, а администратором следить за статистикой!',
+        images: {
+            column1: [
+                'data/abhdiplom/1.webp',
+                'data/abhdiplom/2.webp',
+            ],
+            column2: [
+                'data/abhdiplom/3.webp',
+                'data/abhdiplom/4.webp',
+            ]
+        },
+        thumbnail: 'data/abhdiplom/thumbnail.webp'
+    },
+    {
+        id: 15,
+        title: 'NFT-арена на базе Telegram Mini Apps',
+        category: 'tg_bot',
+        description: 'Экосистема на базе Telegram Mini Apps, где игроки взаимодействуют через PvP-арену в игре «Камень, ножницы, бумага». В приложении мультивалютная система: NFT, токены, звезды. Имеется механизм фарминга вознаграждений для держателей активов.',
+        images: {
+            column1: [
+                'data/nftminiapp/1.webp',
+                'data/nftminiapp/2.webp',
+                'data/nftminiapp/3.webp',
+                'data/nftminiapp/4.webp',
+            ],
+            column2: [
+                'data/nftminiapp/5.webp',
+                'data/nftminiapp/6.webp',
+                'data/nftminiapp/7.webp',
+            ]
+        },
+        thumbnail: 'data/nftminiapp/thumbnail.webp'
+    },
+    {
+        id: 16,
+        title: 'MAX-бот для получения гороскопа',
+        category: 'max_bot',
+        description: 'Бот позволяет пользователям получать различные гороскопы для своих знаков зодиака. Внутри реализована система монет, которые можно получить при подписке на каналы.',
+        images: {
+            column1: [
+                'data/horoscope/1.webp',
+                'data/horoscope/2.webp',
+                'data/horoscope/5.webp',
+            ],
+            column2: [
+                'data/horoscope/4.webp',
+                'data/horoscope/3.webp',
+                'data/horoscope/6.webp',
+            ]
+        },
+        thumbnail: 'data/horoscope/thumbnail.webp'
+    },
+    {
+        id: 17,
+        title: 'MAX-бот для скачивания видео',
+        category: 'max_bot',
+        description: 'Бот позволяет пользователям скачивать видео с популярных площадок (YouTube, TikTok, Instagram) по ссылке. Скорость загрузки и очередь зависит от количество каналов, на которые пользователь подписан.',
+        images: {
+            column1: [
+                'data/downloadbot/1.webp',
+                'data/downloadbot/2.webp',
+            ],
+            column2: [
+                'data/downloadbot/3.webp',
+            ]
+        },
+        thumbnail: 'data/downloadbot/thumbnail.webp'
+    },
+    {
+        id: 18,
+        title: 'MAX-бот для оживления фотографий',
+        category: 'max_bot',
+        description: 'Бот позволяет превращать фотографии в короткие видео, добавляя им жизнь. Пользователь может выбрать фотографию и получить видео с эффектами движения. Скорость и качество генерации зависит от числа каналов, на которые пользователь подписан.',
+        images: {
+            column1: [
+                'data/livephoto/1.webp',
+                'data/livephoto/2.webp',
+                'data/livephoto/3.webp',
+            ],
+            column2: [
+                'data/livephoto/4.webp',
+                'data/livephoto/5.webp',
+            ]
+        },
+        thumbnail: 'data/livephoto/thumbnail.webp'
     }
 ]
 
 const categoryLabels = {
     'tg_bot': 'Телеграм боты',
+    'max_bot': 'MAX боты',
     'website': 'Вебсайты',
     'crm': 'CRM'
 };
