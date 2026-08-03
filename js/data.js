@@ -329,11 +329,72 @@ const projects = [
             ]
         },
         thumbnail: 'data/livephoto/thumbnail.webp'
+    },
+    {
+        id: 19,
+        title: 'ВК бот для бронирования столов',
+        category: 'vk_bot',
+        description: 'VK-бот для бронирования игровых столов клуба. Пользователь выбирает дату и время, видит свободные столы и оформляет бронь прямо в диалоге с сообществом — без звонков и ручной записи. Все заявки сразу попадают в Google Таблицу, а бот сам проверяет пересечения, чтобы один стол не забронировали дважды на одно и то же время.',
+        images: {
+            column1: [
+                'data/underhivebot/1.webp',
+                'data/underhivebot/2.webp',
+            ],
+            column2: [
+                'data/underhivebot/2.webp',
+                'data/underhivebot/3.webp',
+            ]
+        },
+        thumbnail: 'data/underhivebot/thumbnail.webp'
+    },
+    {
+        id: 20,
+        title: 'Бот для бронирования и оплаты пейнтбола',
+        category: 'vk_bot',
+        description: 'Telegram- и VK-бот для онлайн-записи на пейнтбол. Ведёт пользователя по шагам бронирования — контакты, дата, тариф, доп. услуги — принимает предоплату через ЮKassa и только после успешной оплаты сохраняет заявку в Google Таблицу и уведомляет администратора.',
+        images: {
+            column1: [
+                'data/paintballbot/1.webp',
+                'data/paintballbot/2.webp',
+                'data/paintballbot/3.webp',
+                'data/paintballbot/4.webp',
+
+            ],
+            column2: [
+                'data/paintballbot/5.webp',
+                'data/paintballbot/6.webp',
+                'data/paintballbot/7.webp',
+                'data/paintballbot/8.webp',
+            ]
+        },
+        thumbnail: 'data/paintballbot/thumbnail.webp'
+    },
+    {
+        id: 21,
+        title: 'CRM-система для медицинского центра',
+        category: 'crm',
+        description: 'CRM для медицинской клиники: помогает администраторам вести расписание специалистов, записи клиентов и загрузку кабинетов в одном месте. Система сама подбирает свободные окна с учётом графиков, отсутствий и диагностических комиссий, а также следит за пересечениями и вместимостью кабинетов — чтобы запись оставалась удобной для администратора и без хаоса для клиники.',
+        images: {
+            column1: [
+                'data/mgcrCRM/1.webp',
+                'data/mgcrCRM/2.webp',
+                'data/mgcrCRM/3.webp',
+                'data/mgcrCRM/4.webp',
+            ],
+            column2: [
+                'data/mgcrCRM/5.webp',
+                'data/mgcrCRM/6.webp',
+                'data/mgcrCRM/7.webp',
+                'data/mgcrCRM/8.webp',
+            ]
+        },
+        thumbnail: 'data/mgcrCRM/thumbnail.webp'
     }
 ]
 
 const categoryLabels = {
     'tg_bot': 'Телеграм боты',
+    'vk_bot': 'ВК боты',
     'max_bot': 'MAX боты',
     'website': 'Вебсайты',
     'crm': 'CRM'
