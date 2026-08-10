@@ -1,7 +1,15 @@
-/* Main stylesheet - импортирует все модули */
-@import url('css/variables.css');
-@import url('css/base.css');
-@import url('css/header.css');
-@import url('css/main.css');
-@import url('css/modal.css');
-@import url('css/footer.css');
+@layer reset, tokens, base, layout, components, utilities, motion;
+
+@import url("./css/reset.css") layer(reset);
+@import url("./css/tokens.css") layer(tokens);
+@import url("./css/base.css") layer(base);
+@import url("./css/layout.css") layer(layout);
+@import url("./css/components/button.css") layer(components);
+@import url("./css/components/nav.css") layer(components);
+@import url("./css/components/project.css") layer(components);
+@import url("./css/components/modal.css") layer(components);
+@import url("./css/sections/hero.css") layer(components);
+@import url("./css/sections/portfolio.css") layer(components);
+@import url("./css/sections/cta.css") layer(components);
+@import url("./css/sections/footer.css") layer(components);
+@import url("./css/motion.css") layer(motion);

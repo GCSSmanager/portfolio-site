@@ -1,9 +1,6 @@
-// Главная функция инициализации
 function init() {
-    initPortfolio();
-    initContacts();
+  initContacts();
+  initPortfolio();
 }
 
-// Запуск приложения после загрузки DOM
 document.addEventListener('DOMContentLoaded', init);
-

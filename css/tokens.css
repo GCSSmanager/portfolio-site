@@ -1,0 +1,49 @@
+:root {
+  --color-bg: #f5f2ea;
+  --color-bg-elevated: #faf8f3;
+  --color-fg: #1b3022;
+  --color-fg-soft: color-mix(in oklab, var(--color-fg) 72%, var(--color-bg));
+  --color-muted: color-mix(in oklab, var(--color-fg) 48%, var(--color-bg));
+  --color-line: color-mix(in oklab, var(--color-fg) 18%, var(--color-bg));
+  --color-accent: #1b3022;
+  --color-on-accent: #f5f2ea;
+  --color-overlay: color-mix(in oklab, var(--color-fg) 55%, transparent);
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  --step--1: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --step-0: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --step-1: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --step-2: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --step-3: clamp(1.625rem, 1.3rem + 1.2vw, 2.25rem);
+  --step-4: clamp(2.25rem, 1.7rem + 2.2vw, 3.75rem);
+  --step-5: clamp(3rem, 2.2rem + 3vw, 5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+
+  --radius-s: 0.35rem;
+  --radius-m: 0.75rem;
+  --radius-l: 1.15rem;
+  --shadow-soft: 0 0.75rem 1.75rem color-mix(in oklab, var(--color-fg) 10%, transparent);
+  --shadow-lift: 0 1.25rem 2.75rem color-mix(in oklab, var(--color-fg) 16%, transparent);
+  --measure: 65ch;
+  --container: 72rem;
+  --header-h: 4rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-mid: 320ms;
+  --duration-slow: 560ms;
+
+  --z-nav: 40;
+  --z-modal: 60;
+}

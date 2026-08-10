@@ -1,0 +1,60 @@
+.project {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius-l);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.project:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+.project:focus {
+  outline: none;
+}
+
+.project:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 3px;
+}
+
+.project__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+  border-radius: inherit;
+}
+
+.project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--duration-fast) var(--ease-out);
+  will-change: transform;
+}
+
+.project:hover .project__media img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project:hover .project__media img {
+    transform: none;
+  }
+}
+
+.project__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 2.5rem 0.75rem color-mix(in oklab, var(--color-bg) 35%, transparent);
+  border-radius: inherit;
+}

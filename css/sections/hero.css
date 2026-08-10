@@ -1,0 +1,169 @@
+.hero {
+  position: relative;
+  padding-block: clamp(2rem, 5vw, 4rem) var(--space-8);
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+  min-height: min(78dvh, 40rem);
+}
+
+.card-hero {
+  width: min(100%, 36rem);
+  display: grid;
+  justify-items: start;
+  text-align: left;
+  gap: var(--space-4);
+}
+
+.card-hero__brand {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  color: var(--color-fg);
+  max-width: none;
+}
+
+.card-hero__tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-fg);
+  max-width: none;
+}
+
+.card-hero__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-fg-soft);
+  max-width: none;
+}
+
+.card-hero__rule {
+  width: min(100%, 10rem);
+  height: 1px;
+  margin-block: var(--space-1);
+  background: var(--color-line);
+}
+
+.card-hero__stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.card-hero__stat {
+  display: grid;
+  gap: 0.35rem;
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-l);
+  background: color-mix(in oklab, var(--color-fg) 7%, var(--color-bg-elevated));
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.card-hero__stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+  max-width: none;
+}
+
+.card-hero__stat-label {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--color-fg);
+  max-width: none;
+}
+
+.card-hero__actions {
+  justify-content: start;
+  margin-top: var(--space-2);
+}
+
+.hero__visual {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero__visual-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-lift);
+  aspect-ratio: 4 / 5;
+  max-height: min(72dvh, 36rem);
+}
+
+.hero__visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__visual-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 4rem 1.5rem color-mix(in oklab, var(--color-bg) 55%, transparent);
+  border-radius: inherit;
+}
+
+@media (max-width: 56rem) {
+  .hero__layout {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero__visual {
+    order: -1;
+    max-width: 28rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .hero__visual-frame {
+    aspect-ratio: 16 / 11;
+    max-height: none;
+  }
+
+  .card-hero {
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .card-hero__rule {
+    margin-inline: auto;
+  }
+
+  .card-hero__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 30rem) {
+  .card-hero__stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,20 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(0.6rem);
+  animation: rise-in var(--duration-slow) var(--ease-out) forwards;
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

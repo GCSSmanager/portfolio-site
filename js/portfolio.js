@@ -1,158 +1,148 @@
-// Элементы DOM
 const portfolioGrid = document.getElementById('portfolioGrid');
 const modal = document.getElementById('projectModal');
-const modalClose = document.getElementById('modalClose');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
-const modalImages = document.getElementById('modalImages');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const filterButtons = document.querySelectorAll('.filter');
 
-// Текущий активный фильтр
 let activeFilter = 'all';
+let lastFocus = null;
 
-// Рендеринг проектов
-function renderProjects(projectsToRender) {
-    portfolioGrid.innerHTML = '';
-
-    projectsToRender.forEach(project => {
-        const card = createProjectCard(project);
-        portfolioGrid.appendChild(card);
-    });
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
 }
 
-// Создание карточки проекта
 function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'portfolio-card';
-    card.dataset.category = project.category;
+  const card = document.createElement('button');
+  card.type = 'button';
+  card.className = 'project';
+  card.dataset.category = project.category;
+  card.setAttribute('aria-label', `Открыть проект: ${project.title}`);
 
-    // Обрезаем описание для предпросмотра (первые 100 символов)
-    const shortDescription = project.description.length > 100
-        ? project.description.substring(0, 100) + '...'
-        : project.description;
+  card.innerHTML = `
+    <div class="project__media">
+      <img src="${escapeHtml(project.thumbnail)}" alt="" width="800" height="600" loading="lazy">
+    </div>
+  `;
 
-    card.innerHTML = `
-        <div class="portfolio-card__header">
-            <img src="${project.thumbnail}" alt="${project.title}" class="portfolio-card__avatar" loading="lazy">
-            <div class="portfolio-card__header-text">
-                <h3 class="portfolio-card__title">${project.title}</h3>
-                <span class="portfolio-card__category">${categoryLabels[project.category] || project.category}</span>
-            </div>
-        </div>
-        <div class="portfolio-card__content">
-            <p class="portfolio-card__description">${shortDescription}</p>
-        </div>
-    `;
-
-    card.addEventListener('click', () => openModal(project));
-
-    return card;
+  card.addEventListener('click', () => openModal(project, card));
+  return card;
 }
 
-// Открытие модального окна
-function openModal(project) {
-    modalTitle.textContent = project.title;
-    modalDescription.textContent = project.description;
-
-    // Очистка и добавление изображений в два независимых столбца
-    const column1 = document.getElementById('modalImagesColumn1');
-    const column2 = document.getElementById('modalImagesColumn2');
-
-    column1.innerHTML = '';
-    column2.innerHTML = '';
-
-    // Проверяем, мобильное ли устройство
-    const isMobile = window.innerWidth <= 768;
-
-    // Функция для создания элемента изображения
-    function createImage(imageUrl) {
-        const img = document.createElement('img');
-        img.src = imageUrl;
-        img.alt = project.title;
-        img.className = 'modal__image';
-        return img;
-    }
-
-    if (isMobile) {
-        // На мобильных все изображения из обоих столбцов идут в первый столбец
-        const allImages = [...(project.images.column1 || []), ...(project.images.column2 || [])];
-        allImages.forEach(imageUrl => {
-            column1.appendChild(createImage(imageUrl));
-        });
-        column2.style.display = 'none';
-    } else {
-        // На десктопе используем структуру column1 и column2
-        if (project.images.column1) {
-            project.images.column1.forEach(imageUrl => {
-                column1.appendChild(createImage(imageUrl));
-            });
-        }
-        if (project.images.column2) {
-            project.images.column2.forEach(imageUrl => {
-                column2.appendChild(createImage(imageUrl));
-            });
-        }
-        column2.style.display = 'flex';
-    }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+function renderProjects(list) {
+  portfolioGrid.replaceChildren();
+  const fragment = document.createDocumentFragment();
+  list.forEach((project) => {
+    fragment.appendChild(createProjectCard(project));
+  });
+  portfolioGrid.appendChild(fragment);
 }
 
-// Закрытие модального окна
+function openModal(project, trigger) {
+  lastFocus = trigger || document.activeElement;
+  modalTitle.textContent = project.title;
+
+  const features = (project.features || [])
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('');
+
+  const result = project.result
+    ? `<p class="modal__result"><strong>Результат для бизнеса.</strong> ${escapeHtml(project.result)}</p>`
+    : '';
+
+  modalDescription.innerHTML = `
+    <p>${escapeHtml(project.description)}</p>
+    ${features ? `<p class="modal__features-title">Возможности</p><ul class="modal__features" role="list">${features}</ul>` : ''}
+    ${result}
+  `;
+
+  const column1 = document.getElementById('modalImagesColumn1');
+  const column2 = document.getElementById('modalImagesColumn2');
+  column1.replaceChildren();
+  column2.replaceChildren();
+
+  const isMobile = window.matchMedia('(max-width: 40rem)').matches;
+
+  const appendImage = (parent, src) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = project.title;
+    img.className = 'modal__image';
+    img.loading = 'lazy';
+    parent.appendChild(img);
+  };
+
+  if (isMobile) {
+    const allImages = [...(project.images.column1 || []), ...(project.images.column2 || [])];
+    allImages.forEach((src) => appendImage(column1, src));
+  } else {
+    (project.images.column1 || []).forEach((src) => appendImage(column1, src));
+    (project.images.column2 || []).forEach((src) => appendImage(column2, src));
+  }
+
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  const modalBody = modal.querySelector('.modal__body');
+  const modalPanel = modal.querySelector('.modal__panel');
+  if (modalBody) modalBody.scrollTop = 0;
+  if (modalPanel) modalPanel.scrollTop = 0;
+
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn?.focus({ preventScroll: true });
+
+  // keep top after layout/images settle (mobile scroll jump fix)
+  requestAnimationFrame(() => {
+    if (modalBody) modalBody.scrollTop = 0;
+    if (modalPanel) modalPanel.scrollTop = 0;
+  });
+}
+
 function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
+  if (!modal.classList.contains('is-open')) return;
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  // blur to avoid sticky focus ring on the card after close
+  if (lastFocus && typeof lastFocus.blur === 'function') {
+    lastFocus.blur();
+  }
+  lastFocus = null;
 }
 
-// Фильтрация проектов
 function filterProjects(category) {
-    activeFilter = category;
+  activeFilter = category;
 
-    // Обновление активной кнопки фильтра
-    filterButtons.forEach(btn => {
-        if (btn.dataset.filter === category) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
+  filterButtons.forEach((btn) => {
+    btn.classList.toggle('is-active', btn.dataset.filter === category);
+  });
 
-    // Фильтрация и рендеринг
-    const filteredProjects = category === 'all'
-        ? projects
-        : projects.filter(project => project.category === category);
+  const filtered = category === 'all'
+    ? projects
+    : projects.filter((project) => project.category === category);
 
-    renderProjects(filteredProjects);
+  renderProjects(filtered);
 }
 
-// Настройка обработчиков событий
 function setupEventListeners() {
-    // Закрытие модального окна
-    modalClose.addEventListener('click', closeModal);
+  document.querySelectorAll('[data-modal-close]').forEach((el) => {
+    el.addEventListener('click', closeModal);
+  });
 
-    // Закрытие по клику на overlay
-    modal.querySelector('.modal__overlay').addEventListener('click', closeModal);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeModal();
+  });
 
-    // Закрытие по Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    // Фильтры
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const category = btn.dataset.filter;
-            filterProjects(category);
-        });
-    });
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => filterProjects(btn.dataset.filter));
+  });
 }
 
-// Инициализация портфолио
 function initPortfolio() {
-    renderProjects(projects);
-    setupEventListeners();
+  renderProjects(projects);
+  setupEventListeners();
 }
-
