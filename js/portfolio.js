@@ -15,6 +15,50 @@ function escapeHtml(value) {
     .replaceAll('"', '&quot;');
 }
 
+function formatFeature(item) {
+  if (item && typeof item === 'object' && item.title) {
+    const title = escapeHtml(item.title);
+    const text = escapeHtml(item.text || '');
+    return `<li><strong>${title}</strong>${text ? ` ${text}` : ''}</li>`;
+  }
+
+  const raw = String(item).trim();
+  const emojiMatch = raw.match(/^(?:[\p{Extended_Pictographic}\uFE0F\u200D]+\s*)+/u);
+  const emoji = emojiMatch ? emojiMatch[0].trim() : '';
+  const rest = emojiMatch ? raw.slice(emojiMatch[0].length).trim() : raw;
+  const words = rest.split(/\s+/).filter(Boolean);
+
+  if (words.length < 2) {
+    return `<li>${escapeHtml(raw)}</li>`;
+  }
+
+  const connectors = new Set(['и', 'по', 'для', 'через', 'из', 'на', 'с', 'в', 'от', 'к', 'у', '·', '/', '—', '-']);
+  let titleEnd = 1;
+
+  for (let i = 1; i < Math.min(words.length, 7); i += 1) {
+    const word = words[i];
+    const lower = word.toLowerCase();
+    const isConnector = connectors.has(lower);
+    const isAcronym = /^[A-ZА-ЯЁ0-9«»"”.\-]+$/u.test(word) && word.length <= 8;
+    const startsCapital = /^[А-ЯЁA-Z]/.test(word);
+
+    if (isConnector || isAcronym || !startsCapital) {
+      titleEnd = i + 1;
+      continue;
+    }
+
+    if (i >= 2) break;
+    titleEnd = i + 1;
+  }
+
+  const titleWords = words.slice(0, titleEnd).join(' ');
+  const bodyWords = words.slice(titleEnd).join(' ');
+  const title = escapeHtml(emoji ? `${emoji} ${titleWords}` : titleWords);
+  const body = escapeHtml(bodyWords);
+
+  return `<li><strong>${title}</strong>${body ? ` ${body}` : ''}</li>`;
+}
+
 function createProjectCard(project) {
   const card = document.createElement('button');
   card.type = 'button';
@@ -55,7 +99,7 @@ function openModal(project, trigger) {
   modalTitle.textContent = project.title;
 
   const features = (project.features || [])
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .map((item) => formatFeature(item))
     .join('');
 
   const result = project.result
@@ -65,7 +109,7 @@ function openModal(project, trigger) {
   const featuresBlock = features
     ? `<details class="modal__toggle">
         <summary class="modal__toggle-summary">Возможности</summary>
-        <ul class="modal__features" role="list">${features}</ul>
+        <ul class="modal__features">${features}</ul>
       </details>`
     : '';
 

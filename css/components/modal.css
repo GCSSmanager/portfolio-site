@@ -141,15 +141,25 @@
 .modal__features {
   display: grid;
   gap: var(--space-3);
-  padding: 0;
   margin: 0;
-  list-style: none;
+  padding-left: 1.2rem;
+  list-style: disc;
 }
 
 .modal__features li {
   color: var(--color-fg-soft);
   font-size: var(--step-0);
   line-height: 1.55;
+  padding-left: 0.15rem;
+}
+
+.modal__features li::marker {
+  color: var(--color-fg);
+}
+
+.modal__features strong {
+  color: var(--color-fg);
+  font-weight: 700;
 }
 
 .modal__result {
