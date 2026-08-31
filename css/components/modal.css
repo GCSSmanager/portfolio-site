@@ -95,16 +95,47 @@
 
 .modal__description p,
 .modal__description li,
-.modal__features-title,
 .modal__result {
   font-family: var(--font-body);
   max-width: none;
 }
 
-.modal__features-title {
-  font-size: var(--step-1);
+.modal__toggle {
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-3);
+}
+
+.modal__toggle-summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--step-0);
   font-weight: 700;
   color: var(--color-fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  user-select: none;
+}
+
+.modal__toggle-summary::-webkit-details-marker {
+  display: none;
+}
+
+.modal__toggle-summary::after {
+  content: "+";
+  font-weight: 500;
+  font-size: 1.25em;
+  line-height: 1;
+  color: var(--color-muted);
+}
+
+.modal__toggle[open] .modal__toggle-summary::after {
+  content: "−";
+}
+
+.modal__toggle .modal__features {
+  margin-top: var(--space-3);
 }
 
 .modal__features {
@@ -136,6 +167,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3);
+  align-items: start;
 }
 
 .modal__images-column {
@@ -145,6 +177,7 @@
 }
 
 .modal__image {
+  display: block;
   width: 100%;
   border: 0;
   border-radius: var(--radius-m);
@@ -190,7 +223,7 @@
     grid-template-columns: 1fr;
   }
 
-  .modal__images-column--second {
+  .modal__images-column:empty {
     display: none;
   }
 }

@@ -41,6 +41,15 @@ function renderProjects(list) {
   portfolioGrid.appendChild(fragment);
 }
 
+function appendImage(parent, src, title) {
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = title;
+  img.className = 'modal__image';
+  img.loading = 'lazy';
+  parent.appendChild(img);
+}
+
 function openModal(project, trigger) {
   lastFocus = trigger || document.activeElement;
   modalTitle.textContent = project.title;
@@ -53,9 +62,16 @@ function openModal(project, trigger) {
     ? `<p class="modal__result"><strong>Результат для бизнеса.</strong> ${escapeHtml(project.result)}</p>`
     : '';
 
+  const featuresBlock = features
+    ? `<details class="modal__toggle">
+        <summary class="modal__toggle-summary">Возможности</summary>
+        <ul class="modal__features" role="list">${features}</ul>
+      </details>`
+    : '';
+
   modalDescription.innerHTML = `
     <p>${escapeHtml(project.description)}</p>
-    ${features ? `<p class="modal__features-title">Возможности</p><ul class="modal__features" role="list">${features}</ul>` : ''}
+    ${featuresBlock}
     ${result}
   `;
 
@@ -64,23 +80,15 @@ function openModal(project, trigger) {
   column1.replaceChildren();
   column2.replaceChildren();
 
+  const col1 = project.images?.column1 || [];
+  const col2 = project.images?.column2 || [];
   const isMobile = window.matchMedia('(max-width: 40rem)').matches;
 
-  const appendImage = (parent, src) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = project.title;
-    img.className = 'modal__image';
-    img.loading = 'lazy';
-    parent.appendChild(img);
-  };
-
   if (isMobile) {
-    const allImages = [...(project.images.column1 || []), ...(project.images.column2 || [])];
-    allImages.forEach((src) => appendImage(column1, src));
+    [...col1, ...col2].forEach((src) => appendImage(column1, src, project.title));
   } else {
-    (project.images.column1 || []).forEach((src) => appendImage(column1, src));
-    (project.images.column2 || []).forEach((src) => appendImage(column2, src));
+    col1.forEach((src) => appendImage(column1, src, project.title));
+    col2.forEach((src) => appendImage(column2, src, project.title));
   }
 
   modal.classList.add('is-open');
@@ -92,10 +100,8 @@ function openModal(project, trigger) {
   if (modalBody) modalBody.scrollTop = 0;
   if (modalPanel) modalPanel.scrollTop = 0;
 
-  const closeBtn = modal.querySelector('.modal__close');
-  closeBtn?.focus({ preventScroll: true });
+  modal.querySelector('.modal__close')?.focus({ preventScroll: true });
 
-  // keep top after layout/images settle (mobile scroll jump fix)
   requestAnimationFrame(() => {
     if (modalBody) modalBody.scrollTop = 0;
     if (modalPanel) modalPanel.scrollTop = 0;
@@ -107,7 +113,6 @@ function closeModal() {
   modal.classList.remove('is-open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  // blur to avoid sticky focus ring on the card after close
   if (lastFocus && typeof lastFocus.blur === 'function') {
     lastFocus.blur();
   }

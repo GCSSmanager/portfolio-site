@@ -10,14 +10,7 @@ const categoryLabels = {
   integration: 'Интеграция'
 };
 
-function splitImages(folder, count) {
-  const paths = Array.from({ length: count }, (_, i) => `data/${folder}/${i + 1}.webp`);
-  const mid = Math.ceil(paths.length / 2);
-  return {
-    column1: paths.slice(0, mid),
-    column2: paths.slice(mid)
-  };
-}
+
 
 const projects = [
   {
@@ -38,7 +31,21 @@ const projects = [
       "🔐 Роли и доступы Администратор управляет записью и справочниками, специалист видит своё расписание и отмечает явку — каждый работает в своём контуре без лишнего шума.",
     ],
     result: "Единая операционная среда вместо разрозненных Excel и мессенджеров: быстрее запись, меньше конфликтов по времени и кабинетам, прозрачная загрузка специалистов и спокойный контроль дня клиники.",
-    images: splitImages("clinic-crm", 9),
+    images: {
+      column1: [
+        'data/clinic-crm/1.webp',
+        'data/clinic-crm/3.webp',
+        'data/clinic-crm/5.webp',
+        'data/clinic-crm/7.webp',
+        'data/clinic-crm/8.webp',
+      ],
+      column2: [
+        'data/clinic-crm/2.webp',
+        'data/clinic-crm/4.webp',
+        'data/clinic-crm/6.webp',
+        'data/clinic-crm/9.webp',
+      ]
+    },
     thumbnail: "data/clinic-crm/thumbnail.webp"
   },
   {
@@ -59,7 +66,22 @@ const projects = [
       "🔐 Роли и доступы Отдельные сценарии работы для администратора, оператора и мастера — каждый видит только то, что нужно для своей задачи.",
     ],
     result: "Единая рабочая среда вместо разрозненных чатов и таблиц: быстрее обработка заявок, прозрачная загрузка мастеров, контроль рекламы и понятная картина по деньгам.",
-    images: splitImages("pest-crm", 10),
+    images: {
+      column1: [
+        'data/pest-crm/1.webp',
+        'data/pest-crm/3.webp',
+        'data/pest-crm/5.webp',
+        'data/pest-crm/7.webp',
+        'data/pest-crm/9.webp',
+      ],
+      column2: [
+        'data/pest-crm/2.webp',
+        'data/pest-crm/4.webp',
+        'data/pest-crm/6.webp',
+        'data/pest-crm/8.webp',
+        'data/pest-crm/10.webp',
+      ]
+    },
     thumbnail: "data/pest-crm/thumbnail.webp"
   },
   {
@@ -80,7 +102,21 @@ const projects = [
       "🔔 Уведомления После оплаты бот подтверждает запись, администратор получает оповещение — команда в курсе.",
     ],
     result: "Запись работает 24/7, меньше пустых бронирований, больше предоплат и прозрачный учёт заявок. Администратору не нужно вручную собирать данные в чатах — всё уже в таблице.",
-    images: splitImages("paintball-bot", 9),
+    images: {
+      column1: [
+        'data/paintball-bot/1.webp',
+        'data/paintball-bot/3.webp',
+        'data/paintball-bot/5.webp',
+        'data/paintball-bot/7.webp',
+      ],
+      column2: [
+        'data/paintball-bot/2.webp',
+        'data/paintball-bot/4.webp',
+        'data/paintball-bot/6.webp',
+        'data/paintball-bot/8.webp',
+        'data/paintball-bot/9.webp',
+      ]
+    },
     thumbnail: "data/paintball-bot/thumbnail.webp"
   },
   {
@@ -100,7 +136,17 @@ const projects = [
       "🔁 Устойчивость к сбоям связи При обрыве с таблицей бот переподключается и повторяет запрос, сообщая пользователю, что пробует ещё раз.",
     ],
     result: "Меньше ручной работы на ресепшене, меньше ошибок в расписании и больше заполненных слотов: гости бронируют сами, а клуб видит полную картину в одной таблице.",
-    images: splitImages("underhive-vk", 5),
+    images: {
+      column1: [
+        'data/underhive-vk/1.webp',
+        'data/underhive-vk/4.webp',
+      ],
+      column2: [
+        'data/underhive-vk/5.webp',
+        'data/underhive-vk/2.webp',
+        'data/underhive-vk/3.webp',
+      ]
+    },
     thumbnail: "data/underhive-vk/thumbnail.webp"
   },
   {
@@ -120,7 +166,21 @@ const projects = [
       "🛠️ Админ-панель Рассылка и контроль активных заказов для операторов сервиса.",
     ],
     result: "Площадка работает сама: заказы публикуются, исполнители подключаются, чаты создаются автоматически. Меньше ручной координации, выше скорость сделки и комфорт для обеих сторон.",
-    images: splitImages("esb-bot", 9),
+    images: {
+      column1: [
+        'data/esb-bot/1.webp',
+        'data/esb-bot/3.webp',
+        'data/esb-bot/5.webp',
+        'data/esb-bot/8.webp',
+      ],
+      column2: [
+        'data/esb-bot/2.webp',
+        'data/esb-bot/4.webp',
+        'data/esb-bot/7.webp',
+        'data/esb-bot/6.webp',
+        'data/esb-bot/9.webp',
+      ]
+    },
     thumbnail: "data/esb-bot/thumbnail.webp"
   },
   {
@@ -140,7 +200,19 @@ const projects = [
       "📱 Под MAX Работает в экосистеме MAX: привычный чат, кнопки, быстрые ответы.",
     ],
     result: "Готовый развлекательный бот с ИИ-контентом и встроенной механикой роста через подписки. Пользователи возвращаются за новыми прогнозами, а каналы получают подписчиков без ручной выдачи текстов.",
-    images: splitImages("horoscope-max", 7),
+    images: {
+      column1: [
+        'data/horoscope-max/1.webp',
+        'data/horoscope-max/3.webp',
+        'data/horoscope-max/7.webp',
+      ],
+      column2: [
+        'data/horoscope-max/2.webp',
+        'data/horoscope-max/4.webp',
+        'data/horoscope-max/6.webp',
+        'data/horoscope-max/5.webp',
+      ]
+    },
     thumbnail: "data/horoscope-max/thumbnail.webp"
   },
   {
@@ -160,7 +232,19 @@ const projects = [
       "🎯 Кнопки записи везде Призыв записаться на главной, у врачей и в контактах — путь до заявки короткий.",
     ],
     result: "Клиника выглядит современно и надёжно. Родителям проще выбрать услугу и врача, а центру — получать обращения без лишних объяснений по телефону.",
-    images: splitImages("detstvo", 7),
+    images: {
+      column1: [
+        'data/detstvo/1.webp',
+        'data/detstvo/3.webp',
+        'data/detstvo/5.webp',
+        'data/detstvo/7.webp',
+      ],
+      column2: [
+        'data/detstvo/2.webp',
+        'data/detstvo/4.webp',
+        'data/detstvo/6.webp',
+      ]
+    },
     thumbnail: "data/detstvo/thumbnail.webp"
   },
   {
@@ -180,7 +264,17 @@ const projects = [
       "📋 Копирование карточек Удобно переносить выбранный вариант в переписку или КП.",
     ],
     result: "Меньше ручных расчётов и вопросов «сколько будет стоить?». Клиент сам собирает заказ, сервис быстрее закрывает сделки, производство получает понятные параметры печати.",
-    images: splitImages("balloons", 5),
+    images: {
+      column1: [
+        'data/balloons/1.webp',
+        'data/balloons/3.webp',
+      ],
+      column2: [
+        'data/balloons/2.webp',
+        'data/balloons/4.webp',
+        'data/balloons/5.webp',
+      ]
+    },
     thumbnail: "data/balloons/thumbnail.webp"
   },
   {
@@ -199,7 +293,18 @@ const projects = [
       "💹 Доли и KPI % выкупа, доля логистики и рекламы от заказов и продаж — контроль юнит-экономики без отдельных калькуляторов.",
     ],
     result: "Продавец видит картину по WB в привычном Excel: быстрее решения по закупкам, рекламе и ассортименту. Меньше рутины, больше контроля над деньгами и остатками.",
-    images: splitImages("wb-excel", 6),
+    images: {
+      column1: [
+        'data/wb-excel/1.webp',
+        'data/wb-excel/3.webp',
+        'data/wb-excel/5.webp',
+      ],
+      column2: [
+        'data/wb-excel/2.webp',
+        'data/wb-excel/4.webp',
+        'data/wb-excel/6.webp',
+      ]
+    },
     thumbnail: "data/wb-excel/thumbnail.webp"
   },
 ];
