@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CRM-системы под ключ — ГКСС</title>
+  <meta name="description" content="CRM-системы под задачи вашего бизнеса.">
+  <meta name="author" content="ГКСС">
+  <meta http-equiv="Content-Language" content="ru">
+  <link rel="canonical" href="https://gcss-portfolio.ru/crm/">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/sections/crm.css">
+
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../icons/512x512.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../icons/180x180.png">
+</head>
+<body class="crm-page">
+  <header class="nav nav--crm" id="crmNav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="./">ГКСС</a>
+
+      <nav class="nav__menu" id="crmNavMenu" aria-label="Разделы">
+        <span class="nav__link">Решения</span>
+        <span class="nav__link">Этапы</span>
+        <span class="nav__link">Тарифы</span>
+        <a class="nav__contact nav__contact--menu" href="tel:+79963463049" data-phone-link>
+          <span data-phone-display>+7 (996) 346-30-49</span>
+        </a>
+      </nav>
+
+      <div class="nav__links">
+        <a class="nav__contact nav__contact--bar" href="tel:+79963463049" data-phone-link>
+          <span data-phone-display>+7 (996) 346-30-49</span>
+        </a>
+        <button class="btn btn--primary nav__cta" type="button" data-order-open>
+          Заказать
+        </button>
+        <button
+          class="nav__burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="crmNavMenu"
+          data-nav-toggle
+        >
+          <span class="nav__burger-line" aria-hidden="true"></span>
+          <span class="nav__burger-line" aria-hidden="true"></span>
+          <span class="nav__burger-line" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="crm-hero" aria-label="CRM-системы под ключ">
+      <img
+        class="crm-hero__bg"
+        src="../assets/crm-hero.webp"
+        alt=""
+        width="1536"
+        height="1024"
+        fetchpriority="high"
+      >
+      <div class="crm-hero__shade" aria-hidden="true"></div>
+
+      <div class="container crm-hero__inner">
+        <div class="crm-hero__copy reveal">
+          <h1 class="crm-hero__title">CRM-системы под ключ</h1>
+          <p class="crm-hero__text">
+            CRM-системы под задачи вашего бизнеса: автоматизация процессов, управление клиентами, заявками и продажами в одной удобной системе.
+          </p>
+          <p class="crm-hero__text">
+            Готовые решения помогают сократить рутину, повысить эффективность команды и увеличить прибыль. Система работает быстро, стабильно и масштабируется вместе с бизнесом.
+          </p>
+          <button class="btn btn--primary crm-hero__btn" type="button" data-order-open>
+            Заказать
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="crm-soon" aria-label="Продолжение">
+      <div class="container">
+        <p class="crm-soon__text">to be continued</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__panel modal__panel--form" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="modal__header">
+        <h2 class="modal__title" id="orderModalTitle">Оставить заявку</h2>
+        <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 3l10 10M13 3L3 13"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <form class="crm-order-form" id="orderForm">
+          <label class="crm-order-form__field">
+            <span class="crm-order-form__label">Имя</span>
+            <input class="crm-order-form__input" type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="crm-order-form__field">
+            <span class="crm-order-form__label">Телефон</span>
+            <input class="crm-order-form__input" type="tel" name="phone" id="orderPhone" autocomplete="tel" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
+          </label>
+          <button class="btn btn--primary crm-order-form__submit" type="submit">Отправить</button>
+        </form>
+        <div class="crm-order-success" id="orderSuccess" hidden>
+          <p class="crm-order-success__title">Заявка принята</p>
+          <p class="crm-order-success__text">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/contacts.js"></script>
+  <script src="../js/crm.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initContacts();
+      initCrmOrderModal();
+      initCrmNav();
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 const TELEGRAM_USERNAME = 'GCSSmanager';
 const TELEGRAM_URL = `https://t.me/${TELEGRAM_USERNAME}`;
+const PHONE_DISPLAY = '+7 (996) 346-30-49';
+const PHONE_TEL = 'tel:+79963463049';
 
 const categoryLabels = {
   crm: 'CRM',
