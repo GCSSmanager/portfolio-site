@@ -197,12 +197,57 @@
     <section class="crm-contacts" id="contacts" aria-labelledby="crm-contacts-title">
       <div class="container">
         <div class="section__head">
-          <p class="section__eyebrow">Контакты</p>
-          <h2 class="section__title" id="crm-contacts-title">Свяжитесь с нами</h2>
+          <p class="section__eyebrow">ГКСС</p>
+          <h2 class="section__title" id="crm-contacts-title">Контакты</h2>
         </div>
         <div class="crm-contacts__stage">
-          <div class="crm-contacts__info" aria-hidden="true"></div>
-          <div class="crm-contacts__map" aria-hidden="true"></div>
+          <address class="crm-contacts__info">
+            <p class="crm-contacts__org">ГКСС</p>
+            <p class="crm-contacts__note">Гибкие корпоративные системы и сервисы</p>
+            <dl class="crm-contacts__list">
+              <div class="crm-contacts__row">
+                <dt>Адрес</dt>
+                <dd>
+                  <a href="https://yandex.ru/maps/?text=Москва%2C%20Ярославская%20улица%2C%2015к3" target="_blank" rel="noopener noreferrer">
+                    129366, г. Москва,<br>ул. Ярославская, д. 15, к. 3
+                  </a>
+                </dd>
+              </div>
+              <div class="crm-contacts__row">
+                <dt>Телефон</dt>
+                <dd>
+                  <a href="tel:+79963463049" data-phone-link>
+                    <span data-phone-display>+7 (996) 346-30-49</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="crm-contacts__row">
+                <dt>Telegram</dt>
+                <dd>
+                  <a href="https://t.me/GCSSmanager" target="_blank" rel="noopener noreferrer" data-tg-link>
+                    <span data-tg-username>@GCSSmanager</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="crm-contacts__row">
+                <dt>Эл. почта</dt>
+                <dd>
+                  <a href="mailto:diatimp@gmail.com">diatimp@gmail.com</a>
+                </dd>
+              </div>
+            </dl>
+            <button class="btn btn--primary crm-contacts__btn" type="button" data-order-open>
+              Оставить заявку
+            </button>
+          </address>
+          <div class="crm-contacts__map">
+            <iframe
+              title="Офис ГКСС: Москва, Ярославская улица, 15к3"
+              src="https://yandex.ru/map-widget/v1/?ll=37.6462%2C55.8198&amp;z=16&amp;pt=37.6462,55.8198,pm2rdm&amp;l=map&amp;scroll=false"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -225,12 +270,12 @@
     </div>
   </footer>
 
-  <div class="modal" id="orderModal" aria-hidden="true">
+  <div class="modal" id="orderModal" hidden aria-hidden="true">
     <div class="modal__overlay" data-modal-close></div>
     <div class="modal__panel modal__panel--form" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
       <div class="modal__header">
         <h2 class="modal__title" id="orderModalTitle">Оставить заявку</h2>
-        <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close>
+        <button class="modal__close" type="button" tabindex="-1" aria-label="Закрыть" data-modal-close>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <path d="M3 3l10 10M13 3L3 13"/>
           </svg>
