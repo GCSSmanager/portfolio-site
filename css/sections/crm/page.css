@@ -1,0 +1,10 @@
+/* CRM landing — page shell */
+
+.crm-page {
+  min-height: 100dvh;
+  background: var(--color-bg);
+}
+
+.crm-page.is-modal-open {
+  overflow: hidden;
+}

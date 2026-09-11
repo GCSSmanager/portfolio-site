@@ -1,0 +1,159 @@
+/* CRM — sticky header, burger menu */
+
+.nav--crm {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: #0d140f;
+  border-bottom: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
+}
+
+.nav--crm .nav__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nav--crm .nav__link,
+.nav--crm .nav__contact {
+  color: #f5f2ea;
+}
+
+.nav--crm .nav__link {
+  cursor: default;
+  pointer-events: none;
+}
+
+.nav--crm .nav__contact {
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav--crm .nav__contact:hover {
+  opacity: 0.75;
+}
+
+.nav--crm .nav__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.nav--crm .nav__contact--menu {
+  display: none;
+}
+
+.nav__burger {
+  display: none;
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid color-mix(in oklab, #f5f2ea 22%, transparent);
+  border-radius: var(--radius-m);
+  background: transparent;
+  color: #f5f2ea;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.nav__burger-line {
+  position: absolute;
+  left: 0.625rem;
+  right: 0.625rem;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    transform var(--duration-mid) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav__burger-line:nth-child(1) {
+  transform: translateY(-0.4375rem);
+}
+
+.nav__burger-line:nth-child(2) {
+  transform: translateY(0);
+}
+
+.nav__burger-line:nth-child(3) {
+  transform: translateY(0.4375rem);
+}
+
+.nav--crm.is-nav-open .nav__burger-line:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+
+.nav--crm.is-nav-open .nav__burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav--crm.is-nav-open .nav__burger-line:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.nav--crm .nav__links {
+  position: relative;
+  z-index: 1;
+  justify-content: flex-end;
+}
+
+@media (max-width: 50rem) { /* nav: меню → burger */
+  .nav__burger {
+    display: block;
+  }
+
+  .nav--crm .nav__menu {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-4);
+    background: #0d140f;
+    border-bottom: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
+    box-shadow: 0 1rem 2rem color-mix(in oklab, #000 25%, transparent);
+  }
+
+  .nav--crm.is-nav-open .nav__menu {
+    display: flex;
+  }
+
+  .nav--crm .nav__link {
+    padding-block: var(--space-3);
+    border-bottom: 1px solid color-mix(in oklab, #f5f2ea 10%, transparent);
+  }
+
+  .nav--crm .nav__cta {
+    min-height: 2.35rem;
+    padding-inline: 0.85rem;
+    font-size: var(--step--1);
+  }
+}
+
+@media (max-width: 28rem) { /* nav: номер → burger-меню */
+  .nav--crm .nav__contact--menu {
+    display: block;
+    padding-block: var(--space-4);
+    font-size: var(--step-0);
+  }
+
+  .nav--crm .nav__contact--bar {
+    display: none;
+  }
+}

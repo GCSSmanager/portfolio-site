@@ -1,0 +1,134 @@
+/* CRM — hero, градиент с левого края hero → прозрачно у текста */
+
+.crm-hero {
+  --crm-hero-fg: #f5f2ea;
+  --crm-hero-gutter: clamp(3rem, 11vw, 5.5rem);
+
+  /* mid-at: где 50% видимости; fade-at: где 0% (прозрачно). mid < fade */
+  --scrim-mid-at: 50%;
+  --scrim-fade-at: 70%;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--crm-hero-fg);
+}
+
+.crm-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% center;
+}
+
+.crm-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #0a100c 0%,
+    rgb(10 16 12 / 0.5) var(--scrim-mid-at),
+    transparent var(--scrim-fade-at)
+  );
+}
+
+.crm-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: min(100% - var(--crm-hero-gutter), var(--container));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.85fr);
+  align-items: center;
+  min-height: clamp(28rem, 68dvh, 38rem);
+  padding-block: clamp(3.5rem, 9vw, 5.5rem);
+}
+
+.crm-hero__copy {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  max-width: 38rem;
+  padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.crm-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--crm-hero-fg);
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+.crm-hero__rule {
+  width: 3.75rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--crm-hero-fg) 55%, transparent),
+    transparent
+  );
+}
+
+.crm-hero__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--step-1);
+  font-weight: 450;
+  line-height: 1.65;
+  color: color-mix(in oklab, var(--crm-hero-fg) 94%, transparent);
+  max-width: 42ch;
+}
+
+.crm-hero__btn {
+  margin-top: var(--space-2);
+  min-width: 10rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 42rem) {
+  .crm-hero {
+    --crm-hero-gutter: clamp(2.5rem, 9vw, 3.5rem);
+  }
+
+  .crm-hero__scrim {
+    background: rgb(10 16 12 / 0.58);
+  }
+
+  .crm-hero__bg {
+    object-position: 62% 42%;
+  }
+
+  .crm-hero__inner {
+    grid-template-columns: 1fr;
+    min-height: clamp(26rem, 72dvh, 34rem);
+    padding-block: clamp(3rem, 11vw, 4.5rem);
+  }
+
+  .crm-hero__copy {
+    max-width: none;
+    width: 100%;
+  }
+
+  .crm-hero__title,
+  .crm-hero__text {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm-hero__bg {
+    transform: none;
+  }
+}
