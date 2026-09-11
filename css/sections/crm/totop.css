@@ -1,0 +1,53 @@
+/* CRM — back to top */
+
+.crm-totop {
+  position: fixed;
+  left: var(--space-4);
+  bottom: var(--space-4);
+  z-index: calc(var(--z-nav) - 1);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 22%, var(--color-accent));
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #f5f2ea;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.4rem);
+  transition:
+    opacity var(--duration-mid) var(--ease-out),
+    transform var(--duration-mid) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.crm-totop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.crm-totop:hover {
+  background: color-mix(in oklab, var(--color-accent) 88%, #f5f2ea);
+}
+
+.crm-totop svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.crm-page.is-modal-open .crm-totop {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 42rem) {
+  .crm-totop {
+    left: var(--space-3);
+    bottom: var(--space-3);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

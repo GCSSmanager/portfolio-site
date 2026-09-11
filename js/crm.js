@@ -259,3 +259,20 @@ function initCrmNav() {
     closeCrmNav();
   });
 }
+
+function initCrmToTop() {
+  const btn = document.querySelector('[data-totop]');
+  if (!btn) return;
+
+  const toggle = () => {
+    btn.classList.toggle('is-visible', window.scrollY > 280);
+  };
+
+  btn.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+}
