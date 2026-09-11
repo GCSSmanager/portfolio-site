@@ -284,7 +284,13 @@
             <p class="crm-contacts__note">Гибкие корпоративные системы и сервисы</p>
             <dl class="crm-contacts__list">
               <div class="crm-contacts__row">
-                <dt>Адрес</dt>
+                <dt>
+                  <span class="visually-hidden">Адрес</span>
+                  <svg class="crm-contacts__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/>
+                    <circle cx="12" cy="10" r="2.25"/>
+                  </svg>
+                </dt>
                 <dd>
                   <a href="https://yandex.ru/maps/?text=Москва%2C%20Ярославская%20улица%2C%2015к3" target="_blank" rel="noopener noreferrer">
                     129366, г. Москва,<br>ул. Ярославская, д. 15, к. 3
@@ -292,7 +298,22 @@
                 </dd>
               </div>
               <div class="crm-contacts__row">
-                <dt>Телефон</dt>
+                <dt>
+                  <span class="visually-hidden">Часы работы</span>
+                  <svg class="crm-contacts__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8"/>
+                    <path d="M12 8v4.5l3 1.5"/>
+                  </svg>
+                </dt>
+                <dd>с 07:00 – 23:00</dd>
+              </div>
+              <div class="crm-contacts__row">
+                <dt>
+                  <span class="visually-hidden">Телефон</span>
+                  <svg class="crm-contacts__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M8.2 4.8c.4-.4.9-.6 1.4-.5l2 .4c.6.1 1 .7.9 1.3l-.4 2.1a1.2 1.2 0 0 1-.7.9l-1.2.5a11.5 11.5 0 0 0 5.3 5.3l.5-1.2c.2-.4.5-.7.9-.7l2.1-.4c.6-.1 1.2.3 1.3.9l.4 2c.1.5-.1 1-.5 1.4l-1.1 1.1c-.4.4-1 .6-1.6.5C9.8 18.7 5.3 14.2 4.3 7.5c-.1-.6.1-1.2.5-1.6l1.4-1.1z"/>
+                  </svg>
+                </dt>
                 <dd>
                   <a href="tel:+79963463049" data-phone-link>
                     <span data-phone-display>+7 (996) 346-30-49</span>
@@ -300,7 +321,12 @@
                 </dd>
               </div>
               <div class="crm-contacts__row">
-                <dt>Telegram</dt>
+                <dt>
+                  <span class="visually-hidden">Telegram</span>
+                  <svg class="crm-contacts__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.169 1.858-.896 6.557-1.268 8.699-.171 1.003-.508 1.338-.833 1.371-.708.064-1.246-.468-1.931-.917-1.07-.703-1.675-1.139-2.712-1.826-1.2-.78-.422-1.21.261-1.912.18-.184 3.247-2.977 3.307-3.23.007-.031.014-.15-.056-.212-.07-.062-.173-.041-.248-.024-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.038.297.021.459z"/>
+                  </svg>
+                </dt>
                 <dd>
                   <a href="https://t.me/GCSSmanager" target="_blank" rel="noopener noreferrer" data-tg-link>
                     <span data-tg-username>@GCSSmanager</span>
@@ -308,7 +334,13 @@
                 </dd>
               </div>
               <div class="crm-contacts__row">
-                <dt>Эл. почта</dt>
+                <dt>
+                  <span class="visually-hidden">Эл. почта</span>
+                  <svg class="crm-contacts__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <rect x="3.5" y="5.5" width="17" height="13" rx="2"/>
+                    <path d="m4.5 7.5 7.5 6 7.5-6"/>
+                  </svg>
+                </dt>
                 <dd>
                   <a href="mailto:diatimp@gmail.com">diatimp@gmail.com</a>
                 </dd>
@@ -334,16 +366,60 @@
   <footer class="footer footer--crm">
     <div class="container">
       <div class="footer__inner">
-        <a class="brand-lockup footer__brand" href="./">
-          <img class="brand-lockup__mark" src="../assets/gcss-logo.webp" alt="" width="64" height="64">
-          <span class="brand-lockup__text">
-            <span class="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
-          </span>
-        </a>
-        <p class="footer__copy">&copy; <span id="year">2026</span> ГКСС</p>
-        <a class="footer__link" href="tel:+79963463049" data-phone-link>
-          <span data-phone-display>+7 (996) 346-30-49</span>
-        </a>
+        <div class="footer__brand-block">
+          <a class="brand-lockup footer__brand" href="./">
+            <img class="brand-lockup__mark" src="../assets/gcss-logo.webp" alt="" width="64" height="64">
+            <span class="brand-lockup__text">
+              <span class="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
+            </span>
+          </a>
+          <p class="footer__copy">&copy; <span id="year">2026</span> ГКСС</p>
+        </div>
+        <ul class="footer__contacts" role="list">
+          <li>
+            <span class="footer__link footer__link--static" title="Часы работы">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <circle cx="12" cy="12" r="8"/>
+                <path d="M12 8v4.5l3 1.5"/>
+              </svg>
+              <span>07:00–23:00</span>
+            </span>
+          </li>
+          <li>
+            <a class="footer__link" href="https://yandex.ru/maps/?text=Москва%2C%20Ярославская%20улица%2C%2015к3" target="_blank" rel="noopener noreferrer" title="Адрес">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/>
+                <circle cx="12" cy="10" r="2.25"/>
+              </svg>
+              <span>Ярославская, 15к3</span>
+            </a>
+          </li>
+          <li>
+            <a class="footer__link" href="tel:+79963463049" data-phone-link title="Телефон">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M8.2 4.8c.4-.4.9-.6 1.4-.5l2 .4c.6.1 1 .7.9 1.3l-.4 2.1a1.2 1.2 0 0 1-.7.9l-1.2.5a11.5 11.5 0 0 0 5.3 5.3l.5-1.2c.2-.4.5-.7.9-.7l2.1-.4c.6-.1 1.2.3 1.3.9l.4 2c.1.5-.1 1-.5 1.4l-1.1 1.1c-.4.4-1 .6-1.6.5C9.8 18.7 5.3 14.2 4.3 7.5c-.1-.6.1-1.2.5-1.6l1.4-1.1z"/>
+              </svg>
+              <span data-phone-display>+7 (996) 346-30-49</span>
+            </a>
+          </li>
+          <li>
+            <a class="footer__link" href="https://t.me/GCSSmanager" target="_blank" rel="noopener noreferrer" data-tg-link title="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.169 1.858-.896 6.557-1.268 8.699-.171 1.003-.508 1.338-.833 1.371-.708.064-1.246-.468-1.931-.917-1.07-.703-1.675-1.139-2.712-1.826-1.2-.78-.422-1.21.261-1.912.18-.184 3.247-2.977 3.307-3.23.007-.031.014-.15-.056-.212-.07-.062-.173-.041-.248-.024-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.118.095.151.223.167.312.017.09.038.297.021.459z"/>
+              </svg>
+              <span data-tg-username>@GCSSmanager</span>
+            </a>
+          </li>
+          <li>
+            <a class="footer__link" href="mailto:diatimp@gmail.com" title="Эл. почта">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3.5" y="5.5" width="17" height="13" rx="2"/>
+                <path d="m4.5 7.5 7.5 6 7.5-6"/>
+              </svg>
+              <span>diatimp@gmail.com</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </footer>
