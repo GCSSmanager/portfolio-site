@@ -455,6 +455,55 @@
     </div>
   </div>
 
+  <div class="crm-assist" data-assist>
+    <div class="crm-assist__panel" data-assist-panel hidden>
+      <div class="crm-assist__head">
+        <div class="crm-assist__status">
+          <p class="crm-assist__status-title">
+            <span class="crm-assist__online" aria-hidden="true"></span>
+            Пишите, мы онлайн
+          </p>
+        </div>
+        <button class="crm-assist__close" type="button" data-assist-close aria-label="Закрыть">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 3l10 10M13 3L3 13"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="crm-assist__log" data-assist-log></div>
+
+      <form class="crm-assist__composer" data-assist-composer>
+        <input
+          class="crm-assist__composer-input"
+          type="text"
+          name="question"
+          placeholder="Напишите вопрос…"
+          autocomplete="off"
+          data-assist-composer-input
+        >
+        <button class="crm-assist__send" type="submit" data-assist-send aria-label="Отправить">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M2.5 8h11M8.5 3.5 13 8l-4.5 4.5"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <button
+      class="crm-assist__toggle"
+      type="button"
+      data-assist-toggle
+      aria-expanded="false"
+      aria-label="Открыть ассистента"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+        <path d="M5 6.5h14v9H9l-4 3v-12z"/>
+      </svg>
+      <span class="crm-assist__toggle-label">Спросить</span>
+    </button>
+  </div>
+
   <a class="crm-totop" href="#crmNav" data-totop aria-label="Наверх">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
       <path d="M3.5 10L8 5.5 12.5 10"/>
@@ -464,6 +513,7 @@
   <script src="../js/data.js"></script>
   <script src="../js/contacts.js"></script>
   <script src="../js/crm.js"></script>
+  <script src="../js/crm-assistant.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initContacts();
@@ -471,6 +521,7 @@
       initCrmNav();
       initCrmToTop();
       initCrmReviews();
+      initCrmAssistant();
     });
   </script>
 </body>

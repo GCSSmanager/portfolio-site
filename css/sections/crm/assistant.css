@@ -1,0 +1,382 @@
+/* CRM — corner FAQ assistant */
+
+.crm-assist {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: var(--z-nav);
+  display: grid;
+  justify-items: end;
+  gap: var(--space-3);
+}
+
+.crm-assist__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem 0.65rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: var(--shadow-lift);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.crm-assist__toggle:hover {
+  background: color-mix(in oklab, var(--color-accent) 88%, black);
+}
+
+.crm-assist__toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+}
+
+.crm-assist__toggle-label {
+  white-space: nowrap;
+}
+
+.crm-assist.is-open .crm-assist__toggle-label {
+  display: none;
+}
+
+.crm-assist.is-open .crm-assist__toggle {
+  padding: 0.7rem;
+  border-radius: 50%;
+}
+
+.crm-assist__panel {
+  width: min(21.5rem, calc(100vw - 2rem));
+  max-height: min(32rem, calc(100dvh - 6.5rem));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 0;
+  border-radius: 1.15rem;
+  background: #fff;
+  color: var(--color-fg);
+  box-shadow:
+    0 0.4rem 1rem rgb(27 48 34 / 8%),
+    0 1.25rem 2.8rem rgb(27 48 34 / 16%);
+  transform-origin: bottom right;
+}
+
+.crm-assist__panel[hidden] {
+  display: none !important;
+}
+
+.crm-assist__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.95rem 1rem 0.85rem;
+  background: #fff;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-fg) 8%, transparent);
+}
+
+.crm-assist__status {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.crm-assist__status-title {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: var(--color-fg);
+}
+
+.crm-assist__online {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #2f9e44;
+  box-shadow: 0 0 0 0.2rem color-mix(in oklab, #2f9e44 22%, transparent);
+  flex-shrink: 0;
+}
+
+.crm-assist__close {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: var(--color-fg);
+  opacity: 0.55;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.crm-assist__close:hover {
+  opacity: 1;
+  background: color-mix(in oklab, var(--color-fg) 6%, transparent);
+}
+
+.crm-assist__close svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.crm-assist__log {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  padding: 0.95rem 1rem;
+  overflow: auto;
+  background: #fff;
+}
+
+.crm-assist__msg {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 100%;
+}
+
+.crm-assist__msg--bot {
+  justify-items: start;
+}
+
+.crm-assist__msg--user {
+  justify-self: end;
+  justify-items: end;
+  max-width: 88%;
+}
+
+.crm-assist__bubble {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border: 0;
+  border-radius: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--color-fg);
+  background: color-mix(in oklab, var(--color-fg) 5%, #fff);
+}
+
+.crm-assist__msg--bot .crm-assist__bubble {
+  border-bottom-left-radius: 0.3rem;
+}
+
+.crm-assist__msg--user .crm-assist__bubble {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  border-bottom-right-radius: 0.3rem;
+}
+
+.crm-assist__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.crm-assist__chip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-fg);
+  box-shadow: 0 0.2rem 0.55rem rgb(27 48 34 / 5%);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 550;
+  line-height: 1.3;
+  text-align: left;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.crm-assist__chip:hover {
+  background: color-mix(in oklab, var(--color-fg) 4%, #fff);
+  border-color: color-mix(in oklab, var(--color-fg) 22%, transparent);
+}
+
+.crm-assist__chip.is-asked,
+.crm-assist__chip:disabled {
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.crm-assist__card {
+  display: grid;
+  gap: 0.55rem;
+  width: min(100%, 17.5rem);
+  padding: 0.85rem;
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--color-fg) 5%, #fff);
+  border-bottom-left-radius: 0.3rem;
+  box-shadow: 0 0.25rem 0.8rem rgb(27 48 34 / 6%);
+}
+
+.crm-assist__card-title {
+  margin: 0;
+  font-size: var(--step--1);
+  line-height: 1.4;
+  color: var(--color-fg);
+}
+
+.crm-assist__card-form {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.crm-assist__input {
+  width: 100%;
+  min-height: 2.35rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  border-radius: 0.7rem;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--color-fg);
+  background: #fff;
+}
+
+.crm-assist__input::placeholder {
+  color: var(--color-muted);
+}
+
+.crm-assist__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 14%, transparent);
+}
+
+.crm-assist__card-submit {
+  min-height: 2.35rem;
+  border: 0;
+  border-radius: 0.7rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 650;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.crm-assist__card-submit:hover {
+  opacity: 0.92;
+}
+
+.crm-assist__composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  padding: 0.75rem 0.85rem 0.9rem;
+  border-top: 1px solid color-mix(in oklab, var(--color-fg) 8%, transparent);
+  background: #fff;
+}
+
+.crm-assist__composer-input {
+  min-width: 0;
+  min-height: 2.4rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--color-fg);
+  background: color-mix(in oklab, var(--color-fg) 3%, #fff);
+}
+
+.crm-assist__composer-input::placeholder {
+  color: var(--color-muted);
+}
+
+.crm-assist__composer-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 14%, transparent);
+}
+
+.crm-assist__composer-input:disabled {
+  opacity: 0.5;
+}
+
+.crm-assist__send {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.crm-assist__send:hover {
+  opacity: 0.92;
+}
+
+.crm-assist__send:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.crm-assist__send svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.crm-page.is-modal-open .crm-assist {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 42rem) {
+  .crm-assist {
+    right: var(--space-3);
+    bottom: var(--space-3);
+  }
+
+  .crm-assist__panel {
+    width: min(21.5rem, calc(100vw - 1.5rem));
+    max-height: min(30rem, calc(100dvh - 5.5rem));
+  }
+
+  .crm-assist__toggle-label {
+    display: none;
+  }
+
+  .crm-assist__toggle {
+    padding: 0.7rem;
+    border-radius: 50%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .crm-assist__panel:not([hidden]) {
+    animation: crm-assist-in var(--duration-mid) var(--ease-out);
+  }
+}
+
+@keyframes crm-assist-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
