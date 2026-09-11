@@ -25,7 +25,12 @@
 <body class="crm-page">
   <header class="nav nav--crm" id="crmNav">
     <div class="container nav__inner">
-      <a class="nav__brand" href="./">ГКСС</a>
+      <a class="brand-lockup nav__brand" href="./" aria-label="ГКСС — Гибкие корпоративные системы и сервисы">
+        <img class="brand-lockup__mark" src="../assets/gcss-logo.webp" alt="" width="64" height="64" decoding="async">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
+        </span>
+      </a>
 
       <nav class="nav__menu" id="crmNavMenu" aria-label="Разделы">
         <span class="nav__link">Решения</span>
@@ -156,6 +161,23 @@
       </div>
     </section>
   </main>
+
+  <footer class="footer footer--crm">
+    <div class="container">
+      <div class="footer__inner">
+        <a class="brand-lockup footer__brand" href="./">
+          <img class="brand-lockup__mark" src="../assets/gcss-logo.webp" alt="" width="64" height="64">
+          <span class="brand-lockup__text">
+            <span class="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
+          </span>
+        </a>
+        <p class="footer__copy">&copy; <span id="year">2026</span> ГКСС</p>
+        <a class="footer__link" href="tel:+79963463049" data-phone-link>
+          <span data-phone-display>+7 (996) 346-30-49</span>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <div class="modal" id="orderModal" aria-hidden="true">
     <div class="modal__overlay" data-modal-close></div>

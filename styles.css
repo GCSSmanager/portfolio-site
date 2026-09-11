@@ -6,6 +6,7 @@
 @import url("./css/layout.css") layer(layout);
 @import url("./css/components/button.css") layer(components);
 @import url("./css/components/nav.css") layer(components);
+@import url("./css/components/brand.css") layer(components);
 @import url("./css/components/project.css") layer(components);
 @import url("./css/components/modal.css") layer(components);
 @import url("./css/sections/hero.css") layer(components);

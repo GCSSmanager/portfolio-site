@@ -1,0 +1,58 @@
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+a.brand-lockup:hover {
+  opacity: 0.82;
+}
+
+.brand-lockup__mark {
+  flex-shrink: 0;
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: contain;
+}
+
+.brand-lockup__text {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.brand-lockup__tagline {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--step--2);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--color-muted);
+  max-width: 16rem;
+}
+
+.nav--crm .brand-lockup__tagline {
+  color: color-mix(in oklab, #f5f2ea 58%, transparent);
+}
+
+@media (max-width: 40rem) {
+  .brand-lockup__tagline {
+    display: none;
+  }
+
+  .brand-lockup__mark {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}
+
+@media (max-width: 28rem) {
+  .nav--crm .brand-lockup__tagline {
+    display: none;
+  }
+}

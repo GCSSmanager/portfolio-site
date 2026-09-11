@@ -21,7 +21,6 @@
   gap: var(--space-5);
 }
 
-.nav--crm .nav__brand,
 .nav--crm .nav__link,
 .nav--crm .nav__contact {
   color: #f5f2ea;
@@ -410,7 +409,7 @@
   }
 }
 
-@media (max-width: 40rem) { /* nav: меню → бurger */
+@media (max-width: 50rem) { /* nav: меню → бurger */
   .nav__burger {
     display: block;
   }

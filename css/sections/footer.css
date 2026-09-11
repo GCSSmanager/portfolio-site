@@ -4,29 +4,20 @@
 }
 
 .footer__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
   gap: var(--space-5);
 }
 
 .footer__brand {
-  display: grid;
-  gap: var(--space-2);
+  justify-self: start;
+  max-width: 22rem;
 }
 
-.footer__name {
-  font-family: var(--font-display);
-  font-size: var(--step-2);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.footer__note {
+.footer__brand .brand-lockup__tagline {
   font-size: var(--step--1);
-  color: var(--color-muted);
-  max-width: 28ch;
+  max-width: none;
 }
 
 .footer__contacts {
@@ -61,9 +52,14 @@
 }
 
 .footer__copy {
-  margin-top: var(--space-6);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-line);
+  margin: 0;
+  justify-self: center;
   font-size: var(--step--1);
   color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.footer__inner > .footer__link,
+.footer__contacts {
+  justify-self: end;
 }
