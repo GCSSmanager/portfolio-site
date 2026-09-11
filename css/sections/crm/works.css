@@ -1,0 +1,42 @@
+/* CRM — before / after (empty shell) */
+
+.crm-works {
+  padding-block: var(--space-8);
+  color: #f5f2ea;
+  background:
+    linear-gradient(
+      165deg,
+      #243528 0%,
+      var(--color-accent) 52%,
+      #152119 100%
+    );
+}
+
+.crm-works .section__eyebrow,
+.crm-works .section__title {
+  color: #f5f2ea;
+}
+
+.crm-works .section__eyebrow {
+  color: color-mix(in oklab, #f5f2ea 58%, transparent);
+}
+
+.crm-works__stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  min-height: clamp(16rem, 40dvh, 24rem);
+}
+
+.crm-works__panel {
+  min-height: inherit;
+  border: 1px dashed color-mix(in oklab, #f5f2ea 22%, transparent);
+  border-radius: var(--radius-l);
+  background: color-mix(in oklab, #f5f2ea 6%, transparent);
+}
+
+@media (max-width: 42rem) {
+  .crm-works__stage {
+    grid-template-columns: 1fr;
+  }
+}

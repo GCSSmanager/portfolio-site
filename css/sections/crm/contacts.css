@@ -1,0 +1,39 @@
+/* CRM — contacts + map (empty shell) */
+
+.crm-contacts {
+  padding-block: var(--space-8);
+  background: #ece8dc;
+  border-top: 1px solid var(--color-line);
+}
+
+.crm-contacts__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: var(--space-4);
+  min-height: clamp(16rem, 42dvh, 26rem);
+}
+
+.crm-contacts__info {
+  min-height: 12rem;
+  background: var(--color-bg-elevated);
+  border: 1px dashed color-mix(in oklab, var(--color-accent) 18%, var(--color-line));
+  border-radius: var(--radius-l);
+}
+
+.crm-contacts__map {
+  min-height: 16rem;
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in oklab, var(--color-accent) 14%, #d8d4c6) 0%,
+      color-mix(in oklab, var(--color-accent) 22%, #c9c6b8) 100%
+    );
+  border: 1px dashed color-mix(in oklab, var(--color-accent) 28%, transparent);
+  border-radius: var(--radius-l);
+}
+
+@media (max-width: 42rem) {
+  .crm-contacts__stage {
+    grid-template-columns: 1fr;
+  }
+}

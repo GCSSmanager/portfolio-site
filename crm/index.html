@@ -33,9 +33,10 @@
       </a>
 
       <nav class="nav__menu" id="crmNavMenu" aria-label="Разделы">
-        <span class="nav__link">Решения</span>
-        <span class="nav__link">Этапы</span>
-        <span class="nav__link">Тарифы</span>
+        <a class="nav__link" href="#tariffs">Решения</a>
+        <a class="nav__link" href="#reviews">Отзывы</a>
+        <a class="nav__link" href="#works">Работы</a>
+        <a class="nav__link" href="#contacts">Контакты</a>
         <a class="nav__contact nav__contact--menu" href="tel:+79963463049" data-phone-link>
           <span data-phone-display>+7 (996) 346-30-49</span>
         </a>
@@ -170,9 +171,39 @@
       </div>
     </section>
 
-    <section class="crm-soon" aria-label="Продолжение">
+    <section class="crm-reviews" id="reviews" aria-labelledby="crm-reviews-title">
       <div class="container">
-        <p class="crm-soon__text">to be continued</p>
+        <div class="section__head">
+          <p class="section__eyebrow">Отзывы</p>
+          <h2 class="section__title" id="crm-reviews-title">Что говорят клиенты</h2>
+        </div>
+        <div class="crm-reviews__stage" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="crm-works" id="works" aria-labelledby="crm-works-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Кейсы</p>
+          <h2 class="section__title" id="crm-works-title">До и после</h2>
+        </div>
+        <div class="crm-works__stage" aria-hidden="true">
+          <div class="crm-works__panel"></div>
+          <div class="crm-works__panel"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="crm-contacts" id="contacts" aria-labelledby="crm-contacts-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Контакты</p>
+          <h2 class="section__title" id="crm-contacts-title">Свяжитесь с нами</h2>
+        </div>
+        <div class="crm-contacts__stage">
+          <div class="crm-contacts__info" aria-hidden="true"></div>
+          <div class="crm-contacts__map" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
   </main>

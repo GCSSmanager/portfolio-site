@@ -5,6 +5,10 @@
   background: var(--color-bg);
 }
 
+.crm-page :is(#tariffs, #reviews, #works, #contacts) {
+  scroll-margin-top: var(--header-h);
+}
+
 .crm-page.is-modal-open {
   overflow: hidden;
 }

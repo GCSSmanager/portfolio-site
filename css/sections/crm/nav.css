@@ -22,8 +22,12 @@
 }
 
 .nav--crm .nav__link {
-  cursor: default;
-  pointer-events: none;
+  text-decoration: none;
+}
+
+.nav--crm .nav__link:hover {
+  color: #f5f2ea;
+  opacity: 0.75;
 }
 
 .nav--crm .nav__contact {

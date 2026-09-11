@@ -258,6 +258,10 @@ function initCrmNav() {
     if (crmNav.contains(event.target)) return;
     closeCrmNav();
   });
+
+  crmNav.querySelectorAll('.nav__link[href^="#"]').forEach((link) => {
+    link.addEventListener('click', () => closeCrmNav());
+  });
 }
 
 function initCrmToTop() {

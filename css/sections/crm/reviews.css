@@ -1,0 +1,14 @@
+/* CRM — reviews (empty shell) */
+
+.crm-reviews {
+  padding-block: var(--space-8);
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-line);
+}
+
+.crm-reviews__stage {
+  min-height: clamp(14rem, 36dvh, 22rem);
+  background: color-mix(in oklab, var(--color-accent) 5%, var(--color-bg-elevated));
+  border: 1px dashed color-mix(in oklab, var(--color-accent) 18%, var(--color-line));
+  border-radius: var(--radius-l);
+}
