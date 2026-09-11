@@ -2,21 +2,18 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  display: grid;
+  display: none;
   place-items: center;
   padding: var(--space-4);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity var(--duration-mid) var(--ease-out),
-    visibility var(--duration-mid) var(--ease-out);
 }
 
 .modal.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  display: grid;
+  overscroll-behavior: none;
+}
+
+.modal[hidden] {
+  display: none !important;
 }
 
 .modal__overlay {
@@ -66,13 +63,24 @@
   place-items: center;
   border: 0;
   border-radius: var(--radius-m);
-  background: color-mix(in oklab, var(--color-fg) 6%, transparent);
+  background: transparent;
   color: var(--color-fg);
+  box-shadow: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
   transition: background-color var(--duration-fast) var(--ease-out);
 }
 
 .modal__close:hover {
-  background: color-mix(in oklab, var(--color-fg) 6%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 8%, transparent);
+}
+
+.modal__close:focus,
+.modal__close:focus-visible,
+.modal__close:active {
+  outline: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .modal__close svg {
@@ -82,6 +90,7 @@
 
 .modal__body {
   overflow: auto;
+  overscroll-behavior: contain;
   padding: var(--space-5);
   display: grid;
   gap: var(--space-5);

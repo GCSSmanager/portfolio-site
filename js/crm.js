@@ -3,6 +3,7 @@ const orderForm = document.getElementById('orderForm');
 const orderSuccess = document.getElementById('orderSuccess');
 const orderPhone = document.getElementById('orderPhone');
 let orderModalFocus = null;
+let orderModalScrollY = 0;
 
 const PHONE_PREFIX = '+7 (';
 
@@ -141,29 +142,59 @@ function openOrderModal(trigger) {
   if (!orderModal) return;
 
   orderModalFocus = trigger || document.activeElement;
+  if (orderModalFocus && typeof orderModalFocus.blur === 'function') {
+    orderModalFocus.blur();
+  }
+
   showOrderForm();
 
+  orderModal.hidden = false;
   orderModal.classList.add('is-open');
   orderModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('is-modal-open');
-  document.body.style.overflow = 'hidden';
+  lockPageScroll();
 
-  orderModal.querySelector('.modal__close')?.focus({ preventScroll: true });
+  const closeBtn = orderModal.querySelector('.modal__close');
+  if (closeBtn) closeBtn.blur();
 }
 
 function closeOrderModal() {
   if (!orderModal || !orderModal.classList.contains('is-open')) return;
 
   orderModal.classList.remove('is-open');
+  orderModal.hidden = true;
   orderModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('is-modal-open');
-  document.body.style.overflow = '';
+  unlockPageScroll();
 
-  if (orderModalFocus && typeof orderModalFocus.focus === 'function') {
-    orderModalFocus.focus({ preventScroll: true });
+  if (orderModalFocus && typeof orderModalFocus.blur === 'function') {
+    orderModalFocus.blur();
   }
 
   orderModalFocus = null;
+}
+
+function lockPageScroll() {
+  orderModalScrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${orderModalScrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockPageScroll() {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.overflow = '';
+
+  const html = document.documentElement;
+  const behavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  window.scrollTo(0, orderModalScrollY);
+  html.style.scrollBehavior = behavior;
 }
 
 function handleOrderSubmit(event) {
