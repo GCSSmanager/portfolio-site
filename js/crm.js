@@ -295,6 +295,46 @@ function initCrmNav() {
   });
 }
 
+function initCrmReviews() {
+  const root = document.querySelector('[data-reviews]');
+  if (!root) return;
+
+  const slides = [...root.querySelectorAll('[data-review]')];
+  const dotsRoot = root.querySelector('[data-reviews-dots]');
+  const prev = root.querySelector('[data-reviews-prev]');
+  const next = root.querySelector('[data-reviews-next]');
+  if (!slides.length || !dotsRoot || !prev || !next) return;
+
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'crm-reviews__dot';
+    dot.setAttribute('aria-label', `Письмо ${i + 1}`);
+    dot.addEventListener('click', () => show(i));
+    dotsRoot.append(dot);
+  });
+
+  const dots = [...dotsRoot.children];
+
+  function show(nextIndex) {
+    index = (nextIndex + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === index);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === index);
+    });
+  }
+
+  prev.addEventListener('click', () => show(index - 1));
+  next.addEventListener('click', () => show(index + 1));
+  show(0);
+}
+
 function initCrmToTop() {
   const btn = document.querySelector('[data-totop]');
   if (!btn) return;

@@ -1,14 +1,191 @@
-/* CRM — reviews (empty shell) */
+/* CRM — letters + cases carousel */
 
 .crm-reviews {
   padding-block: var(--space-8);
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-line);
+  color: #f5f2ea;
+  background:
+    linear-gradient(
+      165deg,
+      #243528 0%,
+      var(--color-accent) 52%,
+      #152119 100%
+    );
 }
 
-.crm-reviews__stage {
-  min-height: clamp(14rem, 36dvh, 22rem);
-  background: color-mix(in oklab, var(--color-accent) 5%, var(--color-bg-elevated));
-  border: 1px dashed color-mix(in oklab, var(--color-accent) 18%, var(--color-line));
-  border-radius: var(--radius-l);
+.crm-reviews .section__eyebrow,
+.crm-reviews .section__title {
+  color: #f5f2ea;
+}
+
+.crm-reviews .section__eyebrow {
+  color: color-mix(in oklab, #f5f2ea 58%, transparent);
+}
+
+.crm-reviews__carousel {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.crm-reviews__viewport {
+  display: grid;
+}
+
+.crm-review {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: minmax(18rem, 24rem) minmax(0, 1.1fr) minmax(14rem, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+}
+
+.crm-review:not(.is-active) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.crm-review__letter {
+  width: min(100%, 20rem);
+}
+
+.crm-review__scan {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
+  border-radius: var(--radius-m);
+  box-shadow:
+    0 0.55rem 1.25rem rgb(0 0 0 / 18%),
+    0 1.6rem 2.8rem rgb(0 0 0 / 28%);
+}
+
+.crm-review__shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+  box-shadow:
+    0 0.55rem 1.25rem rgb(0 0 0 / 18%),
+    0 1.6rem 2.8rem rgb(0 0 0 / 28%);
+}
+
+.crm-review__copy {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+  gap: var(--space-4);
+  text-align: right;
+}
+
+.crm-review__company {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #f5f2ea;
+}
+
+.crm-review__copy > p {
+  margin: 0;
+  max-width: 28rem;
+  font-size: var(--step-1);
+  line-height: 1.7;
+  color: color-mix(in oklab, #f5f2ea 74%, transparent);
+}
+
+.crm-reviews__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.crm-reviews__arrow {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid color-mix(in oklab, #f5f2ea 28%, transparent);
+  border-radius: 50%;
+  background: color-mix(in oklab, #f5f2ea 8%, transparent);
+  color: #f5f2ea;
+}
+
+.crm-reviews__arrow:hover {
+  background: color-mix(in oklab, #f5f2ea 16%, transparent);
+}
+
+.crm-reviews__arrow--next {
+  background: #f5f2ea;
+  border-color: #f5f2ea;
+  color: var(--color-accent);
+}
+
+.crm-reviews__arrow--next:hover {
+  background: color-mix(in oklab, #f5f2ea 88%, #fff);
+}
+
+.crm-reviews__arrow svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.crm-reviews__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.crm-reviews__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in oklab, #f5f2ea 28%, transparent);
+}
+
+.crm-reviews__dot.is-active {
+  background: #f5f2ea;
+}
+
+@media (max-width: 56rem) {
+  .crm-review {
+    grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+    grid-template-areas:
+      "letter shot"
+      "copy copy";
+  }
+
+  .crm-review__letter {
+    grid-area: letter;
+  }
+
+  .crm-review__shot {
+    grid-area: shot;
+  }
+
+  .crm-review__copy {
+    grid-area: copy;
+  }
+}
+
+@media (max-width: 42rem) {
+  .crm-review {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "letter"
+      "shot"
+      "copy";
+    justify-items: center;
+  }
+
+  .crm-review__copy {
+    width: 100%;
+  }
 }

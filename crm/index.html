@@ -34,8 +34,7 @@
 
       <nav class="nav__menu" id="crmNavMenu" aria-label="Разделы">
         <a class="nav__link" href="#tariffs">Решения</a>
-        <a class="nav__link" href="#reviews">Отзывы</a>
-        <a class="nav__link" href="#works">Работы</a>
+        <a class="nav__link" href="#reviews">Кейсы</a>
         <a class="nav__link" href="#contacts">Контакты</a>
         <a class="nav__contact nav__contact--menu" href="tel:+79963463049" data-phone-link>
           <span data-phone-display>+7 (996) 346-30-49</span>
@@ -174,22 +173,101 @@
     <section class="crm-reviews" id="reviews" aria-labelledby="crm-reviews-title">
       <div class="container">
         <div class="section__head">
-          <p class="section__eyebrow">Отзывы</p>
-          <h2 class="section__title" id="crm-reviews-title">Что говорят клиенты</h2>
-        </div>
-        <div class="crm-reviews__stage" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <section class="crm-works" id="works" aria-labelledby="crm-works-title">
-      <div class="container">
-        <div class="section__head">
           <p class="section__eyebrow">Кейсы</p>
-          <h2 class="section__title" id="crm-works-title">До и после</h2>
+          <h2 class="section__title" id="crm-reviews-title">Отзывы и работы</h2>
         </div>
-        <div class="crm-works__stage" aria-hidden="true">
-          <div class="crm-works__panel"></div>
-          <div class="crm-works__panel"></div>
+
+        <div class="crm-reviews__carousel" data-reviews>
+          <div class="crm-reviews__viewport">
+            <article class="crm-review is-active" data-review>
+              <div class="crm-review__letter">
+                <img
+                  class="crm-review__scan"
+                  src="../assets/review-letter-abris.png"
+                  alt="Благодарственное письмо ООО «Абрис»"
+                  width="864"
+                  height="1152"
+                >
+              </div>
+              <div class="crm-review__shot">
+                <img
+                  src="../data/pest-crm/thumbnail.webp"
+                  alt=""
+                  width="800"
+                  height="600"
+                >
+              </div>
+              <div class="crm-review__copy">
+                <h3 class="crm-review__company">ООО «Абрис»</h3>
+                <p>Заявки и выезды от первого звонка до закрытого заказа: контроль мастеров и финансовая аналитика. Оператора можно соединить с клиентом прямо из карточки, если заявку не взяли вовремя.</p>
+                <p>Быстрее обработка обращений, прозрачная загрузка бригад, контроль рекламы и понятная картина по деньгам.</p>
+              </div>
+            </article>
+
+            <article class="crm-review" data-review>
+              <div class="crm-review__letter">
+                <img
+                  class="crm-review__scan"
+                  src="../assets/review-letter-praktika.png"
+                  alt="Благодарственное письмо ЛДЦ «Практика»"
+                  width="864"
+                  height="1152"
+                >
+              </div>
+              <div class="crm-review__shot">
+                <img
+                  src="../data/clinic-crm/thumbnail.webp"
+                  alt=""
+                  width="800"
+                  height="600"
+                >
+              </div>
+              <div class="crm-review__copy">
+                <h3 class="crm-review__company">ЛДЦ «Практика»</h3>
+                <p>Расписание и запись клиники: специалисты, клиенты, кабинеты и диагностические комиссии. От поиска свободного окна до печати маршрута пациента и контроля загрузки команды.</p>
+                <p>Быстрее запись, меньше накладок по времени и кабинетам, спокойный контроль дня.</p>
+              </div>
+            </article>
+
+            <article class="crm-review" data-review>
+              <div class="crm-review__letter">
+                <img
+                  class="crm-review__scan"
+                  src="../assets/review-letter-kamelia.png"
+                  alt="Благодарственное письмо ООО «Камелия»"
+                  width="864"
+                  height="1152"
+                >
+              </div>
+              <div class="crm-review__shot">
+                <img
+                  src="../data/flower-crm/thumbnail.webp"
+                  alt=""
+                  width="800"
+                  height="600"
+                >
+              </div>
+              <div class="crm-review__copy">
+                <h3 class="crm-review__company">ООО «Камелия»</h3>
+                <p>Склад, продажи, поставки, команда и маржа. От приёмки и остатков по каждому сорту до продажи с обновлением склада и прозрачной экономики. Интерфейс спокойный и живой — под атмосферу салона, а не под заводской учёт.</p>
+                <p>Склад совпадает с продажами, поставки принимаются по факту, владелец видит живую маржу и загрузку команды.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="crm-reviews__controls">
+            <button class="crm-reviews__arrow" type="button" data-reviews-prev aria-label="Предыдущее письмо">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M10 3.5 5.5 8 10 12.5"/>
+              </svg>
+            </button>
+            <div class="crm-reviews__dots" data-reviews-dots></div>
+            <button class="crm-reviews__arrow crm-reviews__arrow--next" type="button" data-reviews-next aria-label="Следующее письмо">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M6 3.5 10.5 8 6 12.5"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -316,6 +394,7 @@
       initCrmOrderModal();
       initCrmNav();
       initCrmToTop();
+      initCrmReviews();
     });
   </script>
 </body>
