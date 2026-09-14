@@ -2,6 +2,7 @@ const orderModal = document.getElementById('orderModal');
 const orderForm = document.getElementById('orderForm');
 const orderSuccess = document.getElementById('orderSuccess');
 const orderPhone = document.getElementById('orderPhone');
+const orderModalTitle = document.getElementById('orderModalTitle');
 let orderModalFocus = null;
 let orderModalScrollY = 0;
 
@@ -126,6 +127,10 @@ function showOrderForm() {
   if (orderSuccess) {
     orderSuccess.hidden = true;
   }
+
+  if (orderModalTitle) {
+    orderModalTitle.textContent = 'Оставить заявку';
+  }
 }
 
 function showOrderSuccess() {
@@ -135,6 +140,10 @@ function showOrderSuccess() {
 
   if (orderSuccess) {
     orderSuccess.hidden = false;
+  }
+
+  if (orderModalTitle) {
+    orderModalTitle.textContent = 'Заявка принята';
   }
 }
 
