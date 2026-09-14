@@ -5,7 +5,7 @@
   background: var(--color-bg);
 }
 
-.crm-page :is(#tariffs, #reviews, #contacts) {
+.crm-page :is(#tariffs, #reviews, #cases, #contacts) {
   scroll-margin-top: var(--header-h);
 }
 
