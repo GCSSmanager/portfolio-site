@@ -93,6 +93,22 @@
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 18%, transparent);
 }
 
+.crm-order-form__error {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-m);
+  border: 1px solid color-mix(in oklab, #b25a2e 35%, var(--color-line));
+  background: color-mix(in oklab, #b25a2e 10%, var(--color-bg-elevated));
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--color-fg);
+  max-width: none;
+}
+
+.crm-order-form__error[hidden] {
+  display: none !important;
+}
+
 .crm-order-form__submit {
   justify-self: start;
   min-width: 10rem;

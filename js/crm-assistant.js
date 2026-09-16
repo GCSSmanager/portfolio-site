@@ -194,12 +194,16 @@ function initCrmAssistant() {
     phoneInput.placeholder = '+7 (___) ___-__-__';
     phoneInput.required = true;
 
+    const error = document.createElement('p');
+    error.className = 'crm-assist__form-error';
+    error.hidden = true;
+
     const submit = document.createElement('button');
     submit.className = 'crm-assist__card-submit';
     submit.type = 'submit';
     submit.textContent = 'Отправить';
 
-    form.append(nameInput, phoneInput, submit);
+    form.append(nameInput, phoneInput, error, submit);
     card.append(title, form);
     wrap.append(card);
     log.append(wrap);
@@ -207,8 +211,10 @@ function initCrmAssistant() {
     bindPhoneMask(phoneInput);
     nameInput.focus();
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      error.hidden = true;
+      error.textContent = '';
       if (!form.reportValidity()) return;
 
       if (!isPhoneComplete(phoneInput.value || '')) {
@@ -221,6 +227,23 @@ function initCrmAssistant() {
       const name = nameInput.value.trim();
       const question = pendingQuestion;
       const faqIndex = pendingFaqIndex;
+
+      submit.disabled = true;
+
+      try {
+        await window.sendCrmLead({
+          name,
+          phone: phoneInput.value,
+          source: 'crm-assist',
+        });
+      } catch (err) {
+        error.textContent =
+          err?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.';
+        error.hidden = false;
+        submit.disabled = false;
+        return;
+      }
+
       contactsDone = true;
       contactsShown = false;
       pendingQuestion = null;

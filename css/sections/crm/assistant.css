@@ -238,6 +238,21 @@
   gap: 0.45rem;
 }
 
+.crm-assist__form-error {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.7rem;
+  border: 1px solid color-mix(in oklab, #b25a2e 30%, transparent);
+  background: color-mix(in oklab, #b25a2e 8%, #fff);
+  font-size: var(--step--1);
+  line-height: 1.4;
+  color: var(--color-fg);
+}
+
+.crm-assist__form-error[hidden] {
+  display: none !important;
+}
+
 .crm-assist__input {
   width: 100%;
   min-height: 2.35rem;

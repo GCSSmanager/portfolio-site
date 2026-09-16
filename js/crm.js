@@ -4,8 +4,10 @@ const orderFormBlock = document.getElementById('orderFormBlock');
 const orderSuccess = document.getElementById('orderSuccess');
 const orderPhone = document.getElementById('orderPhone');
 const orderModalTitle = document.getElementById('orderModalTitle');
+const orderFormError = document.getElementById('orderFormError');
 let orderModalFocus = null;
 let orderModalScrollY = 0;
+let orderLeadSource = 'crm-order';
 
 const PHONE_PREFIX = '+7 (';
 
@@ -115,6 +117,21 @@ function initPhoneMask() {
   });
 }
 
+function clearOrderFormError() {
+  if (!orderFormError) return;
+  orderFormError.hidden = true;
+  orderFormError.textContent = '';
+}
+
+function showOrderFormError(message) {
+  if (!orderFormError) {
+    window.alert(message);
+    return;
+  }
+  orderFormError.textContent = message;
+  orderFormError.hidden = false;
+}
+
 function showOrderForm() {
   if (orderFormBlock) {
     orderFormBlock.hidden = false;
@@ -132,6 +149,8 @@ function showOrderForm() {
   if (orderSuccess) {
     orderSuccess.hidden = true;
   }
+
+  clearOrderFormError();
 
   if (orderModalTitle) {
     orderModalTitle.textContent = 'Оставить заявку';
@@ -163,6 +182,10 @@ function openOrderModal(trigger) {
   if (orderModalFocus && typeof orderModalFocus.blur === 'function') {
     orderModalFocus.blur();
   }
+
+  orderLeadSource =
+    (trigger && trigger.getAttribute && trigger.getAttribute('data-order-source')) ||
+    'crm-order';
 
   showOrderForm();
 
@@ -215,8 +238,9 @@ function unlockPageScroll() {
   html.style.scrollBehavior = behavior;
 }
 
-function handleOrderSubmit(event) {
+async function handleOrderSubmit(event) {
   event.preventDefault();
+  clearOrderFormError();
 
   if (!orderForm?.reportValidity()) {
     return;
@@ -229,7 +253,24 @@ function handleOrderSubmit(event) {
   }
 
   orderPhone?.setCustomValidity('');
-  showOrderSuccess();
+
+  const submitBtn = orderForm.querySelector('[type="submit"]');
+  const name = orderForm.querySelector('[name="name"]')?.value.trim() || '';
+
+  if (submitBtn) submitBtn.disabled = true;
+
+  try {
+    await window.sendCrmLead({
+      name,
+      phone: orderPhone.value,
+      source: orderLeadSource,
+    });
+    showOrderSuccess();
+  } catch (error) {
+    showOrderFormError(error?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.');
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
+  }
 }
 
 function initCrmOrderModal() {
@@ -252,6 +293,7 @@ function initCrmOrderModal() {
 
   orderPhone?.addEventListener('input', () => {
     orderPhone.setCustomValidity('');
+    clearOrderFormError();
   });
 
   orderForm?.addEventListener('submit', handleOrderSubmit);

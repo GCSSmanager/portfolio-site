@@ -47,7 +47,7 @@
         <a class="nav__contact nav__contact--bar" href="tel:+79963463049" data-phone-link>
           <span data-phone-display>+7 (996) 346-30-49</span>
         </a>
-        <button class="btn btn--primary nav__cta" type="button" data-order-open>
+        <button class="btn btn--primary nav__cta" type="button" data-order-open data-order-source="nav-order">
           Заказать
         </button>
         <button
@@ -87,7 +87,7 @@
           <p class="crm-hero__text">
             Готовые решения помогают сократить рутину, повысить эффективность команды и увеличить прибыль. Система работает быстро, стабильно и масштабируется вместе с бизнесом.
           </p>
-          <button class="btn btn--primary crm-hero__btn" type="button" data-order-open>
+          <button class="btn btn--primary crm-hero__btn" type="button" data-order-open data-order-source="hero-order">
             Заказать
             <span class="crm-hero__deal" aria-hidden="true">−10%</span>
           </button>
@@ -135,7 +135,7 @@
             </div>
             <footer class="crm-card__foot">
               <p class="crm-card__price">от 5.000 ₽</p>
-              <button class="btn btn--ghost crm-card__btn" type="button" data-order-open>Задать вопросы</button>
+              <button class="btn btn--ghost crm-card__btn" type="button" data-order-open data-order-source="plan-ready-questions">Задать вопросы</button>
             </footer>
           </article>
 
@@ -155,7 +155,7 @@
             </ul>
             <footer class="crm-card__foot">
               <p class="crm-card__price">от 30.000 ₽</p>
-              <button class="btn btn--primary crm-card__btn" type="button" data-order-open>
+              <button class="btn btn--primary crm-card__btn" type="button" data-order-open data-order-source="plan-custom-estimate">
                 Оценить задачу
                 <span class="crm-card__deal" aria-hidden="true">−10%</span>
               </button>
@@ -182,7 +182,7 @@
             </div>
             <footer class="crm-card__foot">
               <p class="crm-card__price">от 15.000 ₽</p>
-              <button class="btn btn--ghost crm-card__btn" type="button" data-order-open>
+              <button class="btn btn--ghost crm-card__btn" type="button" data-order-open data-order-source="plan-catalog-details">
                 Узнать подробнее
                 <span class="crm-card__deal" aria-hidden="true">−10%</span>
               </button>
@@ -492,7 +492,7 @@
             <p class="crm-guide__lead">Не нашли ответа на свой вопрос — <a href="tel:+79963463049" data-phone-link>звоните нам</a>!</p>
             <div class="crm-guide__action">
               <span class="crm-guide__deal-bg" aria-hidden="true">−10%</span>
-              <button class="btn btn--primary crm-guide__cta" type="button" data-order-open>
+              <button class="btn btn--primary crm-guide__cta" type="button" data-order-open data-order-source="guide-consult">
                 Бесплатная консультация
               </button>
             </div>
@@ -578,7 +578,7 @@
               </div>
             </dl>
             <div class="crm-contacts__cta">
-              <button class="btn btn--primary crm-contacts__btn" type="button" data-order-open>
+              <button class="btn btn--primary crm-contacts__btn" type="button" data-order-open data-order-source="contacts-order">
                 Оставить заявку
               </button>
               <p class="crm-contacts__deal">Скидка 10% при заказе с сайта</p>
@@ -684,6 +684,7 @@
               <span class="crm-order-form__label">Телефон</span>
               <input class="crm-order-form__input" type="tel" name="phone" id="orderPhone" autocomplete="tel" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
             </label>
+            <p class="crm-order-form__error" id="orderFormError" hidden></p>
             <button class="btn btn--primary crm-order-form__submit" type="submit">Отправить</button>
           </form>
         </div>
@@ -751,6 +752,7 @@
 
   <script src="../js/data.js"></script>
   <script src="../js/contacts.js"></script>
+  <script src="../js/crm-leads.js"></script>
   <script src="../js/crm.js"></script>
   <script src="../js/crm-assistant.js"></script>
   <script>
