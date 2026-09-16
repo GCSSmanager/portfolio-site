@@ -242,10 +242,31 @@
 }
 
 .crm-card__btn {
+  position: relative;
   justify-self: start;
   min-width: 10rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  overflow: visible;
+}
+
+.crm-card__deal {
+  position: absolute;
+  top: -0.55rem;
+  right: -0.5rem;
+  z-index: 1;
+  padding: 0.22rem 0.48rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: none;
+  color: #faf6f1;
+  background: #b25a2e;
+  box-shadow: 0 0.2rem 0.55rem color-mix(in oklab, #b25a2e 35%, transparent);
+  pointer-events: none;
+  user-select: none;
 }
 
 .crm-card--featured .btn--primary {

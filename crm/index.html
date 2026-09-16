@@ -67,7 +67,7 @@
   </header>
 
   <main>
-    <section class="crm-hero" aria-label="CRM-системы под ключ">
+    <section class="crm-hero" aria-label="CRM-системы «под ключ»">
       <img
         class="crm-hero__bg"
         src="../assets/crm-hero.webp"
@@ -79,7 +79,7 @@
       <div class="crm-hero__scrim" aria-hidden="true"></div>
       <div class="container crm-hero__inner">
         <div class="crm-hero__copy reveal">
-          <h1 class="crm-hero__title">CRM-системы под ключ</h1>
+          <h1 class="crm-hero__title">CRM-системы «под ключ»</h1>
           <div class="crm-hero__rule" aria-hidden="true"></div>
           <p class="crm-hero__text">
             CRM-системы под задачи вашего бизнеса: автоматизация процессов, управление клиентами, заявками и продажами в одной удобной системе.
@@ -89,8 +89,22 @@
           </p>
           <button class="btn btn--primary crm-hero__btn" type="button" data-order-open>
             Заказать
+            <span class="crm-hero__deal" aria-hidden="true">−10%</span>
           </button>
         </div>
+
+        <aside class="crm-hero__perks reveal" aria-label="Условия">
+          <ul class="crm-hero__perks-list">
+            <li>
+              <span class="crm-hero__perk-value">Онлайн</span>
+              <span class="crm-hero__perk-label">запуск из любого города</span>
+            </li>
+            <li>
+              <span class="crm-hero__perk-value">Бессрочно</span>
+              <span class="crm-hero__perk-label">поддержка после сдачи</span>
+            </li>
+          </ul>
+        </aside>
       </div>
     </section>
 
@@ -141,7 +155,10 @@
             </ul>
             <footer class="crm-card__foot">
               <p class="crm-card__price">от 30.000 ₽</p>
-              <button class="btn btn--primary crm-card__btn" type="button" data-order-open>Оценить задачу</button>
+              <button class="btn btn--primary crm-card__btn" type="button" data-order-open>
+                Оценить задачу
+                <span class="crm-card__deal" aria-hidden="true">−10%</span>
+              </button>
             </footer>
           </article>
 
@@ -165,7 +182,10 @@
             </div>
             <footer class="crm-card__foot">
               <p class="crm-card__price">от 15.000 ₽</p>
-              <button class="btn btn--ghost crm-card__btn" type="button" data-order-open>Узнать подробнее</button>
+              <button class="btn btn--ghost crm-card__btn" type="button" data-order-open>
+                Узнать подробнее
+                <span class="crm-card__deal" aria-hidden="true">−10%</span>
+              </button>
             </footer>
           </article>
         </div>
@@ -470,9 +490,12 @@
               <h2 class="section__title" id="crm-guide-title">Как выбрать свою CRM</h2>
             </div>
             <p class="crm-guide__lead">Не нашли ответа на свой вопрос — <a href="tel:+79963463049" data-phone-link>звоните нам</a>!</p>
-            <button class="btn btn--primary crm-guide__cta" type="button" data-order-open>
-              Бесплатная консультация
-            </button>
+            <div class="crm-guide__action">
+              <span class="crm-guide__deal-bg" aria-hidden="true">−10%</span>
+              <button class="btn btn--primary crm-guide__cta" type="button" data-order-open>
+                Бесплатная консультация
+              </button>
+            </div>
           </div>
 
           <div class="crm-guide__list" data-guide-faq></div>
@@ -554,9 +577,12 @@
                 </dd>
               </div>
             </dl>
-            <button class="btn btn--primary crm-contacts__btn" type="button" data-order-open>
-              Оставить заявку
-            </button>
+            <div class="crm-contacts__cta">
+              <button class="btn btn--primary crm-contacts__btn" type="button" data-order-open>
+                Оставить заявку
+              </button>
+              <p class="crm-contacts__deal">Скидка 10% при заказе с сайта</p>
+            </div>
           </address>
           <div class="crm-contacts__map">
             <iframe
@@ -644,17 +670,23 @@
         </button>
       </div>
       <div class="modal__body">
-        <form class="crm-order-form" id="orderForm">
-          <label class="crm-order-form__field">
-            <span class="crm-order-form__label">Имя</span>
-            <input class="crm-order-form__input" type="text" name="name" autocomplete="name" required>
-          </label>
-          <label class="crm-order-form__field">
-            <span class="crm-order-form__label">Телефон</span>
-            <input class="crm-order-form__input" type="tel" name="phone" id="orderPhone" autocomplete="tel" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
-          </label>
-          <button class="btn btn--primary crm-order-form__submit" type="submit">Отправить</button>
-        </form>
+        <div class="crm-order-form-block" id="orderFormBlock">
+          <div class="crm-order-deal">
+            <span class="crm-order-deal__badge">−10%</span>
+            <p class="crm-order-deal__text">Скидка при заказе с сайта — зафиксируем в заявке</p>
+          </div>
+          <form class="crm-order-form" id="orderForm">
+            <label class="crm-order-form__field">
+              <span class="crm-order-form__label">Имя</span>
+              <input class="crm-order-form__input" type="text" name="name" autocomplete="name" required>
+            </label>
+            <label class="crm-order-form__field">
+              <span class="crm-order-form__label">Телефон</span>
+              <input class="crm-order-form__input" type="tel" name="phone" id="orderPhone" autocomplete="tel" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
+            </label>
+            <button class="btn btn--primary crm-order-form__submit" type="submit">Отправить</button>
+          </form>
+        </div>
         <div class="crm-order-success" id="orderSuccess" hidden>
           <p class="crm-order-success__text">Спасибо! Мы свяжемся с вами в течение часа.</p>
         </div>

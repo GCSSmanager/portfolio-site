@@ -1,5 +1,6 @@
 const orderModal = document.getElementById('orderModal');
 const orderForm = document.getElementById('orderForm');
+const orderFormBlock = document.getElementById('orderFormBlock');
 const orderSuccess = document.getElementById('orderSuccess');
 const orderPhone = document.getElementById('orderPhone');
 const orderModalTitle = document.getElementById('orderModalTitle');
@@ -115,6 +116,10 @@ function initPhoneMask() {
 }
 
 function showOrderForm() {
+  if (orderFormBlock) {
+    orderFormBlock.hidden = false;
+  }
+
   if (orderForm) {
     orderForm.hidden = false;
     orderForm.reset();
@@ -134,6 +139,10 @@ function showOrderForm() {
 }
 
 function showOrderSuccess() {
+  if (orderFormBlock) {
+    orderFormBlock.hidden = true;
+  }
+
   if (orderForm) {
     orderForm.hidden = true;
   }

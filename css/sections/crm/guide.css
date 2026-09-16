@@ -14,7 +14,7 @@
 
 .crm-guide__intro {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
   position: sticky;
   top: calc(var(--header-h) + 1rem);
 }
@@ -38,8 +38,54 @@
   color: color-mix(in oklab, var(--color-accent) 78%, black);
 }
 
+.crm-guide__action {
+  --deal-left: 77%;
+  --deal-top: 0.15rem;
+  --deal-size: clamp(5.75rem, 12vw, 9rem);
+  --deal-opacity: 28%;
+
+  position: relative;
+  display: grid;
+  justify-items: start;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0.15rem;
+  padding: 0.65rem 1.75rem 1.35rem 0;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.crm-guide__deal-bg {
+  position: absolute;
+  left: var(--deal-left);
+  top: var(--deal-top);
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: var(--deal-size);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: color-mix(in oklab, var(--color-accent) var(--deal-opacity), transparent);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
 .crm-guide__cta {
+  position: relative;
+  z-index: 1;
   justify-self: start;
+}
+
+@media (max-width: 56rem) {
+  .crm-guide__action {
+    --deal-left: 100%;
+    --deal-top: -1.5rem;
+    --deal-size: clamp(5rem, 18vw, 7rem);
+    --deal-opacity: 24%;
+    padding-right: 1.25rem;
+    padding-bottom: 1.1rem;
+  }
 }
 
 .crm-guide__list {

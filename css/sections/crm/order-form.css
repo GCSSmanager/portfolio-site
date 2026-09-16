@@ -5,6 +5,55 @@
   max-height: none;
 }
 
+.crm-order-form-block {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.crm-order-form-block[hidden] {
+  display: none !important;
+}
+
+.crm-order-deal {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-accent) 12%, var(--color-bg-elevated)),
+      var(--color-bg-elevated)
+    );
+  border: 1px solid color-mix(in oklab, var(--color-accent) 22%, var(--color-line));
+}
+
+.crm-order-deal__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.4rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f5f2ea;
+  background: var(--color-accent);
+}
+
+.crm-order-deal__text {
+  margin: 0;
+  max-width: none;
+  font-size: 0.9rem;
+  font-weight: 550;
+  line-height: 1.35;
+  color: var(--color-fg);
+}
+
 .crm-order-form {
   display: grid;
   gap: var(--space-5);
