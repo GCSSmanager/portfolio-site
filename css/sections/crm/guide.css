@@ -1,0 +1,120 @@
+/* CRM — how to choose FAQ */
+
+.crm-guide {
+  padding-block: var(--space-7);
+  background: var(--color-bg);
+}
+
+.crm-guide__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.crm-guide__intro {
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: calc(var(--header-h) + 1rem);
+}
+
+.crm-guide__lead {
+  margin: 0;
+  max-width: 28rem;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--color-fg-soft);
+}
+
+.crm-guide__lead a {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+.crm-guide__lead a:hover {
+  color: color-mix(in oklab, var(--color-accent) 78%, black);
+}
+
+.crm-guide__cta {
+  justify-self: start;
+}
+
+.crm-guide__list {
+  display: grid;
+  gap: .55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crm-guide__item {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-m);
+  background: var(--color-bg-elevated);
+  overflow: hidden;
+}
+
+.crm-guide__item[open] {
+  border-color: color-mix(in oklab, var(--color-accent) 28%, var(--color-line));
+  box-shadow: 0 .35rem 1rem color-mix(in oklab, var(--color-accent) 8%, transparent);
+}
+
+.crm-guide__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .95rem 1.05rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: .98rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--color-fg);
+}
+
+.crm-guide__q::-webkit-details-marker {
+  display: none;
+}
+
+.crm-guide__q::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-accent);
+  background: color-mix(in oklab, var(--color-accent) 8%, var(--color-bg));
+}
+
+.crm-guide__item[open] .crm-guide__q::after {
+  content: "–";
+}
+
+.crm-guide__a {
+  margin: 0;
+  padding: 0 1.05rem 1.05rem;
+  max-width: none;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--color-fg-soft);
+}
+
+@media (max-width: 56rem) {
+  .crm-guide__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .crm-guide__intro {
+    position: static;
+  }
+}

@@ -2,11 +2,7 @@
 
 .crm-cases {
   padding-block: var(--space-7);
-  background:
-    radial-gradient(65% 40% at 0% 10%, color-mix(in oklab, #8b5a62 10%, transparent), transparent 55%),
-    radial-gradient(55% 35% at 100% 0%, color-mix(in oklab, #4d6f5c 10%, transparent), transparent 50%),
-    var(--color-bg);
-  border-top: 1px solid var(--color-line);
+  background: #ece8dc;
 }
 
 .crm-cases__list {

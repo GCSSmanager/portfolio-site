@@ -3,7 +3,6 @@
 .crm-contacts {
   padding-block: var(--space-8);
   background: #ece8dc;
-  border-top: 1px solid var(--color-line);
 }
 
 .crm-contacts__stage {

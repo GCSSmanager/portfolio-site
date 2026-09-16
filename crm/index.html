@@ -36,6 +36,7 @@
         <a class="nav__link" href="#tariffs">Решения</a>
         <a class="nav__link" href="#reviews">Отзывы</a>
         <a class="nav__link" href="#cases">Кейсы</a>
+        <a class="nav__link" href="#guide">Выбор CRM</a>
         <a class="nav__link" href="#contacts">Контакты</a>
         <a class="nav__contact nav__contact--menu" href="tel:+79963463049" data-phone-link>
           <span data-phone-display>+7 (996) 346-30-49</span>
@@ -460,6 +461,25 @@
       </div>
     </section>
 
+    <section class="crm-guide" id="guide" aria-labelledby="crm-guide-title">
+      <div class="container">
+        <div class="crm-guide__layout">
+          <div class="crm-guide__intro">
+            <div class="section__head">
+              <p class="section__eyebrow">Коротко</p>
+              <h2 class="section__title" id="crm-guide-title">Как выбрать свою CRM</h2>
+            </div>
+            <p class="crm-guide__lead">Не нашли ответа на свой вопрос — <a href="tel:+79963463049" data-phone-link>звоните нам</a>!</p>
+            <button class="btn btn--primary crm-guide__cta" type="button" data-order-open>
+              Бесплатная консультация
+            </button>
+          </div>
+
+          <div class="crm-guide__list" data-guide-faq></div>
+        </div>
+      </div>
+    </section>
+
     <section class="crm-contacts" id="contacts" aria-labelledby="crm-contacts-title">
       <div class="container">
         <div class="section__head">
@@ -708,6 +728,7 @@
       initCrmNav();
       initCrmToTop();
       initCrmReviews();
+      renderGuideFaq();
       initCrmAssistant();
     });
   </script>
