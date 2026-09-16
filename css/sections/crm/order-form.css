@@ -2,7 +2,7 @@
 
 .modal__panel--form {
   width: min(100%, 28rem);
-  max-height: none;
+  max-height: min(90dvh, 40rem);
 }
 
 .crm-order-form-block {
@@ -17,10 +17,10 @@
 .crm-order-deal {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.75rem;
+  gap: 0.55rem;
   align-items: center;
   margin: 0;
-  padding: 0.85rem 1rem;
+  padding: 0.55rem 0.75rem;
   border-radius: var(--radius-m);
   background:
     linear-gradient(
@@ -35,12 +35,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 3.4rem;
-  padding: 0.45rem 0.55rem;
+  min-width: 2.55rem;
+  padding: 0.28rem 0.4rem;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: -0.02em;
+  line-height: 1;
   color: #f5f2ea;
   background: var(--color-accent);
 }
@@ -48,15 +49,15 @@
 .crm-order-deal__text {
   margin: 0;
   max-width: none;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 550;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--color-fg);
 }
 
 .crm-order-form {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .crm-order-form__field {
@@ -95,12 +96,12 @@
 
 .crm-order-form__error {
   margin: 0;
-  padding: 0.75rem 0.9rem;
+  padding: 0.65rem 0.8rem;
   border-radius: var(--radius-m);
   border: 1px solid color-mix(in oklab, #b25a2e 35%, var(--color-line));
   background: color-mix(in oklab, #b25a2e 10%, var(--color-bg-elevated));
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.4;
   color: var(--color-fg);
   max-width: none;
 }
@@ -129,4 +130,54 @@
   font-size: var(--step-0);
   color: var(--color-fg-soft);
   max-width: none;
+}
+
+@media (max-width: 40rem) {
+  .modal.modal--form {
+    padding: 1rem;
+    place-items: center;
+    align-content: center;
+  }
+
+  .modal.modal--form .modal__panel--form {
+    width: min(100%, 24rem);
+    height: auto;
+    max-height: min(88dvh, 34rem);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-line);
+    margin-inline: auto;
+  }
+
+  .modal.modal--form .modal__header {
+    position: static;
+    padding: 0.95rem 1rem;
+  }
+
+  .modal.modal--form .modal__title {
+    font-size: var(--step-1);
+  }
+
+  .modal.modal--form .modal__body {
+    padding: 0.95rem 1rem 1.1rem;
+    gap: var(--space-3);
+  }
+
+  .crm-order-deal {
+    gap: 0.45rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .crm-order-deal__badge {
+    min-width: 2.35rem;
+    padding: 0.22rem 0.35rem;
+    font-size: 0.72rem;
+  }
+
+  .crm-order-deal__text {
+    font-size: 0.78rem;
+  }
+
+  .crm-order-form {
+    gap: var(--space-3);
+  }
 }
