@@ -173,6 +173,10 @@ function showOrderSuccess() {
   if (orderModalTitle) {
     orderModalTitle.textContent = 'Заявка принята';
   }
+
+  if (typeof window.ym === 'function') {
+    window.ym(112716152, 'reachGoal', 'crm-form');
+  }
 }
 
 function openOrderModal(trigger) {
