@@ -1,0 +1,21 @@
+/* CRM — pricing */
+
+.crm-pricing {
+  color: #f5f2ea;
+  background:
+    linear-gradient(
+      165deg,
+      #243528 0%,
+      var(--color-accent) 52%,
+      #152119 100%
+    );
+}
+
+.crm-pricing .section__eyebrow,
+.crm-pricing .section__title {
+  color: #f5f2ea;
+}
+
+.crm-pricing .section__eyebrow {
+  color: color-mix(in oklab, #f5f2ea 62%, transparent);
+}

@@ -1,7 +1,6 @@
 /* CRM — letters + cases carousel */
 
 .crm-reviews {
-  padding-block: var(--space-8);
   color: #f5f2ea;
   background:
     linear-gradient(

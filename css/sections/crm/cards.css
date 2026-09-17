@@ -1,7 +1,6 @@
 /* CRM — tariff cards */
 
 .crm-plans {
-  padding-block: var(--space-8);
   background: var(--color-bg);
   border-top: 1px solid var(--color-line);
 }
@@ -22,7 +21,7 @@
   gap: 0;
   align-content: start;
   height: 100%;
-  padding: clamp(1.35rem, 3vw, 1.85rem);
+  padding: clamp(1.6rem, 3.4vw, 2.15rem);
   background:
     linear-gradient(
       165deg,
@@ -222,6 +221,87 @@
   gap: var(--space-4);
   padding-block: var(--crm-card-inset) 0;
   border-top: 1px solid color-mix(in oklab, var(--color-line) 80%, transparent);
+  align-content: end;
+}
+
+.crm-plans__pricing-link {
+  width: 100%;
+  max-width: none;
+  margin: clamp(1.1rem, 2.5vw, 1.5rem) 0 0;
+  text-align: right;
+}
+
+.crm-plans__pricing-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: color-mix(in oklab, var(--color-accent) 82%, var(--color-muted));
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.crm-plans__pricing-link-text {
+  border-bottom: 1.5px dashed color-mix(in oklab, var(--color-accent) 45%, transparent);
+  padding-bottom: 0.08em;
+  line-height: 1.2;
+}
+
+.crm-plans__pricing-link-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
+  transform: translateY(0.05em);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.crm-plans__pricing-link a:hover {
+  color: var(--color-accent);
+}
+
+.crm-plans__pricing-link a:hover .crm-plans__pricing-link-text {
+  border-bottom-color: color-mix(in oklab, var(--color-accent) 70%, transparent);
+}
+
+.crm-plans__pricing-link a:hover .crm-plans__pricing-link-icon {
+  transform: translateY(0.22em);
+}
+
+.crm-card--compact {
+  --crm-card-inset: 0.85rem;
+  padding: clamp(1.15rem, 2.4vw, 1.5rem);
+  height: auto;
+  align-self: center;
+}
+
+.crm-card--compact .crm-card__title {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.crm-card--compact .crm-card__lead,
+.crm-card--compact .crm-card__list li {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.crm-card--compact .crm-card__list,
+.crm-card--compact .crm-card__list--cons {
+  gap: var(--space-2);
+  padding-block: var(--crm-card-inset);
+}
+
+.crm-card--compact .crm-card__foot {
+  padding-top: 3rem;
+  padding-inline: 0.15rem;
+}
+
+.crm-card--compact .crm-card__btn {
+  min-width: 0;
+  margin-inline-start: 0.35rem;
+  padding-inline: 1.15rem;
 }
 
 .crm-card--featured .crm-card__foot {
@@ -289,10 +369,6 @@
 }
 
 @media (max-width: 56rem) {
-  .crm-plans {
-    padding-block: var(--space-7);
-  }
-
   .crm-plans .section__head {
     gap: var(--space-2);
     margin-bottom: var(--space-5);

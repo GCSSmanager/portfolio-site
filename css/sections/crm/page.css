@@ -5,10 +5,20 @@
   background: var(--color-bg);
 }
 
-.crm-page :is(#tariffs, #reviews, #cases, #guide, #contacts) {
+.crm-page :is(.crm-plans, .crm-reviews, .crm-cases, .crm-pricing, .crm-guide, .crm-contacts) {
+  padding-block: var(--space-8);
+}
+
+.crm-page :is(#tariffs, #reviews, #pricing, #cases, #guide, #contacts) {
   scroll-margin-top: var(--header-h);
 }
 
 .crm-page.is-modal-open {
   overflow: hidden;
+}
+
+@media (max-width: 56rem) {
+  .crm-page :is(.crm-plans, .crm-reviews, .crm-cases, .crm-pricing, .crm-guide, .crm-contacts) {
+    padding-block: var(--space-7);
+  }
 }
