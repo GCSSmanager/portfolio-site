@@ -236,6 +236,9 @@ function initCrmAssistant() {
           phone: phoneInput.value,
           source: 'crm-assist',
         });
+        if (typeof window.ym === 'function') {
+          window.ym(112716152, 'reachGoal', 'crm-chat');
+        }
       } catch (err) {
         error.textContent =
           err?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.';
