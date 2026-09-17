@@ -98,6 +98,15 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   overflow: visible;
+  background: #f5f2ea;
+  border-color: #f5f2ea;
+  color: #1b3022;
+}
+
+.crm-hero__btn:hover {
+  background: color-mix(in oklab, #f5f2ea 88%, white);
+  border-color: color-mix(in oklab, #f5f2ea 88%, white);
+  color: #152119;
 }
 
 .crm-hero__deal {

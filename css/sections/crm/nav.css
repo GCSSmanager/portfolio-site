@@ -58,6 +58,18 @@
   opacity: 0.75;
 }
 
+.nav--crm .nav__cta {
+  background: #f5f2ea;
+  border-color: #f5f2ea;
+  color: #1b3022;
+}
+
+.nav--crm .nav__cta:hover {
+  background: color-mix(in oklab, #f5f2ea 88%, white);
+  border-color: color-mix(in oklab, #f5f2ea 88%, white);
+  color: #152119;
+}
+
 .nav--crm .nav__menu {
   display: flex;
   align-items: center;

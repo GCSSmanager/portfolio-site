@@ -1,4 +1,12 @@
 .btn {
+  --btn-glow: var(--color-accent);
+  --btn-glow-bright: 1.07;
+  --btn-glow-ring-size: 0.35rem;
+  --btn-glow-ring-a: 20%;
+  --btn-glow-halo-y: 0.35rem;
+  --btn-glow-halo-blur: 0.9rem;
+  --btn-glow-halo-a: 16%;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +24,17 @@
     background-color var(--duration-fast) var(--ease-out),
     color var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    filter var(--duration-fast) var(--ease-out);
+}
+
+.btn--lure-dark {
+  --btn-glow: var(--color-accent);
+}
+
+.btn--lure-light {
+  --btn-glow: var(--color-on-accent);
 }
 
 .btn svg {
@@ -54,4 +72,38 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn {
+    animation: btn-lure 3s ease-in-out infinite;
+  }
+
+  .btn:hover,
+  .btn:focus-visible {
+    animation: none;
+    filter: brightness(1.06);
+  }
+
+  .modal .btn {
+    animation: none;
+    filter: none;
+  }
+}
+
+@keyframes btn-lure {
+  0%,
+  100% {
+    filter: brightness(1);
+    box-shadow:
+      0 0 0 0 transparent,
+      0 0.2rem 0.55rem color-mix(in oklab, var(--btn-glow) 0%, transparent);
+  }
+
+  50% {
+    filter: brightness(var(--btn-glow-bright));
+    box-shadow:
+      0 0 0 var(--btn-glow-ring-size) color-mix(in oklab, var(--btn-glow) var(--btn-glow-ring-a), transparent),
+      0 var(--btn-glow-halo-y) var(--btn-glow-halo-blur) color-mix(in oklab, var(--btn-glow) var(--btn-glow-halo-a), transparent);
+  }
 }
