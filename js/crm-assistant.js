@@ -32,7 +32,20 @@ const ASSIST_FAQ = [
 const ASSIST_CONTACT_REPLY =
   'Спасибо за вопрос! Мы скоро с вами свяжемся, чтобы ответить на него.';
 
+const ASSIST_CHIPS = [
+  {
+    q: 'Заказать работу',
+    reply: 'Отлично! Скоро свяжемся с вами.',
+  },
+  { q: 'Сколько это стоит?' },
+  { q: 'Что будет после запуска?' },
+];
+
 const ASSIST_OPEN_DELAY_MS = 4500;
+
+function normalizeAssistText(text) {
+  return text.trim().toLowerCase().replace(/\s+/g, ' ');
+}
 
 function bindPhoneMask(input) {
   if (!input) return;
@@ -110,8 +123,7 @@ function initCrmAssistant() {
   let busy = false;
   let contactsShown = false;
   let contactsDone = false;
-  let pendingQuestion = null;
-  let pendingFaqIndex = -1;
+  let pendingReply = null;
   let dismissed = false;
   const asked = new Set();
   let autoTimer = null;
@@ -148,14 +160,21 @@ function initCrmAssistant() {
   }
 
   function findFaqAnswer(text) {
-    const normalized = text.trim().toLowerCase().replace(/\s+/g, ' ');
-
-    const index = ASSIST_FAQ.findIndex(
-      (item) => item.q.trim().toLowerCase().replace(/\s+/g, ' ') === normalized
-    );
-
+    const normalized = normalizeAssistText(text);
+    const index = ASSIST_FAQ.findIndex((item) => normalizeAssistText(item.q) === normalized);
     if (index === -1) return null;
     return { item: ASSIST_FAQ[index], index };
+  }
+
+  function findChipIndex(text) {
+    const normalized = normalizeAssistText(text);
+    return ASSIST_CHIPS.findIndex((item) => normalizeAssistText(item.q) === normalized);
+  }
+
+  function resolveAssistReply(text, chipIndex = -1) {
+    const chip = chipIndex >= 0 ? ASSIST_CHIPS[chipIndex] : ASSIST_CHIPS[findChipIndex(text)];
+    if (chip?.reply) return chip.reply;
+    return findFaqAnswer(chip?.q || text)?.item.a || ASSIST_CONTACT_REPLY;
   }
 
   function showContactsCard() {
@@ -225,8 +244,7 @@ function initCrmAssistant() {
 
       phoneInput.setCustomValidity('');
       const name = nameInput.value.trim();
-      const question = pendingQuestion;
-      const faqIndex = pendingFaqIndex;
+      const reply = pendingReply || ASSIST_CONTACT_REPLY;
 
       submit.disabled = true;
 
@@ -249,51 +267,33 @@ function initCrmAssistant() {
 
       contactsDone = true;
       contactsShown = false;
-      pendingQuestion = null;
-      pendingFaqIndex = -1;
+      pendingReply = null;
       wrap.remove();
 
       addBubble(`${name}, ${phoneInput.value}`, 'user');
 
       window.setTimeout(() => {
-        const matched =
-          faqIndex >= 0
-            ? ASSIST_FAQ[faqIndex]
-            : findFaqAnswer(question || '')?.item || null;
-
-        if (matched) {
-          addBubble(matched.a, 'bot');
-        } else {
-          addBubble(ASSIST_CONTACT_REPLY, 'bot');
-        }
-
+        addBubble(reply, 'bot');
         setComposerEnabled(true);
         markChipsAsked();
       }, 320);
     });
   }
 
-  function answerQuestion(question, faqIndex = -1) {
+  function answerQuestion(question, chipIndex = -1) {
     if (busy || contactsShown) return;
 
     const text = question.trim();
     if (!text) return;
 
-    const matched =
-      faqIndex >= 0
-        ? { item: ASSIST_FAQ[faqIndex], index: faqIndex }
-        : findFaqAnswer(text);
+    const index = chipIndex >= 0 ? chipIndex : findChipIndex(text);
+    const reply = resolveAssistReply(text, index);
 
     addBubble(text, 'user');
 
-    if (matched) {
-      asked.add(matched.index);
-      pendingFaqIndex = matched.index;
-    } else {
-      pendingFaqIndex = -1;
-    }
+    if (index >= 0) asked.add(index);
 
-    pendingQuestion = text;
+    pendingReply = reply;
     markChipsAsked();
 
     if (!contactsDone) {
@@ -301,19 +301,13 @@ function initCrmAssistant() {
       return;
     }
 
-    // Contacts already given — answer immediately
     busy = true;
     setComposerEnabled(false);
 
     window.setTimeout(() => {
-      if (matched) {
-        addBubble(matched.item.a, 'bot');
-      } else {
-        addBubble(ASSIST_CONTACT_REPLY, 'bot');
-      }
+      addBubble(reply, 'bot');
       busy = false;
-      pendingQuestion = null;
-      pendingFaqIndex = -1;
+      pendingReply = null;
       setComposerEnabled(true);
       markChipsAsked();
     }, 420);
@@ -330,7 +324,7 @@ function initCrmAssistant() {
     const chips = document.createElement('div');
     chips.className = 'crm-assist__chips';
 
-    ASSIST_FAQ.forEach((item, index) => {
+    ASSIST_CHIPS.forEach((item, index) => {
       const chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'crm-assist__chip';
