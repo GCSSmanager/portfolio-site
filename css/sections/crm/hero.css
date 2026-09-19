@@ -81,19 +81,81 @@
   );
 }
 
-.crm-hero__text {
+.crm-hero__lead {
   margin: 0;
   font-family: var(--font-body);
-  font-size: var(--step-1);
+  font-size: var(--step-2);
   font-weight: 450;
-  line-height: 1.65;
-  color: color-mix(in oklab, var(--crm-hero-fg) 94%, transparent);
-  max-width: 42ch;
+  line-height: 1.45;
+  color: color-mix(in oklab, var(--crm-hero-fg) 92%, transparent);
+  max-width: 22rem;
+}
+
+.crm-hero__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.crm-hero__phone {
+  flex: 1 1 12rem;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 28%, transparent);
+  border-radius: var(--radius-m);
+  background: color-mix(in oklab, #0a100c 42%, transparent);
+  color: #f5f2ea;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+}
+
+.crm-hero__phone::placeholder {
+  color: color-mix(in oklab, #f5f2ea 48%, transparent);
+}
+
+.crm-hero__phone:focus {
+  outline: none;
+  border-color: #f5f2ea;
+  box-shadow: 0 0 0 3px color-mix(in oklab, #f5f2ea 18%, transparent);
+}
+
+.crm-hero__form-error {
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-m);
+  border: 1px solid color-mix(in oklab, #b25a2e 45%, #f5f2ea);
+  background: color-mix(in oklab, #b25a2e 22%, #0a100c);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: #f5f2ea;
+}
+
+.crm-hero__form[hidden],
+.crm-hero__form-error[hidden],
+.crm-hero__done[hidden] {
+  display: none !important;
+}
+
+.crm-hero__done {
+  margin: 0;
+  max-width: 28rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: var(--radius-m);
+  border: 1px solid color-mix(in oklab, #f5f2ea 22%, transparent);
+  background: color-mix(in oklab, #f5f2ea 14%, transparent);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.45;
+  color: #f5f2ea;
 }
 
 .crm-hero__btn {
   position: relative;
-  margin-top: var(--space-2);
   min-width: 10rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -107,6 +169,13 @@
   background: color-mix(in oklab, #f5f2ea 88%, white);
   border-color: color-mix(in oklab, #f5f2ea 88%, white);
   color: #152119;
+}
+
+.crm-hero__btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: none;
+  animation: none;
 }
 
 .crm-hero__deal {
@@ -164,7 +233,7 @@
 
 .crm-hero__perk-value {
   font-family: var(--font-body);
-  font-size: var(--step-1);
+  font-size: var(--step-2);
   font-weight: 700;
   letter-spacing: -.01em;
   line-height: 1.25;
@@ -173,7 +242,7 @@
 
 .crm-hero__perk-label {
   font-family: var(--font-body);
-  font-size: var(--step-0);
+  font-size: var(--step-1);
   font-weight: 450;
   line-height: 1.5;
   color: color-mix(in oklab, var(--crm-hero-fg) 78%, transparent);
@@ -205,7 +274,9 @@
   }
 
   .crm-hero__title,
-  .crm-hero__text {
+  .crm-hero__lead,
+  .crm-hero__form,
+  .crm-hero__done {
     max-width: none;
   }
 
@@ -215,8 +286,26 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .crm-hero__done:not([hidden]) {
+    animation: crm-hero-done-in var(--duration-mid) var(--ease-out);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .crm-hero__bg {
+    transform: none;
+  }
+}
+
+@keyframes crm-hero-done-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
     transform: none;
   }
 }

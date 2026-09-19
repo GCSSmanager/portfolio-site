@@ -57,28 +57,28 @@ function isPhoneComplete(value) {
   return phoneDigits(value).length === 10;
 }
 
-function initPhoneMask() {
-  if (!orderPhone) return;
+function bindPhoneMask(input) {
+  if (!input) return;
 
-  orderPhone.addEventListener('focus', () => {
-    if (!orderPhone.value.startsWith('+7')) {
-      orderPhone.value = PHONE_PREFIX;
+  input.addEventListener('focus', () => {
+    if (!input.value.startsWith('+7')) {
+      input.value = PHONE_PREFIX;
     }
 
-    if (orderPhone.selectionStart < PHONE_PREFIX.length) {
-      orderPhone.setSelectionRange(orderPhone.value.length, orderPhone.value.length);
+    if (input.selectionStart < PHONE_PREFIX.length) {
+      input.setSelectionRange(input.value.length, input.value.length);
     }
   });
 
-  orderPhone.addEventListener('input', () => {
-    const cursorFromEnd = orderPhone.value.length - orderPhone.selectionStart;
-    orderPhone.value = formatRuPhone(orderPhone.value);
-    const nextPos = Math.max(PHONE_PREFIX.length, orderPhone.value.length - cursorFromEnd);
-    orderPhone.setSelectionRange(nextPos, nextPos);
+  input.addEventListener('input', () => {
+    const cursorFromEnd = input.value.length - input.selectionStart;
+    input.value = formatRuPhone(input.value);
+    const nextPos = Math.max(PHONE_PREFIX.length, input.value.length - cursorFromEnd);
+    input.setSelectionRange(nextPos, nextPos);
   });
 
-  orderPhone.addEventListener('keydown', (event) => {
-    const { selectionStart, selectionEnd, value } = orderPhone;
+  input.addEventListener('keydown', (event) => {
+    const { selectionStart, selectionEnd, value } = input;
 
     if (selectionStart !== selectionEnd) {
       return;
@@ -86,14 +86,14 @@ function initPhoneMask() {
 
     if (event.key === 'Backspace' && selectionStart <= PHONE_PREFIX.length) {
       event.preventDefault();
-      orderPhone.value = PHONE_PREFIX;
-      orderPhone.setSelectionRange(PHONE_PREFIX.length, PHONE_PREFIX.length);
+      input.value = PHONE_PREFIX;
+      input.setSelectionRange(PHONE_PREFIX.length, PHONE_PREFIX.length);
       return;
     }
 
     if (event.key === 'Delete' && selectionStart < PHONE_PREFIX.length) {
       event.preventDefault();
-      orderPhone.setSelectionRange(PHONE_PREFIX.length, PHONE_PREFIX.length);
+      input.setSelectionRange(PHONE_PREFIX.length, PHONE_PREFIX.length);
       return;
     }
 
@@ -105,14 +105,87 @@ function initPhoneMask() {
     if (charBefore === ' ' || charBefore === '-' || charBefore === '(' || charBefore === ')') {
       event.preventDefault();
       const digits = phoneDigits(value);
-      orderPhone.value = formatRuPhone(digits.slice(0, -1));
-      orderPhone.setSelectionRange(orderPhone.value.length, orderPhone.value.length);
+      input.value = formatRuPhone(digits.slice(0, -1));
+      input.setSelectionRange(input.value.length, input.value.length);
     }
   });
 
-  orderPhone.addEventListener('blur', () => {
-    if (!orderPhone.value.startsWith('+7')) {
-      orderPhone.value = PHONE_PREFIX;
+  input.addEventListener('blur', () => {
+    if (!input.value.startsWith('+7')) {
+      input.value = PHONE_PREFIX;
+    }
+  });
+}
+
+function initPhoneMask() {
+  bindPhoneMask(orderPhone);
+}
+
+function initCrmHeroEstimate() {
+  const form = document.querySelector('[data-hero-estimate]');
+  if (!form) return;
+
+  const phone = form.querySelector('[name="phone"]');
+  const submit = form.querySelector('[type="submit"]');
+  const error = form.querySelector('[data-hero-estimate-error]');
+  const done = document.querySelector('[data-hero-estimate-done]');
+  if (!phone || !submit) return;
+
+  bindPhoneMask(phone);
+
+  function showError(message) {
+    if (!error) return;
+    error.textContent = message;
+    error.hidden = false;
+  }
+
+  function clearError() {
+    if (!error) return;
+    error.hidden = true;
+    error.textContent = '';
+  }
+
+  function syncSubmit() {
+    submit.disabled = !isPhoneComplete(phone.value || '');
+  }
+
+  phone.addEventListener('input', () => {
+    phone.setCustomValidity('');
+    clearError();
+    syncSubmit();
+  });
+
+  syncSubmit();
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearError();
+
+    if (!isPhoneComplete(phone.value || '')) {
+      phone.setCustomValidity('Введите номер полностью: +7 (___) ___-__-__');
+      phone.reportValidity();
+      return;
+    }
+
+    phone.setCustomValidity('');
+    submit.disabled = true;
+
+    try {
+      await window.sendCrmLead({
+        name: 'Расчёт стоимости',
+        phone: phone.value,
+        source: 'hero-estimate',
+      });
+
+      if (typeof window.ym === 'function') {
+        window.ym(112716152, 'reachGoal', 'crm-hero');
+      }
+
+      form.hidden = true;
+      if (done) done.hidden = false;
+    } catch (err) {
+      showError(err?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.');
+      syncSubmit();
     }
   });
 }

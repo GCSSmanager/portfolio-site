@@ -135,22 +135,34 @@
         <div class="crm-hero__copy reveal">
           <h1 class="crm-hero__title">CRM-системы «под ключ»</h1>
           <div class="crm-hero__rule" aria-hidden="true"></div>
-          <p class="crm-hero__text">
-            CRM-системы под задачи Вашего бизнеса: автоматизация процессов, управление клиентами, заявками и продажами в одной удобной системе.
+          <p class="crm-hero__lead">Расчёт стоимости без технического задания</p>
+          <form class="crm-hero__form" data-hero-estimate>
+            <label class="visually-hidden" for="heroPhone">Телефон</label>
+            <input
+              class="crm-hero__phone"
+              id="heroPhone"
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+              inputmode="numeric"
+              placeholder="+7 (___) ___-__-__"
+              required
+            >
+            <button class="btn btn--primary btn--lure-light crm-hero__btn" type="submit" disabled>
+              Рассчитать
+              <span class="crm-hero__deal" aria-hidden="true">−10%</span>
+            </button>
+            <p class="crm-hero__form-error" data-hero-estimate-error hidden></p>
+          </form>
+          <p class="crm-hero__done" data-hero-estimate-done hidden role="status">
+            Заявка отправлена. Свяжемся с вами в течение часа.
           </p>
-          <p class="crm-hero__text">
-            Готовые решения помогают сократить рутину, повысить эффективность команды и увеличить прибыль. Система работает быстро, стабильно и масштабируется вместе с бизнесом.
-          </p>
-          <button class="btn btn--primary btn--lure-light crm-hero__btn" type="button" data-order-open data-order-source="hero-order">
-            Заказать
-            <span class="crm-hero__deal" aria-hidden="true">−10%</span>
-          </button>
         </div>
 
         <aside class="crm-hero__perks reveal" aria-label="Условия">
           <ul class="crm-hero__perks-list">
             <li>
-              <span class="crm-hero__perk-value">Онлайн</span>
+              <span class="crm-hero__perk-value">Онлайн от 1 дня</span>
               <span class="crm-hero__perk-label">запуск из любого города</span>
             </li>
             <li>
@@ -930,6 +942,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       initContacts();
       initCrmOrderModal();
+      initCrmHeroEstimate();
       initCrmNav();
       initCrmToTop();
       initCrmReviews();

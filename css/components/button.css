@@ -85,7 +85,8 @@
     filter: brightness(1.06);
   }
 
-  .modal .btn {
+  .modal .btn,
+  .btn:disabled {
     animation: none;
     filter: none;
   }
