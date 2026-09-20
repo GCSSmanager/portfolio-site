@@ -178,7 +178,7 @@ function initCrmHeroEstimate() {
       });
 
       if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-hero');
+        window.ym(112716152, 'reachGoal', 'crm-form');
       }
 
       form.hidden = true;
