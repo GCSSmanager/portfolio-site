@@ -67,7 +67,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--crm-hero-fg);
-  max-width: 13ch;
+  max-width: 20ch;
   text-wrap: balance;
 }
 
@@ -88,7 +88,7 @@
   font-weight: 450;
   line-height: 1.45;
   color: color-mix(in oklab, var(--crm-hero-fg) 92%, transparent);
-  max-width: 22rem;
+  max-width: 28rem;
 }
 
 .crm-hero__form {
