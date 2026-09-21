@@ -124,6 +124,8 @@ function initCrmAssistant() {
   let contactsShown = false;
   let contactsDone = false;
   let pendingReply = null;
+  let pendingQuestion = null;
+  let contactPhone = '';
   let dismissed = false;
   const asked = new Set();
   let autoTimer = null;
@@ -244,15 +246,18 @@ function initCrmAssistant() {
 
       phoneInput.setCustomValidity('');
       const name = nameInput.value.trim();
+      const phone = phoneInput.value;
       const reply = pendingReply || ASSIST_CONTACT_REPLY;
+      const question = pendingQuestion || '';
 
       submit.disabled = true;
 
       try {
         await window.sendCrmLead({
           name,
-          phone: phoneInput.value,
+          phone,
           source: 'crm-assist',
+          message: question,
         });
         if (typeof window.ym === 'function') {
           window.ym(112716152, 'reachGoal', 'crm-chat');
@@ -267,10 +272,12 @@ function initCrmAssistant() {
 
       contactsDone = true;
       contactsShown = false;
+      contactPhone = phone;
       pendingReply = null;
+      pendingQuestion = null;
       wrap.remove();
 
-      addBubble(`${name}, ${phoneInput.value}`, 'user');
+      addBubble(`${name}, ${phone}`, 'user');
 
       window.setTimeout(() => {
         addBubble(reply, 'bot');
@@ -294,6 +301,7 @@ function initCrmAssistant() {
     if (index >= 0) asked.add(index);
 
     pendingReply = reply;
+    pendingQuestion = text;
     markChipsAsked();
 
     if (!contactsDone) {
@@ -304,10 +312,16 @@ function initCrmAssistant() {
     busy = true;
     setComposerEnabled(false);
 
+    window.sendCrmChat?.({
+      phone: contactPhone,
+      message: text,
+    }).catch(() => {});
+
     window.setTimeout(() => {
       addBubble(reply, 'bot');
       busy = false;
       pendingReply = null;
+      pendingQuestion = null;
       setComposerEnabled(true);
       markChipsAsked();
     }, 420);

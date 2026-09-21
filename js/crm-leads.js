@@ -19,7 +19,6 @@ const LEAD_ERROR_MESSAGES = {
     'Сейчас не удаётся отправить заявку онлайн. Позвоните нам по телефону +7 (996) 346-30-49 — разберёмся, пока сервис восстанавливается.',
   validation: 'Проверьте имя и телефон и попробуйте снова.',
   opened_at_required: 'Обновите страницу и отправьте заявку ещё раз.',
-  opened_at_invalid: 'Обновите страницу и отправьте заявку ещё раз.',
   misconfigured: 'Сервис заявок временно недоступен. Позвоните +7 (996) 346-30-49.',
   method_not_allowed: 'Не удалось отправить заявку. Попробуйте ещё раз или позвоните +7 (996) 346-30-49.',
   invalid_json: 'Не удалось отправить заявку. Попробуйте ещё раз.',
@@ -40,7 +39,7 @@ function getLeadErrorMessage(code) {
   return LEAD_ERROR_MESSAGES[code] || LEAD_ERROR_MESSAGES.unknown;
 }
 
-async function sendCrmLead({ name, phone, source }) {
+async function sendCrmLead({ name, phone, source, message }) {
   const endpoint = window.CRM_LEADS?.endpoint;
   if (!endpoint) {
     const error = new Error(getLeadErrorMessage('misconfigured'));
@@ -48,17 +47,41 @@ async function sendCrmLead({ name, phone, source }) {
     throw error;
   }
 
+  const payload = {
+    name,
+    phone,
+    source: source || 'crm',
+    openedAt: ensureLeadOpenedAt(),
+  };
+
+  if (message) {
+    payload.message = message;
+  }
+
+  return postCrmLead(endpoint, payload);
+}
+
+async function sendCrmChat({ phone, message }) {
+  const endpoint = window.CRM_LEADS?.endpoint;
+  if (!endpoint) {
+    const error = new Error(getLeadErrorMessage('misconfigured'));
+    error.code = 'misconfigured';
+    throw error;
+  }
+
+  return postCrmLead(new URL('chat', endpoint).href, {
+    phone,
+    message,
+  });
+}
+
+async function postCrmLead(url, payload) {
   let response;
   try {
-    response = await fetch(endpoint, {
+    response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        phone,
-        source: source || 'crm',
-        openedAt: ensureLeadOpenedAt(),
-      }),
+      body: JSON.stringify(payload),
     });
   } catch {
     const error = new Error(getLeadErrorMessage('network'));
@@ -87,4 +110,5 @@ async function sendCrmLead({ name, phone, source }) {
 window.LEAD_ERROR_MESSAGES = LEAD_ERROR_MESSAGES;
 window.getLeadErrorMessage = getLeadErrorMessage;
 window.sendCrmLead = sendCrmLead;
+window.sendCrmChat = sendCrmChat;
 window.ensureLeadOpenedAt = ensureLeadOpenedAt;
