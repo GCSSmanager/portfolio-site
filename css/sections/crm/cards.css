@@ -145,7 +145,7 @@
 
 .crm-card__lead {
   margin: 0;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
   line-height: 1.55;
   color: var(--color-fg-soft);
 }
@@ -178,7 +178,7 @@
 .crm-card__list li {
   position: relative;
   padding-left: 0.75rem;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
   line-height: 1.45;
   color: var(--color-fg-soft);
 }
@@ -275,12 +275,6 @@
 
 .crm-card--compact .crm-card__title {
   font-size: clamp(1.15rem, 2vw, 1.45rem);
-}
-
-.crm-card--compact .crm-card__lead,
-.crm-card--compact .crm-card__list li {
-  font-size: 0.9rem;
-  line-height: 1.4;
 }
 
 .crm-card--compact .crm-card__list,
