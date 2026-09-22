@@ -81,6 +81,16 @@
   );
 }
 
+.crm-hero__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--step-1);
+  font-weight: 450;
+  line-height: 1.55;
+  color: color-mix(in oklab, var(--crm-hero-fg) 88%, transparent);
+  max-width: 28rem;
+}
+
 .crm-hero__lead {
   margin: 0;
   font-family: var(--font-body);
@@ -274,6 +284,7 @@
   }
 
   .crm-hero__title,
+  .crm-hero__text,
   .crm-hero__lead,
   .crm-hero__form,
   .crm-hero__done {
