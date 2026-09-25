@@ -5,6 +5,7 @@ const orderSuccess = document.getElementById('orderSuccess');
 const orderPhone = document.getElementById('orderPhone');
 const orderModalTitle = document.getElementById('orderModalTitle');
 const orderFormError = document.getElementById('orderFormError');
+const orderDeal = document.querySelector('.crm-order-deal');
 let orderModalFocus = null;
 let orderModalScrollY = 0;
 let orderLeadSource = 'crm-order';
@@ -172,9 +173,9 @@ function initCrmHeroEstimate() {
 
     try {
       await window.sendCrmLead({
-        name: 'Расчёт стоимости',
+        name: 'Получить бесплатно',
         phone: phone.value,
-        source: 'hero-estimate',
+        source: 'hero-free',
       });
 
       if (typeof window.ym === 'function') {
@@ -263,6 +264,10 @@ function openOrderModal(trigger) {
   orderLeadSource =
     (trigger && trigger.getAttribute && trigger.getAttribute('data-order-source')) ||
     'crm-order';
+
+  if (orderDeal) {
+    orderDeal.hidden = trigger?.getAttribute?.('data-order-deal') === 'off';
+  }
 
   showOrderForm();
 

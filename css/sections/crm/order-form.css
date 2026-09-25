@@ -46,6 +46,10 @@
   background: var(--color-accent);
 }
 
+.crm-order-deal[hidden] {
+  display: none !important;
+}
+
 .crm-order-deal__text {
   margin: 0;
   max-width: none;

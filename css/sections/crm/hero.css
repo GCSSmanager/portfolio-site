@@ -84,21 +84,11 @@
 .crm-hero__text {
   margin: 0;
   font-family: var(--font-body);
-  font-size: var(--step-1);
-  font-weight: 450;
-  line-height: 1.55;
-  color: color-mix(in oklab, var(--crm-hero-fg) 88%, transparent);
-  max-width: 28rem;
-}
-
-.crm-hero__lead {
-  margin: 0;
-  font-family: var(--font-body);
   font-size: var(--step-2);
   font-weight: 450;
   line-height: 1.45;
   color: color-mix(in oklab, var(--crm-hero-fg) 92%, transparent);
-  max-width: 28rem;
+  max-width: 32rem;
 }
 
 .crm-hero__form {
@@ -166,7 +156,7 @@
 
 .crm-hero__btn {
   position: relative;
-  min-width: 10rem;
+  min-width: 12.5rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   overflow: visible;
@@ -186,25 +176,6 @@
   pointer-events: none;
   filter: none;
   animation: none;
-}
-
-.crm-hero__deal {
-  position: absolute;
-  top: -0.65rem;
-  right: -0.6rem;
-  z-index: 1;
-  padding: 0.28rem 0.58rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  text-transform: none;
-  color: #faf6f1;
-  background: #b25a2e;
-  box-shadow: 0 0.25rem 0.65rem color-mix(in oklab, #b25a2e 38%, transparent);
-  pointer-events: none;
-  user-select: none;
 }
 
 .crm-hero__perks {
@@ -285,7 +256,6 @@
 
   .crm-hero__title,
   .crm-hero__text,
-  .crm-hero__lead,
   .crm-hero__form,
   .crm-hero__done {
     max-width: none;

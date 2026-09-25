@@ -1,0 +1,201 @@
+/* CRM — free package, under hero */
+
+.crm-kit {
+  background: #ece8dc;
+}
+
+.crm-kit__head {
+  max-width: 38rem;
+  margin-bottom: var(--space-6);
+}
+
+.crm-kit__head .section__lead {
+  font-size: var(--step-1);
+  color: var(--color-fg);
+}
+
+.crm-kit__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.crm-kit__item {
+  --kit-accent: #4a5c50;
+  --kit-soft: color-mix(in oklab, var(--kit-accent) 14%, var(--color-bg));
+
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  min-width: 0;
+  padding: 1.15rem 1.15rem 1.25rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--kit-accent) 22%, var(--color-line));
+  border-radius: var(--radius-l);
+  background: var(--color-bg-elevated);
+  box-shadow: 0 0.45rem 1.2rem color-mix(in oklab, var(--kit-accent) 12%, transparent);
+  color: var(--color-fg);
+}
+
+.crm-kit__item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 0 0 4rem 0;
+  background: var(--kit-soft);
+  pointer-events: none;
+}
+
+.crm-kit__item--rose { --kit-accent: #7a4550; }
+.crm-kit__item--green { --kit-accent: #3d6a52; }
+.crm-kit__item--blue { --kit-accent: #3f6174; }
+.crm-kit__item--terra { --kit-accent: #b25a2e; }
+
+.crm-kit__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.crm-kit__icon {
+  flex: 0 0 auto;
+  width: 2.55rem;
+  height: 2.55rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.85rem;
+  color: #fff;
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklab, var(--kit-accent) 72%, white),
+    var(--kit-accent)
+  );
+  box-shadow: 0 0.3rem 0.75rem color-mix(in oklab, var(--kit-accent) 22%, transparent);
+}
+
+.crm-kit__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.crm-kit__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.crm-kit__text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 42ch;
+  font-size: var(--step-0);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-fg-soft);
+}
+
+.crm-kit__action {
+  margin-top: clamp(1.35rem, 2.8vw, 2rem);
+}
+
+.crm-kit__action .btn {
+  min-height: 3.65rem;
+  padding: 1.05rem 2rem;
+  font-size: var(--step-1);
+  font-weight: 650;
+}
+
+@media (min-width: 36rem) {
+  .crm-kit__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 52.01rem) {
+  .crm-kit__stage {
+    /* координаты карточек: top / left в rem от левого верхнего края */
+    --kit-card-h: 8.5rem;
+    --kit-rose-top: 0rem;
+    --kit-rose-left: 2.9rem;
+    --kit-green-top: 1.8rem;
+    --kit-green-left: 27.8rem;
+    --kit-blue-top: 18.9rem;
+    --kit-blue-left: 25rem;
+    --kit-terra-top: 16.8rem;
+    --kit-terra-left: 0rem;
+
+    position: relative;
+    width: min(48rem, 100%);
+    height: calc(
+      max(
+        var(--kit-rose-top),
+        var(--kit-green-top),
+        var(--kit-blue-top),
+        var(--kit-terra-top)
+      ) + var(--kit-card-h)
+    );
+    margin-inline: auto;
+  }
+
+  .crm-kit__grid {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .crm-kit__item {
+    position: absolute;
+    width: min(16rem, 46%);
+  }
+
+  .crm-kit__item--rose {
+    top: var(--kit-rose-top);
+    left: var(--kit-rose-left);
+  }
+
+  .crm-kit__item--green {
+    top: var(--kit-green-top);
+    left: var(--kit-green-left);
+  }
+
+  .crm-kit__item--blue {
+    top: var(--kit-blue-top);
+    left: var(--kit-blue-left);
+  }
+
+  .crm-kit__item--terra {
+    top: var(--kit-terra-top);
+    left: var(--kit-terra-left);
+  }
+
+  .crm-kit__text {
+    max-width: 26ch;
+  }
+
+  .crm-kit__action {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .crm-kit__action .btn {
+    pointer-events: auto;
+  }
+}
