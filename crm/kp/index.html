@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор КП — ГКСС</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../css/sections/crm/kp.css">
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+</head>
+<body class="kp-page">
+  <header class="kp-bar">
+    <div class="kp-bar__brand">
+      <img class="kp-bar__logo" src="../../assets/gcss-logo.webp" alt="" width="36" height="36">
+      <div>
+        <p class="kp-bar__title">Коммерческое предложение</p>
+        <p class="kp-bar__hint">Заполните поля — справа лист, из него PDF</p>
+      </div>
+    </div>
+    <button class="btn btn--primary btn--lure-light" type="button" data-kp-print>Скачать PDF</button>
+  </header>
+
+  <main class="kp-work">
+    <form class="kp-editor" data-kp-form>
+      <label class="kp-field">
+        <span class="kp-field__label">Заказчик</span>
+        <input class="kp-field__ctrl" data-f="client" type="text" placeholder="Компания или имя">
+      </label>
+
+      <label class="kp-field">
+        <span class="kp-field__label">Дата</span>
+        <input class="kp-field__ctrl" data-kp-date-input type="date">
+      </label>
+
+      <label class="kp-field">
+        <span class="kp-field__label">Название</span>
+        <input class="kp-field__ctrl" data-f="title" type="text" placeholder="Сайт с CRM">
+      </label>
+
+      <label class="kp-field">
+        <span class="kp-field__label">Кратко</span>
+        <textarea class="kp-field__ctrl" data-f="lead" rows="3" placeholder="Что получает заказчик на этом этапе"></textarea>
+      </label>
+
+      <label class="kp-field">
+        <span class="kp-field__label">Условия</span>
+        <textarea class="kp-field__ctrl" data-f="terms" rows="2" placeholder="Каждое условие с новой строки"></textarea>
+      </label>
+
+      <div class="kp-stages">
+        <div class="kp-stages__head">
+          <span class="kp-field__label">Этапы</span>
+          <span class="kp-days-sum" data-kp-days-sum></span>
+          <button class="kp-add" type="button" data-kp-add>Добавить этап</button>
+        </div>
+        <div class="kp-stages-list" data-kp-rows>
+          <article class="kp-stage">
+            <textarea class="kp-field__ctrl" data-f="scope" rows="2" placeholder="Состав"></textarea>
+            <div class="kp-stage__row">
+              <input class="kp-field__ctrl" data-f="name" placeholder="Этап">
+              <input class="kp-field__ctrl kp-field__ctrl--days" data-f="days" inputmode="numeric" placeholder="Дни" aria-label="Дни">
+              <input class="kp-field__ctrl kp-field__ctrl--price" data-f="price" inputmode="numeric" placeholder="Цена" aria-label="Цена">
+              <button class="kp-row-del" type="button" data-kp-remove aria-label="Удалить этап">×</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <label class="kp-field">
+        <span class="kp-field__label">Примечания</span>
+        <textarea class="kp-field__ctrl" data-f="notes" rows="3" placeholder="Необязательно"></textarea>
+      </label>
+    </form>
+
+    <section class="kp-preview" aria-label="Лист КП">
+      <article class="kp-sheet" data-kp-sheet>
+        <header class="kp-head">
+          <div class="kp-brand">
+            <img class="kp-brand__logo" src="../../assets/gcss-logo.webp" alt="" width="56" height="56">
+            <div>
+              <p class="kp-brand__name">ГКСС</p>
+              <p class="kp-brand__note">Гибкие корпоративные системы и сервисы</p>
+            </div>
+          </div>
+          <div class="kp-meta">
+            <p class="kp-meta__label">Коммерческое предложение</p>
+            <p class="kp-meta__date" data-kp-date></p>
+            <p class="kp-meta__client" data-kp-client hidden></p>
+          </div>
+        </header>
+
+        <h1 class="kp-title" data-kp-title hidden></h1>
+        <p class="kp-lead" data-kp-lead hidden></p>
+
+        <ul class="kp-terms" data-kp-terms></ul>
+
+        <table class="kp-table">
+          <thead>
+            <tr>
+              <th>Этап</th>
+              <th>Состав</th>
+              <th>Дни</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody data-kp-body></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="2">Итого</th>
+              <td data-kp-total-time></td>
+              <td data-kp-total-price></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <section class="kp-notes" data-kp-notes hidden></section>
+      </article>
+    </section>
+  </main>
+
+  <script src="../../js/crm-kp.js"></script>
+</body>
+</html>
