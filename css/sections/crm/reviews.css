@@ -32,7 +32,7 @@
 .crm-review {
   grid-area: 1 / 1;
   display: grid;
-  grid-template-columns: minmax(18rem, 24rem) minmax(0, 1.1fr) minmax(14rem, 1fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) minmax(0, 1fr);
   gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: center;
 }
@@ -43,7 +43,9 @@
 }
 
 .crm-review__letter {
-  width: min(100%, 20rem);
+  width: 100%;
+  max-width: 20rem;
+  justify-self: end;
 }
 
 .crm-review__scan {
@@ -155,7 +157,7 @@
 
 @media (max-width: 56rem) {
   .crm-review {
-    grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
     grid-template-areas:
       "letter shot"
       "copy copy";
