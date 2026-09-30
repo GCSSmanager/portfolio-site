@@ -1,7 +1,7 @@
     <section class="crm-hero" aria-label="{{ heroTitle | default("Бесплатная CRM-система с установкой") }}">
       <img
         class="crm-hero__bg"
-        src="../assets/crm-hero.webp"
+        src="/assets/crm-hero.webp"
         alt=""
         width="3840"
         height="2160"
@@ -12,10 +12,15 @@
         <div class="crm-hero__copy reveal">
           <h1 class="crm-hero__title">{{ heroTitle | default("Бесплатная CRM-система с установкой") }}</h1>
           <div class="crm-hero__rule" aria-hidden="true"></div>
-          <p class="crm-hero__text">
-            {{ heroText | default("CRM — это программа, где заявки, клиенты и продажи ведутся в одном месте, а не в таблицах и мессенджерах.") }}
-          </p>
-          <form class="crm-hero__form" data-hero-estimate>
+          <div class="crm-hero__texts">
+            <p class="crm-hero__text">
+              {{ heroText | default("CRM — это программа, где заявки, клиенты и продажи ведутся в одном месте, а не в таблицах и мессенджерах.") }}
+            </p>
+            {% if heroMore %}
+            <p class="crm-hero__text">{{ heroMore }}</p>
+            {% endif %}
+          </div>
+          <form class="crm-hero__form" data-hero-estimate{% if dealAlways %} data-lead-name="Скидка 10%" data-lead-source="hero-deal"{% endif %}>
             <label class="visually-hidden" for="heroPhone">Телефон</label>
             <input
               class="crm-hero__phone"
@@ -29,6 +34,7 @@
             >
             <button class="btn btn--primary btn--lure-light crm-hero__btn" type="submit" disabled>
               {{ heroCta | default("Получить бесплатно") }}
+              {% if dealAlways %}<span class="crm-card__deal" aria-hidden="true">−10%</span>{% endif %}
             </button>
             <p class="crm-hero__form-error" data-hero-estimate-error hidden></p>
           </form>

@@ -11,6 +11,11 @@
   align-items: stretch;
 }
 
+.crm-cards--single {
+  grid-template-columns: minmax(0, 40rem);
+  justify-content: center;
+}
+
 .crm-card {
   --crm-card-inset: var(--space-4);
 

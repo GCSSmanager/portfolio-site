@@ -87,6 +87,14 @@
   }
 }
 
+.crm-guide--plain .crm-guide__deal-bg {
+  display: none;
+}
+
+.crm-guide--plain .crm-guide__action {
+  padding: 0;
+}
+
 .crm-guide__list {
   display: grid;
   gap: .55rem;

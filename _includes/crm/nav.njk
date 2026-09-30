@@ -1,13 +1,33 @@
   <header class="nav nav--crm" id="crmNav">
     <div class="container nav__inner">
       <a class="brand-lockup nav__brand" href="./" aria-label="ГКСС — Гибкие корпоративные системы и сервисы">
-        <img class="brand-lockup__mark" src="../assets/gcss-logo.webp" alt="" width="64" height="64" decoding="async">
+        <img class="brand-lockup__mark" src="/assets/gcss-logo.webp" alt="" width="64" height="64" decoding="async">
         <span class="brand-lockup__text">
           <span class="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
         </span>
       </a>
 
       <nav class="nav__menu" id="crmNavMenu" aria-label="Разделы">
+        {% if solutionsMenu %}
+        <div class="nav__switch">
+          <button class="nav__link" type="button" aria-expanded="false" aria-controls="navSolutions" data-solutions-toggle>
+            <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/>
+              <rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/>
+              <rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/>
+              <rect x="13.5" y="13.5" width="7" height="7" rx="1.4"/>
+            </svg>
+            <span class="nav__link-text">Решения</span>
+            <svg class="nav__switch-caret" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M3.5 6 8 10.5 12.5 6"/>
+            </svg>
+          </button>
+          <div class="nav__switch-panel" id="navSolutions">
+            <a class="nav__switch-link{% if solution == "custom" %} is-current{% endif %}" href="/crm/custom/">Индивидуальная под ключ</a>
+            <a class="nav__switch-link{% if solution == "free" %} is-current{% endif %}" href="/crm/free/">Бесплатная</a>
+          </div>
+        </div>
+        {% elif showTariffs | default(true) %}
         <a class="nav__link" href="#tariffs" aria-label="Решения">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/>
@@ -17,12 +37,16 @@
           </svg>
           <span class="nav__link-text">Решения</span>
         </a>
+        {% endif %}
+        {% if showReviews | default(true) %}
         <a class="nav__link" href="#reviews" aria-label="Отзывы">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <path d="M5 6.5h14v9H9l-4 3v-12z"/>
           </svg>
           <span class="nav__link-text">Отзывы</span>
         </a>
+        {% endif %}
+        {% if showCases | default(true) %}
         <a class="nav__link" href="#cases" aria-label="Кейсы">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <path d="M4.5 9.5h15v9.5h-15z"/>
@@ -31,6 +55,8 @@
           </svg>
           <span class="nav__link-text">Кейсы</span>
         </a>
+        {% endif %}
+        {% if showPricing | default(true) %}
         <a class="nav__link" href="#pricing" aria-label="Цены">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <path d="M12 4.5v15"/>
@@ -38,6 +64,8 @@
           </svg>
           <span class="nav__link-text">Цены</span>
         </a>
+        {% endif %}
+        {% if showGuide | default(true) %}
         <a class="nav__link" href="#guide" aria-label="Вопросы">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <circle cx="12" cy="12" r="8"/>
@@ -46,6 +74,7 @@
           </svg>
           <span class="nav__link-text">Вопросы</span>
         </a>
+        {% endif %}
         <a class="nav__link" href="#contacts" aria-label="Контакты">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <path d="M12 21s-6.5-5.2-6.5-10.2A6.5 6.5 0 0 1 12 4.3a6.5 6.5 0 0 1 6.5 6.5C18.5 15.8 12 21 12 21z"/>
@@ -62,8 +91,9 @@
         <a class="nav__contact nav__contact--bar" href="tel:+79963463049" data-phone-link>
           <span data-phone-display>+7 (996) 346-30-49</span>
         </a>
-        <button class="btn btn--primary btn--lure-light nav__cta" type="button" data-order-open data-order-source="nav-order" data-order-deal="off">
+        <button class="btn btn--primary btn--lure-light nav__cta" type="button" data-order-open data-order-source="nav-order"{% if not dealAlways %} data-order-deal="off"{% endif %}>
           Заказать
+          {% if dealAlways %}<span class="crm-card__deal" aria-hidden="true">−10%</span>{% endif %}
         </button>
         <button
           class="nav__burger"

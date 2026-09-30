@@ -6,6 +6,7 @@
         </div>
 
         <div class="crm-cases__list">
+          {% if not caseKeys or "flower" in caseKeys %}
           <article class="crm-case crm-case--flower">
             <div class="crm-case__top">
               <div class="crm-case__icon" aria-hidden="true">
@@ -42,7 +43,9 @@
               </li>
             </ul>
           </article>
+          {% endif %}
 
+          {% if not caseKeys or "pest" in caseKeys %}
           <article class="crm-case crm-case--pest">
             <div class="crm-case__top">
               <div class="crm-case__icon" aria-hidden="true">
@@ -77,7 +80,9 @@
               </li>
             </ul>
           </article>
+          {% endif %}
 
+          {% if not caseKeys or "clinic" in caseKeys %}
           <article class="crm-case crm-case--clinic">
             <div class="crm-case__top">
               <div class="crm-case__icon" aria-hidden="true">
@@ -106,6 +111,7 @@
               </li>
             </ul>
           </article>
+          {% endif %}
         </div>
       </div>
     </section>

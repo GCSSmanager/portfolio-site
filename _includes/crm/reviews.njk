@@ -7,11 +7,12 @@
 
         <div class="crm-reviews__carousel" data-reviews>
           <div class="crm-reviews__viewport">
+            {% if not reviewKeys or "abris" in reviewKeys %}
             <article class="crm-review is-active" data-review>
               <div class="crm-review__letter">
                 <img
                   class="crm-review__scan"
-                  src="../assets/review-letter-abris.webp"
+                  src="/assets/review-letter-abris.webp"
                   alt="Благодарственное письмо ООО «Абрис»"
                   width="864"
                   height="1152"
@@ -19,7 +20,7 @@
               </div>
               <div class="crm-review__shot">
                 <img
-                  src="../data/pest-crm/thumbnail.webp"
+                  src="/data/pest-crm/thumbnail.webp"
                   alt=""
                   width="800"
                   height="600"
@@ -31,12 +32,14 @@
                 <p>Быстрее обработка обращений, прозрачная загрузка бригад, контроль рекламы и понятная картина по деньгам.</p>
               </div>
             </article>
+            {% endif %}
 
+            {% if not reviewKeys or "praktika" in reviewKeys %}
             <article class="crm-review" data-review>
               <div class="crm-review__letter">
                 <img
                   class="crm-review__scan"
-                  src="../assets/review-letter-praktika.webp"
+                  src="/assets/review-letter-praktika.webp"
                   alt="Благодарственное письмо ЛДЦ «Практика»"
                   width="864"
                   height="1152"
@@ -44,7 +47,7 @@
               </div>
               <div class="crm-review__shot">
                 <img
-                  src="../data/clinic-crm/thumbnail.webp"
+                  src="/data/clinic-crm/thumbnail.webp"
                   alt=""
                   width="800"
                   height="600"
@@ -56,12 +59,14 @@
                 <p>Быстрее запись, меньше накладок по времени и кабинетам, спокойный контроль дня.</p>
               </div>
             </article>
+            {% endif %}
 
+            {% if not reviewKeys or "kamelia" in reviewKeys %}
             <article class="crm-review" data-review>
               <div class="crm-review__letter">
                 <img
                   class="crm-review__scan"
-                  src="../assets/review-letter-kamelia.webp"
+                  src="/assets/review-letter-kamelia.webp"
                   alt="Благодарственное письмо ООО «Камелия»"
                   width="864"
                   height="1152"
@@ -69,7 +74,7 @@
               </div>
               <div class="crm-review__shot">
                 <img
-                  src="../data/flower-crm/thumbnail.webp"
+                  src="/data/flower-crm/thumbnail.webp"
                   alt=""
                   width="800"
                   height="600"
@@ -81,12 +86,14 @@
                 <p>Склад совпадает с продажами, поставки принимаются по факту, владелец видит живую маржу и загрузку команды.</p>
               </div>
             </article>
+            {% endif %}
 
+            {% if not reviewKeys or "motorlab" in reviewKeys %}
             <article class="crm-review" data-review>
               <div class="crm-review__letter">
                 <img
                   class="crm-review__scan"
-                  src="../assets/review-letter-motorlab.webp"
+                  src="/assets/review-letter-motorlab.webp"
                   alt="Благодарственное письмо ООО «МоторЛаб»"
                   width="864"
                   height="1152"
@@ -94,7 +101,7 @@
               </div>
               <div class="crm-review__shot">
                 <img
-                  src="../data/motorlab-crm/thumbnail.webp"
+                  src="/data/motorlab-crm/thumbnail.webp"
                   alt=""
                   width="800"
                   height="600"
@@ -106,12 +113,14 @@
                 <p>Меньше простоев постов, понятная загрузка смены, склад совпадает с работами.</p>
               </div>
             </article>
+            {% endif %}
 
+            {% if not reviewKeys or "severkuhnya" in reviewKeys %}
             <article class="crm-review" data-review>
               <div class="crm-review__letter">
                 <img
                   class="crm-review__scan"
-                  src="../assets/review-letter-severkuhnya.webp"
+                  src="/assets/review-letter-severkuhnya.webp"
                   alt="Благодарственное письмо ООО «СеверКухня»"
                   width="864"
                   height="1152"
@@ -119,7 +128,7 @@
               </div>
               <div class="crm-review__shot">
                 <img
-                  src="../data/severkuhnya-crm/thumbnail.webp"
+                  src="/data/severkuhnya-crm/thumbnail.webp"
                   alt=""
                   width="800"
                   height="600"
@@ -131,12 +140,14 @@
                 <p>Меньше потерянных заказов, быстрее реакция на опоздания, спокойный пиковый час.</p>
               </div>
             </article>
+            {% endif %}
 
+            {% if not reviewKeys or "sila" in reviewKeys %}
             <article class="crm-review" data-review>
               <div class="crm-review__letter">
                 <img
                   class="crm-review__scan"
-                  src="../assets/review-letter-sila.webp"
+                  src="/assets/review-letter-sila.webp"
                   alt="Благодарственное письмо студии «Сила»"
                   width="864"
                   height="1152"
@@ -144,7 +155,7 @@
               </div>
               <div class="crm-review__shot">
                 <img
-                  src="../data/sila-crm/thumbnail.webp"
+                  src="/data/sila-crm/thumbnail.webp"
                   alt=""
                   width="800"
                   height="600"
@@ -156,6 +167,7 @@
                 <p>Прозрачная загрузка залов, меньше накладок по времени, клиенты записываются быстрее.</p>
               </div>
             </article>
+            {% endif %}
           </div>
 
           <div class="crm-reviews__controls">

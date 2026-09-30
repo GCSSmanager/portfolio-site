@@ -1,11 +1,12 @@
     <section class="crm-plans" id="tariffs" aria-labelledby="crm-plans-title">
       <div class="container">
         <div class="section__head">
-          <p class="section__eyebrow">Решения</p>
-          <h2 class="section__title" id="crm-plans-title">Какие бывают CRM?</h2>
+          <p class="section__eyebrow">{{ plansEyebrow | default("Решения") }}</p>
+          <h2 class="section__title" id="crm-plans-title">{{ plansTitle | default("Какие бывают CRM?") }}</h2>
         </div>
 
-        <div class="crm-cards">
+        <div class="crm-cards{% if planKeys and planKeys | length == 1 %} crm-cards--single{% endif %}">
+          {% if not planKeys or "ready" in planKeys %}
           <article class="crm-card crm-card--highlighted crm-card--compact">
             <header class="crm-card__head">
               <h3 class="crm-card__title">Популярные CRM-платформы</h3>
@@ -27,7 +28,9 @@
               <button class="btn btn--ghost btn--lure-dark crm-card__btn" type="button" data-order-open data-order-source="plan-ready-questions">Задать вопросы</button>
             </footer>
           </article>
+          {% endif %}
 
+          {% if not planKeys or "custom" in planKeys %}
           <article class="crm-card crm-card--featured">
             <header class="crm-card__head">
               <p class="crm-card__eyebrow">Рекомендуем</p>
@@ -50,7 +53,9 @@
               </button>
             </footer>
           </article>
+          {% endif %}
 
+          {% if not planKeys or "catalog" in planKeys %}
           <article class="crm-card crm-card--popular">
             <header class="crm-card__head">
               <p class="crm-card__eyebrow">Популярное</p>
@@ -77,8 +82,10 @@
               </button>
             </footer>
           </article>
+          {% endif %}
         </div>
 
+        {% if showPricing | default(true) %}
         <p class="crm-plans__pricing-link">
           <a href="#pricing">
             <span class="crm-plans__pricing-link-text">Подробнее о ценах</span>
@@ -87,5 +94,6 @@
             </svg>
           </a>
         </p>
+        {% endif %}
       </div>
     </section>

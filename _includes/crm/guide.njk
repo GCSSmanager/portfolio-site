@@ -1,4 +1,4 @@
-    <section class="crm-guide" id="guide" aria-labelledby="crm-guide-title">
+    <section class="crm-guide{% if faqVariant == "free" %} crm-guide--plain{% endif %}" id="guide" aria-labelledby="crm-guide-title">
       <div class="container">
         <div class="crm-guide__layout">
           <div class="crm-guide__intro">
@@ -15,7 +15,7 @@
             </div>
           </div>
 
-          <div class="crm-guide__list" data-guide-faq></div>
+          <div class="crm-guide__list" data-guide-faq{% if faqVariant %} data-faq-variant="{{ faqVariant }}"{% endif %}></div>
         </div>
       </div>
     </section>

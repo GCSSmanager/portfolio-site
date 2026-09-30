@@ -132,6 +132,10 @@ function initCrmAssistant() {
   let dismissed = false;
   const asked = new Set();
   let autoTimer = null;
+  const offerChips = ASSIST_CHIPS.map((item, index) => {
+    if (index !== 0 || !document.body.dataset.assistChip) return item;
+    return { q: document.body.dataset.assistChip };
+  });
 
   function scrollLog() {
     log.scrollTop = log.scrollHeight;
@@ -173,11 +177,11 @@ function initCrmAssistant() {
 
   function findChipIndex(text) {
     const normalized = normalizeAssistText(text);
-    return ASSIST_CHIPS.findIndex((item) => normalizeAssistText(item.q) === normalized);
+    return offerChips.findIndex((item) => normalizeAssistText(item.q) === normalized);
   }
 
   function resolveAssistReply(text, chipIndex = -1) {
-    const chip = chipIndex >= 0 ? ASSIST_CHIPS[chipIndex] : ASSIST_CHIPS[findChipIndex(text)];
+    const chip = chipIndex >= 0 ? offerChips[chipIndex] : offerChips[findChipIndex(text)];
     if (chip?.reply) return chip.reply;
     return findFaqAnswer(chip?.q || text)?.item.a || ASSIST_CONTACT_REPLY;
   }
@@ -341,7 +345,7 @@ function initCrmAssistant() {
     const chips = document.createElement('div');
     chips.className = 'crm-assist__chips';
 
-    ASSIST_CHIPS.forEach((item, index) => {
+    offerChips.forEach((item, index) => {
       const chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'crm-assist__chip';
@@ -410,9 +414,16 @@ function initCrmAssistant() {
   );
 }
 
+const FREE_FAQ_ANSWERS = {
+  'Кому нужна CRM?': 'Любому бизнесу, где заявки и клиенты пока в таблицах и мессенджерах: магазин, услуги, запись, выезды.',
+  'Сколько это стоит?': 'Сама программа бесплатная и подходит любому бизнесу. Запуск онлайн, из любого города.',
+};
+
 function renderGuideFaq() {
   const root = document.querySelector('[data-guide-faq]');
   if (!root) return;
+
+  const answers = root.dataset.faqVariant === 'free' ? FREE_FAQ_ANSWERS : null;
 
   root.replaceChildren();
 
@@ -426,7 +437,7 @@ function renderGuideFaq() {
 
     const answer = document.createElement('p');
     answer.className = 'crm-guide__a';
-    answer.textContent = item.a;
+    answer.textContent = answers?.[item.q] || item.a;
 
     details.append(summary, answer);
     root.append(details);

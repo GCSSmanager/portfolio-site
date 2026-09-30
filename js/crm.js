@@ -173,9 +173,9 @@ function initCrmHeroEstimate() {
 
     try {
       await window.sendCrmLead({
-        name: 'Получить бесплатно',
+        name: form.dataset.leadName || 'Получить бесплатно',
         phone: phone.value,
-        source: 'hero-free',
+        source: form.dataset.leadSource || 'hero-free',
       });
 
       if (typeof window.ym === 'function') {
@@ -435,6 +435,18 @@ function initCrmNav() {
   crmNav.querySelectorAll('.nav__link[href^="#"]').forEach((link) => {
     link.addEventListener('click', () => closeCrmNav());
   });
+
+  const solutionsToggle = crmNav.querySelector('[data-solutions-toggle]');
+  const solutionsRoot = crmNav.querySelector('.nav__switch');
+
+  if (solutionsToggle && solutionsRoot) {
+    solutionsToggle.addEventListener('click', () => {
+      if (!isCrmBurgerMode()) return;
+
+      const open = solutionsRoot.classList.toggle('is-open');
+      solutionsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
 }
 
 function initCrmReviews() {
