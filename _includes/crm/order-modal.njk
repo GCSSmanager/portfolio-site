@@ -1,0 +1,36 @@
+  <div class="modal modal--form" id="orderModal" hidden aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__panel modal__panel--form" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="modal__header">
+        <h2 class="modal__title" id="orderModalTitle">Оставить заявку</h2>
+        <button class="modal__close" type="button" tabindex="-1" aria-label="Закрыть" data-modal-close>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 3l10 10M13 3L3 13"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <div class="crm-order-form-block" id="orderFormBlock">
+          <div class="crm-order-deal">
+            <span class="crm-order-deal__badge">−10%</span>
+            <p class="crm-order-deal__text">Скидка при заказе с сайта — зафиксируем в заявке</p>
+          </div>
+          <form class="crm-order-form" id="orderForm">
+            <label class="crm-order-form__field">
+              <span class="crm-order-form__label">Имя</span>
+              <input class="crm-order-form__input" type="text" name="name" autocomplete="name" required>
+            </label>
+            <label class="crm-order-form__field">
+              <span class="crm-order-form__label">Телефон</span>
+              <input class="crm-order-form__input" type="tel" name="phone" id="orderPhone" autocomplete="tel" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
+            </label>
+            <p class="crm-order-form__error" id="orderFormError" hidden></p>
+            <button class="btn btn--primary crm-order-form__submit" type="submit">Отправить</button>
+          </form>
+        </div>
+        <div class="crm-order-success" id="orderSuccess" hidden>
+          <p class="crm-order-success__text">Спасибо! Мы свяжемся с вами в течение часа.</p>
+        </div>
+      </div>
+    </div>
+  </div>
