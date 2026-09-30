@@ -5,11 +5,11 @@
   background: var(--color-bg);
 }
 
-.crm-page :is(.crm-kit, .crm-plans, .crm-reviews, .crm-cases, .crm-pricing, .crm-guide, .crm-contacts) {
+.crm-page :is(.crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-pricing, .crm-guide, .crm-contacts) {
   padding-block: var(--space-8);
 }
 
-.crm-page :is(#tariffs, #reviews, #pricing, #cases, #guide, #contacts) {
+.crm-page :is(#tariffs, #integrations, #reviews, #pricing, #cases, #guide, #contacts) {
   scroll-margin-top: var(--header-h);
 }
 
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 56rem) {
-  .crm-page :is(.crm-kit, .crm-plans, .crm-reviews, .crm-cases, .crm-pricing, .crm-guide, .crm-contacts) {
+  .crm-page :is(.crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-pricing, .crm-guide, .crm-contacts) {
     padding-block: var(--space-7);
   }
 }

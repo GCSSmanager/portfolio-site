@@ -1,0 +1,270 @@
+/* CRM — integration routes */
+
+.crm-bridges {
+  background: #ece8dc;
+}
+
+.crm-bridges__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 22rem));
+  justify-content: center;
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+  margin: 0;
+  padding: 0;
+}
+
+.crm-bridge {
+  --bridge: #b25a2e;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  aspect-ratio: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0.9rem;
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-l);
+}
+
+.crm-bridge--chat { --bridge: #3f6174; }
+.crm-bridge--inbox { --bridge: #3d6a52; }
+.crm-bridge--pay { --bridge: #7a4550; }
+
+.crm-bridge__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 1.05rem + 0.8vw, 1.7rem);
+  line-height: 1.12;
+}
+
+.crm-bridges__close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: var(--space-6);
+}
+
+.crm-bridges__pitch {
+  margin: 0;
+  max-width: 42rem;
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+
+.crm-bridges__cta {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.crm-bridge__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr);
+  align-items: center;
+  gap: 0.65rem;
+  flex: 1;
+  padding: 0.85rem;
+  border-radius: calc(var(--radius-l) - 0.25rem);
+  background: linear-gradient(
+    155deg,
+    color-mix(in oklab, var(--bridge) 16%, #e4dfd2),
+    #e7e2d4 62%
+  );
+}
+
+.crm-bridge__from,
+.crm-bridge__to {
+  display: grid;
+  align-content: center;
+  gap: 0.4rem;
+  align-self: center;
+  width: 100%;
+  min-height: 7.25rem;
+  padding: 0.8rem 0.75rem;
+  border-radius: 0.85rem;
+  background: var(--color-bg-elevated);
+  box-shadow: 0 0.4rem 1rem color-mix(in oklab, var(--bridge) 18%, transparent);
+}
+
+.crm-bridge__kicker {
+  font-size: var(--step--1);
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bridge);
+}
+
+.crm-bridge__line,
+.crm-bridge__row {
+  display: block;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-fg) 12%, var(--color-bg));
+}
+
+.crm-bridge__line--short {
+  width: 62%;
+}
+
+.crm-bridge__arrow {
+  position: relative;
+  width: 1.7rem;
+  height: 1px;
+  background: var(--bridge);
+}
+
+.crm-bridge__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-top: 1.5px solid var(--bridge);
+  border-right: 1.5px solid var(--bridge);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.crm-bridge__to--card {
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "avatar lines"
+    "kicker kicker";
+  column-gap: 0.65rem;
+}
+
+.crm-bridge__avatar {
+  grid-area: avatar;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--bridge) 62%, var(--color-bg));
+}
+
+.crm-bridge__lines {
+  grid-area: lines;
+  display: grid;
+  gap: 0.35rem;
+  align-content: center;
+}
+
+.crm-bridge__to--card .crm-bridge__kicker {
+  grid-area: kicker;
+}
+
+.crm-bridge__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--bridge);
+  box-shadow: 0 0 0 0.28rem color-mix(in oklab, var(--bridge) 18%, transparent);
+}
+
+.crm-bridge__bubble {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: start;
+  padding: 0.7rem 0.8rem 0.75rem;
+  border-radius: 0.95rem 0.95rem 0.95rem 0.28rem;
+  background: var(--color-accent);
+  color: #f5f2ea;
+}
+
+.crm-bridge__bubble svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.crm-bridge__bubble .crm-bridge__line {
+  background: color-mix(in oklab, #f5f2ea 38%, transparent);
+}
+
+.crm-bridge__from--pair {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+.crm-bridge__chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 0;
+  padding: 0.35rem 0.25rem;
+  border-radius: 0.65rem;
+  background: color-mix(in oklab, var(--bridge) 10%, var(--color-bg));
+  font-size: var(--step--1);
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bridge);
+}
+
+.crm-bridge__win,
+.crm-bridge__handset {
+  width: 1.35rem;
+  height: 1.05rem;
+  border: 1.5px solid var(--bridge);
+  border-radius: 0.2rem;
+}
+
+.crm-bridge__handset {
+  width: 0.85rem;
+  height: 1.35rem;
+  border-radius: 0.28rem;
+}
+
+.crm-bridge__to--list {
+  align-content: center;
+}
+
+.crm-bridge__row {
+  height: 0.55rem;
+  background: color-mix(in oklab, var(--bridge) 22%, var(--color-bg));
+}
+
+.crm-bridge__row:first-child {
+  background: color-mix(in oklab, var(--bridge) 55%, var(--color-bg));
+}
+
+.crm-bridge__pay {
+  height: 2.35rem;
+  border-radius: 0.45rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--bridge) 78%, white),
+    var(--bridge)
+  );
+}
+
+.crm-bridge__sheet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.28rem;
+}
+
+.crm-bridge__sheet span {
+  height: 0.7rem;
+  border-radius: 0.15rem;
+  background: color-mix(in oklab, var(--color-fg) 10%, var(--color-bg));
+}
+
+.crm-bridge__sheet span:nth-child(-n + 3) {
+  background: color-mix(in oklab, var(--bridge) 50%, var(--color-bg));
+}
+
+@media (max-width: 42rem) {
+  .crm-bridges__list {
+    grid-template-columns: minmax(0, 22rem);
+  }
+
+  .crm-bridge__stage {
+    min-height: 8.5rem;
+  }
+
+  .crm-bridges__close {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
