@@ -1,4 +1,4 @@
-    <section class="crm-hero" aria-label="{{ heroTitle | default("Бесплатная CRM-система с установкой") }}">
+    <section class="crm-hero" aria-label="{% if heroMark %}{{ heroTitle }} {{ heroMark }}{% elif heroTitle %}{{ heroTitle }}{% else %}Бесплатная CRM-система с установкой{% endif %}">
       <img
         class="crm-hero__bg"
         src="/assets/crm-hero.webp"
@@ -10,7 +10,16 @@
       <div class="crm-hero__scrim" aria-hidden="true"></div>
       <div class="container crm-hero__inner">
         <div class="crm-hero__copy reveal">
-          <h1 class="crm-hero__title">{{ heroTitle | default("Бесплатная CRM-система с установкой") }}</h1>
+          <h1 class="crm-hero__title">
+            {% if heroMark %}
+            {{ heroTitle }}<br>
+            <span class="crm-hero__mark">{{ heroMark }}</span>
+            {% elif heroTitle %}
+            {{ heroTitle }}
+            {% else %}
+            <span class="crm-hero__mark">Бесплатная</span> CRM-система с установкой
+            {% endif %}
+          </h1>
           <div class="crm-hero__rule" aria-hidden="true"></div>
           <div class="crm-hero__texts">
             <p class="crm-hero__text">
