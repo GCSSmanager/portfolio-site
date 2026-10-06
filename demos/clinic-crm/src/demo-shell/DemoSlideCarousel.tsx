@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import type { DemoMediaSlot, DemoTipSlide } from "./types";
 import { DemoMediaFrame } from "./DemoMediaFrame";
 

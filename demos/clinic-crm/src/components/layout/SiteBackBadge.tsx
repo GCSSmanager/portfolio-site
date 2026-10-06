@@ -6,7 +6,7 @@ import { siteBackHref } from "../../demo/site";
 const CTA_DELAY_MS = 10_000;
 
 interface Props {
-  onDiscuss: () => void;
+  onDiscuss?: () => void;
 }
 
 /** Плашка с логотипом справа снизу — меню демо + кнопка «Обсудить внедрение». */
@@ -17,9 +17,10 @@ export function SiteBackBadge({ onDiscuss }: Props) {
   const shell = useDemoShellOptional();
 
   useEffect(() => {
+    if (!onDiscuss) return;
     const timer = window.setTimeout(() => setCtaVisible(true), CTA_DELAY_MS);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [onDiscuss]);
 
   useEffect(() => {
     if (!open) return;
@@ -54,20 +55,24 @@ export function SiteBackBadge({ onDiscuss }: Props) {
     >
       {open && (
         <div className="w-64 overflow-hidden rounded-2xl border border-line bg-panel shadow-card backdrop-blur-md">
-          <button
-            type="button"
-            className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium text-ink transition-colors hover:bg-surface"
-            onClick={() => {
-              setOpen(false);
-              onDiscuss();
-            }}
-          >
-            <span>Обсудить внедрение</span>
-            <span className="shrink-0 rounded-md bg-brand px-1.5 py-0.5 text-[11px] font-semibold text-white">
-              −10%
-            </span>
-          </button>
-          <div className="border-t border-line" />
+          {onDiscuss && (
+            <>
+              <button
+                type="button"
+                className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium text-ink transition-colors hover:bg-surface"
+                onClick={() => {
+                  setOpen(false);
+                  onDiscuss();
+                }}
+              >
+                <span>Обсудить внедрение</span>
+                <span className="shrink-0 rounded-md bg-brand px-1.5 py-0.5 text-[11px] font-semibold text-white">
+                  −10%
+                </span>
+              </button>
+              <div className="border-t border-line" />
+            </>
+          )}
           {shell && (
             <>
               {shell.hasPageTip && (
@@ -113,7 +118,7 @@ export function SiteBackBadge({ onDiscuss }: Props) {
         </div>
       )}
 
-      {ctaVisible && !open && (
+      {onDiscuss && ctaVisible && !open && (
         <button
           type="button"
           className="flex max-w-[calc(100vw-2rem)] items-center gap-2 rounded-2xl border border-brand-soft bg-panel/95 px-3.5 py-2.5 text-sm font-medium text-ink shadow-card backdrop-blur-md transition-colors hover:border-brand hover:bg-brand-light/50"
