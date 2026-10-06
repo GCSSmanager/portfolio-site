@@ -23,7 +23,7 @@ export function PhoneRuInput({ value, onChange, className = "", ...props }: Prop
       maxLength={18}
       data-phone-ru
       placeholder="+7 (___) ___-__-__"
-      className={className}
+      className={`ym-record-keys ${className}`}
       value={value}
       onFocus={() => onChange(phoneRuOnFocus(value))}
       onBlur={() => onChange(phoneRuOnBlur(value))}
