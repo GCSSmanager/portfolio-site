@@ -10,6 +10,8 @@ export default function (eleventyConfig) {
 
   eleventyConfig.ignores.add("workers/**");
   eleventyConfig.ignores.add("convert.py");
+  eleventyConfig.ignores.add("demos/**");
+  eleventyConfig.ignores.add("mgcrCRM/**");
 
   return {
     dir: {

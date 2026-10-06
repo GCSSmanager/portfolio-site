@@ -3,8 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "eleventy",
-    "dev": "eleventy --serve"
+    "build": "eleventy && npm run build:clinic",
+    "build:clinic": "npm ci --prefix demos/clinic-crm && npm run build --prefix demos/clinic-crm",
+    "dev": "eleventy --serve",
+    "dev:clinic": "npm run dev --prefix demos/clinic-crm",
+    "preview": "npm run build && npx --yes serve _site -p 8080"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
