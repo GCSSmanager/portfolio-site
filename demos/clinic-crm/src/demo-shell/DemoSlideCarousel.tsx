@@ -13,8 +13,8 @@ export function DemoSlideCarousel({ slides, index }: Props) {
   if (!slide) return null;
 
   return (
-    <div className="space-y-2.5">
-      <h2 className="text-base font-bold tracking-tight text-ink sm:text-lg">{slide.headline}</h2>
+    <div className="space-y-2">
+      <h2 className="text-sm font-bold leading-snug tracking-tight text-ink sm:text-base">{slide.headline}</h2>
       <DemoMediaFrame media={slide.media ?? placeholderMedia()} />
     </div>
   );

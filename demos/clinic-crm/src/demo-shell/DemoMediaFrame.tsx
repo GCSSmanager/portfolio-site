@@ -6,18 +6,18 @@ function mediaUrl(src: string) {
   return `${base}${src.replace(/^\//, "")}`;
 }
 
-/** Фиксированный кадр под gif — без скачка размера, пока картинка грузится. */
+/** Кадр 16:9 от ширины модалки — высота растёт вместе с шириной. */
 export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
   if (!media || media.kind === "none") return null;
 
-  const stageClass =
-    "relative aspect-[16/9] w-full overflow-hidden rounded-md border border-line bg-ink/[0.04]";
+  const stage =
+    "relative aspect-video w-full overflow-hidden rounded-md border border-line bg-ink/[0.04]";
   const mediaClass = "absolute inset-0 h-full w-full object-contain";
 
   if (media.kind === "gif" || media.kind === "image") {
     return (
       <figure className="m-0 w-full">
-        <div className={stageClass}>
+        <div className={stage}>
           <img
             src={mediaUrl(media.src)}
             alt={media.alt ?? ""}
@@ -26,7 +26,7 @@ export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
           />
         </div>
         {media.caption ? (
-          <figcaption className="mt-2 text-center text-xs text-ink-muted">{media.caption}</figcaption>
+          <figcaption className="mt-1.5 text-center text-xs text-ink-muted">{media.caption}</figcaption>
         ) : null}
       </figure>
     );
@@ -35,7 +35,7 @@ export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
   if (media.kind === "video") {
     return (
       <figure className="m-0 w-full">
-        <div className={stageClass}>
+        <div className={stage}>
           <video
             className={mediaClass}
             src={mediaUrl(media.src)}
@@ -46,7 +46,7 @@ export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
           />
         </div>
         {media.caption ? (
-          <figcaption className="mt-2 text-center text-xs text-ink-muted">{media.caption}</figcaption>
+          <figcaption className="mt-1.5 text-center text-xs text-ink-muted">{media.caption}</figcaption>
         ) : null}
       </figure>
     );
@@ -55,7 +55,7 @@ export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
   if (media.kind === "iframe") {
     return (
       <figure className="m-0 w-full">
-        <div className={stageClass}>
+        <div className={stage}>
           <iframe
             className="h-full w-full"
             src={media.src}
@@ -65,7 +65,7 @@ export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
           />
         </div>
         {media.caption ? (
-          <figcaption className="mt-2 text-center text-xs text-ink-muted">{media.caption}</figcaption>
+          <figcaption className="mt-1.5 text-center text-xs text-ink-muted">{media.caption}</figcaption>
         ) : null}
       </figure>
     );
@@ -73,7 +73,7 @@ export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
 
   return (
     <figure className="m-0 w-full">
-      <div className={`${stageClass} flex items-center justify-center border-dashed bg-surface px-6 text-center`}>
+      <div className={`${stage} flex items-center justify-center border-dashed bg-surface px-4 text-center`}>
         <div className="max-w-xs space-y-1">
           <div className="text-sm font-medium text-ink">Gif скоро</div>
           <p className="text-xs leading-relaxed text-ink-muted">

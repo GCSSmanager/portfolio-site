@@ -17,7 +17,7 @@ interface Props {
   onClose: () => void;
 }
 
-/** Оверлей стабильный между подсказками; диалог меняется по tipId без мигания фона. */
+/** Подсказка: ширина ~70% экрана, потолок 56rem; без внутреннего скролла. */
 export function DemoTipModal({
   open,
   tipId,
@@ -80,7 +80,7 @@ export function DemoTipModal({
   const next = () => setSlideIndex((value) => (value + 1) % slideCount);
 
   return createPortal(
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-5">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-2">
       <button
         type="button"
         className="absolute inset-0 bg-ink/80 backdrop-blur-xl [transform:translateZ(0)]"
@@ -92,40 +92,29 @@ export function DemoTipModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="demo-tip-title"
-        className={`relative z-10 flex max-h-[calc(100dvh-1.5rem)] flex-col overflow-hidden rounded-xl border border-line bg-panel shadow-card sm:rounded-2xl ${
-          hasSlides
-            ? "w-[min(80rem,calc(100vw-1.5rem))]"
-            : "w-full max-w-3xl"
+        className={`relative z-10 overflow-hidden rounded-xl border border-line bg-panel shadow-card sm:rounded-2xl ${
+          hasSlides ? "w-[min(94vw,64rem)]" : "w-[min(94vw,40rem)]"
         }`}
         onClick={(event) => event.stopPropagation()}
       >
-        <div className={`shrink-0 ${hasSlides ? "px-4 pt-3 sm:px-5 sm:pt-4" : "px-6 pt-5 sm:px-8 sm:pt-7"}`}>
+        <div className="px-4 pt-4 sm:px-6 sm:pt-5">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Демо CRM</p>
-          <h1
-            id="demo-tip-title"
-            className={`font-semibold tracking-tight text-ink ${
-              hasSlides ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
-            }`}
-          >
+          <h1 id="demo-tip-title" className="text-lg font-semibold tracking-tight text-ink sm:text-xl">
             {content.title}
           </h1>
         </div>
 
-        <div
-          className={`min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain ${
-            hasSlides ? "px-4 py-2.5 sm:px-5" : "px-6 py-4 sm:px-8 sm:py-5"
-          }`}
-        >
+        <div className="px-4 py-2.5 sm:px-6 sm:py-3">
           {hasSlides ? (
             <DemoSlideCarousel slides={slides} index={slideIndex} />
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-3">
               {(content.body ?? "")
                 .split(/\n\n+/)
                 .map((paragraph) => paragraph.trim())
                 .filter(Boolean)
                 .map((paragraph) => (
-                  <p key={paragraph} className="text-[15px] leading-relaxed text-ink-muted sm:text-base">
+                  <p key={paragraph} className="text-sm leading-relaxed text-ink-muted sm:text-[15px]">
                     {paragraph}
                   </p>
                 ))}
@@ -135,9 +124,9 @@ export function DemoTipModal({
         </div>
 
         <div
-          className={`flex shrink-0 flex-col gap-3 border-t border-line sm:flex-row sm:items-center sm:justify-between sm:gap-4 ${
-            hasSlides ? "px-4 py-3 sm:px-5 sm:py-3.5" : "px-6 py-4 sm:px-8 sm:py-5"
-          } ${showMute ? "" : "sm:justify-end"}`}
+          className={`flex flex-col gap-2.5 border-t border-line px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-3.5 ${
+            showMute ? "" : "sm:justify-end"
+          }`}
         >
           {showMute ? (
             <Checkbox
