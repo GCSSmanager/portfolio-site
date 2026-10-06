@@ -167,6 +167,51 @@
   color: color-mix(in oklab, #fff 70%, transparent);
 }
 
+.crm-case__demo {
+  position: relative;
+  z-index: 1;
+  margin: 0.15rem 0 0;
+}
+
+.crm-case__demo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  color: var(--case-accent);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.crm-case__demo-text {
+  border-bottom: 2px dashed color-mix(in oklab, var(--case-accent) 55%, transparent);
+  padding-bottom: 0.08em;
+  line-height: 1.2;
+}
+
+.crm-case__demo-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  transform: translateY(0.05em);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.crm-case__demo a:hover {
+  color: color-mix(in oklab, var(--case-accent) 78%, black);
+}
+
+.crm-case__demo a:hover .crm-case__demo-text {
+  border-bottom-color: color-mix(in oklab, var(--case-accent) 80%, transparent);
+}
+
+.crm-case__demo a:hover .crm-case__demo-icon {
+  transform: translateY(0.05em) translateX(0.18em);
+}
+
 @media (max-width: 64rem) {
   .crm-cases__list {
     grid-template-columns: 1fr;
