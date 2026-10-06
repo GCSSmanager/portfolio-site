@@ -75,7 +75,7 @@ export async function sendCrmLead(input: {
 
 const MIN_DWELL_MS = 10_000;
 
-/** Повтор при too_fast (воркер требует ≥10 с с openedAt). */
+/** Если воркер ответил too_fast — подождать остаток 10 с с открытия страницы и повторить. */
 export async function sendCrmLeadReady(input: {
   name: string;
   phone: string;

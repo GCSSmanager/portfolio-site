@@ -124,22 +124,34 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
                 </p>
               </div>
 
-              <form className="space-y-3" onSubmit={submit}>
+              <form className="space-y-3" noValidate onSubmit={submit}>
                 <label className="block space-y-1.5">
                   <span className="text-xs font-medium text-ink-muted">Имя</span>
                   <Input
                     name="name"
                     autoComplete="name"
                     value={name}
-                    onChange={(event) => setName(event.target.value)}
-                    required
+                    onChange={(event) => {
+                      setName(event.target.value);
+                      if (error) setError("");
+                    }}
                   />
                 </label>
                 <label className="block space-y-1.5">
                   <span className="text-xs font-medium text-ink-muted">Телефон</span>
-                  <PhoneRuInput value={phone} onChange={setPhone} required />
+                  <PhoneRuInput
+                    value={phone}
+                    onChange={(value) => {
+                      setPhone(value);
+                      if (error) setError("");
+                    }}
+                  />
                 </label>
-                {error ? <p className="text-sm text-red-600">{error}</p> : null}
+                {error ? (
+                  <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+                    {error}
+                  </p>
+                ) : null}
                 <Button type="submit" className="w-full" disabled={loading}>
                   {loading ? "Отправляем…" : "Отправить"}
                 </Button>

@@ -74,9 +74,13 @@ async function handleLead(request, env, data, corsHeaders) {
     return json({ ok: false, error: "openedAt required", code: "opened_at_required" }, 400, corsHeaders);
   }
 
-  const dwell = now - openedAt;
-  if (dwell < MIN_DWELL_MS) {
-    return json({ ok: false, error: "Too fast", code: "too_fast", dwellMs: dwell }, 403, corsHeaders);
+  // dwell = сейчас − момент открытия страницы (openedAt с клиента)
+  if (now - openedAt < MIN_DWELL_MS) {
+    return json(
+      { ok: false, error: "Too fast", code: "too_fast", dwellMs: now - openedAt },
+      403,
+      corsHeaders
+    );
   }
 
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";

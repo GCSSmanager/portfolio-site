@@ -115,12 +115,23 @@ export function DemoPhoneGate({ paused = false }: Props) {
             Введите номер телефона, чтобы продолжить пользоваться демо-версией.
           </p>
 
-          <form className="mt-5 space-y-3" onSubmit={submit}>
+          <form className="mt-5 space-y-3" noValidate onSubmit={submit}>
             <label className="block space-y-1.5">
               <span className="text-xs font-medium text-ink-muted">Телефон</span>
-              <PhoneRuInput value={phone} onChange={setPhone} autoFocus required />
+              <PhoneRuInput
+                value={phone}
+                onChange={(value) => {
+                  setPhone(value);
+                  if (error) setError("");
+                }}
+                autoFocus
+              />
             </label>
-            {error ? <p className="text-sm text-red-600">{error}</p> : null}
+            {error ? (
+              <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+                {error}
+              </p>
+            ) : null}
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Отправляем…" : "Продолжить"}
             </Button>

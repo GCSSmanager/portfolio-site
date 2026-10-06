@@ -58,7 +58,17 @@ async function sendCrmLead({ name, phone, source, message }) {
     payload.message = message;
   }
 
-  return postCrmLead(endpoint, payload);
+  try {
+    return await postCrmLead(endpoint, payload);
+  } catch (error) {
+    if (error?.code !== 'too_fast') throw error;
+    const wait = Math.max(0, 10_000 - (Date.now() - ensureLeadOpenedAt()) + 250);
+    if (wait > 0) {
+      await new Promise((resolve) => setTimeout(resolve, wait));
+    }
+    payload.openedAt = ensureLeadOpenedAt();
+    return postCrmLead(endpoint, payload);
+  }
 }
 
 async function sendCrmChat({ phone, message }) {
