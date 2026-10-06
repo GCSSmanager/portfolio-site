@@ -80,7 +80,7 @@ export function DemoTipModal({
   const next = () => setSlideIndex((value) => (value + 1) % slideCount);
 
   return createPortal(
-    <div className="fixed inset-0 z-[200] flex items-center justify-center overflow-y-auto overscroll-none p-3 sm:p-5">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-5">
       <button
         type="button"
         className="absolute inset-0 bg-ink/80 backdrop-blur-xl [transform:translateZ(0)]"
@@ -92,9 +92,9 @@ export function DemoTipModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="demo-tip-title"
-        className={`relative z-10 my-auto flex flex-col overflow-hidden rounded-xl border border-line bg-panel shadow-card sm:rounded-2xl ${
+        className={`relative z-10 flex max-h-[calc(100dvh-1.5rem)] flex-col overflow-hidden rounded-xl border border-line bg-panel shadow-card sm:rounded-2xl ${
           hasSlides
-            ? "w-[min(80rem,calc(100vw-1rem))]"
+            ? "w-[min(80rem,calc(100vw-1.5rem))]"
             : "w-full max-w-3xl"
         }`}
         onClick={(event) => event.stopPropagation()}
@@ -111,7 +111,11 @@ export function DemoTipModal({
           </h1>
         </div>
 
-        <div className={`min-w-0 ${hasSlides ? "px-4 py-2.5 sm:px-5" : "px-6 py-4 sm:px-8 sm:py-5"}`}>
+        <div
+          className={`min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain ${
+            hasSlides ? "px-4 py-2.5 sm:px-5" : "px-6 py-4 sm:px-8 sm:py-5"
+          }`}
+        >
           {hasSlides ? (
             <DemoSlideCarousel slides={slides} index={slideIndex} />
           ) : (
