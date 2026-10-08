@@ -44,7 +44,7 @@ const ASSIST_CHIPS = [
   { q: 'Что будет после запуска?' },
 ];
 
-const ASSIST_OPEN_DELAY_MS = 4500;
+const ASSIST_OPEN_DELAY_MS = 20_000;
 
 function normalizeAssistText(text) {
   return text.trim().toLowerCase().replace(/\s+/g, ' ');
