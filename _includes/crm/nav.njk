@@ -7,7 +7,7 @@
         </span>
       </a>
 
-      <nav class="nav__menu" id="crmNavMenu" aria-label="Разделы">
+      <nav class="nav__menu{% if solution == "about" %} nav__menu--about{% endif %}" id="crmNavMenu" aria-label="Разделы">
         {% if solutionsMenu %}
         <div class="nav__switch">
           <button class="nav__link" type="button" aria-expanded="false" aria-controls="navSolutions" data-solutions-toggle>
@@ -23,11 +23,63 @@
             </svg>
           </button>
           <div class="nav__switch-panel" id="navSolutions">
-            <a class="nav__switch-link{% if solution == "custom" %} is-current{% endif %}" href="/crm/custom/">Индивидуальная под ключ</a>
-            <a class="nav__switch-link{% if solution == "free" %} is-current{% endif %}" href="/crm/free/">Бесплатная</a>
-            <a class="nav__switch-link{% if solution == "integrations" %} is-current{% endif %}" href="/crm/integrations/">Интеграции</a>
+            <a class="nav__switch-link{% if solution == "custom" %} is-current{% endif %}" href="/crm/custom/">
+              <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <circle cx="8.2" cy="12" r="3.1"/>
+                <path d="M11.1 12H19M15.6 12v2.3M18.2 12v1.8"/>
+              </svg>
+              Индивидуальная под ключ
+            </a>
+            <a class="nav__switch-link{% if solution == "free" %} is-current{% endif %}" href="/crm/free/">
+              <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M12.4 4.8 19.4 12l-7 7.2L4.8 12.2V7.4c0-1.4 1.2-2.6 2.6-2.6h5z"/>
+                <circle cx="9.3" cy="9.3" r="1"/>
+              </svg>
+              Бесплатная
+            </a>
+            <a class="nav__switch-link{% if solution == "integrations" %} is-current{% endif %}" href="/crm/integrations/">
+              <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <circle cx="7" cy="12" r="2.3"/>
+                <circle cx="17" cy="7.2" r="2.3"/>
+                <circle cx="17" cy="16.8" r="2.3"/>
+                <path d="M9.1 11.2 14.8 8.3M9.1 12.8l5.7 2.9"/>
+              </svg>
+              Интеграции
+            </a>
+            <a class="nav__switch-link{% if solution == "about" %} is-current{% endif %}" href="/crm/about/">
+              <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <rect x="5" y="4.2" width="14" height="15.6" rx="1.6"/>
+                <path d="M8 9h8M8 12.2h8M8 15.4h5"/>
+              </svg>
+              Что такое CRM
+            </a>
           </div>
         </div>
+        {% if solution == "about" %}
+        <a class="nav__link nav__link--inpage" href="#about-essence">
+          <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <circle cx="12" cy="12" r="8"/>
+            <circle cx="12" cy="12" r="2.2"/>
+          </svg>
+          <span class="nav__link-text">Суть</span>
+        </a>
+        <a class="nav__link nav__link--inpage" href="#about-example">
+          <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <circle cx="5.2" cy="12" r="2"/>
+            <circle cx="12" cy="12" r="2"/>
+            <circle cx="18.8" cy="12" r="2"/>
+            <path d="M7.2 12h2.8M14 12h2.8"/>
+          </svg>
+          <span class="nav__link-text">Пример</span>
+        </a>
+        <a class="nav__link nav__link--inpage" href="#about-audience">
+          <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <circle cx="12" cy="8" r="2.5"/>
+            <path d="M6.6 18.4c.7-2.9 2.7-4.4 5.4-4.4s4.7 1.5 5.4 4.4"/>
+          </svg>
+          <span class="nav__link-text">Кому</span>
+        </a>
+        {% endif %}
         {% elif showTariffs | default(true) %}
         <a class="nav__link" href="#tariffs" aria-label="Решения">
           <svg class="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">

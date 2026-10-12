@@ -9,7 +9,7 @@
   padding-block: var(--space-8);
 }
 
-.crm-page :is(#tariffs, #integrations, #reviews, #pricing, #cases, #guide, #contacts) {
+.crm-page :is(#tariffs, #integrations, #reviews, #pricing, #cases, #guide, #contacts, #about-top, #about-essence, #about-example, #about-audience) {
   scroll-margin-top: var(--header-h);
 }
 
