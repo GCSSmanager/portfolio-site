@@ -8,6 +8,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("styles.css");
   eleventyConfig.addPassthroughCopy("CNAME");
 
+  eleventyConfig.addFilter("jsonld", (value) =>
+    JSON.stringify(value ?? "").replace(/</g, "\\u003c")
+  );
+
   eleventyConfig.ignores.add("workers/**");
   eleventyConfig.ignores.add("convert.py");
   eleventyConfig.ignores.add("demos/**");
