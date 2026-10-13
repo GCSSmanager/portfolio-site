@@ -13,6 +13,13 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("demos/**");
   eleventyConfig.ignores.add("mgcrCRM/**");
 
+  eleventyConfig.addCollection("sitemap", (collectionApi) => {
+    return collectionApi
+      .getAll()
+      .filter((item) => item.data.layout === "crm/page.njk" && item.data.canonical)
+      .sort((a, b) => a.data.canonical.localeCompare(b.data.canonical));
+  });
+
   return {
     dir: {
       input: ".",
