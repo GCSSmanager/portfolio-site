@@ -22,3 +22,46 @@
     padding-block: var(--space-7);
   }
 }
+
+.crm-missing {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.crm-missing__inner {
+  max-width: 36rem;
+}
+
+.crm-missing__logo {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto var(--space-5);
+  object-fit: contain;
+}
+
+.crm-missing__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-5);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-fg);
+}
+
+.crm-missing__text {
+  margin: var(--space-3) 0 0;
+  font-size: var(--step-3);
+  line-height: 1.4;
+  color: var(--color-muted, var(--color-fg));
+}
+
+.crm-missing__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-5);
+}

@@ -8,15 +8,19 @@
   <meta name="description" content="{{ description }}">
   <meta name="author" content="ГКСС">
   <meta http-equiv="Content-Language" content="ru">
+  {% if canonical %}
   <link rel="canonical" href="{{ canonical }}">
-  <meta name="robots" content="index, follow">
+  {% endif %}
+  <meta name="robots" content="{{ robots or 'index, follow' }}">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="ГКСС">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
+  {% if canonical %}
   <meta property="og:url" content="{{ canonical }}">
+  {% endif %}
   <meta property="og:image" content="https://gcss-portfolio.ru/assets/crm-hero.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="3840">
@@ -27,7 +31,9 @@
   <meta name="twitter:description" content="{{ description }}">
   <meta name="twitter:image" content="https://gcss-portfolio.ru/assets/crm-hero.webp">
 
+  {% if canonical %}
   {% include "crm/schema.njk" %}
+  {% endif %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,16 +61,20 @@
   <!-- /Yandex.Metrika counter -->
 </head>
 <body class="crm-page"{% if assistChip %} data-assist-chip="{{ assistChip }}"{% endif %}>
+  {% if not bare %}
   {% include "crm/nav.njk" %}
+  {% endif %}
 
   <main>
     {{ content | safe }}
   </main>
 
+  {% if not bare %}
   {% include "site-footer.njk" %}
   {% include "crm/order-modal.njk" %}
   {% include "crm/assistant.njk" %}
   {% include "crm/totop.njk" %}
   {% include "crm/scripts.njk" %}
+  {% endif %}
 </body>
 </html>
