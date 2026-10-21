@@ -1,0 +1,208 @@
+/* CRM — выбор демо (оболочка модалки как у .modal--form) */
+
+.modal__panel--demos {
+  width: min(100%, 32rem);
+  max-height: min(90dvh, 44rem);
+}
+
+.crm-demo-picker__list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crm-demo-picker__card {
+  --demo-accent: #4a5c50;
+  --demo-thumb-position-x: 50%;
+  --demo-thumb-position-y: 50%;
+
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3);
+  border-radius: var(--radius-m);
+  border: 1px solid color-mix(in oklab, var(--demo-accent) 22%, var(--color-line));
+  background: var(--color-bg-elevated);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.crm-demo-picker__card--flower {
+  --demo-accent: #7a4550;
+}
+
+.crm-demo-picker__card--clinic {
+  --demo-accent: #3f6174;
+  /* Y: меньше % — выше в кадре (0% = верх файла) */
+  --demo-thumb-position-x: 50%;
+  --demo-thumb-position-y: 20%;
+}
+
+.crm-demo-picker__card:hover {
+  border-color: color-mix(in oklab, var(--demo-accent) 42%, var(--color-line));
+  box-shadow: var(--shadow-lift);
+}
+
+.crm-demo-picker__card:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--demo-accent) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.crm-demo-picker__thumb {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: color-mix(in oklab, var(--demo-accent) 8%, var(--color-bg));
+}
+
+.crm-demo-picker__thumb img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--demo-thumb-position-x, 50%) var(--demo-thumb-position-y, 50%);
+}
+
+.crm-demo-picker__copy {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.crm-demo-picker__tag {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--demo-accent);
+}
+
+.crm-demo-picker__name {
+  font-size: var(--step-0);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-fg);
+}
+
+.crm-demo-picker__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-fg-soft);
+}
+
+.crm-demo-picker__go-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  transform: translateY(0.05em);
+}
+
+.crm-demo-picker__card:hover .crm-demo-picker__go {
+  color: var(--demo-accent);
+}
+
+.crm-hero__demos-link-btn {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+@media (max-width: 40rem) {
+  /* Как .modal--form: не на весь экран; два режима — только этот и десктоп (без промежуточной сетки) */
+  .modal.modal--demos {
+    --demo-picker-rows: 3;
+    --demo-picker-panel-w: min(calc(100vw - 2rem), 24rem);
+    --demo-picker-thumb-aspect-h: calc((var(--demo-picker-panel-w) - 3rem) * 10 / 16);
+    --demo-picker-thumb-vh-h: calc((min(90dvh, 42rem) - 14rem) / var(--demo-picker-rows));
+    --demo-picker-thumb-h: clamp(
+      4.5rem,
+      min(var(--demo-picker-thumb-vh-h), var(--demo-picker-thumb-aspect-h)),
+      var(--demo-picker-thumb-aspect-h)
+    );
+
+    padding: 1rem;
+    place-items: center;
+    align-content: center;
+  }
+
+  .modal.modal--demos .modal__panel--demos {
+    width: min(100%, 24rem);
+    height: auto;
+    max-height: none;
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-line);
+    margin-inline: auto;
+    grid-template-rows: auto auto;
+  }
+
+  .modal.modal--demos .modal__header {
+    position: static;
+    padding: 0.95rem 1rem;
+  }
+
+  .modal.modal--demos .modal__title {
+    font-size: var(--step-1);
+  }
+
+  .modal.modal--demos .modal__body {
+    overflow: visible;
+    padding: 0.65rem 1rem 0.85rem;
+    gap: var(--space-2);
+  }
+
+  .crm-demo-picker__list {
+    gap: 0.5rem;
+  }
+
+  .crm-demo-picker__card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+    gap: 0.55rem;
+    padding: 0.5rem;
+  }
+
+  .crm-demo-picker__thumb {
+    width: 100%;
+    height: var(--demo-picker-thumb-h);
+    min-height: var(--demo-picker-thumb-h);
+    aspect-ratio: unset;
+    flex-shrink: 0;
+    border-radius: calc(var(--radius-m) - 2px);
+  }
+
+  .crm-demo-picker__copy {
+    gap: 0.15rem;
+    padding-inline: 0.1rem;
+  }
+
+  .crm-demo-picker__name {
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .crm-demo-picker__go {
+    margin-top: 0.05rem;
+  }
+}

@@ -177,7 +177,8 @@
   min-width: 0;
 }
 
-.crm-hero__demos-link a {
+.crm-hero__demos-link a,
+.crm-hero__demos-link-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -198,35 +199,26 @@
 }
 
 .crm-hero__demos-link-icon {
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.65rem;
+  height: 1.65rem;
   flex: 0 0 auto;
+  align-self: center;
+  transform: translateY(0.06em);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.crm-hero__demos-link-btn:hover .crm-hero__demos-link-icon {
+  transform: translateY(0.06em) translateX(0.15em);
+}
+
+.crm-hero__demos-link a:hover,
+.crm-hero__demos-link-btn:hover {
   color: #fff;
 }
 
-.crm-hero__demos-link a:hover {
-  color: #fff;
-}
-
-.crm-hero__demos-link a:hover .crm-hero__demos-link-text {
+.crm-hero__demos-link a:hover .crm-hero__demos-link-text,
+.crm-hero__demos-link-btn:hover .crm-hero__demos-link-text {
   border-bottom-color: #fff;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .crm-hero__demos-link-icon {
-    animation: crm-hero-demo-bob 1.7s ease-in-out infinite;
-  }
-}
-
-@keyframes crm-hero-demo-bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(0.28rem);
-  }
 }
 
 .crm-hero__btn {
