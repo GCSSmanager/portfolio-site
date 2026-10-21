@@ -1,0 +1,54 @@
+.customer-account {
+  display: flex;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 4vw, 1.5rem) 3rem;
+}
+
+.customer-account__card {
+  width: min(28rem, 100%);
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  border-radius: var(--crm-radius, 14px);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-panel);
+}
+
+.customer-account__title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.35rem, 4vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.customer-account__phone {
+  margin: 0 0 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.customer-account__lead {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.customer-account__card .crm-btn {
+  width: 100%;
+}
+
+.customer-account__owner-block {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.customer-account__owner-lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.customer-account__register-form {
+  margin-bottom: 0.75rem;
+}

@@ -1,0 +1,79 @@
+/* Строка: заголовок + lead слева, действия справа */
+.crm-page-toolbar--toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.crm-page-toolbar--toolbar .crm-page-toolbar__main.flowers-page__header {
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.crm-page-toolbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Заголовок и lead в одной строке, lead ниже (TasksPage) */
+.crm-page-toolbar--stacked,
+.tasks-page__head.crm-page-toolbar--stacked {
+  margin-bottom: 1.5rem;
+}
+
+.crm-page-toolbar__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.crm-page-toolbar__row .flowers-page__title {
+  margin-bottom: 0;
+}
+
+.crm-page-toolbar__lead {
+  margin: 0;
+}
+
+.crm-page-toolbar--stacked .crm-page-toolbar__lead {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.crm-page-toolbar__lead--compact {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.crm-page-toolbar__lead--compact strong {
+  font-weight: 700;
+  color: var(--flowers-ink, var(--text));
+}
+
+/* Подзаголовок внутри вкладки склада (цветы / букеты / товары) */
+.crm-page-toolbar--section.crm-page-toolbar--toolbar {
+  align-items: flex-start;
+  gap: 0.65rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.crm-page-toolbar--section .crm-page-toolbar__lead {
+  margin: 0;
+  flex: 1 1 12rem;
+  max-width: 42rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--crm-ink-soft, var(--text-muted));
+}

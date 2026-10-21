@@ -1,0 +1,314 @@
+/* StockCrm: блок приёмки / воды / подрезки — вертикальный список строк; откат рядом со временем */
+
+.crm-card-mini__dates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: auto;
+  flex-shrink: 0;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--c-shimmer);
+  min-width: 0;
+}
+
+.crm-card-mini__dates--intake-only {
+  gap: 0.35rem;
+}
+
+.crm-card-mini__dates--stack {
+  gap: 0.4rem;
+}
+
+.crm-card-mini__stack-row {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0.32rem 0.38rem;
+  border-radius: 6px;
+  background: var(--c-tint-accent);
+}
+
+.crm-card-mini__stack-row .crm-card-mini__cell-lab {
+  flex: 0 0 auto;
+  min-width: 4.25rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crm-ink-soft);
+  line-height: 1.2;
+}
+
+.crm-card-mini__stack-row .crm-card-mini__cell-val {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--crm-ink);
+  line-height: 1.25;
+}
+
+.crm-card-mini__stack-row .crm-card-mini__cell-val .crm-ico {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.crm-card-mini__time {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: right;
+}
+
+.crm-card-mini__stack-row .crm-card-mini__cell-val .crm-date-revert {
+  margin-left: 0;
+}
+
+/* Компактные кнопки-действия в строке у времени */
+.crm-btn.crm-btn--row {
+  width: var(--crm-icon-hit, 2rem);
+  height: var(--crm-icon-hit, 2rem);
+  border-radius: 9px;
+}
+
+/* Откат ↺ на том же месте, что иконка капли / ножниц */
+.crm-date-revert--undo.crm-date-revert--slot {
+  box-sizing: border-box;
+  width: var(--crm-icon-hit, 2rem);
+  height: var(--crm-icon-hit, 2rem);
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+.crm-date-revert--undo.crm-date-revert--slot .crm-date-revert__glyph {
+  font-size: 1rem;
+}
+
+.crm-date-revert--undo.crm-date-revert--slot .crm-date-revert__digit {
+  font-size: 0.52rem;
+}
+
+.crm-btn.crm-btn--intake.crm-btn--row {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.38rem 0.5rem;
+  font-size: 0.72rem;
+}
+
+.crm-btn.crm-btn--intake.crm-btn--row.crm-btn--icon-cell {
+  width: var(--crm-icon-hit, 2rem);
+  height: var(--crm-icon-hit, 2rem);
+  min-width: var(--crm-icon-hit, 2rem);
+  max-width: var(--crm-icon-hit, 2rem);
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.crm-card-mini__dates--intake-only .crm-card-mini__stack-row .crm-card-mini__cell-val {
+  justify-content: stretch;
+}
+
+.crm-card-mini__dates--intake-only .crm-btn--row:not(.crm-btn--icon-cell) {
+  width: 100%;
+}
+
+.crm-date-revert {
+  flex-shrink: 0;
+  padding: 0 0.2rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--crm-accent);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.crm-date-revert:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+}
+
+.crm-date-revert:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.crm-date-revert--undo {
+  position: relative;
+  box-sizing: border-box;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  margin-left: auto;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.crm-date-revert--undo:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+}
+
+.crm-date-revert--undo:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Advanced: не показываем второй ↺ от серверного revert — плейсхолдер под размер кнопки */
+.crm-date-revert--advanced-no-undo {
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+}
+
+.crm-date-revert__glyph-stack {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.crm-date-revert__glyph {
+  grid-area: 1 / 1;
+  line-height: 1;
+  font-weight: 600;
+  font-style: normal;
+  text-rendering: geometricPrecision;
+  user-select: none;
+  font-family:
+    system-ui,
+    'Segoe UI Symbol',
+    'Apple Symbols',
+    'Noto Sans Symbols',
+    'DejaVu Sans',
+    sans-serif;
+  font-size: 1.35rem;
+}
+
+.crm-date-revert__glyph--track {
+  color: var(--c-shimmer);
+}
+
+.crm-date-revert__glyph--fill {
+  background: conic-gradient(
+    from -90deg,
+    var(--crm-accent) 0deg,
+    var(--crm-accent) calc(var(--undo-p, 1) * 360deg),
+    transparent calc(var(--undo-p, 1) * 360deg)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.crm-date-revert__digit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -54%);
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--crm-ink);
+  pointer-events: none;
+}
+
+/* Три строки дат: приёмка / вода / подрезка — стабильная сетка */
+.crm-card-mini__dates--two {
+  grid-template-rows: repeat(2, minmax(0, auto));
+}
+
+.crm-card-mini__dates--three {
+  gap: 0.35rem;
+}
+
+/* Базовый режим: одна строка — либо приёмка, либо «Уход:» */
+.crm-card-mini__dates--basic-one {
+  gap: 0.35rem;
+}
+
+.crm-card-mini__cell-val--intake {
+  justify-content: flex-end;
+}
+
+.crm-card-mini__cell-val--basic-care {
+  justify-content: flex-end;
+}
+
+/* Слот под иконку или ↺ — фиксированная ширина, без скачка при смене состояния */
+.crm-card-mini__action-slot {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.95rem;
+  min-height: 1.95rem;
+}
+
+.crm-card-mini__action-slot--intake-wide {
+  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: auto;
+}
+
+.crm-card-mini__action-slot--center {
+  justify-content: center;
+}
+
+.crm-card-mini__dash {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: right;
+  font-weight: 600;
+  color: var(--crm-ink-soft);
+  opacity: 0.65;
+}
+
+/* Конец окна отката: keyframes — transition с «opacity: 0» не анимирует первый кадр */
+@keyframes crm-undo-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.crm-date-revert--undo.crm-date-revert--fading-out {
+  animation: crm-undo-fade-out 0.48s ease-out forwards;
+  pointer-events: none;
+}
+
+/* После fade — невидимый резерв до ответа API (иначе строка «прыгает») */
+.crm-date-revert--undo.crm-date-revert--gone-placeholder {
+  display: inline-block;
+  vertical-align: middle;
+  visibility: hidden;
+  pointer-events: none;
+}

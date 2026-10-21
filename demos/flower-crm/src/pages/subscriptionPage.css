@@ -1,0 +1,71 @@
+.flowers-page--subscription {
+  max-width: min(36rem, var(--app-shell-max));
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.subscription-page__lead {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--fc-muted, var(--text-muted));
+}
+
+.subscription-page__card {
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--fc-line, var(--border-strong));
+  background: linear-gradient(145deg, var(--fc-surface, var(--bg-surface)) 0%, var(--fc-surface-deep, var(--c-tint-accent)) 100%);
+}
+
+.subscription-page__card--inactive {
+  border-color: var(--c-danger-border);
+  background: var(--gradient-subscription-alert);
+}
+
+.subscription-page__card-title {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fc-text, var(--brand-ink-soft));
+}
+
+.subscription-page__facts {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.subscription-page__fact {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+}
+
+.subscription-page__fact dt {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--fc-muted, var(--text-muted));
+}
+
+.subscription-page__fact dd {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--fc-text, var(--brand-ink-soft));
+}
+
+.subscription-page__renew {
+  margin: 1rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--fc-line, var(--border-strong)) 70%, transparent);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--fc-muted, var(--text-muted));
+}
+
+.subscription-page__card--inactive .subscription-page__renew {
+  border-top-color: var(--c-danger-border);
+}

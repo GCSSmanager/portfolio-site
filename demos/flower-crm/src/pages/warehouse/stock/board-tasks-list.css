@@ -1,0 +1,125 @@
+/* StockCrm: сетка карточек, борд, список дел и мини-задачи */
+
+.crm-batch-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.crm-board {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 1.25rem;
+}
+
+.crm-board__main {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.crm-board__tasks {
+  flex: 0 1 16rem;
+  width: 16rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--crm-radius-sm);
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper);
+  box-shadow: var(--crm-shadow);
+}
+
+.crm-tasks__title {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--crm-ink-soft);
+}
+
+.crm-tasks__empty {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--crm-ink-soft);
+}
+
+.crm-tasks__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.crm-task-line {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--crm-paper-2);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition:
+    border-color 0.12s ease,
+    background 0.12s ease;
+}
+
+.crm-task-line:hover {
+  border-color: var(--c-tint-accent);
+  background: var(--c-tint-accent);
+}
+
+.crm-task-line__name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--crm-ink);
+  line-height: 1.25;
+}
+
+.crm-task-line__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.crm-task-line__pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.12rem 0.4rem;
+  border-radius: 6px;
+}
+
+.crm-task-line__pill--trim {
+  background: var(--c-tint-accent);
+  color: var(--crm-accent-hover);
+}
+
+.crm-task-line__pill--water {
+  background: var(--crm-blue-bg);
+  color: var(--c-cool);
+}
+
+.crm-task-line__pill--intake {
+  border: 1px solid var(--c-tint-purple-border);
+  background: var(--c-tint-purple);
+  color: var(--crm-intake-box);
+}
+
+.crm-task-line__pill--delivery {
+  border: 1px solid var(--c-accent-border);
+  background: var(--c-tint-accent);
+  color: var(--crm-delivery-truck, var(--c-accent));
+}
+

@@ -1,0 +1,86 @@
+/* StockCrm: модалка «Новая продажа» (итоги и сумма) */
+
+.crm-sale-summary {
+  margin: 0 0 0.35rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: var(--crm-ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-sale-summary__meta {
+  font-weight: 500;
+  color: var(--crm-ink-soft);
+  font-size: 0.82rem;
+}
+
+.crm-sale-summary__price {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  color: var(--crm-ink-soft);
+}
+
+.crm-sale-total {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  color: var(--crm-ink);
+}
+
+.crm-field--sale-price-miss .crm-field__input {
+  border-color: var(--batch-error-border);
+  background: var(--c-tint-danger);
+}
+
+.crm-field--sale-price-miss.crm-field--invalid .crm-field__input {
+  border-color: var(--batch-error-border);
+}
+
+.crm-sale-price-hint {
+  margin-top: -0.25rem;
+}
+
+.crm-sale-line-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.crm-delivery-lines--sale .crm-delivery-lines__row--stacked {
+  align-items: flex-start;
+}
+
+.crm-custom-bouquet-sale {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.crm-custom-bouquet-sale__composition {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.crm-custom-bouquet-sale__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.crm-custom-bouquet-sale__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+
+.crm-custom-bouquet-sale__row--stacked .crm-delivery-lines__line-body {
+  width: 100%;
+}

@@ -1,0 +1,717 @@
+/* StockCrm: поля форм модалок (поставка и др.) */
+
+.crm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.crm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.crm-field__lab {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--crm-ink-soft);
+  margin-right: 0.2rem;
+}
+
+.crm-field__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.92rem;
+  border-radius: 9px;
+  border: 1px solid var(--crm-edge);
+  background: var(--bg-surface);
+  color: var(--crm-ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.crm-field__input:focus {
+  outline: none;
+  border-color: var(--brand-ink, var(--crm-ink));
+  box-shadow: 0 0 0 2px var(--fc-accent-soft);
+}
+
+/* Выпадающий список CrmPickField */
+.crm-pick-field .crm-taxon-search {
+  position: relative;
+}
+
+
+.crm-pick-field__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crm-pick-field__chev {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  color: var(--crm-ink-soft);
+  line-height: 1;
+}
+
+.crm-pick-field--clamp-labels .crm-taxon-search {
+  min-width: 0;
+}
+
+.crm-pick-field--clamp-labels .crm-btn--pick {
+  min-width: 0;
+}
+
+.crm-pick-field--clamp-labels .crm-taxon-dd .crm-btn--taxon-dd {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.crm-pick-field--clamp-labels .crm-taxon-dd .crm-taxon-dd__title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crm-field__hint {
+  font-size: 0.72rem;
+  color: var(--crm-ink-soft);
+}
+
+/* Кастомный чекбокс (CrmToggleField) */
+.crm-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.crm-toggle:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.crm-toggle__box {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 5px;
+  border: 1.5px solid var(--crm-edge, var(--c-shimmer));
+  background: var(--bg-surface);
+  position: relative;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.crm-toggle--on .crm-toggle__box {
+  border-color: var(--crm-accent, var(--c-accent-hover));
+  background: var(--crm-accent, var(--c-accent-hover));
+  box-shadow: 0 0 0 2px var(--c-focus-ring);
+}
+
+.crm-toggle--on .crm-toggle__box::after {
+  content: '';
+  position: absolute;
+  left: 0.28rem;
+  top: 0.12rem;
+  width: 0.35rem;
+  height: 0.6rem;
+  border: solid var(--c-on-accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.crm-toggle__lab {
+  font-size: 0.88rem;
+  color: var(--crm-ink, var(--text));
+}
+
+.crm-field__hint--tight {
+  margin: 0 0 0.35rem;
+}
+
+.crm-field__error {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--c-danger);
+}
+
+.crm-field--invalid .crm-field__input,
+.crm-field--invalid select.crm-field__input,
+.crm-field--invalid .crm-price-field__input,
+.crm-taxon-search.crm-field--invalid .crm-field__input {
+  border-color: var(--batch-error-border);
+  box-shadow: 0 0 0 2px var(--batch-error-ring);
+}
+
+.crm-field--invalid .crm-field__input:focus,
+.crm-field--invalid select.crm-field__input:focus,
+.crm-field--invalid .crm-price-field__input:focus,
+.crm-taxon-search.crm-field--invalid .crm-field__input:focus {
+  border-color: var(--c-danger);
+  box-shadow: 0 0 0 3px var(--batch-error-ring-strong);
+}
+
+.crm-price-field.crm-field--invalid > .crm-price-field__lab,
+.crm-field--invalid > .crm-field__lab {
+  color: var(--c-danger);
+}
+
+.crm-delivery-lines--invalid {
+  padding: 0.35rem;
+  margin: 0 -0.35rem;
+  border-radius: 10px;
+  border: 1px solid var(--c-danger-border);
+  background: var(--c-tint-danger);
+}
+
+.crm-modal--supplier-receive .crm-supplier-receive__lead {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.crm-supplier-receive__meta {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.crm-supplier-receive__hint {
+  margin: 0 0 0.85rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.crm-supplier-receive-table-wrap {
+  margin-bottom: 0.5rem;
+}
+
+.crm-supplier-receive-table__num {
+  width: 5.5rem;
+  white-space: nowrap;
+}
+
+.crm-modal--supplier-receive .crm-supplier-receive-table__num {
+  width: 7.25rem;
+  min-width: 7.25rem;
+  white-space: normal;
+}
+
+.crm-modal--supplier-receive .crm-supplier-receive-table__name {
+  min-width: 10rem;
+}
+
+.crm-modal--supplier-receive .crm-field__error {
+  margin: 0.2rem 0 0;
+  font-size: 0.6875rem;
+  line-height: 1.25;
+}
+
+.crm-supplier-receive-table__name {
+  min-width: 8rem;
+  font-weight: 500;
+}
+
+.crm-supplier-receive-table__ordered {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.crm-supplier-receive-table__unit {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+.crm-supplier-receive-table__qty {
+  width: 4.25rem;
+  margin: 0 auto;
+}
+
+.crm-supplier-receive-table__qty--defect .crm-field__input {
+  border-color: var(--c-accent-border-strong);
+}
+
+.crm-supplier-receive-table__stock-hint {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.crm-supplier-receive-table__row--invalid .crm-field__input {
+  border-color: var(--c-danger);
+}
+
+.crm-received-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.45rem;
+}
+
+.crm-received-row .crm-field__input--received-date {
+  flex: 1 1 8rem;
+  min-width: 0;
+}
+
+.crm-received-row .crm-field__input--received-time {
+  flex: 0 0 5.25rem;
+  width: 5.25rem;
+  max-width: 100%;
+}
+
+.crm-sale-terms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px dashed var(--border);
+  width: 100%;
+}
+
+.crm-sale-terms__preview {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.crm-realization-block {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px dashed var(--border);
+}
+
+.crm-realization-block__qty-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+}
+
+.crm-realization-block__label {
+  font-size: 0.82rem;
+  color: var(--crm-ink-soft, var(--text-muted));
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.crm-realization-block .crm-sale-terms {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: none;
+}
+
+.crm-sale-terms--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.5rem 0.65rem;
+}
+
+.crm-sale-terms--horizontal .crm-pick-field {
+  flex: 1 1 11rem;
+  min-width: 10rem;
+  margin: 0;
+}
+
+.crm-sale-terms__inline-val {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.crm-sale-terms__inline-val .crm-field__input {
+  width: 4.5rem;
+  min-width: 0;
+  text-align: right;
+}
+
+.crm-realization-block--sale {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.crm-realization-block__hint {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.crm-inventory-lead {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.crm-inventory-lead__due {
+  color: var(--c-warn-amber);
+  font-weight: 600;
+}
+
+.crm-inventory-form__actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.crm-inventory-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.crm-inventory-card__head-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.crm-inventory-table__name-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.crm-inventory-table__name-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.crm-inventory-table__name {
+  display: block;
+  font-weight: 600;
+}
+
+.crm-inventory-table__rank {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.crm-inventory-table__row--changed td {
+  background: var(--c-tint-accent);
+}
+
+.crm-inventory-history {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.crm-inventory-history__list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.crm-inventory-history__item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+
+.crm-inventory-history__date {
+  font-weight: 600;
+  font-size: 0.875rem;
+  min-width: 0;
+}
+
+.crm-inventory-history__meta {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  min-width: 0;
+}
+
+.crm-inventory-history__chev {
+  flex-shrink: 0;
+  justify-self: center;
+  width: 1.1rem;
+  font-size: 0.6rem;
+  line-height: 1;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.crm-inventory-history__panel {
+  padding: 0 0.85rem 0.85rem;
+  overflow-x: auto;
+}
+
+/* Инвентаризация: карточки на мобилке (десктоп — таблица) */
+.crm-inventory-cards,
+.crm-inventory-detail-cards {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.crm-inventory-card__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-inventory-card__rank {
+  margin: 0.15rem 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.crm-inventory-card__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.crm-inventory-card__row--field {
+  align-items: center;
+}
+
+.crm-inventory-card__label {
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 0.35rem;
+}
+
+.crm-inventory-card__row--field .crm-inventory-card__label {
+  min-width: 4.5rem;
+  max-width: 42%;
+}
+
+.crm-inventory-card__system {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.crm-inventory-card__control {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+.crm-inventory-card__control .crm-supplier-receive-table__qty {
+  margin: 0;
+}
+
+.crm-inventory-card__control .crm-supplier-receive-table__stock-hint {
+  text-align: right;
+  max-width: 100%;
+}
+
+.crm-inventory-card__issue {
+  margin: 0.5rem 0 0;
+}
+
+.crm-inventory-detail-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem 0.75rem;
+  margin: 0.5rem 0 0;
+}
+
+.crm-inventory-detail-card__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.crm-inventory-detail-card__item dt {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.crm-inventory-detail-card__item dd {
+  margin: 0;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.crm-inventory-detail-card--changed {
+  background: var(--c-tint-accent);
+}
+
+@media (max-width: 825px) {
+  .warehouse-inventory-page .crm-shell {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .crm-inventory-lead {
+    margin-bottom: 1.15rem;
+  }
+
+  .crm-inventory-form__actions {
+    justify-content: stretch;
+  }
+
+  .crm-inventory-form__actions .crm-btn {
+    width: 100%;
+  }
+
+  .crm-inventory-table-wrap--desktop {
+    display: none;
+  }
+
+  .crm-inventory-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0.1rem 0 0;
+  }
+
+  .crm-inventory-card {
+    padding: 0.8rem 0.9rem;
+    border: 1px solid var(--table-row-border, var(--border));
+    border-radius: var(--crm-radius-sm, 10px);
+    background: var(--table-body-bg, var(--bg-surface));
+  }
+
+  .crm-inventory-card--invalid {
+    border-color: var(--c-danger);
+  }
+
+  .crm-inventory-history {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .crm-inventory-history__item .crm-btn--inventory-head {
+    grid-template-columns: minmax(0, 1fr) 1.1rem;
+    grid-template-rows: auto auto;
+    column-gap: 0.45rem;
+    row-gap: 0.2rem;
+    align-items: start;
+    padding: 0.7rem 0.7rem 0.7rem 0.85rem;
+  }
+
+  .crm-inventory-history__date {
+    grid-column: 1;
+    grid-row: 1;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .crm-inventory-history__meta {
+    grid-column: 1;
+    grid-row: 2;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .crm-inventory-history__chev {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    width: 1rem;
+    font-size: 0.55rem;
+  }
+
+  .crm-inventory-history__panel {
+    padding: 0 0.65rem 0.75rem;
+    overflow-x: visible;
+  }
+
+  .crm-inventory-detail-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .crm-inventory-detail-card {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-surface);
+  }
+
+  .crm-modal--supplier-receive .crm-supplier-receive__lead {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .crm-modal--supplier-receive .crm-supplier-receive__meta {
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  .crm-modal--supplier-receive .crm-supplier-receive-table-wrap {
+    overflow: visible;
+    border: none;
+    background: transparent;
+  }
+
+  .crm-modal--supplier-receive .crm-inventory-card__label {
+    max-width: 46%;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .crm-modal--supplier-receive .crm-modal__actions {
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+
+  .crm-modal--supplier-receive .crm-modal__actions .crm-btn--primary {
+    flex: 1 1 100%;
+  }
+}
+
+.crm-btn--home-inventory .crm-btn__ico {
+  color: var(--text-muted);
+}

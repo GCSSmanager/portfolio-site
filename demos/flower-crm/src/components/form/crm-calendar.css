@@ -1,0 +1,215 @@
+.crm-date-input {
+  display: flex;
+  align-items: stretch;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.crm-date-input--in-row {
+  flex: 1 1 8rem;
+  min-width: 0;
+}
+
+.crm-delivery-lines__line-cut .crm-date-input--compact {
+  flex: 1 1 8rem;
+  width: auto;
+  min-width: 6.75rem;
+  max-width: 11rem;
+}
+
+.crm-date-input--compact .crm-date-input__toggle {
+  width: 2rem;
+  min-height: 2rem;
+}
+
+.crm-date-input__field {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.crm-date-input__toggle {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  min-height: 2.35rem;
+  margin: 0;
+  padding: 0;
+  color: var(--c-accent);
+  background: var(--c-surface, #fff);
+  border: 1px solid var(--c-border-strong, var(--crm-edge));
+  border-radius: var(--btn-radius, 10px);
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    color 0.12s ease,
+    background 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.crm-date-input__toggle:hover:not(:disabled) {
+  color: var(--brand-green-dark, var(--c-accent-hover));
+  background: var(--c-tint-accent);
+  border-color: var(--c-tint-accent);
+}
+
+.crm-date-input__toggle:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.crm-date-input__toggle-icon {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  pointer-events: none;
+}
+
+.crm-calendar-popover {
+  z-index: 1200;
+  box-sizing: border-box;
+  width: min(17.5rem, calc(100vw - 1.5rem));
+  padding: 0.65rem 0.7rem 0.55rem;
+  border-radius: var(--crm-radius-sm, 10px);
+  border: 1px solid var(--crm-edge, var(--border));
+  background: var(--crm-paper, var(--bg-surface));
+  box-shadow: var(--crm-shadow, var(--shadow-panel));
+  color: var(--crm-ink, var(--text));
+}
+
+/* Внутри dialog.crm-modal (top layer) — поверх содержимого модалки; ширина задаётся из JS */
+dialog.crm-modal > .crm-calendar-popover--in-modal {
+  z-index: 100;
+  width: auto;
+  max-width: none;
+}
+
+.crm-calendar-popover__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+}
+
+.crm-calendar-popover__nav {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--crm-ink-soft);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.crm-calendar-popover__nav:hover {
+  color: var(--crm-ink);
+  background: var(--crm-paper-2, var(--c-tint-accent));
+  border-color: var(--crm-edge);
+}
+
+.crm-calendar-popover__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.crm-calendar-popover__weekdays,
+.crm-calendar-popover__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.15rem;
+}
+
+.crm-calendar-popover__weekdays {
+  margin-bottom: 0.2rem;
+}
+
+.crm-calendar-popover__weekday {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--crm-ink-soft);
+}
+
+.crm-calendar-popover__day {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  min-height: 2rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--crm-ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.crm-calendar-popover__day:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+  border-color: var(--c-tint-accent);
+}
+
+.crm-calendar-popover__day--today:not(.crm-calendar-popover__day--selected) {
+  border-color: var(--c-tint-accent-strong);
+}
+
+.crm-calendar-popover__day--selected {
+  color: var(--c-on-accent);
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+.crm-calendar-popover__day--outside {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.crm-calendar-popover__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--crm-edge);
+}
+
+.crm-calendar-popover__today {
+  margin: 0;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.crm-calendar-popover__today:hover {
+  background: var(--c-tint-accent);
+}

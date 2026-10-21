@@ -1,0 +1,228 @@
+/* Страница «Поставщики» */
+
+.flowers-page--suppliers {
+  max-width: min(52rem, var(--app-shell-max));
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.suppliers-page__card {
+  border: 1px solid var(--border);
+  border-radius: var(--crm-radius-sm, 10px);
+  padding: 1rem 1.1rem 1.15rem;
+  background: var(--bg-surface);
+}
+
+.suppliers-page__name {
+  margin-bottom: 0.35rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.suppliers-page__line {
+  margin: 0.25rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--flowers-ink, var(--text));
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.suppliers-page__line--strong {
+  font-weight: 700;
+}
+
+.suppliers-page__mono {
+  font-size: 0.8rem;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.suppliers-page__contacts {
+  white-space: pre-line;
+}
+
+.suppliers-page__notes {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--flowers-muted, var(--text-muted));
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.suppliers-page__subhead {
+  margin: 1rem 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--flowers-ink, var(--text));
+}
+
+.suppliers-page__latin {
+  font-size: 0.78rem;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.suppliers-page__muted,
+.suppliers-page__empty {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.suppliers-page__card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.prices-page__section-title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.suppliers-page__card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.suppliers-page__th-actions,
+.suppliers-page__td-actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.suppliers-page__td-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem 0.5rem;
+}
+
+.suppliers-page__catalog-link {
+  font-size: 0.78rem;
+}
+
+.suppliers-page__offers-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.suppliers-page__offers-head .suppliers-page__subhead {
+  margin: 1rem 0 0;
+}
+
+.suppliers-page__offer-add {
+  flex: 0 0 auto;
+  margin-top: 0.85rem;
+}
+
+.suppliers-page__textarea {
+  resize: vertical;
+  min-height: 2.5rem;
+  line-height: 1.4;
+}
+
+.suppliers-page__offer-readonly {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.suppliers-page__offer-cards {
+  display: none;
+  list-style: none;
+  margin: 0.65rem 0 0;
+  padding: 0;
+}
+
+.suppliers-page__offer-card {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--table-row-border, var(--border));
+  border-radius: var(--crm-radius-sm, 10px);
+  background: var(--table-body-bg, var(--bg-surface));
+}
+
+.suppliers-page__offer-card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.suppliers-page__offer-card-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: 0.45rem;
+  font-size: 0.84rem;
+}
+
+.suppliers-page__offer-card-label {
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.suppliers-page__offer-card-value {
+  text-align: right;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.suppliers-page__offer-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem 0.5rem;
+  margin-top: 0.65rem;
+}
+
+@media (max-width: 825px) {
+  .flowers-page--suppliers {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .suppliers-page__card {
+    padding: 0.9rem 0.95rem 1rem;
+  }
+
+  .suppliers-page__table-wrap--desktop {
+    display: none;
+  }
+
+  .suppliers-page__offer-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .suppliers-page__td-actions,
+  .suppliers-page__th-actions {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  .suppliers-page__offer-cards {
+    grid-template-columns: 1fr;
+  }
+}

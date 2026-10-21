@@ -1,0 +1,378 @@
+/* ═══ FlowerFlow UI — только var(), без прямых цветов ═══ */
+
+body {
+  background: linear-gradient(175deg, var(--bg) 0%, var(--bg-mid) 42%, var(--bg-deep) 100%);
+  color: var(--text);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* —— Типографика —— */
+.flowers-page,
+.warehouse-crm,
+.auth-app-shell,
+.crm-modal,
+.login-page {
+  color: var(--text);
+}
+
+.flowers-page__title,
+.crm-modal__title,
+.login-card__title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.flowers-page__lead,
+.login-card__lead,
+.crm-field__lab,
+.login-label,
+[class*='__muted'],
+[class*='__hint'],
+[class*='__sub'],
+[class*='__lead'],
+[class*='__meta'] {
+  color: var(--text-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+[class*='__section-title'],
+[class*='__panel-title'] {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+a:not(.crm-btn):not([class*='__pill']) {
+  color: var(--link);
+}
+
+a:not(.crm-btn):not([class*='__pill']):hover {
+  color: var(--link-hover);
+}
+
+/* —— Шапка —— */
+.auth-app-shell {
+  background: transparent;
+}
+
+.auth-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-cream);
+  color: var(--text);
+}
+
+.auth-site-header__pill {
+  font-weight: 700;
+  color: var(--text-muted);
+  border-radius: var(--btn-radius-pill);
+  border: var(--btn-border);
+  background: transparent;
+}
+
+.auth-site-header__pill:hover:not(.auth-site-header__pill--active) {
+  color: var(--text);
+  background: var(--c-tint-accent);
+  border-color: var(--border-strong);
+}
+
+.auth-site-header__pill--active {
+  color: var(--c-on-accent);
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-site-header__pill--active:hover {
+  color: var(--c-on-accent);
+  background: var(--c-accent-hover);
+  border-color: var(--c-accent-hover);
+}
+
+.auth-site-header__nav-link,
+.login-form__back a {
+  color: var(--link);
+  font-weight: 700;
+}
+
+.auth-site-header__nav-link:hover,
+.login-form__back a:hover {
+  color: var(--link-hover);
+}
+
+.auth-site-header__burger {
+  color: var(--text);
+  border: var(--btn-border);
+}
+
+.auth-site-header__burger:hover {
+  background: var(--c-tint-accent);
+}
+
+/* —— Поверхности —— */
+.sales-page__catalog-panel,
+.sales-page__history-panel,
+.sales-page__kpi,
+.subscription-page__card,
+.expenses-page__panel,
+.expenses-page__card,
+.tasks-page__panel,
+.suppliers-page__panel,
+.prices-page__panel,
+.flowers-page--catalog .flowers-catalog__panel,
+.flowers-catalog__panel,
+.crm-batch-card,
+.crm-card-mini,
+.crm-home-headboard,
+.crm-modal__box,
+.login-card,
+.crm-home-task-card,
+.crm-board-task {
+  border: var(--btn-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+  background: var(--bg-surface);
+  color: var(--text);
+}
+
+.crm-home-headboard {
+  background: var(--bg-cream);
+  box-shadow: none;
+}
+
+/* —— Кнопки —— */
+.crm-btn--primary,
+.crm-btn--login-primary,
+.crm-btn--staff-submit,
+.sales-page__checkout-btn,
+.crm-sale-toolbar-btn,
+.expenses-page__submit,
+.expenses-page__modal-submit {
+  border: var(--btn-border);
+  border-color: var(--btn-primary-bg);
+  border-radius: var(--btn-radius);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transform: none;
+}
+
+.crm-btn--primary:hover:not(:disabled),
+.crm-btn--login-primary:hover:not(:disabled),
+.crm-btn--staff-submit:hover:not(:disabled),
+.sales-page__checkout-btn:hover,
+.crm-sale-toolbar-btn:hover:not(:disabled),
+.expenses-page__submit:hover:not(:disabled),
+.expenses-page__modal-submit:hover:not(:disabled) {
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+  box-shadow: var(--shadow-md);
+  transform: none;
+  filter: none;
+}
+
+.crm-btn--primary:disabled,
+.crm-btn--login-primary:disabled {
+  background: var(--btn-disabled-bg);
+  border-color: var(--border);
+  color: var(--btn-disabled-fg);
+  box-shadow: none;
+}
+
+.crm-btn--accent,
+.crm-btn--home-head-primary,
+.crm-btn--flowers-head-primary {
+  border: var(--btn-border);
+  border-color: var(--c-accent-border);
+  border-radius: var(--btn-radius);
+  background: var(--c-tint-accent);
+  color: var(--c-accent-hover);
+  font-weight: 700;
+  box-shadow: none;
+  transform: none;
+}
+
+.crm-btn--accent:hover:not(:disabled),
+.crm-btn--home-head-primary:hover:not(:disabled),
+.crm-btn--flowers-head-primary:hover:not(:disabled) {
+  background: var(--c-tint-accent-strong);
+  border-color: var(--c-accent-border-strong);
+}
+
+.crm-btn--login-secondary,
+.crm-btn--ghost,
+.crm-btn--add,
+.crm-btn--empty,
+.crm-btn--flowers-head,
+.crm-btn--home-head {
+  border: var(--btn-border);
+  border-radius: var(--btn-radius);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-fg);
+  font-weight: 600;
+  box-shadow: none;
+  transform: none;
+}
+
+.crm-btn--ghost {
+  color: var(--text-muted);
+  background: transparent;
+}
+
+.crm-btn--ghost:hover:not(:disabled),
+.crm-btn--add:hover:not(:disabled),
+.crm-btn--empty:hover:not(:disabled),
+.crm-btn--flowers-head:hover:not(:disabled),
+.crm-btn--login-secondary:hover:not(:disabled),
+.crm-btn--home-head:hover:not(:disabled) {
+  background: var(--bg-cream);
+  border-color: var(--c-accent-border);
+}
+
+.crm-btn--link {
+  color: var(--link);
+  font-weight: 600;
+}
+
+.crm-btn--line-add {
+  border: 1px dashed var(--c-accent-border);
+  border-radius: var(--btn-radius-pill);
+  background: var(--bg-surface);
+  color: var(--c-accent-hover);
+  font-weight: 700;
+}
+
+.crm-btn--line-add:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+  border-color: var(--c-accent-border-strong);
+}
+
+.crm-btn--danger,
+.crm-btn--clear-catalog,
+.crm-btn--tasks-modal-del {
+  color: var(--c-danger);
+}
+
+.crm-btn--danger:hover:not(:disabled),
+.crm-btn--clear-catalog:hover:not(:disabled) {
+  background: var(--c-tint-danger);
+  color: var(--c-danger-hover);
+}
+
+.crm-btn--waste-discard {
+  background: var(--c-danger);
+  border-color: var(--c-danger-border);
+  color: var(--c-on-accent);
+}
+
+.crm-btn--waste-discard:hover:not(:disabled) {
+  background: var(--c-danger-hover);
+}
+
+/* —— Поля —— */
+.crm-field__input,
+.login-input,
+.sales-page__search,
+.flowers-catalog__search,
+.crm-toggle__box {
+  border: var(--btn-border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text);
+}
+
+.crm-field__input:focus,
+.login-input:focus,
+.sales-page__search:focus,
+.flowers-catalog__search:focus {
+  border-color: var(--c-accent);
+  box-shadow: var(--brand-shadow-focus);
+  outline: none;
+}
+
+.crm-field__input::placeholder,
+.login-input::placeholder,
+.sales-page__search::placeholder {
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+/* —— Модалки —— */
+.crm-modal::backdrop {
+  background: var(--c-overlay);
+}
+
+.crm-modal__box {
+  border-radius: var(--radius);
+}
+
+.sales-cart__row,
+.crm-delivery-lines__row,
+.crm-delivery-lines__row--stacked {
+  border: var(--btn-border);
+  border-radius: var(--btn-radius);
+  background: var(--bg-surface);
+}
+
+.login-page {
+  background: transparent;
+}
+
+.login-card {
+  border: var(--btn-border);
+  box-shadow: var(--shadow-panel);
+}
+
+/* —— Продажи —— */
+.sales-page__product {
+  border: var(--btn-border);
+  border-radius: var(--btn-radius);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.sales-page__product:hover {
+  border-color: var(--c-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.sales-page__product--in-cart {
+  border-color: var(--c-accent);
+  background: var(--c-tint-accent);
+}
+
+/* —— Навигация —— */
+.nav-menu-modal__item:hover {
+  background: var(--c-tint-accent);
+  color: var(--c-accent-hover);
+}
+
+.nav-menu-modal__item--active {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+.nav-menu-modal__trigger {
+  color: var(--link);
+  border-color: var(--border-strong);
+}
+
+/* —— Фокус —— */
+.crm-btn:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}

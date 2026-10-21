@@ -1,0 +1,39 @@
+.crm-confirm-dialog .crm-modal__head {
+  align-items: flex-start;
+}
+
+.crm-confirm-dialog .crm-modal__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.crm-confirm-dialog__message {
+  margin: 0;
+  max-width: 100%;
+  line-height: 1.45;
+  color: var(--crm-ink-muted, var(--crm-ink-soft));
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-confirm-dialog .crm-modal__actions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.crm-confirm-dialog .crm-modal__actions .crm-btn {
+  max-width: 100%;
+  height: auto;
+  min-height: 2.25rem;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

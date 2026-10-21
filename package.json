@@ -3,10 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "eleventy && npm run build:clinic",
+    "build": "eleventy && npm run build:clinic && npm run build:flower",
     "build:clinic": "npm ci --prefix demos/clinic-crm && npm run build --prefix demos/clinic-crm",
-    "dev": "eleventy --serve",
+    "build:flower": "npm ci --prefix demos/flower-crm && npm run build --prefix demos/flower-crm",
+    "dev": "eleventy --serve --port 8081",
+    "dev:site": "npx --yes concurrently -k -n site,flower -c blue,magenta \"npx eleventy --serve --port 8081\" \"npm run watch --prefix demos/flower-crm\"",
     "dev:clinic": "npm run dev --prefix demos/clinic-crm",
+    "dev:flower": "npm run dev --prefix demos/flower-crm",
     "preview": "npm run build && npx --yes serve _site -p 8080"
   },
   "devDependencies": {

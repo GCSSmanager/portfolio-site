@@ -1,0 +1,115 @@
+.customer-market__section {
+  margin-top: 1.5rem;
+}
+
+.customer-market__section-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.customer-market__shops {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.customer-market__shop-card {
+  display: block;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--crm-radius, 14px);
+  background: var(--bg-surface);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.customer-market__shop-card:hover {
+  border-color: var(--c-accent);
+  box-shadow: var(--shadow-panel);
+}
+
+.customer-market__shop-card-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.customer-market__shop-card-phone {
+  margin: 0 0 0.2rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.customer-market__shop-card-meta {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.customer-market__shop-card--empty {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.customer-market-page__back {
+  margin-bottom: 0.75rem;
+}
+
+.customer-market-page__back a {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.customer-market-page__lead {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.customer-market-page__head {
+  margin-bottom: 0.35rem;
+}
+
+.customer-market-page__shop-phone {
+  margin: 0.15rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.customer-market-page__list {
+  max-height: min(62vh, 560px);
+  overflow-y: auto;
+}
+
+.customer-market-page__panels {
+  grid-template-columns: 1fr;
+}
+
+.customer-market-page .crm-prices-list__row {
+  align-items: center;
+}
+
+.customer-market-page__price {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  text-align: right;
+  color: var(--flowers-ink, var(--text));
+}
+
+.customer-market-page__stock-hint {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}

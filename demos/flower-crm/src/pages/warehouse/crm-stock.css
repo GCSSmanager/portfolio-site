@@ -1,0 +1,15 @@
+/* CRM склад (StockCrm): точка входа. Порядок импортов совпадает с прежним монолитом (каскад). */
+@import './stock/layout-shell.css';
+@import './stock/icons-actions.css';
+@import './stock/forms-fields.css';
+@import './stock/skeleton.css';
+@import './stock/page-head-toolbar.css';
+@import './stock/blocks-stock-table.css';
+@import './stock/board-tasks-list.css';
+@import './stock/home-main.css';
+@import './stock/batch-cards.css';
+@import './stock/modal-sale.css';
+@import './stock/card-dates-revert.css';
+@import './stock/empty-state.css';
+@import './stock/modal-shell-taxons.css';
+@import './stock/sales-stats.css';

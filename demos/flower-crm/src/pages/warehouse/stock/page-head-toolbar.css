@@ -1,0 +1,67 @@
+/* StockCrm: шапка «Главная» / склад + блок статистики в шапке */
+
+.crm-page-head {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--crm-edge);
+}
+
+.crm-page-head__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  padding-bottom: 0.35rem;
+}
+
+.crm-page-head--home .crm-page-head__top {
+  border-bottom: none;
+  padding-bottom: 0.15rem;
+}
+
+.crm-page-head--home {
+  border-bottom: 1px solid var(--crm-edge);
+}
+
+.crm-page-head__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--crm-ink);
+}
+
+.crm-page-head--warehouse .crm-page-head__top {
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.crm-page-head__warehouse-bar {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem 1rem;
+  min-width: 0;
+}
+
+.crm-page-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .crm-page-head--warehouse .crm-page-head__warehouse-bar {
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+}
+

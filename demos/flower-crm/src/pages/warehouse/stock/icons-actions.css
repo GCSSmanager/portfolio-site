@@ -1,0 +1,27 @@
+/* StockCrm: иконки (svg), не кнопки — стили кнопок в crm-button.css */
+
+.crm-ico {
+  display: block;
+  flex-shrink: 0;
+}
+
+.warehouse-crm .crm-ico {
+  width: var(--crm-ico-glyph, 1.125rem);
+  height: var(--crm-ico-glyph, 1.125rem);
+}
+
+.crm-ico--stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.crm-code {
+  font-size: 0.78em;
+  padding: 0.12rem 0.35rem;
+  border-radius: 5px;
+  background: var(--crm-paper-2);
+  color: var(--crm-ink);
+}

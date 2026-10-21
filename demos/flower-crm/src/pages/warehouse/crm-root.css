@@ -1,0 +1,21 @@
+/* CRM-склад: layout (токены — styles/tokens.css) */
+.warehouse-page.flowers-page,
+.warehouse-crm.flowers-page {
+  align-self: stretch;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: clamp(0.65rem, 2.5vw, 1.25rem);
+  padding-right: clamp(0.65rem, 2.5vw, 1.25rem);
+  padding-top: clamp(1rem, 3vw, 1.75rem);
+  color: var(--crm-ink);
+  background: transparent;
+}
+
+.warehouse-crm--minimal.flowers-page {
+  padding-top: 0.35rem;
+  padding-bottom: 1.25rem;
+}
+
+.warehouse-crm--minimal .crm-shell {
+  gap: 0.65rem;
+}

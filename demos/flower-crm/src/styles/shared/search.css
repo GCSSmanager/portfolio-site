@@ -1,0 +1,68 @@
+.flowers-search-hit {
+  padding: 0 0.06em;
+  border-radius: 3px;
+  background: var(--c-search-hit);
+  color: inherit;
+}
+
+.flowers-catalog-filter {
+  margin: 0 0 1.5rem;
+  max-width: none;
+}
+
+.flowers-catalog-filter__lab {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fc-muted);
+}
+
+.flowers-catalog-filter__field {
+  position: relative;
+}
+
+.flowers-catalog-filter__input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0.55rem 2.25rem 0.55rem 0.75rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--fc-text);
+  background: var(--bg-surface);
+  border: 1px solid var(--c-dash);
+  border-radius: 10px;
+  outline: none;
+  box-shadow: var(--shadow-inset);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.flowers-catalog-filter__input:focus {
+  border-color: var(--fc-accent);
+  box-shadow: 0 0 0 2px var(--fc-accent-soft);
+}
+
+.flowers-catalog-filter__input::placeholder {
+  color: var(--fc-muted);
+  opacity: 0.85;
+}
+
+.flowers-catalog-filter__busy {
+  position: absolute;
+  top: 50%;
+  right: 0.65rem;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: var(--fc-muted);
+  pointer-events: none;
+}
+
+.flowers-catalog-filter__hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--fc-muted);
+}

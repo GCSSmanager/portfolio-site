@@ -1,0 +1,111 @@
+/* Сворачиваемые секции: цены, статистика, задачи на главной */
+.ff-collapse__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-weight: 800;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ff-collapse__toggle:focus-visible {
+  outline: 2px solid var(--c-tint-accent);
+  outline-offset: 2px;
+}
+
+.ff-collapse__chev {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  color: var(--fc-muted, var(--crm-ink-soft));
+  line-height: 1;
+}
+
+.ff-collapse__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ff-collapse__count {
+  flex: 0 0 auto;
+  min-width: 1.35rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--c-shimmer);
+  color: var(--fc-text, var(--crm-ink));
+}
+
+/* Карточка-панель (страница «Цены») */
+.ff-collapse-panel {
+  min-width: 0;
+}
+
+.ff-collapse-panel__card {
+  border-radius: var(--crm-radius, 14px);
+  border: 1px solid var(--crm-edge, var(--border));
+  background: var(--crm-paper, var(--c-on-accent));
+  box-shadow: var(--crm-shadow);
+  overflow: hidden;
+}
+
+.ff-collapse-panel__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-bottom: 1px solid var(--c-shimmer);
+  background: var(--gradient-panel-soft);
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.86rem;
+  color: var(--flowers-ink);
+  cursor: pointer;
+  text-align: left;
+}
+
+.ff-collapse-panel--collapsed .ff-collapse-panel__toggle {
+  border-bottom: none;
+}
+
+.ff-collapse-panel__toggle:hover {
+  color: var(--crm-green, var(--brand-green-dark));
+}
+
+.ff-collapse-panel__toggle .ff-collapse__count {
+  margin-left: auto;
+  padding: 0.08rem 0.38rem;
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  background: var(--crm-paper, var(--c-on-accent));
+  border: 1px solid var(--crm-edge, var(--border));
+  color: var(--flowers-muted);
+}
+
+.ff-collapse-panel__toggle:focus-visible {
+  outline-offset: -2px;
+}
+
+.ff-collapse-panel__body {
+  padding: 0.65rem 0.75rem 0.55rem;
+}
+
+.ff-collapse-panel__empty {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  color: var(--flowers-muted);
+}

@@ -1,0 +1,50 @@
+.crm-page-status {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  margin: 0;
+}
+
+/* Каталог цветов, цены, карточка таксона */
+.crm-page-status--panel {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--fc-surface);
+  border: 1px solid var(--fc-line);
+  color: var(--fc-muted);
+  font-size: 0.95rem;
+}
+
+.crm-page-status--panel.crm-page-status--error {
+  border-color: var(--c-danger-border);
+  background: var(--c-tint-danger);
+  color: var(--text);
+}
+
+/* Справочники, складские списки */
+.crm-page-status--banner {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.crm-page-status--banner.crm-page-status--error {
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  background: var(--c-tint-danger);
+  color: var(--c-danger-hover);
+}
+
+/* Задачи, сотрудники */
+.crm-page-status--text {
+  font-size: 0.88rem;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.crm-page-status--text.crm-page-status--error {
+  margin: 0 0 1rem;
+  color: var(--c-danger);
+}
+
+.crm-page-status--text.crm-page-status--error + .crm-page-status--text.crm-page-status--error {
+  margin-top: -0.75rem;
+}

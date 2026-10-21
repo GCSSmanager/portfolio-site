@@ -1,0 +1,339 @@
+/* Страница входа: наследует глобальные токены лендинга */
+.login-page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: transparent;
+  color: var(--fc-text);
+}
+
+.login-page__grid {
+  display: grid;
+  gap: 1rem;
+  width: min(52rem, 100%);
+  align-items: stretch;
+  justify-items: center;
+}
+
+@media (min-width: 42rem) {
+  .login-page__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.login-card--form,
+.login-card--accounts {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-card__title--sub {
+  font-size: 1.15rem;
+}
+
+.login-form__submit {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.login-page--busy {
+  align-items: center;
+}
+
+.login-page__loading {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--fc-muted);
+}
+
+.login-card {
+  width: min(22rem, 100%);
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1.5rem 1.35rem 1.35rem;
+  border-radius: var(--crm-radius, 12px);
+  background: var(--fc-surface);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+  box-shadow: var(--brand-shadow-panel);
+}
+
+.login-card__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--brand-ink);
+}
+
+.login-card__lead {
+  margin: 0 0 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--fc-muted);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.login-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--fc-muted);
+}
+
+.login-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem 0.65rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--fc-line);
+  background: var(--bg-surface);
+  color: var(--fc-text);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--fc-accent);
+  box-shadow: 0 0 0 2px var(--fc-accent-soft);
+}
+
+.login-error {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--c-danger);
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+@media (min-width: 24rem) {
+  .login-actions {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.auth-app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.auth-app-shell > :where(.flowers-page) {
+  flex: 1;
+  min-height: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: min(var(--app-shell-max), 100%);
+  margin-inline: auto;
+}
+
+.auth-site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem 1rem;
+  padding: 0.55rem var(--app-shell-padding-x);
+  max-width: min(var(--app-shell-max), 100%);
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-cream);
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.auth-site-header--customer {
+  justify-content: space-between;
+}
+
+.auth-site-header__brand {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.auth-site-header__brand:hover {
+  color: var(--link-hover);
+}
+
+.auth-site-header__start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-right: auto;
+}
+
+/* Единый вид ссылок Главная / Каталог и кнопки Выйти */
+.auth-site-header__pill {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 1.2;
+  color: var(--brand-ink-soft, var(--fc-muted));
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Hover только для неактивных: иначе полупрозрачный фон перебивает «заливку» активной вкладки */
+.auth-site-header__pill:hover:not(.auth-site-header__pill--active) {
+  color: var(--brand-ink, var(--fc-text));
+  background: var(--c-border);
+  border-color: var(--c-border);
+  text-decoration: none;
+}
+
+.auth-site-header__pill--active {
+  color: var(--c-on-accent);
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.auth-site-header__pill--active:hover {
+  color: var(--c-on-accent);
+  background: var(--brand-green-dark);
+  border-color: var(--brand-green-dark);
+}
+
+.auth-site-header__pill--button {
+  margin: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+.auth-site-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+}
+
+.auth-site-header__nav-link {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--c-accent);
+  text-decoration: none;
+  padding: 0.25rem 0;
+}
+
+.auth-site-header__nav-link:hover {
+  color: var(--brand-green-dark);
+  text-decoration: underline;
+}
+
+.auth-site-header__end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 1rem;
+}
+
+.auth-site-header__label {
+  color: var(--fc-muted, var(--text-muted));
+}
+
+.auth-site-header__login {
+  color: var(--fc-text, var(--brand-ink-soft));
+  font-weight: 600;
+}
+
+.auth-modal__lead {
+  margin: 0 0 1rem;
+}
+
+.crm-form.login-form {
+  gap: 0.65rem;
+}
+
+.crm-form.login-form .crm-field__error {
+  margin: 0;
+}
+
+.login-form__back {
+  margin: 0.85rem 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.login-form__back a {
+  color: var(--c-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-form__back a:hover {
+  text-decoration: underline;
+}
+
+.login-form__reset-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.15rem;
+}
+
+.login-demo-accounts {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--fc-line);
+}
+
+.login-demo-accounts__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.65rem 0;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid var(--fc-line);
+  background: transparent;
+  cursor: pointer;
+  color: var(--brand-ink);
+}
+
+.login-demo-accounts__row:hover {
+  background: var(--bg-surface);
+}
+
+.login-demo-accounts__role {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--fc-muted);
+}
+
+.login-demo-accounts__creds {
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  color: var(--fc-muted);
+}
+

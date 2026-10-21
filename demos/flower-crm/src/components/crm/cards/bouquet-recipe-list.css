@@ -1,0 +1,44 @@
+.crm-bouquet-recipe-list {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.crm-bouquet-recipe-list > li {
+  display: block;
+  padding-left: 0.85rem;
+  text-indent: -0.85rem;
+  word-break: break-word;
+}
+
+.crm-bouquet-recipe-list > li::before {
+  content: '·';
+  display: inline-block;
+  width: 0.85rem;
+  text-align: center;
+  color: var(--crm-ink-soft, var(--text-muted));
+}
+
+.crm-bouquet-recipe-list__link {
+  color: var(--batch-link, var(--fc-accent, var(--brand-green)));
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.crm-bouquet-recipe-list__link:hover {
+  text-decoration: underline;
+}
+
+.crm-bouquet-recipe-list__item--muted {
+  color: var(--crm-ink-soft, var(--text-muted));
+}
+
+.crm-bouquet-recipe-list__empty {
+  color: var(--crm-ink-soft, var(--text-muted));
+  font-size: 0.78rem;
+}

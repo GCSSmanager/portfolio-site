@@ -1,0 +1,34 @@
+.crm-file-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+}
+
+.crm-file-field__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.crm-file-field__name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.88rem;
+  color: var(--crm-ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-file-field__empty {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.88rem;
+  color: var(--crm-ink-soft);
+}

@@ -1,0 +1,49 @@
+.not-found {
+  --nf-text: var(--brand-ink);
+  --nf-muted: var(--brand-ink-soft);
+  --nf-accent: var(--brand-green);
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--nf-text);
+  background: var(--brand-paper);
+}
+
+.not-found__code {
+  margin: 0 0 0.25rem;
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--nf-accent);
+  line-height: 1;
+}
+
+.not-found__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 600;
+}
+
+.not-found__text {
+  margin: 0 0 1.5rem;
+  max-width: 24rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--nf-muted);
+}
+
+.not-found--offline .not-found__code {
+  font-size: clamp(2.5rem, 10vw, 3.5rem);
+  color: var(--c-warm);
+}
+
+.not-found--subscription .not-found__code {
+  color: var(--c-error-soft);
+}

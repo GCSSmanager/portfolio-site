@@ -1,0 +1,353 @@
+/* Каталог: дерево таксонов */
+
+.flowers-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flowers-tree--root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flowers-tree-item--root {
+  list-style: none;
+}
+
+.flowers-tree-item__head {
+  display: flex;
+  align-items: stretch;
+  gap: var(--flowers-tree-gap, 0.35rem);
+}
+
+
+.flowers-tree-item__head--leaf {
+  gap: 0;
+  padding-left: calc(var(--flowers-tree-toggle, 1.75rem) + var(--flowers-tree-gap, 0.35rem));
+}
+
+.flowers-branch {
+  position: relative;
+  margin: 0.5rem 0 0;
+  padding: 0 0 0
+    calc(
+      var(--flowers-tree-toggle, 1.75rem) + var(--flowers-tree-gap, 0.35rem) +
+        var(--flowers-tree-indent, 1.1rem)
+    );
+}
+
+.flowers-branch__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flowers-branch__list > .flowers-tree-item > .flowers-tree-item__head {
+  position: relative;
+}
+
+.crm-btn--tree-guide-h,
+.crm-btn--tree-guide-v,
+.flowers-tree-guide {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.flowers-tree-guide:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--fc-accent-soft);
+  border-radius: 4px;
+}
+
+.crm-btn--tree-guide-v,
+.flowers-tree-guide--vertical {
+  left: calc(var(--flowers-tree-guide, 0.875rem) - 0.5rem);
+  top: 0;
+  bottom: 0;
+  width: 0.75rem;
+  z-index: 2;
+}
+
+.crm-btn--tree-guide-v::after,
+.flowers-tree-guide--vertical::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--fc-line);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.crm-btn--tree-guide-h,
+.flowers-tree-guide--horizontal {
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(
+    -1 *
+      (
+        var(--flowers-tree-toggle, 1.75rem) + var(--flowers-tree-gap, 0.35rem) +
+          var(--flowers-tree-indent, 1.1rem) - var(--flowers-tree-guide, 0.875rem)
+      ) + 0.625rem
+  );
+  width: calc(
+    var(--flowers-tree-toggle, 1.75rem) + var(--flowers-tree-gap, 0.35rem) +
+      var(--flowers-tree-indent, 1.1rem) - var(--flowers-tree-guide, 0.875rem) - 0.625rem
+  );
+  height: 0.85rem;
+  z-index: 1;
+}
+
+.crm-btn--tree-guide-h::after,
+.flowers-tree-guide--horizontal::after {
+  content: '';
+  position: absolute;
+  left: -0.625rem;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: var(--fc-line);
+  pointer-events: none;
+}
+
+
+.flowers-node-link {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  outline: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.flowers-node-link:focus-visible {
+  box-shadow: 0 0 0 2px var(--c-accent);
+}
+
+.flowers-node-link:hover .flowers-node {
+  border-color: var(--c-catalog-edge);
+  box-shadow:
+    0 4px 14px var(--c-shimmer),
+    0 0 0 1px var(--c-tint-accent-border);
+  transform: translateY(-1px);
+}
+
+.flowers-node-link:hover .flowers-node--family {
+  border-color: var(--c-catalog-edge-hover);
+  background: linear-gradient(135deg, var(--bg-cream) 0%, var(--fc-surface-deep) 100%);
+}
+
+.flowers-node {
+  background: var(--fc-surface);
+  border: 1px solid var(--fc-line);
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  box-shadow: 0 1px 0 var(--c-inset-highlight) inset;
+}
+
+.flowers-node--family {
+  background: linear-gradient(135deg, var(--fc-surface) 0%, var(--fc-surface-deep) 100%);
+  border-color: var(--c-catalog-family-edge);
+}
+
+.flowers-node--search-hit {
+  border-color: var(--c-warm);
+  box-shadow:
+    0 0 0 2px var(--c-warning-ring),
+    0 1px 0 var(--c-inset-highlight) inset;
+}
+
+.flowers-node__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+}
+
+.flowers-node__name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--fc-text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.flowers-node__badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fc-accent);
+  background: var(--fc-accent-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.flowers-node__latin {
+  margin: 0.4rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.35;
+  color: var(--fc-muted);
+}
+
+.flowers-node__latin-label {
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fc-leaf);
+  margin-right: 0.4rem;
+}
+
+.flowers-node__latin-name {
+  font-style: italic;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Кнопки в шапке разделов (Поставщики, Задачи, Расходы и т.д.) */
+.flowers-page__head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flowers-page--catalog {
+  width: min(40rem, 90vw);
+  --flowers-tree-toggle: 1.75rem;
+  --flowers-tree-gap: 0.4rem;
+  /* Доп. сдвиг вложенности на каждом уровне */
+  --flowers-tree-indent: 1.1rem;
+  --flowers-tree-guide: calc(var(--flowers-tree-toggle) / 2);
+}
+
+.flowers-catalog-return {
+  margin: 0 0 1rem;
+}
+
+/* Наследует вид шапки (auth-site-header__pill); только отступ стрелки */
+.flowers-catalog-return__pill {
+  gap: 0.4rem;
+}
+
+.flowers-catalog-return__arrow {
+  font-size: 1.05rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .flowers-page--catalog {
+    width: 100%;
+    padding: 0.75rem 0.65rem 2rem;
+    --flowers-tree-toggle: 1.4rem;
+    --flowers-tree-gap: 0.25rem;
+    --flowers-tree-indent: 0.62rem;
+  }
+
+  .flowers-catalog-return {
+    margin-bottom: 0.65rem;
+  }
+
+  .flowers-page--catalog .flowers-catalog-filter {
+    margin-bottom: 0.85rem;
+  }
+
+  .flowers-page--catalog .flowers-catalog-filter__input {
+    padding: 0.48rem 2rem 0.48rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .flowers-page--catalog .flowers-catalog-filter__hint {
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+  }
+
+  .flowers-page--catalog .flowers-page__header {
+    margin-bottom: 0.85rem;
+  }
+
+  .flowers-page--catalog .flowers-page__title {
+    font-size: clamp(1.35rem, 5vw, 1.55rem);
+  }
+
+  .flowers-page--catalog .crm-page-toolbar__lead {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .flowers-tree--root {
+    gap: 0.65rem;
+  }
+
+  .flowers-branch {
+    margin-top: 0.35rem;
+  }
+
+  .flowers-branch__list {
+    gap: 0.5rem;
+  }
+
+  .flowers-node {
+    padding: 0.48rem 0.55rem;
+    border-radius: 10px;
+  }
+
+  .flowers-node__row {
+    gap: 0.35rem 0.45rem;
+  }
+
+  .flowers-node__name {
+    font-size: 0.9rem;
+  }
+
+  .flowers-node__badge {
+    font-size: 0.62rem;
+    padding: 0.14rem 0.38rem;
+  }
+
+  .flowers-node__latin {
+    margin-top: 0.28rem;
+    font-size: 0.78rem;
+  }
+
+  .flowers-node-link {
+    border-radius: 10px;
+  }
+
+  .crm-btn--tree-toggle {
+    font-size: 0.65rem;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .flowers-page--catalog {
+    padding-inline: 0.5rem;
+    --flowers-tree-indent: 0.48rem;
+    --flowers-tree-toggle: 1.3rem;
+  }
+
+  .flowers-node {
+    padding: 0.42rem 0.48rem;
+  }
+}

@@ -1,0 +1,976 @@
+/* Страница «Статистика»: отчёт CRM — графики по дням + таблица по видам */
+
+.crm-stats-page .crm-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .crm-stats-page .crm-shell {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .crm-stats-report {
+    padding-bottom: 2rem;
+  }
+}
+
+.crm-stats-report {
+  padding: 0.15rem 0 1.5rem;
+}
+
+.crm-stats-report__head {
+  margin-bottom: 1rem;
+}
+
+.crm-stats-report__period {
+  margin-top: 0.65rem;
+  max-width: 36rem;
+}
+
+.crm-stats-report__h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--crm-ink);
+}
+
+.crm-stats-report__sub {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--crm-ink-soft);
+}
+
+.crm-stats-report__err {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--c-warn-amber);
+}
+
+.crm-stats-report__skel {
+  height: 220px;
+  border-radius: var(--crm-radius-sm, 10px);
+  background: linear-gradient(
+    90deg,
+    var(--c-shimmer) 0%,
+    var(--c-shimmer) 50%,
+    var(--c-shimmer) 100%
+  );
+  background-size: 200% 100%;
+  animation: crm-stats-report-shimmer 1.1s ease-in-out infinite;
+}
+
+@keyframes crm-stats-report-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.crm-stats-report__kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.crm-stats-report__kpi {
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--crm-radius-sm, 10px);
+  border: 1px solid var(--c-shimmer);
+  background: var(--c-surface-glass-medium);
+  box-shadow: 0 1px 0 var(--c-inset-highlight) inset;
+}
+
+.crm-stats-report__kpi--accent {
+  border-color: var(--c-tint-cool-border);
+  background: var(--gradient-stats-cool);
+}
+
+.crm-stats-report__kpi--expenses {
+  border-color: var(--c-tint-warm-border);
+  background: var(--gradient-stats-warm);
+}
+
+.crm-stats-report__kpi--expenses .crm-stats-report__kpi-val {
+  color: var(--c-warn-amber);
+}
+
+.crm-stats-report__kpi--profit {
+  border-color: var(--c-accent-border);
+  background: var(--gradient-stats-warm);
+}
+
+.crm-stats-report__kpi--profit-neg {
+  border-color: var(--c-tint-warm-border);
+  background: var(--gradient-stats-warm-strong);
+}
+
+.crm-stats-report__kpi--profit-neg .crm-stats-report__kpi-val {
+  color: var(--c-warn-amber);
+}
+
+.crm-stats-report__kpi-lab {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--crm-ink-soft);
+  margin-bottom: 0.2rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.crm-stats-report__kpi-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--crm-ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-report__kpi--accent .crm-stats-report__kpi-val {
+  color: var(--crm-blue, var(--c-cool));
+}
+
+.crm-stats-report__kpi-pct {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--crm-ink-soft);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-report__kpi--profit .crm-stats-report__kpi-pct,
+.crm-stats-report__kpi--profit-neg .crm-stats-report__kpi-pct {
+  color: var(--crm-ink-soft);
+}
+
+.crm-stats-report__charts {
+  margin-bottom: 1.75rem;
+  min-width: 0;
+}
+
+.crm-stats-chart {
+  margin: 0;
+  padding: 0.55rem 0.65rem 0.5rem;
+  border-radius: var(--crm-radius, 14px);
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper);
+  box-shadow: var(--crm-shadow);
+  position: relative;
+  min-width: 0;
+}
+
+.crm-stats-chart--combined {
+  --crm-stats-chart-h: 13.5rem;
+  padding-bottom: 0.65rem;
+}
+
+.crm-stats-chart__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--crm-ink);
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-chart__frame {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 0.25rem 0.45rem;
+  align-items: stretch;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.crm-stats-chart__y-labels {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 0.15rem 0 0;
+  list-style: none;
+  box-sizing: border-box;
+  min-width: 2rem;
+  max-width: 3.5rem;
+  text-align: right;
+  align-self: stretch;
+}
+
+.crm-stats-chart__plot-scroll {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.crm-stats-chart__plot-inner {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.crm-stats-chart__svg-wrap {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  height: var(--crm-stats-chart-h, 13.5rem);
+  overflow: hidden;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.crm-stats-chart__svg-wrap::before {
+  content: none;
+  display: none;
+}
+
+.crm-stats-chart__svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.crm-stats-chart__x-labels {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  min-height: 1.25rem;
+  width: 100%;
+  padding: 0.15rem 0 0;
+  box-sizing: border-box;
+}
+
+.crm-stats-chart__plot-inner .crm-stats-chart__x-labels {
+  grid-column: auto;
+  grid-row: auto;
+  flex: 0 0 auto;
+}
+
+.crm-stats-chart__axis-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--crm-ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.crm-stats-chart__y-labels .crm-stats-chart__axis-label {
+  display: block;
+  line-height: 1;
+}
+
+.crm-stats-chart__x-label {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.crm-stats-chart__x-label--start {
+  transform: translateX(0);
+}
+
+.crm-stats-chart__x-label--middle {
+  transform: translateX(-50%);
+}
+
+.crm-stats-chart__x-label--end {
+  transform: translateX(-100%);
+}
+
+@media (max-width: 640px) {
+  .crm-stats-chart--combined {
+    --crm-stats-chart-h: 11rem;
+  }
+
+  .crm-stats-chart__frame--mobile {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .crm-stats-chart__frame--mobile .crm-stats-chart__plot-scroll {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .crm-stats-chart__frame--scroll .crm-stats-chart__plot-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .crm-stats-chart__detail-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .crm-stats-chart__detail-row--extra {
+    grid-column: auto;
+  }
+
+  .crm-stats-chart__detail {
+    margin-top: 0.45rem;
+  }
+}
+
+.crm-stats-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 0 0 0.45rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--crm-ink-soft);
+}
+
+.crm-stats-chart__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-chart__legend-swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.crm-stats-chart__legend-swatch--inline {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+.crm-stats-chart__hover-line {
+  stroke: var(--crm-ink-soft);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  pointer-events: none;
+}
+
+.crm-stats-chart__hit-band {
+  cursor: pointer;
+  outline: none;
+}
+
+.crm-stats-chart__hit-band:focus-visible {
+  fill: rgba(0, 0, 0, 0.04);
+}
+
+.crm-stats-chart__detail {
+  margin-top: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--c-shimmer);
+  background: var(--c-surface-muted);
+  min-height: 2.75rem;
+}
+
+.crm-stats-chart__detail-hint {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--crm-ink-soft);
+}
+
+.crm-stats-chart__detail-date {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--crm-ink);
+}
+
+.crm-stats-chart__detail-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.crm-stats-chart__detail-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.crm-stats-chart__detail-lab {
+  flex: 1;
+  min-width: 0;
+  color: var(--crm-ink-soft);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-chart__detail-val {
+  color: var(--crm-ink);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-align: right;
+}
+
+.crm-stats-chart__detail-row--extra .crm-stats-chart__detail-lab {
+  color: var(--crm-ink);
+  font-weight: 700;
+}
+
+.crm-stats-chart__grid {
+  stroke: var(--c-shimmer);
+  stroke-width: 1;
+}
+
+.crm-stats-chart__area {
+  pointer-events: none;
+}
+
+.crm-stats-chart__line {
+  vector-effect: non-scaling-stroke;
+}
+
+.crm-stats-chart__dot {
+  stroke: var(--c-on-accent);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+  transition: filter 0.14s ease, fill 0.14s ease;
+}
+
+.crm-stats-chart__pt {
+  cursor: pointer;
+}
+
+.crm-stats-chart__pt:hover .crm-stats-chart__dot {
+  filter: brightness(1.22) saturate(1.05);
+}
+
+.crm-stats-chart__hit {
+  cursor: pointer;
+}
+
+.crm-stats-table-section {
+  min-width: 0;
+  border: 1px solid var(--table-border);
+  border-radius: var(--table-radius);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.crm-stats-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--table-row-border);
+  background: var(--table-head-bg);
+}
+
+.crm-stats-section-head .crm-btn--stats-toggle {
+  min-width: 0;
+  white-space: normal;
+  text-align: left;
+}
+
+.crm-stats-section-head .crm-btn--stats-toggle > span:not(.crm-btn__chev):not(.crm-btn__count) {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-section-head__totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.65rem;
+}
+
+.crm-stats-section-head__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.crm-stats-section-head__stat-lab {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.crm-stats-section-head__stat-val {
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-table-wrap--desktop {
+  display: none;
+}
+
+.crm-stats-table__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.65rem 0.75rem 0.75rem;
+  list-style: none;
+}
+
+.crm-stats-table__cards-empty {
+  padding: 0.75rem 0.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.crm-stats-table__card {
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--table-row-border);
+  border-radius: var(--crm-radius-sm, 10px);
+  background: var(--table-body-bg);
+}
+
+.crm-stats-table__card-title {
+  margin: 0 0 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--crm-ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-table__card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.5rem;
+  margin: 0;
+}
+
+.crm-stats-table__card-stat {
+  min-width: 0;
+}
+
+.crm-stats-table__card-stat dt {
+  margin: 0 0 0.1rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.crm-stats-table__card-stat dd {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--crm-ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (min-width: 720px) {
+  .crm-stats-table-wrap--desktop {
+    display: block;
+  }
+
+  .crm-stats-table__cards {
+    display: none;
+  }
+
+  .crm-stats-section-head {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .crm-stats-section-head__totals {
+    flex-shrink: 0;
+    width: auto;
+    min-width: 14rem;
+  }
+}
+
+.crm-stats-report__h2 {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--crm-ink);
+  letter-spacing: -0.02em;
+}
+
+.crm-stats-report__empty {
+  margin: 0;
+  padding: 0.75rem 0;
+  font-size: 0.85rem;
+  color: var(--crm-ink-soft);
+}
+
+.crm-stats-report__tables {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  min-width: 0;
+}
+
+@media (min-width: 960px) {
+  .crm-stats-report__tables {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.crm-stats-table-section--collapsed .crm-stats-table-wrap,
+.crm-stats-table-section--collapsed .crm-stats-table__cards {
+  display: none;
+}
+
+.crm-stats-table__empty {
+  font-weight: 600;
+}
+
+.crm-stats-table__th-sort {
+  vertical-align: middle;
+}
+
+.crm-stats-table__sort-arrows {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0.85em;
+  justify-content: center;
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.crm-stats-table__sort-arrow--active {
+  color: var(--crm-green, var(--brand-green-dark));
+  font-weight: 900;
+}
+
+.crm-stats-table__sort-arrow--idle {
+  opacity: 0.35;
+  font-weight: 600;
+}
+
+.crm-stats-table__name {
+  font-weight: 700;
+  color: var(--crm-ink);
+  max-width: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.crm-stats-table__name-meta {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--crm-ink-soft);
+}
+
+.crm-stats-table__pct {
+  font-size: 0.76em;
+  font-weight: 600;
+  color: var(--crm-ink-soft);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.crm-stats-table__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  color: var(--crm-ink);
+}
+
+.crm-stats-table__profit-neg {
+  color: var(--c-warn-amber);
+}
+
+.crm-stats-report__expenses {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid var(--c-shimmer);
+  border-radius: var(--crm-radius-sm, 10px);
+  background: var(--brand-surface);
+}
+
+.crm-stats-report__expenses-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--c-shimmer);
+}
+
+.crm-stats-report__expenses-head .crm-stats-report__h2 {
+  margin: 0;
+}
+
+.crm-stats-report__expenses-total {
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-warn-amber);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-align: right;
+}
+
+.crm-stats-report__expenses-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .crm-stats-report__expenses-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .crm-stats-report__expenses {
+    padding: 0.85rem 0.9rem 1rem;
+  }
+
+  .crm-stats-table__card-stats {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .crm-stats-table__card-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.65rem;
+  }
+
+  .crm-stats-table__card-stat dt {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .crm-stats-table__card-stat dd {
+    text-align: right;
+  }
+}
+
+.crm-stats-report__expenses-card {
+  padding: 0.75rem 0.85rem;
+  border-radius: 8px;
+  background: var(--c-surface-muted);
+  border: 1px solid var(--c-shimmer);
+}
+
+.crm-stats-report__expenses-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.crm-stats-report__expenses-card-title {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--crm-ink-soft);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  flex: 1;
+  min-width: 0;
+}
+
+.crm-stats-report__expenses-card-total {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-warn-amber);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+
+.crm-stats-report__expenses-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.crm-stats-report__expenses-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.crm-stats-report__expenses-item > span:first-child {
+  color: var(--crm-ink-soft);
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.crm-stats-report__expenses-item > span:last-child {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  color: var(--crm-ink);
+  flex-shrink: 0;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .crm-stats-report__kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .crm-stats-report__kpi {
+    padding: 0.5rem 0.55rem;
+  }
+
+  .crm-stats-report__kpi-val {
+    font-size: 1rem;
+  }
+
+  .crm-stats-report__expenses {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 0.65rem 0.7rem;
+  }
+
+  .crm-stats-report__expenses-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .crm-stats-report__expenses-head .crm-stats-report__h2 {
+    font-size: 0.88rem;
+  }
+
+  .crm-stats-report__expenses-total {
+    font-size: 0.92rem;
+    text-align: left;
+  }
+
+  .crm-stats-report__expenses-cards {
+    gap: 0.5rem;
+  }
+
+  .crm-stats-report__expenses-card {
+    padding: 0.5rem 0.55rem;
+  }
+
+  .crm-stats-report__expenses-card-head {
+    flex-wrap: wrap;
+    gap: 0.25rem 0.45rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .crm-stats-report__expenses-card-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  .crm-stats-report__expenses-card-total {
+    font-size: 0.82rem;
+  }
+
+  .crm-stats-report__expenses-list {
+    gap: 0.25rem;
+  }
+
+  .crm-stats-report__expenses-item {
+    font-size: 0.76rem;
+    gap: 0.35rem;
+    line-height: 1.3;
+  }
+
+  .crm-stats-chart {
+    padding: 0.45rem 0.5rem 0.55rem;
+  }
+
+  .crm-stats-chart__legend {
+    gap: 0.35rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .crm-stats-chart__detail {
+    padding: 0.45rem 0.5rem;
+  }
+
+  .crm-stats-chart__detail-row {
+    font-size: 0.78rem;
+  }
+}
+

@@ -1,0 +1,17 @@
+/* Группа ✎ / × в строке списка или таблицы */
+.crm-row-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.crm-row-actions__cell {
+  text-align: right;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.crm-row-actions__cell .crm-row-actions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}

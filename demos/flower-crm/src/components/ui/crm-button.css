@@ -1,0 +1,993 @@
+/* Единые стили кнопок FlowerFlow (CrmButton) */
+
+.crm-btn {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  transition:
+    background 0.12s ease,
+    border-color 0.12s ease,
+    color 0.12s ease,
+    filter 0.12s ease,
+    transform 0.12s ease,
+    opacity 0.12s ease;
+}
+
+.crm-btn:disabled {
+  cursor: not-allowed;
+}
+
+.crm-btn--full {
+  width: 100%;
+}
+
+/* —— Склад / toolbar —— */
+.crm-btn--add {
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper);
+  color: var(--crm-ink);
+}
+
+.crm-btn--add:hover:not(:disabled) {
+  background: var(--crm-paper-2);
+  border-color: var(--c-tint-accent);
+}
+
+/* —— Модалки —— */
+.crm-btn--ghost {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--crm-edge);
+  background: transparent;
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--ghost:hover:not(:disabled) {
+  background: var(--crm-paper-2);
+}
+
+.crm-btn--primary {
+  padding: 0.48rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--btn-radius, 10px);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+  border-color: var(--btn-primary-bg, var(--brand-green));
+  background: var(--btn-primary-bg, var(--brand-green));
+  color: var(--btn-primary-fg, var(--c-on-accent));
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.crm-btn--primary:hover:not(:disabled) {
+  background: var(--btn-primary-hover, var(--brand-green-dark));
+  border-color: var(--btn-primary-hover, var(--brand-green-dark));
+  box-shadow: var(--brand-shadow-md);
+  filter: none;
+}
+
+.crm-btn--primary:disabled {
+  opacity: 1;
+  border-color: var(--brand-edge);
+  background: var(--btn-disabled-bg, var(--btn-disabled-bg));
+  color: var(--btn-disabled-fg, var(--crm-ink-soft));
+  box-shadow: none;
+  filter: none;
+}
+
+.crm-btn--danger {
+  margin-right: auto;
+  color: var(--c-danger);
+  border-color: var(--c-danger-border);
+}
+
+.crm-btn--danger:hover:not(:disabled) {
+  background: var(--c-tint-danger);
+  color: var(--c-danger-hover);
+}
+
+.crm-btn--waste-discard {
+  background: var(--c-danger);
+  border-color: var(--c-danger-border);
+  color: var(--c-on-accent);
+}
+
+.crm-btn--waste-discard:hover:not(:disabled) {
+  background: var(--c-danger-hover);
+  filter: none;
+}
+
+/* —— Каталог / accent toolbar —— */
+.crm-btn--accent {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--btn-radius, 10px);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+  border-color: var(--brand-green);
+  background: var(--brand-tint-green);
+  color: var(--brand-green-dark);
+}
+
+.crm-btn--accent:hover:not(:disabled) {
+  background: var(--brand-tint-green-strong);
+  border-color: var(--brand-green-dark);
+}
+
+.crm-btn--link {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--fc-accent, var(--brand-green));
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.crm-btn--clear-catalog {
+  margin-top: 0.35rem;
+  padding: 0;
+  font-size: 0.78rem;
+  color: var(--c-danger);
+  text-decoration: underline;
+}
+
+.crm-btn--clear-catalog:hover:not(:disabled) {
+  color: var(--c-danger-hover);
+}
+
+/* —— Пустое состояние —— */
+.crm-btn--empty {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper-2);
+  color: var(--crm-ink);
+}
+
+.crm-btn--empty:hover:not(:disabled) {
+  border-color: var(--c-accent-border);
+}
+
+.crm-btn--empty-secondary {
+  background: var(--crm-paper);
+}
+
+/* —— Авторизация —— */
+.crm-btn--login-primary {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: var(--btn-radius, 10px);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+  border-color: var(--brand-green);
+  white-space: nowrap;
+  background: var(--brand-green);
+  color: var(--c-on-accent);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.crm-btn--login-primary:hover:not(:disabled) {
+  background: var(--brand-green-dark);
+  border-color: var(--brand-green-dark);
+  box-shadow: var(--brand-shadow-md);
+  filter: none;
+}
+
+.crm-btn--login-secondary {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--btn-radius, 10px);
+  white-space: nowrap;
+  background: var(--brand-surface, var(--c-on-accent));
+  color: var(--fc-text);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+}
+
+.crm-btn--login-secondary:hover:not(:disabled) {
+  background: var(--brand-cream);
+}
+
+.crm-btn--login-primary:disabled,
+.crm-btn--login-secondary:disabled {
+  opacity: 1;
+  border-color: var(--fc-line);
+  background: var(--btn-disabled-bg);
+  color: var(--fc-muted, var(--text-muted));
+}
+
+.crm-btn--login-primary:disabled {
+  background: var(--c-disabled);
+}
+
+.crm-btn--login-reset {
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--fc-muted, var(--text-muted));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
+.crm-btn--login-reset:hover:not(:disabled) {
+  color: var(--fc-text, var(--brand-ink-soft));
+}
+
+/* —— Лендинг / 404 —— */
+.crm-btn--landing-auth {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid var(--fc-line);
+  background: var(--fc-surface);
+  color: var(--fc-text);
+}
+
+.crm-btn--landing-auth:hover:not(:disabled) {
+  border-color: var(--fc-accent);
+  background: var(--fc-accent-soft);
+}
+
+.crm-btn--landing-cta {
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: none;
+  background: var(--fc-accent);
+  color: var(--c-on-accent);
+  box-shadow: 0 8px 24px var(--c-tint-accent);
+}
+
+.crm-btn--landing-cta:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.crm-btn--not-found {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--c-on-accent);
+  background: var(--nf-accent, var(--brand-green-bright));
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--c-shimmer);
+}
+
+.crm-btn--not-found:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.crm-btn--not-found:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--c-tint-accent);
+}
+
+/* —— Задачи / цветы —— */
+.crm-btn--tasks-link {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  padding: 0;
+  color: var(--flowers-accent, var(--c-accent-hover));
+  text-decoration: underline;
+}
+
+.crm-btn--tasks-link-danger {
+  color: var(--c-danger);
+}
+
+.crm-btn--tasks-link:disabled {
+  opacity: 0.5;
+}
+
+.crm-btn--tasks-modal-del {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--c-danger);
+  text-decoration: underline;
+}
+
+.crm-btn--flowers-head {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--btn-radius, 10px);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+  background: var(--flowers-surface, var(--brand-surface));
+  color: var(--flowers-ink, var(--brand-ink));
+}
+
+.crm-btn--flowers-head:hover:not(:disabled) {
+  border-color: var(--c-accent-border);
+}
+
+.crm-btn--flowers-head-primary {
+  border-color: var(--brand-green);
+  background: var(--brand-tint-green);
+  color: var(--brand-green-dark);
+}
+
+.crm-btn--flowers-head-primary:hover:not(:disabled) {
+  background: var(--brand-tint-green-strong);
+}
+
+.crm-btn--flowers-head:disabled {
+  opacity: 0.5;
+}
+
+/* —— Персонал —— */
+.crm-btn--staff-submit {
+  margin-top: 0.25rem;
+  padding: 0.55rem 0.85rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  background: var(--flowers-accent, var(--brand-green-bright));
+  color: var(--c-on-accent);
+}
+
+.crm-btn--staff-submit:disabled {
+  opacity: 0.55;
+}
+
+.crm-btn--staff-chip {
+  padding: 0.35rem 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--flowers-line, var(--border-strong));
+  background: var(--bg-surface);
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.crm-btn--staff-chip:hover:not(:disabled) {
+  border-color: var(--flowers-accent, var(--brand-green-bright));
+  color: var(--text);
+}
+
+.crm-btn--staff-chip-danger {
+  border-color: var(--c-danger-border);
+  color: var(--c-danger-hover);
+}
+
+/* —— Задачи на главной (ссылки) —— */
+.crm-btn--home-task-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--c-on-accent);
+  background: var(--c-accent);
+  border: 1px solid var(--c-accent-border);
+}
+
+.crm-btn--home-task-primary:hover {
+  background: var(--c-accent-hover);
+}
+
+.crm-btn--home-task-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--crm-ink);
+  background: var(--crm-paper-2);
+  border: 1px solid var(--crm-edge);
+}
+
+.crm-btn--home-task-ghost:hover {
+  border-color: var(--c-accent-border);
+}
+
+/* —— Шапка главной —— */
+.crm-btn--home-head {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.55rem;
+  padding: 0.48rem 1rem;
+  border-radius: var(--btn-radius, 10px);
+  border: var(--btn-border, 1px solid var(--brand-edge-strong));
+  background: var(--crm-paper, var(--c-on-accent));
+  color: var(--crm-ink);
+  font-weight: 700;
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.crm-btn--home-head:hover:not(:disabled) {
+  border-color: var(--brand-green);
+  background: var(--brand-cream);
+  box-shadow: var(--brand-shadow-md);
+}
+
+.crm-btn--home-head:disabled {
+  opacity: 0.45;
+}
+
+.crm-btn__ico {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--home-delivery .crm-btn__ico {
+  color: var(--c-accent);
+}
+
+.crm-btn--home-intake .crm-btn__ico {
+  color: var(--crm-accent-hover, var(--c-accent-hover));
+}
+
+.crm-btn--home-bouquet .crm-btn__ico {
+  color: var(--c-warm);
+}
+
+.crm-btn--home-retail .crm-btn__ico {
+  color: var(--text-muted);
+}
+
+.crm-btn--home-sale .crm-btn__ico {
+  color: var(--c-warm);
+}
+
+.crm-btn--home-order .crm-btn__ico {
+  color: var(--c-cool);
+}
+
+.crm-btn--home-waste .crm-btn__ico {
+  color: var(--c-danger);
+}
+
+.crm-btn--home-inventory .crm-btn__ico {
+  color: var(--text-muted);
+}
+
+.crm-btn__txt {
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* —— Иконки действий на карточках —— */
+.crm-btn--icon-act {
+  width: var(--crm-icon-hit, 2rem);
+  height: var(--crm-icon-hit, 2rem);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper-2);
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--icon-act:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.crm-btn--icon-act:disabled {
+  opacity: 0.45;
+}
+
+.crm-btn--icon-trim {
+  color: var(--crm-accent-hover);
+  border-color: var(--c-tint-accent);
+  background: var(--c-tint-accent);
+}
+
+.crm-btn--icon-trim:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+  border-color: var(--crm-accent);
+}
+
+.crm-btn--icon-water {
+  color: var(--c-cool);
+  border-color: var(--c-accent-border);
+  background: var(--crm-blue-bg);
+}
+
+.crm-btn--icon-water:hover:not(:disabled) {
+  background: var(--c-tint-cool);
+}
+
+.crm-btn--icon-care {
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--icon-care:hover:not(:disabled) {
+  color: var(--crm-accent);
+  background: var(--c-tint-accent);
+  border-color: var(--c-tint-accent);
+}
+
+.crm-btn--icon-discard {
+  color: var(--c-danger);
+  border-color: var(--c-danger-border);
+  background: var(--c-tint-danger);
+}
+
+.crm-btn--icon-discard:hover:not(:disabled) {
+  color: var(--c-danger-hover);
+  background: var(--c-tint-danger);
+  border-color: var(--c-danger-border);
+}
+
+/* —— Приёмка / уход на карточках —— */
+.crm-btn--intake {
+  width: 100%;
+  padding: 0.35rem 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 9px;
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper-2);
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--intake:disabled {
+  opacity: 0.45;
+}
+
+.crm-btn--intake-box {
+  text-transform: none;
+  border: 1.5px solid var(--crm-intake-box-edge);
+  background: linear-gradient(180deg, var(--crm-intake-box-bg-1) 0%, var(--crm-intake-box-bg-2) 100%);
+  color: var(--crm-intake-box);
+}
+
+.crm-btn--intake-box:hover:not(:disabled) {
+  border-color: var(--c-accent-border-strong);
+  background: var(--gradient-intake-hover);
+}
+
+.crm-btn--delivery-truck {
+  text-transform: none;
+  border: 1.5px solid var(--crm-delivery-truck-edge);
+  background: linear-gradient(180deg, var(--crm-delivery-truck-bg-1) 0%, var(--crm-delivery-truck-bg-2) 100%);
+  color: var(--crm-delivery-truck);
+}
+
+.crm-btn--delivery-truck:hover:not(:disabled) {
+  border-color: var(--c-accent-border-strong);
+  background: var(--gradient-delivery-hover);
+}
+
+.crm-btn--task-done {
+  text-transform: none;
+  color: var(--crm-accent, var(--c-accent-hover));
+  background: var(--c-tint-accent);
+  border: 1px solid var(--c-accent-border);
+}
+
+.crm-btn--task-done:hover:not(:disabled) {
+  background: var(--c-tint-accent-strong);
+}
+
+.crm-btn--basic-care {
+  width: 100%;
+  padding: 0.38rem 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  border-radius: 9px;
+  border: 1.55px solid var(--c-accent-border);
+  background: var(--gradient-care);
+  color: var(--c-cool);
+}
+
+.crm-btn--basic-care:hover:not(:disabled) {
+  border-color: var(--c-accent-border);
+  background: var(--gradient-care);
+  transform: translateY(-1px);
+}
+
+.crm-btn--basic-care:disabled {
+  opacity: 0.45;
+}
+
+.crm-btn--basic-care-icon-only {
+  width: var(--crm-icon-hit, 2rem);
+  height: var(--crm-icon-hit, 2rem);
+  min-width: var(--crm-icon-hit, 2rem);
+  padding: 0;
+  gap: 0;
+}
+
+/* —— Поставщики —— */
+.crm-btn--suppliers-plan {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--c-shimmer);
+  background: var(--bg-surface);
+  color: var(--flowers-ink, var(--text));
+}
+
+.crm-btn--suppliers-plan:hover:not(:disabled) {
+  border-color: var(--c-tint-accent);
+}
+
+.crm-btn--suppliers-card-plan {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--c-shimmer);
+  background: var(--c-surface-glass);
+  color: var(--flowers-ink, var(--text));
+  white-space: nowrap;
+}
+
+.crm-btn--suppliers-card-plan:hover:not(:disabled) {
+  border-color: var(--c-tint-accent);
+}
+
+.crm-btn--suppliers-offer-add {
+  padding: 0.28rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px dashed var(--c-dash);
+  color: var(--flowers-ink, var(--text));
+}
+
+.crm-btn--suppliers-offer-add:hover:not(:disabled) {
+  border-color: var(--c-tint-accent);
+  color: var(--fc-accent, var(--brand-green));
+}
+
+.crm-btn--row-edit,
+.crm-btn--icon-close {
+  min-width: 2rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--row-edit:hover:not(:disabled),
+.crm-btn--icon-close:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+  color: var(--fc-accent, var(--brand-green));
+}
+
+.crm-btn--row-del:hover:not(:disabled) {
+  background: var(--c-tint-danger);
+  color: var(--c-danger);
+}
+
+/* —— Расходы —— */
+.crm-btn--expenses-section-add {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--c-accent-border);
+  background: var(--bg-surface);
+  color: var(--fc-accent, var(--c-accent));
+}
+
+.crm-btn--expenses-section-add:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+}
+
+.crm-btn--expenses-pay {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+  margin-right: 0.15rem;
+  border: 1px solid var(--crm-edge);
+}
+
+.crm-btn--expenses-pay:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+  border-color: var(--c-accent-border-strong);
+  color: var(--fc-accent, var(--brand-green));
+}
+
+/* —— Строки модалок —— */
+.crm-btn--line-remove {
+  align-self: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--line-remove:hover:not(:disabled) {
+  color: var(--crm-ink);
+  background: var(--c-hover-neutral);
+}
+
+.crm-btn--line-remove:disabled {
+  opacity: 0.35;
+}
+
+/* Кнопки «+ позиция», «+ товар» и т.п. в модалках со строками */
+.crm-btn--line-add {
+  margin-top: 0.45rem;
+  font-weight: 700;
+  color: var(--brand-green-dark);
+  border: 1px dashed var(--brand-green);
+  border-radius: var(--btn-radius-pill, 999px);
+  background: var(--brand-surface);
+}
+
+.crm-btn--line-add:hover:not(:disabled) {
+  border-color: var(--brand-green-dark);
+  background: var(--brand-tint-green);
+}
+
+/* —— Сворачиваемые блоки —— */
+.crm-btn--collapsible-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 0.35rem;
+  padding: 0.4rem 0.35rem 0.45rem 0.2rem;
+  border-bottom: 1px solid var(--crm-edge);
+  border-radius: 8px 8px 0 0;
+  text-align: left;
+  color: var(--crm-ink-soft);
+}
+
+.crm-btn--collapsible-title:hover {
+  background: var(--c-hover-neutral);
+}
+
+.crm-btn__chev {
+  flex: 0 0 auto;
+  width: 1rem;
+  font-size: 0.62rem;
+  line-height: 1;
+  color: var(--crm-ink-soft);
+  user-select: none;
+}
+
+.crm-btn__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.crm-btn__count {
+  flex: 0 0 auto;
+  min-width: 1.35rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  background: var(--crm-paper, var(--c-on-accent));
+  border: 1px solid var(--crm-edge);
+  color: var(--crm-ink);
+}
+
+/* —— Выпадающие списки —— */
+.crm-btn--taxon-dd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--crm-ink);
+}
+
+.crm-btn--taxon-dd:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+}
+
+.crm-btn--pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.92rem;
+  text-align: left;
+  border-radius: 9px;
+  border: 1px solid var(--crm-edge);
+  background: var(--bg-surface);
+  color: var(--crm-ink);
+}
+
+.crm-btn--pick:hover:not(:disabled) {
+  border-color: var(--c-tint-accent);
+  background: var(--crm-paper-2, var(--bg-cream));
+}
+
+.crm-btn--pick:focus {
+  outline: none;
+  border-color: var(--c-tint-accent);
+  box-shadow: 0 0 0 3px var(--c-tint-accent);
+}
+
+.crm-btn--pick:disabled {
+  opacity: 0.65;
+}
+
+/* —— Дерево каталога —— */
+.crm-btn--tree-toggle {
+  flex: 0 0 var(--flowers-tree-toggle, 1.75rem);
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 8px;
+  color: var(--fc-muted);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.crm-btn--tree-toggle:hover:not(:disabled) {
+  background: var(--fc-accent-soft);
+  color: var(--fc-text);
+}
+
+.crm-btn--tree-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--fc-accent-soft);
+}
+
+/* —— Статистика —— */
+.crm-btn--stats-sort {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  font-weight: 800;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--crm-ink-soft);
+  text-align: right;
+  border-radius: 6px;
+}
+
+.crm-btn--stats-sort:hover:not(:disabled) {
+  background: var(--c-shimmer);
+  color: var(--crm-ink);
+}
+
+.crm-btn--stats-sort:focus-visible {
+  outline: 2px solid var(--c-tint-accent);
+  outline-offset: 1px;
+}
+
+.crm-btn--stats-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.15rem 0;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--crm-ink);
+  text-align: left;
+}
+
+.crm-btn--stats-toggle:hover:not(:disabled) {
+  color: var(--crm-green, var(--brand-green-dark));
+}
+
+.crm-btn--stats-toggle:focus-visible {
+  outline: 2px solid var(--c-tint-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.crm-btn--stats-toggle .crm-btn__chev {
+  font-size: 0.68rem;
+}
+
+.crm-btn--stats-toggle .crm-btn__count {
+  font-size: 0.68rem;
+  color: var(--crm-ink-soft);
+}
+
+/* —— Инвентаризация —— */
+.crm-btn--inventory-head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 1.1rem;
+  gap: 0.5rem 0.5rem;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  font: inherit;
+}
+
+/* —— Период отчёта —— */
+.crm-btn--period-preset {
+  padding: 0.28rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid var(--crm-edge, var(--border-strong));
+  background: transparent;
+  color: var(--crm-ink-soft, var(--text-muted));
+}
+
+.crm-btn--period-preset:hover:not(:disabled) {
+  background: var(--c-tint-accent);
+  color: var(--crm-ink, var(--brand-ink-soft));
+}
+
+.crm-btn--period-preset-active {
+  border-color: var(--fc-accent, var(--brand-green));
+  background: var(--c-tint-accent);
+  color: var(--crm-ink, var(--brand-ink-soft));
+}
+
+.crm-btn--period-preset:disabled {
+  opacity: 0.55;
+}

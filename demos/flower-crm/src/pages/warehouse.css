@@ -1,0 +1,3 @@
+/* CRM-склад: дизайн-токены (crm-root) + модульные стили склада (crm-stock → warehouse/stock/). */
+@import './warehouse/crm-root.css';
+@import './warehouse/crm-stock.css';

@@ -1,0 +1,128 @@
+/* StockCrm: секция склада (заголовок с кнопками), утилиты */
+
+.crm-block {
+  margin-top: 1.15rem;
+}
+
+.crm-block:first-of-type {
+  margin-top: 0.35rem;
+}
+
+.crm-block__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.crm-block__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--crm-ink);
+}
+
+.crm-block__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.crm-block__head--home-toolbar {
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
+.crm-board--warehouse-wide .crm-board__main {
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.crm-board--warehouse-wide {
+  flex-wrap: nowrap;
+}
+
+.crm-warehouse-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.crm-block--warehouse {
+  margin-top: 0.5rem;
+}
+
+.crm-batch-grid--warehouse-centered {
+  justify-content: center;
+}
+
+.crm-tasks-block--batches .crm-btn--collapsible-title .crm-btn__label {
+  color: var(--crm-accent-hover);
+}
+
+.crm-tasks-block--retail .crm-btn--collapsible-title .crm-btn__label {
+  color: var(--text-muted);
+}
+
+.crm-care-empty {
+  margin: 0;
+  padding: 1rem 0.25rem;
+  font-size: 0.88rem;
+  color: var(--crm-ink-soft);
+  line-height: 1.45;
+}
+
+.crm-sale-toolbar-btn {
+  flex-shrink: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--c-accent-border);
+  background: var(--gradient-subscription-alert);
+  color: var(--c-warm);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.crm-sale-toolbar-btn:hover:not(:disabled) {
+  border-color: var(--c-accent-border-strong);
+}
+
+.crm-sale-toolbar-btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.crm-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.crm-sale-empty {
+  margin: 0;
+  padding: 0.25rem 0;
+  font-size: 0.88rem;
+  color: var(--crm-ink-soft);
+}
+
+.crm-sale-warning {
+  margin: 0 0 0.65rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  background: var(--crm-amber-bg);
+  color: var(--c-warm);
+}

@@ -1,0 +1,18 @@
+/* StockCrm: оболочка страницы и сообщения об ошибках */
+
+.crm-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.crm-alert {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--crm-radius-sm);
+  background: var(--c-error-banner-bg);
+  border: 1px solid var(--c-error-banner-border);
+  color: var(--c-error-banner-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+

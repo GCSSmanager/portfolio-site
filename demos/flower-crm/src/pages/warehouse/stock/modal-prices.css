@@ -1,0 +1,155 @@
+/* StockCrm: модальное окно «Цены» (поля ₽/шт и прокручиваемый блок) */
+
+.crm-price-field {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.crm-price-field__lab {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--crm-ink-soft);
+  line-height: 1.2;
+}
+
+.crm-price-field__input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0.32rem 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  border-radius: 6px;
+  border: 1px solid var(--c-dash);
+  background: var(--bg-surface);
+  color: var(--crm-ink);
+  font-family: inherit;
+  box-shadow: var(--shadow-inset);
+}
+
+.crm-price-field__input:focus {
+  outline: none;
+  border-color: var(--c-tint-accent);
+  box-shadow: 0 0 0 2px var(--c-tint-accent);
+}
+
+.crm-price-field__input:disabled {
+  opacity: 0.65;
+}
+
+.crm-price-field--invalid .crm-price-field__lab {
+  color: var(--c-danger);
+}
+
+.crm-price-field--invalid .crm-price-field__input {
+  border-color: var(--batch-error-border);
+  box-shadow: 0 0 0 2px var(--batch-error-ring);
+}
+
+.crm-price-field--invalid .crm-price-field__input:focus {
+  border-color: var(--c-danger);
+  box-shadow: 0 0 0 3px var(--batch-error-ring-strong);
+}
+
+@media (max-width: 1279px) {
+  .crm-modal__box--scroll {
+    max-height: 72vh;
+    max-height: 72dvh;
+  }
+}
+
+.crm-prices-modal__lead {
+  margin: 0 0 0.65rem;
+  font-size: 0.81rem;
+  line-height: 1.45;
+  color: var(--crm-ink-soft);
+}
+
+.crm-prices-modal__lead strong {
+  color: var(--crm-ink);
+  font-weight: 700;
+}
+
+.crm-prices-modal__empty {
+  margin: 0 0 1rem;
+  font-size: 0.84rem;
+  color: var(--crm-ink-soft);
+}
+
+.crm-prices-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.crm-prices-list__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.65rem;
+}
+
+.crm-prices-list__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.45rem 0.5rem;
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+.crm-prices-list__taxon {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.06rem;
+}
+
+.crm-prices-list__name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--crm-ink);
+  line-height: 1.25;
+}
+
+.crm-prices-list__latin {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--crm-ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crm-prices-list__rank {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--crm-ink-soft);
+}
+
+.crm-price-field--row {
+  flex: 0 0 5.85rem;
+  width: 5.85rem;
+}
+
+.crm-price-field--row .crm-price-field__input {
+  text-align: right;
+}
+
+.crm-modal__actions--foot {
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--crm-edge);
+  justify-content: flex-end;
+}

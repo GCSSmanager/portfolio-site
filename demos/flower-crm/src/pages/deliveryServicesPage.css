@@ -1,0 +1,73 @@
+/* Карточки «Сервисы доставки» — компактнее, чем у поставщиков */
+
+.flowers-page--delivery-services .delivery-service-card {
+  padding: 0.5rem 0.7rem 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.flowers-page--delivery-services .delivery-service-card:last-child {
+  margin-bottom: 0;
+}
+
+.delivery-service-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+}
+
+.delivery-service-card__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.55rem;
+  min-width: 0;
+}
+
+.delivery-service-card__name {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--flowers-ink, var(--text));
+}
+
+.delivery-service-card__price {
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--flowers-ink, var(--text));
+  font-variant-numeric: tabular-nums;
+}
+
+.delivery-service-card__price-lab {
+  margin-right: 0.3rem;
+  font-weight: 500;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.delivery-service-card__details {
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--c-shimmer);
+}
+
+.delivery-service-card__details p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--flowers-muted, var(--text-muted));
+}
+
+.delivery-service-card__details p + p {
+  margin-top: 0.2rem;
+}
+
+.delivery-service-card__contacts {
+  white-space: pre-line;
+}
+
+.flowers-page--delivery-services .delivery-service-card .suppliers-page__row-action {
+  min-width: 2rem;
+  min-height: 2rem;
+}

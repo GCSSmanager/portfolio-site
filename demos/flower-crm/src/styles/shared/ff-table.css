@@ -1,0 +1,187 @@
+/* ═══ FlowerFlow — единый минималистичный стиль таблиц ═══ */
+
+/* —— Обёртки —— */
+.ff-table-wrap,
+.expenses-page__table-wrap,
+.sales-page__table-wrap,
+.crm-stats-table-wrap,
+.crm-supplier-receive-table-wrap,
+.suppliers-page__table-wrap {
+  border: 1px solid var(--table-border);
+  border-radius: var(--table-radius);
+  background: var(--bg-surface);
+  overflow: auto;
+}
+
+/* —— Базовая таблица —— */
+.ff-table,
+.expenses-page__table,
+.suppliers-page__table,
+.sales-page__table,
+.crm-stats-table,
+.crm-supplier-receive-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: var(--table-body-size);
+  color: var(--text);
+}
+
+.ff-table th,
+.ff-table td,
+.expenses-page__table th,
+.expenses-page__table td,
+.suppliers-page__table th,
+.suppliers-page__table td,
+.sales-page__table th,
+.sales-page__table td,
+.crm-stats-table th,
+.crm-stats-table td,
+.crm-supplier-receive-table th,
+.crm-supplier-receive-table td {
+  padding: var(--table-cell-y) var(--table-cell-x);
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.ff-table th,
+.expenses-page__table th,
+.suppliers-page__table th,
+.sales-page__table th,
+.crm-stats-table th,
+.crm-supplier-receive-table th {
+  font-size: var(--table-head-size);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--table-head-border);
+  background: var(--table-head-bg);
+}
+
+.ff-table td,
+.expenses-page__table td,
+.suppliers-page__table td,
+.sales-page__table td,
+.crm-stats-table td,
+.crm-supplier-receive-table td {
+  border-bottom: 1px solid var(--table-row-border);
+  background: var(--table-body-bg);
+}
+
+.ff-table tbody tr:last-child td,
+.expenses-page__table tbody tr:last-child td,
+.suppliers-page__table tbody tr:last-child td,
+.sales-page__table tbody tr:last-child td,
+.crm-stats-table tbody tr:last-child td,
+.crm-supplier-receive-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Числовые колонки */
+.ff-table__num,
+.ff-table th.ff-table__num,
+.ff-table td.ff-table__num,
+.expenses-page__td-num,
+.suppliers-page__th-num,
+.suppliers-page__td-num,
+.sales-page__td-num,
+.crm-stats-table__num,
+.crm-stats-table th.crm-stats-table__num,
+.crm-stats-table td.crm-stats-table__num,
+.crm-supplier-receive-table__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.crm-supplier-receive-table__num {
+  text-align: center;
+}
+
+/* Sticky-шапка в прокручиваемых блоках */
+.expenses-page__section--scroll .expenses-page__table thead th,
+.sales-page__history-panel .sales-page__table thead th,
+.crm-stats-table-wrap .crm-stats-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--table-head-bg);
+}
+
+.suppliers-page__table-wrap {
+  margin-top: 0.5rem;
+}
+
+.suppliers-page__table-wrap .suppliers-page__table {
+  border: none;
+  border-radius: 0;
+  background: var(--table-body-bg);
+}
+
+.suppliers-page__table th,
+.suppliers-page__table td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* —— Табличные списки (цены, персонал) —— */
+.ff-data-list,
+.crm-prices-list,
+.staff-page__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ff-data-list--framed,
+.crm-prices-list.prices-page__list,
+.staff-page__card > .staff-page__list,
+.crm-modal .crm-prices-list {
+  border: 1px solid var(--table-border);
+  border-radius: var(--table-radius);
+  background: var(--bg-surface);
+}
+
+.crm-modal .crm-prices-list {
+  overflow: hidden;
+}
+
+.ff-data-list__row,
+.crm-prices-list__row,
+.staff-page__row {
+  padding: var(--table-cell-y) var(--table-cell-x);
+  border-bottom: 1px solid var(--table-row-border);
+}
+
+.ff-data-list__row:last-child,
+.crm-prices-list__row:last-child,
+.staff-page__row:last-child {
+  border-bottom: none;
+}
+
+.crm-prices-list__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.65rem;
+}
+
+.staff-page__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Пустые строки */
+.ff-table__empty td,
+.sales-page__td-empty,
+.crm-stats-table__empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 1.25rem var(--table-cell-x) !important;
+  font-weight: 600;
+}

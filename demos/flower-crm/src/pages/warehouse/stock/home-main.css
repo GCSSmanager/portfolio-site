@@ -1,0 +1,333 @@
+/* Главная (StockCrm surface=home): сводка в шапке, компактные кнопки, список дел */
+
+.crm-home-headboard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.1rem;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--crm-radius-sm, 10px);
+  border: 1px solid var(--crm-edge);
+  background: var(--crm-paper-2, var(--c-dash));
+}
+
+.crm-home-headboard__sales-qty {
+  font-weight: 700;
+  color: var(--crm-ink);
+}
+
+.crm-home-headboard__sales-sep {
+  font-weight: 600;
+  color: var(--crm-ink-soft);
+  opacity: 0.75;
+}
+
+.crm-home-headboard__sales-rev {
+  font-weight: 700;
+  color: var(--c-cool);
+}
+
+.crm-home-headboard__sales-profit {
+  font-weight: 700;
+  color: var(--c-warm);
+}
+
+.crm-home-headboard__sales-profit--pos {
+  color: var(--c-profit);
+}
+
+.crm-home-headboard__sales-profit--neg {
+  color: var(--c-loss);
+}
+
+.crm-home-headboard__sales-skel {
+  color: var(--crm-ink-soft);
+  font-style: italic;
+}
+
+.crm-home-headboard__sales-line {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--crm-ink);
+  word-break: break-word;
+}
+
+.crm-home-headboard__actions {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem 0.65rem;
+  align-self: center;
+}
+
+@media (max-width: 520px) {
+  .crm-home-headboard__actions {
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+}
+
+.crm-home-deals {
+  margin-top: 0.35rem;
+}
+
+.crm-home-deals__title {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--crm-ink);
+}
+
+.crm-home-deals__blocks {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: start;
+}
+
+.crm-batch-grid--home-tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+  gap: 0.45rem;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+
+.crm-batch-grid--home-tasks > li {
+  width: auto;
+  max-width: none;
+  flex: unset;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini {
+  width: 100%;
+  flex: 0 1 auto;
+  padding: 0.4rem 0.48rem 0.42rem;
+  gap: 0.32rem;
+  border-radius: 8px;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__main {
+  gap: 0.35rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__body {
+  gap: 0.1rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__meta {
+  gap: 0.2rem 0.35rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__id,
+.crm-batch-grid--home-tasks .crm-card-mini__rank {
+  font-size: 0.58rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__name {
+  font-size: 0.82rem;
+  line-height: 1.22;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__latin {
+  font-size: 0.68rem;
+  line-height: 1.25;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__recv {
+  margin: 0.05rem 0 0;
+  font-size: 0.62rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__aside {
+  gap: 0.2rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__qty strong {
+  font-size: 0.92rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__dates {
+  margin-top: 0;
+  padding-top: 0.3rem;
+  gap: 0.25rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__dates--intake-only {
+  gap: 0.22rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__stack-row {
+  padding: 0.2rem 0.28rem;
+  gap: 0.3rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__stack-row .crm-card-mini__cell-lab {
+  min-width: 3.35rem;
+  font-size: 0.54rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__stack-row .crm-card-mini__cell-val {
+  font-size: 0.64rem;
+  gap: 0.2rem 0.28rem;
+}
+
+.crm-batch-grid--home-tasks .crm-btn.crm-btn--row,
+.crm-batch-grid--home-tasks .crm-btn.crm-btn--intake.crm-btn--row.crm-btn--icon-cell {
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  max-width: 1.75rem;
+}
+
+.crm-batch-grid--home-tasks .crm-card-mini__acts .crm-btn--icon-act {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.crm-batch-grid--home-tasks .crm-home-price-miss__task {
+  margin: 0.15rem 0 0;
+  font-size: 0.66rem;
+  line-height: 1.3;
+}
+
+.crm-batch-grid--home-tasks .crm-home-price-miss__footer {
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+.crm-batch-grid--home-tasks .crm-btn--home-task-primary,
+.crm-batch-grid--home-tasks .crm-btn--home-task-ghost {
+  padding: 0.28rem 0.5rem;
+  font-size: 0.72rem;
+}
+
+.crm-tasks-block {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.crm-tasks-block__empty {
+  margin: 0;
+  padding: 0.35rem 0.25rem 0.15rem;
+  font-size: 0.76rem;
+  color: var(--crm-ink-soft);
+  font-style: italic;
+}
+
+.crm-tasks-block--cards .crm-btn--collapsible-title {
+  margin-bottom: 0.35rem;
+}
+
+.crm-tasks-block__panel {
+  min-width: 0;
+  padding-top: 0.35rem;
+}
+
+.crm-tasks-block--collapsed .crm-btn--collapsible-title {
+  margin-bottom: 0;
+  border-radius: 8px;
+}
+
+.crm-tasks-block--delivery .crm-btn--collapsible-title {
+  color: var(--c-accent);
+  border-bottom-color: var(--c-home-border-delivery);
+}
+
+.crm-tasks-block--care .crm-btn--collapsible-title {
+  color: var(--crm-accent-hover, var(--c-accent-hover));
+  border-bottom-color: var(--c-tint-accent);
+}
+
+.crm-tasks-block--waste .crm-btn--collapsible-title {
+  color: var(--c-danger);
+  border-bottom-color: var(--c-home-border-danger);
+}
+
+.crm-tasks-block--more .crm-btn--collapsible-title {
+  color: var(--c-accent);
+  border-bottom-color: var(--c-home-border-intake);
+}
+
+.crm-tasks-block--orders .crm-btn--collapsible-title {
+  color: var(--c-cool);
+  border-bottom-color: var(--c-home-border-order);
+}
+
+.crm-block__head--home-deals-only {
+  margin-bottom: 0.25rem;
+}
+
+.crm-block__head--home-deals-only .crm-block__title {
+  margin-bottom: 0;
+}
+
+/* Карточка «задайте цену» в разделе Ещё */
+.crm-card-mini--home-price-miss {
+  border-color: var(--c-home-border-intake);
+  background: linear-gradient(165deg, var(--c-tint-purple), var(--crm-paper, var(--c-on-accent)));
+}
+
+.crm-home-price-miss__task {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--crm-ink-soft);
+}
+
+.crm-home-price-miss__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--crm-edge);
+}
+
+/* Модалка списания */
+.crm-modal--waste {
+  width: min(48rem, 94vw);
+}
+
+.crm-modal--waste .crm-modal__body-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.crm-waste-modal__aggregate-lead {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.crm-waste-modal__aggregate-meta {
+  font-weight: 500;
+  color: var(--crm-ink-soft, var(--text-muted));
+}
+
+.crm-waste-modal__action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin: 0.75rem 0 0.25rem;
+}
+

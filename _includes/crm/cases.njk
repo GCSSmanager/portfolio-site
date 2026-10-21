@@ -42,6 +42,19 @@
                 <p class="crm-case__label">отказов клиенту «нет в наличии»</p>
               </li>
             </ul>
+            <p class="crm-case__demo">
+              <a
+                href="/crm/demo/flower/"
+                target="_blank"
+                rel="noopener"
+                onclick="this.href='/crm/demo/flower/?from='+encodeURIComponent(location.pathname+location.search+location.hash)"
+              >
+                <span class="crm-case__demo-text">Попробовать бесплатно</span>
+                <svg class="crm-case__demo-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3.5 8h7.5M8.5 5.5 11 8l-2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </p>
           </article>
           {% endif %}
 

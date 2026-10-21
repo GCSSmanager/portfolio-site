@@ -1,0 +1,10 @@
+.warehouse-flowers-catalog {
+  margin-top: 0.15rem;
+}
+
+.warehouse-flower-card__orphan-title {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--crm-ink-soft, var(--text-muted));
+}

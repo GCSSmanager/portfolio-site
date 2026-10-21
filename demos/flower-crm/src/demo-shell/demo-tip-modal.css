@@ -1,0 +1,98 @@
+.demo-tip-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.demo-tip-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: color-mix(in srgb, var(--brand-ink) 80%, transparent);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+}
+
+.demo-tip-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 40rem);
+  max-height: min(92vh, 44rem);
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--fc-line);
+  background: var(--fc-surface);
+  box-shadow: var(--brand-shadow-panel);
+}
+
+.demo-tip-dialog--slides {
+  width: min(94vw, 56rem);
+}
+
+.demo-tip-dialog__head {
+  padding: 1rem 1.25rem 0.5rem;
+}
+
+.demo-tip-dialog__kicker {
+  margin: 0;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fc-muted);
+}
+
+.demo-tip-dialog__title {
+  margin: 0.35rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brand-ink);
+}
+
+.demo-tip-dialog__body {
+  padding: 0.5rem 1.25rem 1rem;
+}
+
+.demo-tip-dialog__paragraph {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--fc-muted);
+}
+
+.demo-tip-dialog__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid var(--fc-line);
+}
+
+.demo-tip-dialog__mute {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--fc-muted);
+}
+
+.demo-tip-slide-headline {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--brand-ink);
+}
+
+.demo-tip-slide-pitch {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--fc-muted);
+}
