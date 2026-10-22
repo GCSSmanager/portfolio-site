@@ -80,8 +80,32 @@
   gap: clamp(1rem, 3vw, 2.5rem);
 }
 
-.nav--crm .nav__menu--about {
-  gap: clamp(0.65rem, 2vw, 1.5rem);
+.nav--crm .nav__menu--solutions {
+  gap: clamp(0.65rem, 2.2vw, 1.75rem);
+}
+
+.nav--crm .nav__link--solution {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding-block: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.nav--crm .nav__link--solution:hover {
+  opacity: 0.85;
+}
+
+.nav--crm .nav__link--solution.is-current {
+  opacity: 1;
+  border-bottom-color: color-mix(in oklab, #f5f2ea 75%, transparent);
+}
+
+.nav--crm .nav__menu--solutions .nav__link-icon {
+  display: none;
 }
 
 .nav__switch {
@@ -224,34 +248,78 @@
   justify-content: flex-end;
 }
 
-/* Средний экран: только иконки, бургер ещё нет */
+/* Средний экран: только иконки, бургер ещё нет (кроме вкладок решений) */
 @media (max-width: 74rem) { /* nav: текст → иконки */
-  .nav--crm .nav__menu {
+  .nav--crm .nav__menu:not(.nav__menu--solutions) {
     width: 100%;
     justify-content: space-evenly;
     gap: 0;
     padding-inline: 0.25rem;
   }
 
-  .nav--crm .nav__link {
+  .nav--crm .nav__menu--solutions {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 0;
+    padding-inline: 0.25rem;
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link--solution {
+    justify-content: center;
+    width: 3.35rem;
+    height: 3.35rem;
+    padding: 0;
+    border-radius: var(--radius-m);
+    border-bottom: 0;
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link--solution:hover {
+    opacity: 1;
+    background: color-mix(in oklab, #f5f2ea 8%, transparent);
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link--solution.is-current {
+    background: color-mix(in oklab, #f5f2ea 12%, transparent);
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link-icon {
+    display: block;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .nav--crm .nav__menu:not(.nav__menu--solutions) .nav__link {
     justify-content: center;
     width: 3.35rem;
     height: 3.35rem;
     border-radius: var(--radius-m);
   }
 
-  .nav--crm .nav__link:hover {
+  .nav--crm .nav__menu:not(.nav__menu--solutions) .nav__link:hover {
     opacity: 1;
     background: color-mix(in oklab, #f5f2ea 8%, transparent);
   }
 
-  .nav--crm .nav__link-icon {
+  .nav--crm .nav__menu:not(.nav__menu--solutions) .nav__link-icon {
     display: block;
     width: 1.9rem;
     height: 1.9rem;
   }
 
-  .nav--crm .nav__link-text {
+  .nav--crm .nav__menu:not(.nav__menu--solutions) .nav__link-text {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -314,6 +382,15 @@
     padding: var(--space-3) 0.15rem;
     border-radius: 0;
     border-bottom: 1px solid color-mix(in oklab, #f5f2ea 10%, transparent);
+  }
+
+  .nav--crm .nav__link--solution {
+    border-bottom-width: 1px;
+    font-size: var(--step-0);
+  }
+
+  .nav--crm .nav__link--solution.is-current {
+    border-bottom-color: color-mix(in oklab, #f5f2ea 55%, transparent);
   }
 
   .nav--crm .nav__link:hover {

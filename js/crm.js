@@ -521,17 +521,9 @@ function initCrmNav() {
     link.addEventListener('click', () => closeCrmNav());
   });
 
-  const solutionsToggle = crmNav.querySelector('[data-solutions-toggle]');
-  const solutionsRoot = crmNav.querySelector('.nav__switch');
-
-  if (solutionsToggle && solutionsRoot) {
-    solutionsToggle.addEventListener('click', () => {
-      if (!isCrmBurgerMode()) return;
-
-      const open = solutionsRoot.classList.toggle('is-open');
-      solutionsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
+  crmNav.querySelectorAll('.nav__link--solution').forEach((link) => {
+    link.addEventListener('click', () => closeCrmNav());
+  });
 }
 
 function initCrmReviews() {
