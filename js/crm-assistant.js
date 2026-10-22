@@ -211,7 +211,6 @@ function initCrmAssistant() {
     nameInput.name = 'name';
     nameInput.autocomplete = 'name';
     nameInput.placeholder = 'Имя';
-    nameInput.required = true;
 
     const phoneInput = document.createElement('input');
     phoneInput.className = 'crm-assist__input';
@@ -220,7 +219,6 @@ function initCrmAssistant() {
     phoneInput.autocomplete = 'tel';
     phoneInput.inputMode = 'numeric';
     phoneInput.placeholder = '+7 (___) ___-__-__';
-    phoneInput.required = true;
 
     const error = document.createElement('p');
     error.className = 'crm-assist__form-error';
@@ -230,6 +228,11 @@ function initCrmAssistant() {
     submit.className = 'crm-assist__card-submit';
     submit.type = 'submit';
     submit.textContent = 'Отправить';
+    submit.disabled = true;
+
+    const syncCardSubmit = () => {
+      submit.disabled = !isPhoneComplete(phoneInput.value || '');
+    };
 
     form.append(nameInput, phoneInput, error, submit);
     card.append(title, form);
@@ -237,22 +240,27 @@ function initCrmAssistant() {
     log.append(wrap);
     scrollLog();
     bindPhoneMask(phoneInput);
+    phoneInput.addEventListener('input', () => {
+      phoneInput.setCustomValidity('');
+      syncCardSubmit();
+    });
+    syncCardSubmit();
     nameInput.focus();
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       error.hidden = true;
       error.textContent = '';
-      if (!form.reportValidity()) return;
 
       if (!isPhoneComplete(phoneInput.value || '')) {
         phoneInput.setCustomValidity('Введите номер полностью: +7 (___) ___-__-__');
         phoneInput.reportValidity();
+        syncCardSubmit();
         return;
       }
 
       phoneInput.setCustomValidity('');
-      const name = nameInput.value.trim();
+      const name = nameInput.value.trim() || 'Заявка из чата';
       const phone = phoneInput.value;
       const reply = pendingReply || ASSIST_CONTACT_REPLY;
       const question = pendingQuestion || '';
@@ -273,7 +281,7 @@ function initCrmAssistant() {
         error.textContent =
           err?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.';
         error.hidden = false;
-        submit.disabled = false;
+        syncCardSubmit();
         return;
       }
 
@@ -284,7 +292,8 @@ function initCrmAssistant() {
       pendingQuestion = null;
       wrap.remove();
 
-      addBubble(`${name}, ${phone}`, 'user');
+      const displayName = nameInput.value.trim();
+      addBubble(displayName ? `${displayName}, ${phone}` : phone, 'user');
 
       window.setTimeout(() => {
         addBubble(reply, 'bot');

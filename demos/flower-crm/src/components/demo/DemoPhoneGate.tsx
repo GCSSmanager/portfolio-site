@@ -42,6 +42,7 @@ export function DemoPhoneGate({ paused = false }: Props) {
   const [phone, setPhone] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const phoneReady = isPhoneRuComplete(phone)
 
   useEffect(() => {
     if (unlocked) return
@@ -125,7 +126,7 @@ export function DemoPhoneGate({ paused = false }: Props) {
               {error}
             </p>
           ) : null}
-          <CrmButton variant="primary" type="submit" disabled={loading}>
+          <CrmButton variant="primary" type="submit" fullWidth disabled={loading || !phoneReady}>
             {loading ? 'Отправляем…' : 'Продолжить'}
           </CrmButton>
         </form>

@@ -21,6 +21,8 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
+  const phoneReady = isPhoneRuComplete(phone);
+
   useEffect(() => {
     if (!open) return;
     setName("");
@@ -51,11 +53,6 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
     event.preventDefault();
     setError("");
 
-    const trimmed = name.trim();
-    if (!trimmed) {
-      setError("Укажите имя");
-      return;
-    }
     if (!isPhoneRuComplete(phone)) {
       setError(phoneRuValidityMessage());
       return;
@@ -64,7 +61,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
     setLoading(true);
     try {
       await sendCrmLeadReady({
-        name: trimmed,
+        name: name.trim() || "Заявка с демо",
         phone,
         source: "demo-discuss",
         message: "Обсудить внедрение (−10% с демо)",
@@ -152,7 +149,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
                     {error}
                   </p>
                 ) : null}
-                <Button type="submit" className="w-full" disabled={loading}>
+                <Button type="submit" className="w-full" disabled={loading || !phoneReady}>
                   {loading ? "Отправляем…" : "Отправить"}
                 </Button>
               </form>

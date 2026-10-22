@@ -342,11 +342,6 @@
   opacity: 0.92;
 }
 
-.crm-assist__send:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
 .crm-assist__send svg {
   width: 1rem;
   height: 1rem;

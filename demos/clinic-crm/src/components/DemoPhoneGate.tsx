@@ -43,6 +43,8 @@ export function DemoPhoneGate({ paused = false }: Props) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const phoneReady = isPhoneRuComplete(phone);
+
   useEffect(() => {
     if (unlocked) return;
     const timer = window.setTimeout(() => setDue(true), DELAY_MS);
@@ -132,7 +134,7 @@ export function DemoPhoneGate({ paused = false }: Props) {
                 {error}
               </p>
             ) : null}
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full" disabled={loading || !phoneReady}>
               {loading ? "Отправляем…" : "Продолжить"}
             </Button>
           </form>

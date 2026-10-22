@@ -15,13 +15,16 @@ export function PageHeader({ title, action }: { title: string; action?: ReactNod
 
 export function Button({ className = "", variant = "primary", ...props }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "ghost" | "danger" }) {
   const styles = {
-    primary: "bg-brand hover:bg-brand-dark text-white shadow-float",
-    ghost: "bg-panel border border-line text-ink-muted hover:text-ink hover:border-line2",
-    danger: "bg-red-50 border border-red-200 text-red-600 hover:bg-red-100",
+    primary:
+      "border border-transparent bg-brand text-white shadow-float hover:bg-brand-dark disabled:pointer-events-none disabled:border-line2 disabled:bg-line disabled:text-ink-muted disabled:hover:bg-line disabled:cursor-not-allowed disabled:shadow-none disabled:opacity-100",
+    ghost:
+      "bg-panel border border-line text-ink-muted hover:text-ink hover:border-line2 disabled:cursor-not-allowed disabled:opacity-60",
+    danger:
+      "bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 disabled:cursor-not-allowed disabled:opacity-60",
   };
   return (
     <button
-      className={`inline-flex h-9 items-center justify-center rounded-xl px-4 text-sm font-medium transition-colors disabled:opacity-50 ${styles[variant]} ${className}`}
+      className={`inline-flex h-9 items-center justify-center rounded-xl px-4 text-sm font-medium transition-colors ${styles[variant]} ${className}`}
       {...props}
     />
   );

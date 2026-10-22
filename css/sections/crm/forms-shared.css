@@ -1,0 +1,25 @@
+/* CRM — общие подписи и неактивные кнопки отправки */
+
+.crm-field-optional {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.92em;
+  color: var(--color-muted);
+}
+
+.crm-order-form__submit:disabled,
+.crm-assist__card-submit:disabled {
+  cursor: not-allowed;
+  background: color-mix(in oklab, var(--color-fg) 18%, var(--color-bg));
+  border-color: color-mix(in oklab, var(--color-fg) 14%, var(--color-line));
+  color: color-mix(in oklab, var(--color-fg) 45%, var(--color-muted));
+  box-shadow: none;
+  transform: none;
+  opacity: 1;
+}
+
+.crm-assist__send:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

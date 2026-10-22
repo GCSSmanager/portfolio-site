@@ -79,9 +79,9 @@
 
 .crm-btn--primary:disabled {
   opacity: 1;
-  border-color: var(--brand-edge);
-  background: var(--btn-disabled-bg, var(--btn-disabled-bg));
-  color: var(--btn-disabled-fg, var(--crm-ink-soft));
+  border: 1px solid var(--crm-edge);
+  background: var(--btn-disabled-bg);
+  color: var(--btn-disabled-fg);
   box-shadow: none;
   filter: none;
 }

@@ -98,6 +98,12 @@
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 18%, transparent);
 }
 
+.crm-order-form__textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+  line-height: 1.45;
+}
+
 .crm-order-form__error {
   margin: 0;
   padding: 0.65rem 0.8rem;

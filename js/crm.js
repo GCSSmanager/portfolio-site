@@ -206,6 +206,12 @@ function showOrderFormError(message) {
   orderFormError.hidden = false;
 }
 
+function syncOrderSubmit() {
+  const submitBtn = orderForm?.querySelector('[type="submit"]');
+  if (!submitBtn || !orderPhone) return;
+  submitBtn.disabled = !isPhoneComplete(orderPhone.value || '');
+}
+
 function showOrderForm() {
   if (orderFormBlock) {
     orderFormBlock.hidden = false;
@@ -219,6 +225,8 @@ function showOrderForm() {
   if (orderPhone) {
     orderPhone.value = PHONE_PREFIX;
   }
+
+  syncOrderSubmit();
 
   if (orderSuccess) {
     orderSuccess.hidden = true;
@@ -324,20 +332,19 @@ async function handleOrderSubmit(event) {
   event.preventDefault();
   clearOrderFormError();
 
-  if (!orderForm?.reportValidity()) {
-    return;
-  }
-
   if (!isPhoneComplete(orderPhone?.value || '')) {
     orderPhone?.setCustomValidity('Введите номер полностью: +7 (___) ___-__-__');
     orderPhone?.reportValidity();
+    syncOrderSubmit();
     return;
   }
 
   orderPhone?.setCustomValidity('');
 
   const submitBtn = orderForm.querySelector('[type="submit"]');
-  const name = orderForm.querySelector('[name="name"]')?.value.trim() || '';
+  const nameRaw = orderForm.querySelector('[name="name"]')?.value.trim() || '';
+  const name = nameRaw || 'Заявка с сайта';
+  const message = orderForm.querySelector('[name="message"]')?.value.trim() || '';
 
   if (submitBtn) submitBtn.disabled = true;
 
@@ -346,12 +353,13 @@ async function handleOrderSubmit(event) {
       name,
       phone: orderPhone.value,
       source: orderLeadSource,
+      ...(message ? { message } : {}),
     });
     showOrderSuccess();
   } catch (error) {
     showOrderFormError(error?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.');
   } finally {
-    if (submitBtn) submitBtn.disabled = false;
+    syncOrderSubmit();
   }
 }
 
@@ -461,9 +469,11 @@ function initCrmOrderModal() {
   orderPhone?.addEventListener('input', () => {
     orderPhone.setCustomValidity('');
     clearOrderFormError();
+    syncOrderSubmit();
   });
 
   orderForm?.addEventListener('submit', handleOrderSubmit);
+  syncOrderSubmit();
 }
 
 const crmNav = document.getElementById('crmNav');
