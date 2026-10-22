@@ -1,0 +1,83 @@
+.demo-phone-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  padding: 1rem;
+}
+
+.demo-phone-gate__backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--brand-ink) 55%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.demo-phone-gate__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 24rem);
+  padding: 1.25rem 1.35rem;
+  border-radius: 12px;
+  border: 1px solid var(--fc-line);
+  background: var(--fc-surface);
+  box-shadow: var(--brand-shadow-panel);
+}
+
+.demo-phone-gate__kicker {
+  margin: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-ink-muted, var(--brand-ink));
+  opacity: 0.65;
+}
+
+.demo-phone-gate__title {
+  margin: 0.35rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--brand-ink);
+}
+
+.demo-phone-gate__lead {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--brand-ink);
+  opacity: 0.75;
+}
+
+.demo-discuss-deal {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--fc-accent) 35%, var(--fc-line));
+  background: color-mix(in srgb, var(--fc-accent) 8%, var(--fc-surface));
+}
+
+.demo-discuss-deal__badge {
+  flex-shrink: 0;
+  padding: 0.25rem 0.45rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--fc-accent);
+}
+
+.demo-discuss-deal__text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--brand-ink);
+}

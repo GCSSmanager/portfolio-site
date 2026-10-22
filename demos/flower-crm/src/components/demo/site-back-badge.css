@@ -31,6 +31,44 @@
   cursor: pointer;
 }
 
+.site-back-badge__menu-item--discuss {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.site-back-badge__deal {
+  flex-shrink: 0;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--fc-accent);
+}
+
+.site-back-badge__cta {
+  display: flex;
+  max-width: calc(100vw - 2rem);
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--fc-accent) 45%, var(--fc-line));
+  background: color-mix(in srgb, var(--fc-surface) 95%, transparent);
+  box-shadow: var(--brand-shadow-panel);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-ink);
+  cursor: pointer;
+}
+
+.site-back-badge__cta:hover {
+  border-color: var(--fc-accent);
+  background: color-mix(in srgb, var(--fc-accent) 8%, var(--fc-surface));
+}
+
 .site-back-badge__menu-item:hover {
   background: var(--bg-surface);
 }

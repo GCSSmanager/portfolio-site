@@ -6,11 +6,24 @@ import { resetDb } from '../../demo/store'
 import { siteBackHref } from '../../demo/site'
 import './site-back-badge.css'
 
-/** Плашка с логотипом справа снизу — меню демо. */
-export function SiteBackBadge() {
+const CTA_DELAY_MS = 10_000
+
+type Props = {
+  onDiscuss?: () => void
+}
+
+/** Плашка с логотипом справа снизу — меню демо + «Обсудить внедрение». */
+export function SiteBackBadge({ onDiscuss }: Props) {
   const [open, setOpen] = useState(false)
+  const [ctaVisible, setCtaVisible] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
   const shell = useDemoShellOptional()
+
+  useEffect(() => {
+    if (!onDiscuss) return
+    const timer = window.setTimeout(() => setCtaVisible(true), CTA_DELAY_MS)
+    return () => window.clearTimeout(timer)
+  }, [onDiscuss])
 
   useEffect(() => {
     if (!open) return
@@ -43,6 +56,22 @@ export function SiteBackBadge() {
     <div ref={rootRef} className="site-back-badge">
       {open && (
         <div className="site-back-badge__menu">
+          {onDiscuss && (
+            <>
+              <button
+                type="button"
+                className="site-back-badge__menu-item site-back-badge__menu-item--discuss"
+                onClick={() => {
+                  setOpen(false)
+                  onDiscuss()
+                }}
+              >
+                <span>Обсудить внедрение</span>
+                <span className="site-back-badge__deal">−10%</span>
+              </button>
+              <div className="site-back-badge__menu-divider" />
+            </>
+          )}
           {shell && shell.config.pageTipsEnabled !== false && (
             <>
               {shell.hasPageTip && (
@@ -78,6 +107,17 @@ export function SiteBackBadge() {
             Выйти из демо
           </button>
         </div>
+      )}
+
+      {onDiscuss && ctaVisible && !open && (
+        <button
+          type="button"
+          className="site-back-badge__cta"
+          onClick={onDiscuss}
+        >
+          <span>Обсудить внедрение</span>
+          <span className="site-back-badge__deal">−10%</span>
+        </button>
       )}
 
       <button

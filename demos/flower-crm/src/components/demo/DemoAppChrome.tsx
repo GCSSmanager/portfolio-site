@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { flowerDemoShell, DemoShell } from '../../demo-shell'
-import { SiteBackBadge } from './SiteBackBadge'
+import { DemoLeadCapture } from './DemoLeadCapture'
 
 const isDemo = import.meta.env.VITE_DEMO_MODE === 'true'
 
@@ -9,7 +9,7 @@ export function DemoAppChrome({ children }: { children: ReactNode }) {
   return (
     <DemoShell config={flowerDemoShell}>
       {children}
-      <SiteBackBadge />
+      <DemoLeadCapture />
     </DemoShell>
   )
 }

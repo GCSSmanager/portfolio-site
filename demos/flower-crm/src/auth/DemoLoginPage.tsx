@@ -1,7 +1,7 @@
 import { type FormEvent, useLayoutEffect, useRef, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { CrmTextField } from '../components/form'
-import { SiteBackBadge } from '../components/demo/SiteBackBadge'
+import { DemoLeadCapture } from '../components/demo/DemoLeadCapture'
 import { CrmButton } from '../components/ui/CrmButton'
 import { DEMO_ACCOUNTS } from '../demo/accounts'
 import { useAuth, type FloristRole } from './AuthContext'
@@ -172,7 +172,7 @@ export function DemoLoginPage() {
         </div>
       </div>
 
-      <SiteBackBadge />
+      <DemoLeadCapture />
     </div>
   )
 }
