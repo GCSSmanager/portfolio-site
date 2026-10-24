@@ -194,25 +194,42 @@
 
 .nav__burger {
   display: none;
-  position: relative;
+  align-items: center;
+  gap: 0.5rem;
   flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
-  padding: 0;
-  border: 1px solid color-mix(in oklab, #f5f2ea 22%, transparent);
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
   border-radius: var(--radius-m);
-  background: transparent;
+  background: color-mix(in oklab, #f5f2ea 5%, #0d140f);
   color: #f5f2ea;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
   cursor: pointer;
   transition:
-    border-color var(--duration-fast) var(--ease-out),
-    background-color var(--duration-fast) var(--ease-out);
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.nav__burger:hover {
+  border-color: color-mix(in oklab, #f5f2ea 22%, transparent);
+  background: color-mix(in oklab, #f5f2ea 8%, #0d140f);
+}
+
+.nav__burger-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .nav__burger-line {
   position: absolute;
-  left: 0.625rem;
-  right: 0.625rem;
+  left: 0;
+  right: 0;
   top: 50%;
   height: 2px;
   margin-top: -1px;
@@ -224,27 +241,31 @@
     opacity var(--duration-fast) var(--ease-out);
 }
 
-.nav__burger-line:nth-child(1) {
-  transform: translateY(-0.4375rem);
+.nav__burger-icon .nav__burger-line:nth-child(1) {
+  transform: translateY(-0.375rem);
 }
 
-.nav__burger-line:nth-child(2) {
+.nav__burger-icon .nav__burger-line:nth-child(2) {
   transform: translateY(0);
 }
 
-.nav__burger-line:nth-child(3) {
-  transform: translateY(0.4375rem);
+.nav__burger-icon .nav__burger-line:nth-child(3) {
+  transform: translateY(0.375rem);
 }
 
-.nav--crm.is-nav-open .nav__burger-line:nth-child(1) {
+.nav__burger-label {
+  white-space: nowrap;
+}
+
+.nav--crm.is-nav-open .nav__burger-icon .nav__burger-line:nth-child(1) {
   transform: translateY(0) rotate(45deg);
 }
 
-.nav--crm.is-nav-open .nav__burger-line:nth-child(2) {
+.nav--crm.is-nav-open .nav__burger-icon .nav__burger-line:nth-child(2) {
   opacity: 0;
 }
 
-.nav--crm.is-nav-open .nav__burger-line:nth-child(3) {
+.nav--crm.is-nav-open .nav__burger-icon .nav__burger-line:nth-child(3) {
   transform: translateY(0) rotate(-45deg);
 }
 
@@ -363,7 +384,7 @@
 /* Узкий экран: бургер, в меню иконка + текст */
 @media (max-width: 58rem) { /* nav: меню → burger */
   .nav__burger {
-    display: block;
+    display: inline-flex;
   }
 
   .nav--crm .nav__menu {
@@ -375,15 +396,50 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 0;
+    gap: var(--space-2);
     padding: var(--space-4);
     background: #0d140f;
     border-bottom: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
-    box-shadow: 0 1rem 2rem color-mix(in oklab, #000 25%, transparent);
   }
 
   .nav--crm.is-nav-open .nav__menu {
     display: flex;
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link--solution {
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-m);
+    border: 1px solid color-mix(in oklab, #f5f2ea 12%, transparent);
+    background: color-mix(in oklab, #f5f2ea 3%, #0d140f);
+    font-size: var(--step-0);
+    letter-spacing: 0.01em;
+    text-transform: none;
+    opacity: 1;
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link--solution:hover {
+    opacity: 1;
+    border-color: color-mix(in oklab, #f5f2ea 18%, transparent);
+    background: color-mix(in oklab, #f5f2ea 7%, #0d140f);
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link--solution.is-current {
+    border-color: color-mix(in oklab, #f5f2ea 22%, transparent);
+    background: color-mix(in oklab, #f5f2ea 10%, #0d140f);
+  }
+
+  .nav--crm .nav__menu--solutions .nav__link-text {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
   }
 
   .nav--crm .nav__link {
@@ -392,22 +448,20 @@
     justify-content: flex-start;
     gap: 0.75rem;
     padding: var(--space-3) 0.15rem;
+    border: 0;
     border-radius: 0;
-    border-bottom: 1px solid color-mix(in oklab, #f5f2ea 10%, transparent);
   }
 
   .nav--crm .nav__link--solution {
-    border-bottom-width: 1px;
-    font-size: var(--step-0);
+    border-bottom: 0;
   }
 
   .nav--crm .nav__link--solution.is-current {
-    border-bottom-color: color-mix(in oklab, #f5f2ea 55%, transparent);
+    border-bottom-color: transparent;
   }
 
   .nav--crm .nav__link:hover {
-    background: transparent;
-    opacity: 0.75;
+    opacity: 0.85;
   }
 
   .nav--crm .nav__link-icon {
@@ -474,8 +528,14 @@
 @media (max-width: 28rem) { /* nav: номер → burger-меню */
   .nav--crm .nav__contact--menu {
     display: block;
-    padding-block: var(--space-4);
+    width: 100%;
+    margin-top: var(--space-1);
+    padding: 0.85rem 1rem;
+    border: 1px solid color-mix(in oklab, #f5f2ea 12%, transparent);
+    border-radius: var(--radius-m);
+    background: color-mix(in oklab, #f5f2ea 3%, #0d140f);
     font-size: var(--step-0);
+    text-align: center;
   }
 
   .nav--crm .nav__contact--bar {

@@ -498,6 +498,7 @@ function initCrmOrderModal() {
 
 const crmNav = document.getElementById('crmNav');
 const crmNavToggle = document.querySelector('[data-nav-toggle]');
+const crmNavToggleLabel = document.querySelector('[data-nav-toggle-label]');
 
 function closeCrmNav() {
   if (!crmNav || !crmNavToggle) return;
@@ -505,6 +506,7 @@ function closeCrmNav() {
   crmNav.classList.remove('is-nav-open');
   crmNavToggle.setAttribute('aria-expanded', 'false');
   crmNavToggle.setAttribute('aria-label', 'Открыть меню');
+  if (crmNavToggleLabel) crmNavToggleLabel.textContent = 'Меню';
 }
 
 function openCrmNav() {
@@ -513,6 +515,7 @@ function openCrmNav() {
   crmNav.classList.add('is-nav-open');
   crmNavToggle.setAttribute('aria-expanded', 'true');
   crmNavToggle.setAttribute('aria-label', 'Закрыть меню');
+  if (crmNavToggleLabel) crmNavToggleLabel.textContent = 'Закрыть';
 }
 
 function isCrmBurgerMode() {
