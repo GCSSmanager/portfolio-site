@@ -42,6 +42,12 @@
   opacity: 0.92;
 }
 
+.nav--crm .nav__link-icon--key,
+.nav--crm .nav__link-icon--tag {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
 .nav--crm .nav__link-text {
   font-size: inherit;
 }
@@ -289,6 +295,12 @@
     height: 1.9rem;
   }
 
+  .nav--crm .nav__menu--solutions .nav__link-icon--key,
+  .nav--crm .nav__menu--solutions .nav__link-icon--tag {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
   .nav--crm .nav__menu--solutions .nav__link-text {
     position: absolute;
     width: 1px;
@@ -402,6 +414,12 @@
     display: block;
     width: 1.65rem;
     height: 1.65rem;
+  }
+
+  .nav--crm .nav__link-icon--key,
+  .nav--crm .nav__link-icon--tag {
+    width: 2rem;
+    height: 2rem;
   }
 
   .nav--crm .nav__link-text {
