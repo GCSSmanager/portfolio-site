@@ -35,13 +35,15 @@ const ASSIST_CONTACT_REPLY =
 const ASSIST_CHIPS = [
   {
     q: 'Получить бесплатно',
+    label: 'Бесплатно',
     reply: 'Хорошо, оформим бесплатный пакет. Скоро свяжемся.',
   },
   {
     q: 'Заказать работу',
+    label: 'Заказать',
     reply: 'Отлично! Скоро свяжемся с вами.',
   },
-  { q: 'Что будет после запуска?' },
+  { q: 'Что будет после запуска?', label: 'После запуска?' },
 ];
 
 const ASSIST_OPEN_DELAY_MS = 20_000;
@@ -132,6 +134,7 @@ function initCrmAssistant() {
   let dismissed = false;
   const asked = new Set();
   let autoTimer = null;
+  let autoDue = false;
   const offerChips = ASSIST_CHIPS.map((item, index) => {
     if (index !== 0 || !document.body.dataset.assistChip) return item;
     return { q: document.body.dataset.assistChip };
@@ -364,7 +367,7 @@ function initCrmAssistant() {
       chip.type = 'button';
       chip.className = 'crm-assist__chip';
       chip.dataset.assistChip = String(index);
-      chip.textContent = item.q;
+      chip.textContent = item.label || item.q;
       chip.addEventListener('click', () => answerQuestion(item.q, index));
       chips.append(chip);
     });
@@ -373,7 +376,13 @@ function initCrmAssistant() {
     log.append(greet);
   }
 
+  function isModalOpen() {
+    return document.body.classList.contains('is-modal-open');
+  }
+
   function openPanel() {
+    if (isModalOpen()) return;
+
     open = true;
     dismissed = false;
     root.classList.add('is-open');
@@ -386,16 +395,22 @@ function initCrmAssistant() {
     }
   }
 
-  function closePanel() {
+  function closePanel(options = {}) {
     open = false;
-    dismissed = true;
+    if (options.dismiss !== false) dismissed = true;
     root.classList.remove('is-open');
     panel.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Открыть ассистента');
   }
 
+  function tryAutoOpen() {
+    if (!autoDue || dismissed || open || isModalOpen()) return;
+    openPanel();
+  }
+
   toggle.addEventListener('click', () => {
+    if (isModalOpen()) return;
     if (open) closePanel();
     else openPanel();
   });
@@ -403,7 +418,7 @@ function initCrmAssistant() {
   closeBtn?.addEventListener('click', closePanel);
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && open) closePanel();
+    if (event.key === 'Escape' && open && !isModalOpen()) closePanel();
   });
 
   composer.addEventListener('submit', (event) => {
@@ -416,13 +431,24 @@ function initCrmAssistant() {
   seedChat();
 
   autoTimer = window.setTimeout(() => {
-    if (!dismissed && !open) openPanel();
+    autoDue = true;
+    tryAutoOpen();
   }, ASSIST_OPEN_DELAY_MS);
+
+  const modalWatch = new MutationObserver(() => {
+    if (isModalOpen()) {
+      if (open) closePanel({ dismiss: false });
+      return;
+    }
+    tryAutoOpen();
+  });
+  modalWatch.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
   window.addEventListener(
     'beforeunload',
     () => {
       if (autoTimer) window.clearTimeout(autoTimer);
+      modalWatch.disconnect();
     },
     { once: true }
   );
