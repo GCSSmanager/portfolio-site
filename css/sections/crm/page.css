@@ -5,6 +5,23 @@
   background: var(--color-bg);
 }
 
+/* Free & integrations: alternate band on first block vs process */
+.crm-page--free .crm-kit {
+  background: #ece8dc;
+}
+
+.crm-page--free .crm-process {
+  background: var(--color-bg);
+}
+
+.crm-page--integrations .crm-bridges {
+  background: #ece8dc;
+}
+
+.crm-page--integrations .crm-process {
+  background: var(--color-bg);
+}
+
 .crm-page :is(.crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
   padding-block: var(--space-8);
 }

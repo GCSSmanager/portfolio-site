@@ -60,7 +60,7 @@
   <noscript><div><img src="https://mc.yandex.ru/watch/112716152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
 </head>
-<body class="crm-page"{% if assistChip %} data-assist-chip="{{ assistChip }}"{% endif %}>
+<body class="crm-page{% if solution %} crm-page--{{ solution }}{% endif %}"{% if assistChip %} data-assist-chip="{{ assistChip }}"{% endif %}>
   {% if not bare %}
   {% include "crm/nav.njk" %}
   {% endif %}
