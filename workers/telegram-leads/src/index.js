@@ -96,7 +96,8 @@ async function handleLead(request, env, data, corsHeaders) {
     `Откуда: ${source}`,
   ];
   if (message) {
-    lines.push(`Сообщение из чата: ${message}`);
+    const label = source === "crm-quiz" ? "Ответы квиза:" : "Комментарий:";
+    lines.push("", label, message);
   }
 
   return sendTelegram(env, lines.join("\n"), corsHeaders);
