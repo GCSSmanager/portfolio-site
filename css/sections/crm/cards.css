@@ -5,10 +5,7 @@
 }
 
 .crm-plans .section__head {
-  max-width: 40rem;
-  margin-inline: auto;
   margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
-  text-align: center;
 }
 
 .crm-cards {

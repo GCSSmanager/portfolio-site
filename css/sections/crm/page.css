@@ -30,6 +30,24 @@
   scroll-margin-top: var(--header-h);
 }
 
+/* Section titles centered; FAQ / quiz / contacts keep default (custom, free, integrations) */
+.crm-page--custom :is(#tariffs, #process, #reviews, #cases, #pricing) > .container > .section__head,
+.crm-page--free :is(.crm-kit, #process, #reviews, #cases) > .container > .section__head,
+.crm-page--integrations :is(#integrations, #process, #reviews, #cases) > .container > .section__head {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+/* About CRM: all section heads centered except contacts */
+.crm-page--about #about-essence > .container > .section__head,
+.crm-page--about #about-example > .section__head,
+.crm-page--about #about-audience > .container > .section__head {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
 .crm-page.is-modal-open {
   overflow: hidden;
 }
