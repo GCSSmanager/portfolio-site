@@ -160,6 +160,7 @@
 }
 
 .crm-quiz__choice {
+  position: relative;
   display: grid;
   flex: 0 0 calc((100% - (var(--quiz-choice-cols) - 1) * var(--quiz-choice-gap)) / var(--quiz-choice-cols));
   justify-items: center;
@@ -201,13 +202,18 @@
 
 .crm-quiz__choice input {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .crm-quiz__pic {
+  position: relative;
+  z-index: 0;
   display: block;
   width: 4.5rem;
   height: 4.5rem;
@@ -216,6 +222,8 @@
 }
 
 .crm-quiz__choice-lab {
+  position: relative;
+  z-index: 0;
   font-size: var(--step-0);
   font-weight: 600;
   letter-spacing: 0.01em;
