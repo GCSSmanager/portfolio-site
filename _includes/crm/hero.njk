@@ -21,14 +21,9 @@
             {% endif %}
           </h1>
           <div class="crm-hero__rule" aria-hidden="true"></div>
-          <div class="crm-hero__texts">
-            <p class="crm-hero__text">
-              {{ heroText | default("CRM — это программа, где заявки, клиенты и продажи ведутся в одном месте, а не в таблицах и мессенджерах.") }}
-            </p>
-            {% if heroMore %}
-            <p class="crm-hero__text">{{ heroMore }}</p>
-            {% endif %}
-          </div>
+          {% if dealAlways or heroMore %}
+          <p class="crm-hero__text">{{ heroMore | default("Зафиксировать скидку в 10% для вашего номера") }}</p>
+          {% endif %}
           <form class="crm-hero__form" data-hero-estimate{% if dealAlways %} data-lead-name="Скидка 10%" data-lead-source="hero-deal"{% endif %}>
             <label class="visually-hidden" for="heroPhone">Телефон</label>
             <input

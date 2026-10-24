@@ -92,11 +92,6 @@
   );
 }
 
-.crm-hero__texts {
-  display: grid;
-  gap: 0.65rem;
-}
-
 .crm-hero__text {
   margin: 0;
   font-family: var(--font-body);
@@ -322,7 +317,6 @@
   }
 
   .crm-hero__title,
-  .crm-hero__texts,
   .crm-hero__text,
   .crm-hero__form,
   .crm-hero__done {
