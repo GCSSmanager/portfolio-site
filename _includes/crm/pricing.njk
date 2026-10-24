@@ -1,105 +1,202 @@
-    <section class="crm-pricing" id="pricing" aria-labelledby="crm-pricing-title">
+    <section class="crm-pricing" id="pricing" aria-labelledby="crm-pricing-title" data-crm-pricing>
       <div class="container">
         <div class="section__head">
           <p class="section__eyebrow">Стоимость</p>
-          <h2 class="section__title" id="crm-pricing-title">Примеры услуг</h2>
+          <h2 class="section__title" id="crm-pricing-title">Соберите смету</h2>
         </div>
 
         <div class="crm-price-grid">
           <article class="crm-price-col">
-            <h3 class="crm-price-col__title">Запуск</h3>
+            <h3 class="crm-price-col__title">Подключение</h3>
             <ul class="crm-price-list" role="list">
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Развёртывание на хостинге</span>
-                <span class="crm-price-list__sum">от 2.500&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="hosting" data-from="2500" data-to="8000">
+                  <span class="crm-price-list__name">Развёртывание на хостинге</span>
+                  <span class="crm-price-list__sum">2.500–8.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Решение из каталога</span>
-                <span class="crm-price-list__sum">от 5.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="auth" data-from="4000" data-to="12000">
+                  <span class="crm-price-list__name">Права сотрудников</span>
+                  <span class="crm-price-list__sum">4.000–12.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Авторизация и роли</span>
-                <span class="crm-price-list__sum">от 4.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="excel-in" data-from="3500" data-to="15000">
+                  <span class="crm-price-list__name">Перенос из Excel</span>
+                  <span class="crm-price-list__sum">3.500–15.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Перенос данных из Excel</span>
-                <span class="crm-price-list__sum">от 3.500&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="training" data-from="4000" data-to="14000">
+                  <span class="crm-price-list__name">Обучение сотрудников</span>
+                  <span class="crm-price-list__sum">4.000–14.000&nbsp;₽</span>
+                </label>
               </li>
             </ul>
           </article>
 
           <article class="crm-price-col">
-            <h3 class="crm-price-col__title">Продажи</h3>
+            <h3 class="crm-price-col__title">Клиенты и сделки</h3>
             <ul class="crm-price-list" role="list">
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">База клиентов и карточки</span>
-                <span class="crm-price-list__sum">от 5.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="clients" data-from="5000" data-to="18000">
+                  <span class="crm-price-list__name">Карточки клиентов</span>
+                  <span class="crm-price-list__sum">5.000–18.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Воронка и статусы сделок</span>
-                <span class="crm-price-list__sum">от 6.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="funnel" data-from="6000" data-to="20000">
+                  <span class="crm-price-list__name">Воронка и статусы</span>
+                  <span class="crm-price-list__sum">6.000–20.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Календарь и онлайн-запись</span>
-                <span class="crm-price-list__sum">от 6.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="booking" data-from="6000" data-to="20000">
+                  <span class="crm-price-list__name">Календарь и запись</span>
+                  <span class="crm-price-list__sum">6.000–20.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Задачи и напоминания</span>
-                <span class="crm-price-list__sum">от 4.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="tasks" data-from="4000" data-to="12000">
+                  <span class="crm-price-list__name">Задачи и напоминания</span>
+                  <span class="crm-price-list__sum">4.000–12.000&nbsp;₽</span>
+                </label>
+              </li>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="assign" data-from="4500" data-to="14000">
+                  <span class="crm-price-list__name">Распределение заявок</span>
+                  <span class="crm-price-list__sum">4.500–14.000&nbsp;₽</span>
+                </label>
               </li>
             </ul>
           </article>
 
           <article class="crm-price-col">
-            <h3 class="crm-price-col__title">Маркетинг</h3>
+            <h3 class="crm-price-col__title">Заявки и реклама</h3>
             <ul class="crm-price-list" role="list">
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Яндекс Директ</span>
-                <span class="crm-price-list__sum">от 7.500&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="direct" data-from="7500" data-to="25000">
+                  <span class="crm-price-list__name">Яндекс Директ</span>
+                  <span class="crm-price-list__sum">7.500–25.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Roistat</span>
-                <span class="crm-price-list__sum">от 6.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="site-leads" data-from="5000" data-to="15000">
+                  <span class="crm-price-list__name">Заявки с сайта</span>
+                  <span class="crm-price-list__sum">5.000–15.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Заявки с сайта</span>
-                <span class="crm-price-list__sum">от 5.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="telegram" data-from="5000" data-to="12000">
+                  <span class="crm-price-list__name">Уведомления в Telegram</span>
+                  <span class="crm-price-list__sum">5.000–12.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Уведомления в Telegram</span>
-                <span class="crm-price-list__sum">от 5.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="telephony" data-from="7500" data-to="28000">
+                  <span class="crm-price-list__name">Телефония и коллтрекинг</span>
+                  <span class="crm-price-list__sum">7.500–28.000&nbsp;₽</span>
+                </label>
+              </li>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="mailings" data-from="5000" data-to="18000">
+                  <span class="crm-price-list__name">Рассылка клиентам</span>
+                  <span class="crm-price-list__sum">5.000–18.000&nbsp;₽</span>
+                </label>
               </li>
             </ul>
           </article>
 
           <article class="crm-price-col">
-            <h3 class="crm-price-col__title">Аналитика</h3>
+            <h3 class="crm-price-col__title">Учёт и отчёты</h3>
             <ul class="crm-price-list" role="list">
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Выгрузка в Excel</span>
-                <span class="crm-price-list__sum">от 2.500&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="stock" data-from="6000" data-to="22000">
+                  <span class="crm-price-list__name">Склад и остатки</span>
+                  <span class="crm-price-list__sum">6.000–22.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Дашборд и KPI</span>
-                <span class="crm-price-list__sum">от 6.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="excel-out" data-from="2500" data-to="8000">
+                  <span class="crm-price-list__name">Выгрузка в Excel</span>
+                  <span class="crm-price-list__sum">2.500–8.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Яндекс Метрика</span>
-                <span class="crm-price-list__sum">от 4.000&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="dashboard" data-from="6000" data-to="22000">
+                  <span class="crm-price-list__name">Дашборд и KPI</span>
+                  <span class="crm-price-list__sum">6.000–22.000&nbsp;₽</span>
+                </label>
               </li>
-              <li class="crm-price-list__item">
-                <span class="crm-price-list__name">Телефония и коллтрекинг</span>
-                <span class="crm-price-list__sum">от 7.500&nbsp;₽</span>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="metrika" data-from="4000" data-to="12000">
+                  <span class="crm-price-list__name">Яндекс Метрика</span>
+                  <span class="crm-price-list__sum">4.000–12.000&nbsp;₽</span>
+                </label>
+              </li>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="roistat" data-from="6000" data-to="18000">
+                  <span class="crm-price-list__name">Roistat</span>
+                  <span class="crm-price-list__sum">6.000–18.000&nbsp;₽</span>
+                </label>
+              </li>
+              <li>
+                <label class="crm-price-list__item">
+                  <input type="checkbox" name="price-item" value="owner-report" data-from="5000" data-to="16000">
+                  <span class="crm-price-list__name">Отчёт руководителю</span>
+                  <span class="crm-price-list__sum">5.000–16.000&nbsp;₽</span>
+                </label>
               </li>
             </ul>
           </article>
         </div>
 
-        <div class="crm-pricing__foot">
-          <button class="btn btn--primary btn--lure-light crm-pricing__cta" type="button" data-order-open data-order-source="pricing-estimate">
-            Собрать смету
-            <span class="crm-pricing__deal" aria-hidden="true">−10%</span>
-          </button>
-        </div>
+        <form class="crm-pricing__foot" data-price-form novalidate>
+          <p class="crm-pricing__total" data-price-total>Отметьте услуги — появится диапазон</p>
+          <p class="crm-pricing__note">Точную сумму назовём после разбора задачи.</p>
+          <div class="crm-pricing__send">
+            <label class="crm-pricing__phone-wrap">
+              <span class="visually-hidden">Телефон</span>
+              <input
+                class="crm-pricing__phone"
+                type="tel"
+                name="phone"
+                data-phone-ru
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="18"
+                placeholder="+7 (___) ___-__-__"
+                required
+              >
+            </label>
+            <button class="btn btn--primary crm-pricing__cta" type="submit" data-price-cta disabled>
+              Заказать звонок
+              <span class="crm-pricing__deal" aria-hidden="true">−10%</span>
+            </button>
+          </div>
+          {% include "crm/legal-note.njk" %}
+          <p class="crm-pricing__error" data-price-error hidden></p>
+          <p class="crm-pricing__done" data-price-done hidden>Свяжемся в течение часа.</p>
+        </form>
       </div>
     </section>

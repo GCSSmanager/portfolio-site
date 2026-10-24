@@ -60,41 +60,138 @@
   list-style: none;
 }
 
-.crm-price-list__item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.65rem 0.75rem;
-  align-items: baseline;
-  padding: 0.35rem 0;
-}
-
-.crm-price-list__item + .crm-price-list__item {
+.crm-price-list > li + li {
   border-top: 1px solid color-mix(in oklab, #f5f2ea 10%, transparent);
 }
 
+.crm-price-list__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.2rem 0.6rem;
+  align-items: start;
+  margin: 0;
+  padding: 0.45rem 0.15rem;
+  cursor: pointer;
+}
+
+.crm-price-list__item input {
+  appearance: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0.15rem 0 0;
+  border: 1px solid color-mix(in oklab, #f5f2ea 42%, transparent);
+  border-radius: 0.22rem;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.crm-price-list__item:hover input {
+  border-color: #f5f2ea;
+}
+
+.crm-price-list__item:has(:focus-visible) {
+  outline: 2px solid #f5f2ea;
+  outline-offset: 2px;
+}
+
+.crm-price-list__item input:checked {
+  border-color: #f5f2ea;
+  background: #f5f2ea;
+  box-shadow: inset 0 0 0 0.18rem #1b3022;
+}
+
+.crm-price-list__item:has(:checked) .crm-price-list__name,
+.crm-price-list__item:has(:checked) .crm-price-list__sum {
+  color: #f5f2ea;
+}
+
 .crm-price-list__name {
+  min-width: 0;
   font-size: 0.92rem;
-  line-height: 1.35;
+  line-height: 1.3;
   color: color-mix(in oklab, #f5f2ea 86%, transparent);
 }
 
 .crm-price-list__sum {
-  font-size: 0.92rem;
+  grid-column: 2;
+  min-width: 0;
+  font-size: 0.82rem;
   font-weight: 600;
-  white-space: nowrap;
+  line-height: 1.3;
   font-variant-numeric: tabular-nums;
   color: #f5f2ea;
 }
 
 .crm-pricing__foot {
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  justify-items: end;
+  gap: 0.45rem;
   margin-top: clamp(1.35rem, 2.8vw, 2rem);
+}
+
+.crm-pricing__total {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+  color: #f5f2ea;
+}
+
+.crm-pricing__note {
+  margin: 0 0 0.35rem;
+  max-width: 28rem;
+  font-size: var(--step--1);
+  line-height: 1.45;
+  text-align: right;
+  color: color-mix(in oklab, #f5f2ea 68%, transparent);
+}
+
+.crm-pricing__send {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 0.55rem;
+  width: min(100%, 28rem);
+}
+
+.crm-pricing__send[hidden] {
+  display: none !important;
+}
+
+.crm-pricing__phone-wrap {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.crm-pricing__phone {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 28%, transparent);
+  border-radius: var(--radius-m);
+  background: color-mix(in oklab, #f5f2ea 10%, transparent);
+  color: #f5f2ea;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+}
+
+.crm-pricing__phone::placeholder {
+  color: color-mix(in oklab, #f5f2ea 48%, transparent);
+}
+
+.crm-pricing__phone:focus {
+  outline: none;
+  border-color: #f5f2ea;
+  box-shadow: 0 0 0 3px color-mix(in oklab, #f5f2ea 16%, transparent);
 }
 
 .crm-pricing__cta {
   position: relative;
   overflow: visible;
+  flex: 0 0 auto;
   background: #f5f2ea;
   border-color: #f5f2ea;
   color: #1b3022;
@@ -104,6 +201,49 @@
   background: color-mix(in oklab, #f5f2ea 88%, white);
   border-color: color-mix(in oklab, #f5f2ea 88%, white);
   color: #152119;
+}
+
+.crm-pricing__cta:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.crm-pricing .crm-legal-note {
+  margin: 0;
+  max-width: 28rem;
+  text-align: right;
+  color: color-mix(in oklab, #f5f2ea 52%, transparent);
+}
+
+.crm-pricing .crm-legal-note a {
+  color: inherit;
+  text-decoration-color: color-mix(in oklab, #f5f2ea 28%, transparent);
+}
+
+.crm-pricing__error {
+  margin: 0;
+  max-width: 28rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-m);
+  border: 1px solid color-mix(in oklab, #e8b4a0 40%, #f5f2ea);
+  background: color-mix(in oklab, #b25a2e 22%, transparent);
+  font-size: 0.88rem;
+  text-align: right;
+}
+
+.crm-pricing__error[hidden],
+.crm-pricing__done[hidden],
+.crm-pricing__note[hidden],
+.crm-pricing .crm-legal-note[hidden] {
+  display: none !important;
+}
+
+.crm-pricing__done {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  text-align: right;
 }
 
 .crm-pricing__deal {
@@ -137,7 +277,20 @@
   }
 
   .crm-pricing__foot {
-    justify-content: stretch;
+    justify-items: stretch;
+  }
+
+  .crm-pricing__total,
+  .crm-pricing__note {
+    text-align: left;
+  }
+
+  .crm-pricing__send,
+  .crm-pricing .crm-legal-note,
+  .crm-pricing__error,
+  .crm-pricing__done {
+    width: 100%;
+    text-align: left;
   }
 
   .crm-pricing__cta {

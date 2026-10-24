@@ -279,6 +279,12 @@ function openOrderModal(trigger) {
 
   showOrderForm();
 
+  const preset = trigger?.getAttribute?.('data-order-message');
+  const messageField = orderForm?.querySelector('[name="message"]');
+  if (preset && messageField) {
+    messageField.value = preset;
+  }
+
   orderModal.hidden = false;
   orderModal.classList.add('is-open');
   orderModal.setAttribute('aria-hidden', 'false');
