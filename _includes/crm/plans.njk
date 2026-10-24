@@ -6,37 +6,13 @@
         </div>
 
         <div class="crm-cards{% if planKeys and planKeys | length == 1 %} crm-cards--single{% endif %}">
-          {% if not planKeys or "ready" in planKeys %}
-          <article class="crm-card crm-card--highlighted crm-card--compact">
-            <header class="crm-card__head">
-              <h3 class="crm-card__title">Популярные CRM-платформы</h3>
-              <p class="crm-card__lead">
-                Готовый облачный сервис со стандартными процессами.
-              </p>
-            </header>
-            <div class="crm-card__body">
-              <ul class="crm-card__list" role="list">
-                <li>Типовые воронки и процессы уже внутри</li>
-                <li>Большое число платных интеграций</li>
-              </ul>
-              <ul class="crm-card__list crm-card__list--cons" role="list">
-                <li>Ежемесячная оплата сервиса</li>
-                <li>Сложные процессы ограничены платформой</li>
-              </ul>
-            </div>
-            <footer class="crm-card__foot">
-              <button class="btn btn--ghost btn--lure-dark crm-card__btn" type="button" data-order-open data-order-source="plan-ready-questions">Задать вопросы</button>
-            </footer>
-          </article>
-          {% endif %}
-
           {% if not planKeys or "custom" in planKeys %}
           <article class="crm-card crm-card--featured">
             <header class="crm-card__head">
               <p class="crm-card__eyebrow">Рекомендуем</p>
               <h3 class="crm-card__title">Индивидуальная CRM</h3>
               <p class="crm-card__lead">
-                Система под Вашу модель продаж, когда готовые CRM уже не справляются.
+                Система под вашу модель продаж и процессы — без компромиссов под чужой сервис.
               </p>
             </header>
             <ul class="crm-card__list" role="list">
@@ -64,16 +40,12 @@
                 Готовая система под типовой бизнес из нашего каталога.
               </p>
             </header>
-            <div class="crm-card__body">
-              <ul class="crm-card__list" role="list">
-                <li>Продукт проверен на конкретном бизнесе</li>
-                <li>Единоразовая оплата, без подписок</li>
-              </ul>
-              <ul class="crm-card__list crm-card__list--cons" role="list">
-                <li>Подходит для конкретной отрасли</li>
-                <li>Меньше гибкости, чем индивидуальная</li>
-              </ul>
-            </div>
+            <ul class="crm-card__list" role="list">
+              <li>Продукт проверен на конкретном бизнесе</li>
+              <li>Единоразовая оплата, без подписок</li>
+              <li class="crm-card__list-item--con">Подходит для конкретной отрасли</li>
+              <li class="crm-card__list-item--con">Меньше гибкости, чем индивидуальная</li>
+            </ul>
             <footer class="crm-card__foot">
               <p class="crm-card__price">от 5.000 ₽</p>
               <button class="btn btn--ghost btn--lure-dark crm-card__btn" type="button" data-order-open data-order-source="plan-catalog-details">
