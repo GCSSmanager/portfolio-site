@@ -135,20 +135,23 @@
 }
 
 .crm-process__name {
-  margin: 0 0 0.15rem;
-  font-family: var(--font-display);
-  font-size: clamp(0.92rem, 0.25vw + 0.86rem, 1rem);
+  margin: 0 0 0.25rem;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
   font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: 0;
+  line-height: 1.35;
   color: var(--color-fg);
 }
 
 .crm-process__text {
   margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.42;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 400;
+  line-height: 1.55;
   color: var(--color-fg-soft);
+  text-wrap: pretty;
 }
 
 @media (min-width: 56rem) {
