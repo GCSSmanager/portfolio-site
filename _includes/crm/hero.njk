@@ -45,6 +45,9 @@
               {{ heroCta | default("Получить бесплатно") }}
               {% if dealAlways %}<span class="crm-card__deal" aria-hidden="true">−10%</span>{% endif %}
             </button>
+            {% set noteOnHero = true %}
+            {% include "crm/legal-note.njk" %}
+            {% set noteOnHero = false %}
             <p class="crm-hero__form-error" data-hero-estimate-error hidden></p>
           </form>
           <p class="crm-hero__done" data-hero-estimate-done hidden role="status">

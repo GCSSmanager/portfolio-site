@@ -1,0 +1,118 @@
+/* Cookie notice + form consent line */
+
+.crm-legal-note {
+  margin: 0;
+  max-width: none;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+.crm-legal-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, var(--color-fg) 22%, transparent);
+}
+
+.crm-legal-note a:hover {
+  color: var(--color-fg-soft);
+  text-decoration-color: var(--color-fg-soft);
+}
+
+.crm-legal-note--hero {
+  flex: 1 1 100%;
+  color: color-mix(in oklab, #f5f2ea 52%, transparent);
+}
+
+.crm-legal-note--hero a {
+  text-decoration-color: color-mix(in oklab, #f5f2ea 28%, transparent);
+}
+
+.crm-legal-note--hero a:hover {
+  color: color-mix(in oklab, #f5f2ea 78%, transparent);
+  text-decoration-color: color-mix(in oklab, #f5f2ea 55%, transparent);
+}
+
+.crm-cookie {
+  position: fixed;
+  left: calc(var(--space-4) + 2.75rem + 0.5rem);
+  right: calc(var(--space-4) + 2.75rem + 0.5rem);
+  bottom: var(--space-4);
+  z-index: 35;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 12%, transparent);
+  border-radius: 999px;
+  background: #0d140f;
+}
+
+.crm-cookie[hidden] {
+  display: none !important;
+}
+
+.crm-cookie__text {
+  margin: 0;
+  max-width: none;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  text-align: center;
+  color: color-mix(in oklab, #f5f2ea 68%, transparent);
+}
+
+.crm-cookie__text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, #f5f2ea 28%, transparent);
+}
+
+.crm-cookie__text a:hover {
+  color: #f5f2ea;
+  text-decoration-color: #f5f2ea;
+}
+
+.crm-cookie__ok {
+  flex-shrink: 0;
+  min-height: 1.6rem;
+  padding: 0.15rem 0.65rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 22%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: #f5f2ea;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.crm-cookie__ok:hover {
+  background: color-mix(in oklab, #f5f2ea 10%, transparent);
+}
+
+@media (min-width: 42.01rem) {
+  .crm-page .crm-cookie {
+    right: calc(var(--space-4) + 8.5rem);
+  }
+}
+
+@media (max-width: 42rem) {
+  .crm-page .crm-cookie {
+    left: calc(var(--space-3) + 2.75rem + 0.45rem);
+    right: calc(var(--space-3) + 2.75rem + 0.45rem);
+    bottom: var(--space-3);
+  }
+}
+
+.legal-page .crm-cookie {
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+}

@@ -230,11 +230,16 @@ function initCrmAssistant() {
     submit.textContent = 'Отправить';
     submit.disabled = true;
 
+    const note = document.createElement('p');
+    note.className = 'crm-legal-note';
+    note.innerHTML =
+      'Нажимая кнопку, вы соглашаетесь на <a href="/legal/consent/">обработку персональных данных</a> и с <a href="/legal/privacy/">политикой конфиденциальности</a>.';
+
     const syncCardSubmit = () => {
       submit.disabled = !isPhoneComplete(phoneInput.value || '');
     };
 
-    form.append(nameInput, phoneInput, error, submit);
+    form.append(nameInput, phoneInput, error, submit, note);
     card.append(title, form);
     wrap.append(card);
     log.append(wrap);

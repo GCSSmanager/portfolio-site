@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="author" content="ГКСС">
+  <meta http-equiv="Content-Language" content="ru">
+  {% if canonical %}
+  <link rel="canonical" href="{{ canonical }}">
+  {% endif %}
+  <meta name="robots" content="{{ robots or 'noindex, follow' }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="ГКСС">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  {% if canonical %}
+  <meta property="og:url" content="{{ canonical }}">
+  {% endif %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/css/sections/legal.css">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icons/512x512.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/180x180.png">
+</head>
+<body class="legal-page">
+  {% include "legal/nav.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "site-footer.njk" %}
+  {% include "crm/cookie-banner.njk" %}
+  <script src="/js/data.js"></script>
+  <script src="/js/contacts.js"></script>
+  <script src="/js/crm-cookie.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initContacts();
+      initCrmCookieBanner();
+    });
+  </script>
+</body>
+</html>
