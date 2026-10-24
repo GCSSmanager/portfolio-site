@@ -8,10 +8,16 @@
             </div>
             <p class="crm-guide__lead">Не нашли ответа на свой вопрос — <a href="tel:+79963463049" data-phone-link>звоните нам</a>!</p>
             <div class="crm-guide__action">
+              {% if faqVariant != "free" %}
               <span class="crm-guide__deal-bg" aria-hidden="true">−10%</span>
-              <button class="btn btn--primary btn--lure-dark crm-guide__cta" type="button" data-order-open data-order-source="guide-consult">
-                Бесплатная консультация
-              </button>
+              {% endif %}
+              {% set phoneLeadId = "guide-phone" %}
+              {% set leadName = "Бесплатная консультация" %}
+              {% set leadSource = "guide-consult" %}
+              {% set submitLabel = "Бесплатная консультация" %}
+              {% set phoneLeadBtnClass = "btn--lure-dark crm-guide__cta" %}
+              {% set phoneLeadDealBtn = false %}
+              {% include "crm/phone-lead-form.njk" %}
             </div>
           </div>
 

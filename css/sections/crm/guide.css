@@ -16,6 +16,7 @@
   gap: 0.85rem;
   position: sticky;
   top: calc(var(--header-h) + 1rem);
+  min-width: 0;
 }
 
 .crm-guide__lead {
@@ -38,18 +39,19 @@
 }
 
 .crm-guide__action {
-  --deal-left: 77%;
-  --deal-top: 0.15rem;
-  --deal-size: clamp(5.75rem, 12vw, 9rem);
-  --deal-opacity: 28%;
+  /* −10% на фоне: крути left / top / --deal-size / --deal-opacity */
+  --deal-left: 16.5rem;
+  --deal-top: -0.35rem;
+  --deal-size: clamp(5.5rem, 11vw, 8.25rem);
+  --deal-opacity: 26%;
 
   position: relative;
   display: grid;
   justify-items: start;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
+  max-width: 24rem;
   margin-top: 0.15rem;
-  padding: 0.65rem 1.75rem 1.35rem 0;
+  padding: 0.2rem 0 1.75rem;
   isolation: isolate;
   overflow: visible;
 }
@@ -76,14 +78,32 @@
   justify-self: start;
 }
 
+.crm-guide__action .crm-phone-lead {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.crm-guide__action .crm-phone-lead__phone {
+  flex: 1 1 10rem;
+  max-width: 14.25rem;
+}
+
 @media (max-width: 56rem) {
   .crm-guide__action {
-    --deal-left: 100%;
-    --deal-top: -1.5rem;
-    --deal-size: clamp(5rem, 18vw, 7rem);
-    --deal-opacity: 24%;
-    padding-right: 1.25rem;
-    padding-bottom: 1.1rem;
+    --deal-left: auto;
+    --deal-right: 0;
+    --deal-top: -0.5rem;
+    --deal-size: clamp(4.75rem, 17vw, 7rem);
+    max-width: 100%;
+    padding-bottom: 1.25rem;
+  }
+
+  .crm-guide__deal-bg {
+    left: var(--deal-left);
+    right: var(--deal-right, auto);
+    top: var(--deal-top);
   }
 }
 
@@ -96,6 +116,8 @@
 }
 
 .crm-guide__list {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: .55rem;
   margin: 0;

@@ -122,73 +122,87 @@ function initPhoneMask() {
   bindPhoneMask(orderPhone);
 }
 
-function initCrmHeroEstimate() {
-  const form = document.querySelector('[data-hero-estimate]');
-  if (!form) return;
+function findPhoneLeadDone(form) {
+  const inParent = form.parentElement?.querySelector('[data-crm-phone-lead-done]');
+  if (inParent && inParent !== form) return inParent;
+  const next = form.nextElementSibling;
+  if (next?.matches('[data-crm-phone-lead-done]')) return next;
+  return form.closest('.crm-hero__copy')?.querySelector('[data-crm-phone-lead-done]') || null;
+}
 
-  const phone = form.querySelector('[name="phone"]');
-  const submit = form.querySelector('[type="submit"]');
-  const error = form.querySelector('[data-hero-estimate-error]');
-  const done = document.querySelector('[data-hero-estimate-done]');
-  if (!phone || !submit) return;
+function initCrmPhoneLeadForms() {
+  document.querySelectorAll('[data-crm-phone-lead]').forEach((form) => {
+    if (form.dataset.phoneLeadReady === '1') return;
+    form.dataset.phoneLeadReady = '1';
 
-  bindPhoneMask(phone);
+    const phone = form.querySelector('[name="phone"]');
+    const submit = form.querySelector('[type="submit"]');
+    const error = form.querySelector('[data-crm-phone-lead-error]');
+    const done = findPhoneLeadDone(form);
+    if (!phone || !submit) return;
 
-  function showError(message) {
-    if (!error) return;
-    error.textContent = message;
-    error.hidden = false;
-  }
+    bindPhoneMask(phone);
 
-  function clearError() {
-    if (!error) return;
-    error.hidden = true;
-    error.textContent = '';
-  }
-
-  function syncSubmit() {
-    submit.disabled = !isPhoneComplete(phone.value || '');
-  }
-
-  phone.addEventListener('input', () => {
-    phone.setCustomValidity('');
-    clearError();
-    syncSubmit();
-  });
-
-  syncSubmit();
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    clearError();
-
-    if (!isPhoneComplete(phone.value || '')) {
-      phone.setCustomValidity('Введите номер полностью: +7 (___) ___-__-__');
-      phone.reportValidity();
-      return;
+    function showError(message) {
+      if (!error) return;
+      error.textContent = message;
+      error.hidden = false;
     }
 
-    phone.setCustomValidity('');
-    submit.disabled = true;
+    function clearError() {
+      if (!error) return;
+      error.hidden = true;
+      error.textContent = '';
+    }
 
-    try {
-      await window.sendCrmLead({
-        name: form.dataset.leadName || 'Получить бесплатно',
-        phone: phone.value,
-        source: form.dataset.leadSource || 'hero-free',
-      });
+    function syncSubmit() {
+      submit.disabled = !isPhoneComplete(phone.value || '');
+    }
 
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-form');
+    phone.addEventListener('input', () => {
+      phone.setCustomValidity('');
+      clearError();
+      syncSubmit();
+    });
+
+    syncSubmit();
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearError();
+
+      if (!isPhoneComplete(phone.value || '')) {
+        phone.setCustomValidity('Введите номер полностью: +7 (___) ___-__-__');
+        phone.reportValidity();
+        return;
       }
 
-      form.hidden = true;
-      if (done) done.hidden = false;
-    } catch (err) {
-      showError(err?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.');
-      syncSubmit();
-    }
+      phone.setCustomValidity('');
+      submit.disabled = true;
+
+      try {
+        await window.sendCrmLead({
+          name: form.dataset.leadName || 'Заявка с сайта',
+          phone: phone.value,
+          source: form.dataset.leadSource || 'crm-phone-lead',
+        });
+
+        if (typeof window.ym === 'function') {
+          window.ym(112716152, 'reachGoal', 'crm-form');
+        }
+
+        form.hidden = true;
+        if (done) done.hidden = false;
+      } catch (err) {
+        showError(err?.message || window.getLeadErrorMessage?.('unknown') || 'Не удалось отправить заявку.');
+        syncSubmit();
+      }
+    });
   });
+}
+
+function initCrmHeroEstimate() {
+  initCrmPhoneLeadForms();
 }
 
 function clearOrderFormError() {
