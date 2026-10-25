@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import type { Plugin } from 'vite'
+import { isCrmDataDir } from './crmDataDirs.ts'
 
 const MIME: Record<string, string> = {
   '.webp': 'image/webp',
@@ -23,11 +24,35 @@ function sendFile(res: import('http').ServerResponse, filePath: string) {
   fs.createReadStream(filePath).pipe(res)
 }
 
+function trySendFile(
+  res: import('http').ServerResponse,
+  next: () => void,
+  root: string,
+  rel: string,
+) {
+  const filePath = path.join(root, rel)
+  if (!filePath.startsWith(root)) {
+    res.statusCode = 403
+    res.end()
+    return true
+  }
+  try {
+    if (!fs.statSync(filePath).isFile()) {
+      next()
+      return true
+    }
+    sendFile(res, filePath)
+    return true
+  } catch {
+    next()
+    return true
+  }
+}
+
 /** Dev-only: repo static before SPA fallback (vite-plugin-static-copy order breaks on Vite 8). */
 export function repoStaticDev(repoRoot: string): Plugin {
   const mounts: Record<string, string> = {
     '/assets': path.join(repoRoot, 'assets'),
-    '/data': path.join(repoRoot, 'data'),
     '/css': path.join(repoRoot, 'css'),
     '/icons': path.join(repoRoot, 'icons'),
   }
@@ -39,26 +64,21 @@ export function repoStaticDev(repoRoot: string): Plugin {
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0] ?? ''
 
-        for (const [prefix, root] of Object.entries(mounts)) {
-          if (!url.startsWith(`${prefix}/`) && url !== prefix) continue
-          const rel = decodeURIComponent(url.slice(prefix.length).replace(/^\//, ''))
-          const filePath = path.join(root, rel)
-          if (!filePath.startsWith(root)) {
-            res.statusCode = 403
-            res.end()
-            return
-          }
-          try {
-            if (!fs.statSync(filePath).isFile()) {
-              next()
-              return
-            }
-            sendFile(res, filePath)
-            return
-          } catch {
+        if (url.startsWith('/data/')) {
+          const rel = decodeURIComponent(url.slice('/data/'.length))
+          const dir = rel.split('/')[0] ?? ''
+          if (!isCrmDataDir(dir)) {
             next()
             return
           }
+          const root = path.join(repoRoot, 'data', dir)
+          if (trySendFile(res, next, root, rel.slice(dir.length + 1))) return
+        }
+
+        for (const [prefix, root] of Object.entries(mounts)) {
+          if (!url.startsWith(`${prefix}/`) && url !== prefix) continue
+          const rel = decodeURIComponent(url.slice(prefix.length).replace(/^\//, ''))
+          if (trySendFile(res, next, root, rel)) return
         }
 
         if (url === '/styles-crm-shell.css' || url === '/favicon.ico') {

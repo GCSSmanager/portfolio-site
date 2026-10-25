@@ -69,23 +69,29 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
     return () => window.clearTimeout(timer)
   }, [dismissed])
 
-  const findFaqAnswer = (text: string) => {
-    const normalized = normalize(text)
-    const index = CRM_FAQ.findIndex((item) => normalize(item.q) === normalized)
-    if (index === -1) return null
-    const item = CRM_FAQ[index]
-    if (solution === 'free' && FREE_FAQ_OVERRIDES[item.q]) {
-      return { q: item.q, a: FREE_FAQ_OVERRIDES[item.q]! }
-    }
-    return item
-  }
+  const findFaqAnswer = useCallback(
+    (text: string) => {
+      const normalized = normalize(text)
+      const index = CRM_FAQ.findIndex((item) => normalize(item.q) === normalized)
+      if (index === -1) return null
+      const item = CRM_FAQ[index]
+      if (solution === 'free' && FREE_FAQ_OVERRIDES[item.q]) {
+        return { q: item.q, a: FREE_FAQ_OVERRIDES[item.q]! }
+      }
+      return item
+    },
+    [solution],
+  )
 
-  const resolveReply = (text: string, chipIndex = -1) => {
-    const chip =
-      chipIndex >= 0 ? offerChips[chipIndex] : offerChips.find((c) => normalize(c.q) === normalize(text))
-    if (chip?.reply) return chip.reply
-    return findFaqAnswer(chip?.q || text)?.a || ASSIST_CONTACT_REPLY
-  }
+  const resolveReply = useCallback(
+    (text: string, chipIndex = -1) => {
+      const chip =
+        chipIndex >= 0 ? offerChips[chipIndex] : offerChips.find((c) => normalize(c.q) === normalize(text))
+      if (chip?.reply) return chip.reply
+      return findFaqAnswer(chip?.q || text)?.a || ASSIST_CONTACT_REPLY
+    },
+    [findFaqAnswer, offerChips],
+  )
 
   const showContactCard = useCallback(() => {
     setMessages((prev) => [...prev, { id: `contact-${Date.now()}`, role: 'bot', kind: 'contact' }])
@@ -118,7 +124,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
         setBusy(false)
       }, 420)
     },
-    [busy, contactPhone, contactsDone, showContactCard],
+    [busy, contactPhone, contactsDone, resolveReply, showContactCard],
   )
 
   const submitContact = async () => {

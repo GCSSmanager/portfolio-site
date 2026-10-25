@@ -59,7 +59,25 @@ export function buildSchemaGraph(seo: RouteSeo, includeService: boolean) {
   }
 }
 
+export const JSON_LD_SCRIPT_SELECTOR = 'script[data-gcss-seo-jsonld]'
+
 export function jsonLdScriptHtml(seo: RouteSeo, includeService: boolean) {
   const json = JSON.stringify(buildSchemaGraph(seo, includeService))
-  return `<script type="application/ld+json">${json}</script>`
+  return `<script type="application/ld+json" data-gcss-seo-jsonld="">${json}</script>`
+}
+
+export function syncJsonLdInDocument(seo: RouteSeo, includeService: boolean) {
+  const json = JSON.stringify(buildSchemaGraph(seo, includeService))
+  let el = document.querySelector<HTMLScriptElement>(JSON_LD_SCRIPT_SELECTOR)
+  if (!el) {
+    el = document.createElement('script')
+    el.type = 'application/ld+json'
+    el.setAttribute('data-gcss-seo-jsonld', '')
+    document.head.appendChild(el)
+  }
+  el.textContent = json
+}
+
+export function removeJsonLdFromDocument() {
+  document.querySelector(JSON_LD_SCRIPT_SELECTOR)?.remove()
 }

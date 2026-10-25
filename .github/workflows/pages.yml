@@ -25,7 +25,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: site/package-lock.json
+          cache-dependency-path: |
+            site/package-lock.json
+            demos/clinic-crm/package-lock.json
+            demos/flower-crm/package-lock.json
       - name: Install site dependencies
         run: npm ci --prefix site
       - name: Build

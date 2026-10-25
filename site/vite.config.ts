@@ -2,22 +2,17 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import { repoStaticDev } from './vite/repoStatic'
+import { CRM_DATA_DIRS } from './vite/crmDataDirs.ts'
+import { preserveCrmDemos } from './vite/preserveDemos.ts'
+import { repoStaticDev } from './vite/repoStatic.ts'
 
 const repoRoot = path.resolve(import.meta.dirname, '..')
-
-const CRM_DATA_DIRS = [
-  'flower-crm',
-  'clinic-crm',
-  'pest-crm',
-  'motorlab-crm',
-  'severkuhnya-crm',
-  'sila-crm',
-] as const
+const outDir = path.resolve(repoRoot, '_site')
 
 export default defineConfig(() => ({
   plugins: [
     react(),
+    preserveCrmDemos(outDir),
     repoStaticDev(repoRoot),
     viteStaticCopy({
       targets: [
@@ -41,10 +36,10 @@ export default defineConfig(() => ({
   },
   base: '/',
   build: {
-    outDir: path.resolve(repoRoot, '_site'),
-    emptyOutDir: true,
-    /** Do not collide with /assets/*.webp from repo root */
+    outDir,
+    emptyOutDir: false,
     assetsDir: '_vite',
+    chunkSizeWarningLimit: 900,
   },
   server: {
     host: true,

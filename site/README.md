@@ -16,7 +16,6 @@
 |------|------------|
 | **`src/seo/routeMeta.ts`** | title, description, canonical, robots по pathname |
 | **`scripts/prerender-routes.ts`** | после `vite build` пишет HTML-оболочки **с meta/OG в `<head>`** |
-| **`PageMeta`** | синхронизация head при клиентской навигации |
-| **`CrmJsonLd`** | JSON-LD Organization / WebSite / WebPage (+ Service на CRM-страницах) |
+| **`PageMeta`** | meta/OG и один JSON-LD (`data-gcss-seo-jsonld`) при клиентской навигации |
 
-На GitHub Pages боты и превью читают **собранный HTML**; React донастраивает head при SPA-переходах.
+На GitHub Pages боты и превью читают **собранный HTML**; React обновляет тот же JSON-LD при SPA-переходах (без дубликата).

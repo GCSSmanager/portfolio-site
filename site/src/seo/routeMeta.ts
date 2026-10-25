@@ -79,3 +79,15 @@ export function seoForPathname(pathname: string): RouteSeo | undefined {
   const withSlash = pathname.endsWith('/') ? pathname : `${pathname}/`
   return routeSeoByPath[withSlash]
 }
+
+const CRM_SERVICE_PATHS = new Set(['/crm/custom/', '/crm/free/', '/crm/integrations/', '/crm/'])
+
+/** JSON-LD for client navigations; prerender uses the same rules. */
+export function jsonLdForPathname(pathname: string): { includeService: boolean } | null {
+  const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`
+  const seo = routeSeoByPath[normalized]
+  if (!seo || seo.robots?.includes('noindex')) return null
+  if (CRM_SERVICE_PATHS.has(normalized)) return { includeService: true }
+  if (normalized.startsWith('/crm/') || normalized.startsWith('/legal/')) return { includeService: false }
+  return null
+}

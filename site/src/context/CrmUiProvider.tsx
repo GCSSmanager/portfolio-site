@@ -1,7 +1,5 @@
 import {
-  createContext,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -12,25 +10,7 @@ import { sendCrmLead } from '@/lib/leads'
 import { usePhoneMask } from '@/hooks/usePhoneMask'
 import { DemoPickerModal } from '@/components/crm/DemoPickerModal'
 import { OrderModal } from '@/components/crm/OrderModal'
-
-type OrderOpenOptions = {
-  source?: string
-  dealOff?: boolean
-  message?: string
-}
-
-type CrmUiContextValue = {
-  openOrder: (options?: OrderOpenOptions) => void
-  openDemoPicker: () => void
-}
-
-const CrmUiContext = createContext<CrmUiContextValue | null>(null)
-
-export function useCrmUi() {
-  const ctx = useContext(CrmUiContext)
-  if (!ctx) throw new Error('useCrmUi outside provider')
-  return ctx
-}
+import { CrmUiContext } from '@/context/crmUiContext'
 
 export function CrmUiProvider({ children }: { children: ReactNode }) {
   const [orderOpen, setOrderOpen] = useState(false)
@@ -44,7 +24,7 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
   const nameRef = useRef<HTMLInputElement>(null)
   const messageRef = useRef<HTMLTextAreaElement>(null)
 
-  const openOrder = useCallback((options?: OrderOpenOptions) => {
+  const openOrder = useCallback((options?: { source?: string; dealOff?: boolean; message?: string }) => {
     setOrderSuccess(false)
     setOrderError(null)
     setOrderSource(options?.source ?? 'crm-order')

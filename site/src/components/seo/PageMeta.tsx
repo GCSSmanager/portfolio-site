@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { seoForPathname } from '@/seo/routeMeta'
+import { removeJsonLdFromDocument, syncJsonLdInDocument } from '@/seo/crmJsonLdGraph'
+import { jsonLdForPathname, seoForPathname } from '@/seo/routeMeta'
 
 type PageMetaProps = {
   title?: string
@@ -68,6 +69,13 @@ export function PageMeta({
     upsertMeta('twitter:description', description)
     upsertMeta('twitter:image', ogImage)
 
+    const jsonLd = jsonLdForPathname(pathname)
+    if (jsonLd && fromRoute) {
+      syncJsonLdInDocument(fromRoute, jsonLd.includeService)
+    } else {
+      removeJsonLdFromDocument()
+    }
+
     const prevClass = document.body.className
     document.body.className =
       bodyClass ?? (crmSolution ? `crm-page crm-page--${crmSolution}` : prevClass)
@@ -75,7 +83,17 @@ export function PageMeta({
     return () => {
       document.body.className = prevClass
     }
-  }, [title, description, canonical, robots, bodyClass, crmSolution, ogImage])
+  }, [
+    title,
+    description,
+    canonical,
+    robots,
+    bodyClass,
+    crmSolution,
+    ogImage,
+    pathname,
+    fromRoute,
+  ])
 
   return null
 }
