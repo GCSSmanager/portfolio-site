@@ -316,7 +316,31 @@
 }
 
 /* Средние экраны: уже кнопка в правой колонке, чтобы влезал телефон */
+/* /crm/free/ — телефон над кнопкой (не на стеке hero ≤50rem) */
+@media (min-width: 50.0625rem) {
+  .crm-page--free .crm-hero .crm-phone-lead.crm-hero__form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .crm-page--free .crm-hero .crm-phone-lead.crm-hero__form .crm-hero__phone {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .crm-page--free .crm-hero .crm-phone-lead.crm-hero__form .crm-hero__btn {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+}
+
 @media (min-width: 50.0625rem) and (max-width: 68rem) {
+  .crm-page--free .crm-hero__aside .crm-phone-lead.crm-hero__form .crm-hero__btn {
+    max-width: none;
+  }
+
   .crm-hero__aside .crm-phone-lead.crm-hero__form .crm-hero__btn {
     min-width: 0;
     max-width: 10.5rem;
