@@ -173,16 +173,22 @@
   margin: 0.15rem 0 0;
 }
 
-.crm-case__demo a {
+.crm-case__demo :is(a, button) {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
   font-size: 1rem;
   font-weight: 750;
   letter-spacing: 0.01em;
   color: var(--case-accent);
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
@@ -200,15 +206,15 @@
   transition: transform var(--duration-fast) var(--ease-out);
 }
 
-.crm-case__demo a:hover {
+.crm-case__demo :is(a, button):hover {
   color: color-mix(in oklab, var(--case-accent) 78%, black);
 }
 
-.crm-case__demo a:hover .crm-case__demo-text {
+.crm-case__demo :is(a, button):hover .crm-case__demo-text {
   border-bottom-color: color-mix(in oklab, var(--case-accent) 80%, transparent);
 }
 
-.crm-case__demo a:hover .crm-case__demo-icon {
+.crm-case__demo :is(a, button):hover .crm-case__demo-icon {
   transform: translateY(0.05em) translateX(0.18em);
 }
 

@@ -217,7 +217,7 @@ export function AboutCrmExample() {
                 </div>
       
                 <div className="crm-article__snake-cta">
-                  <button className="btn btn--primary" type="button" data-order-open data-order-source="about-example-try" data-order-deal="off">
+                  <button className="btn btn--primary" type="button" data-demo-picker-open>
                     Попробовать бесплатно
                   </button>
                 </div>
