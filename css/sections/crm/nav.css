@@ -57,11 +57,63 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
+  text-decoration: none;
   transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .nav--crm .nav__contact:hover {
   opacity: 0.75;
+}
+
+.nav--crm .nav__reach {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--space-3);
+}
+
+.nav--crm .nav__contact--bar {
+  font-size: var(--step--1);
+  letter-spacing: 0.01em;
+}
+
+.nav--crm .nav__channels {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav--crm .nav__channel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
+  border-radius: var(--radius-m);
+  background: color-mix(in oklab, #f5f2ea 5%, #0d140f);
+  color: #f5f2ea;
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav--crm .nav__channel svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.nav--crm .nav__channel:hover {
+  border-color: color-mix(in oklab, #f5f2ea 22%, transparent);
+  background: color-mix(in oklab, #f5f2ea 9%, #0d140f);
+  opacity: 1;
+}
+
+.nav--crm .nav__channel--phone {
+  display: none;
 }
 
 .nav--crm .nav__cta {
@@ -525,7 +577,37 @@
   }
 }
 
-@media (max-width: 28rem) { /* nav: номер → burger-меню */
+@media (max-width: 46rem) { /* ~736px: номер → иконка (после бургера на 58rem) */
+  .nav--crm .nav__contact--bar {
+    display: none;
+  }
+
+  .nav--crm .nav__channel--phone {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 29rem) { /* nav: номер → burger-меню; бургер — только полоски */
+  .nav__burger {
+    justify-content: center;
+    gap: 0;
+    width: 2.35rem;
+    height: 2.35rem;
+    padding: 0;
+  }
+
+  .nav__burger-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .nav--crm .nav__contact--menu {
     display: block;
     width: 100%;
@@ -540,5 +622,21 @@
 
   .nav--crm .nav__contact--bar {
     display: none;
+  }
+}
+
+@media (max-width: 25rem) { /* ~400px: только действия в шапке */
+  .nav--crm .nav__brand {
+    display: none;
+  }
+
+  .nav--crm .nav__inner {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .nav--crm .nav__links {
+    width: 100%;
+    justify-content: flex-end;
   }
 }
