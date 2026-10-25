@@ -115,6 +115,20 @@ export function CrmCases({ caseKeys }: CrmCasesProps) {
                   <p className="crm-case__label">смена мастеров и операторов на контроле</p>
                 </li>
               </ul>
+              <p className="crm-case__demo">
+                <a href={demoHref('/crm/demo/pest/', from)} target="_blank" rel="noopener">
+                  <span className="crm-case__demo-text">Попробовать бесплатно</span>
+                  <svg className="crm-case__demo-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path
+                      d="M3.5 8h7.5M8.5 5.5 11 8l-2.5 2.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </p>
             </article>
           ) : null}
 

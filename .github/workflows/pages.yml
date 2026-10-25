@@ -29,6 +29,7 @@ jobs:
             site/package-lock.json
             demos/clinic-crm/package-lock.json
             demos/flower-crm/package-lock.json
+            demos/pest-crm/package-lock.json
       - name: Install site dependencies
         run: npm ci --prefix site
       - name: Build

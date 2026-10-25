@@ -45,6 +45,12 @@
   --demo-thumb-position-y: 20%;
 }
 
+.crm-demo-picker__card--pest {
+  --demo-accent: #3d6a52;
+  --demo-thumb-position-x: 50%;
+  --demo-thumb-position-y: 35%;
+}
+
 .crm-demo-picker__card:hover {
   border-color: color-mix(in oklab, var(--demo-accent) 42%, var(--color-line));
   box-shadow: var(--shadow-lift);

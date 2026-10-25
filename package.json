@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run build --prefix site && npm run build:clinic && npm run build:flower",
+    "build": "npm run build --prefix site && npm run build:clinic && npm run build:flower && npm run build:pest",
     "build:clinic": "npm ci --prefix demos/clinic-crm && npm run build --prefix demos/clinic-crm",
     "build:flower": "npm ci --prefix demos/flower-crm && npm run build --prefix demos/flower-crm",
+    "build:pest": "npm ci --prefix demos/pest-crm && npm run build --prefix demos/pest-crm",
     "dev": "npm run dev --prefix site",
     "preview": "npm run build && npx --yes serve _site -p 8080"
   }

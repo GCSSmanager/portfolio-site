@@ -6,9 +6,9 @@
 
 Push в `main` → workflow **Deploy to GitHub Pages**:
 
-1. `npm ci --prefix site` + **`npm run build`** (сайт + демо clinic + flower)
+1. `npm ci --prefix site` + **`npm run build`** (сайт + демо clinic + flower + pest)
 2. Артефакт — папка **`_site/`** целиком
-3. На домене всё статически: CRM SPA, legal, KP, демо по **`/crm/demo/flower/`** и **`/crm/demo/clinic/`** — **один хост, без портов и прокси**
+3. На домене всё статически: CRM SPA, legal, KP, демо по **`/crm/demo/flower/`**, **`/crm/demo/clinic/`** и **`/crm/demo/pest/`** — **один хост, без портов и прокси**
 
 ## Локально
 

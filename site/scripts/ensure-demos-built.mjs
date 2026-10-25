@@ -6,13 +6,14 @@ import { fileURLToPath } from 'node:url'
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const flowerIndex = path.join(repoRoot, '_site/crm/demo/flower/index.html')
 const clinicIndex = path.join(repoRoot, '_site/crm/demo/clinic/index.html')
+const pestIndex = path.join(repoRoot, '_site/crm/demo/pest/index.html')
 
-if (fs.existsSync(flowerIndex) && fs.existsSync(clinicIndex)) {
+if (fs.existsSync(flowerIndex) && fs.existsSync(clinicIndex) && fs.existsSync(pestIndex)) {
   process.exit(0)
 }
 
-console.log('[dev] Демо не найдены в _site — собираем clinic + flower (как на GitHub Pages)…')
-execSync('npm run build:clinic && npm run build:flower', {
+console.log('[dev] Демо не найдены в _site — собираем clinic + flower + pest (как на GitHub Pages)…')
+execSync('npm run build:clinic && npm run build:flower && npm run build:pest', {
   cwd: repoRoot,
   stdio: 'inherit',
 })

@@ -15,6 +15,13 @@ const DEMOS = [
     tag: 'Медицинский центр',
     name: 'Запись, расписание, документы',
   },
+  {
+    href: '/crm/demo/pest/',
+    className: 'crm-demo-picker__card crm-demo-picker__card--pest',
+    thumb: '/data/pest-crm/thumbnail.webp',
+    tag: 'Дезинсекция',
+    name: 'Заявки, аналитика, смена',
+  },
 ] as const
 
 type DemoPickerModalProps = {
