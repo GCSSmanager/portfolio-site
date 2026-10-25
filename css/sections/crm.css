@@ -2,7 +2,6 @@
 
 @import url("./crm/page.css");
 @import url("./crm/nav.css");
-@import url("./crm/hero.css");
 @import url("./crm/kit.css");
 @import url("./crm/cards.css");
 @import url("./crm/integrations.css");
@@ -20,3 +19,4 @@
 @import url("./crm/demo-picker.css");
 @import url("./crm/assistant.css");
 @import url("./crm/totop.css");
+@import url("./crm/hero.css");
