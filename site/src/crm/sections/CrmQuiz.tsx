@@ -121,11 +121,11 @@ export function CrmQuiz() {
                 <div className="crm-quiz__choices">
                   {(
                     [
-                      ['services', '/assets/crm-quiz-kind-services.svg', 'Услуги'],
-                      ['shop', '/assets/crm-quiz-kind-shop.svg', 'Магазин'],
-                      ['booking', '/assets/crm-quiz-kind-booking.svg', 'Запись клиентов'],
-                      ['stock', '/assets/crm-quiz-kind-stock.svg', 'Склад и учёт'],
-                      ['other', '/assets/crm-quiz-kind-other.svg', 'Другое'],
+                      ['services', '/assets/crm-quiz-kind-services.webp', 'Услуги'],
+                      ['shop', '/assets/crm-quiz-kind-shop.webp', 'Магазин'],
+                      ['booking', '/assets/crm-quiz-kind-booking.webp', 'Запись клиентов'],
+                      ['stock', '/assets/crm-quiz-kind-stock.webp', 'Склад и учёт'],
+                      ['other', '/assets/crm-quiz-team-other.webp', 'Другое'],
                     ] as const
                   ).map(([value, icon, label]) => (
                     <label key={value} className="crm-quiz__choice">
@@ -152,11 +152,11 @@ export function CrmQuiz() {
                 <div className="crm-quiz__choices">
                   {(
                     [
-                      ['1-3', '/assets/crm-quiz-team-1-3.svg', '1–3'],
-                      ['4-10', '/assets/crm-quiz-team-4-10.svg', '4–10'],
-                      ['11-30', '/assets/crm-quiz-team-11-30.svg', '11–30'],
-                      ['30+', '/assets/crm-quiz-team-30.svg', '30+'],
-                      ['other', '/assets/crm-quiz-kind-other.svg', 'Другое'],
+                      ['1-3', '/assets/crm-quiz-team-1-3.webp', '1–3'],
+                      ['4-10', '/assets/crm-quiz-team-4-10.webp', '4–10'],
+                      ['11-30', '/assets/crm-quiz-team-11-30.webp', '11–30'],
+                      ['30+', '/assets/crm-quiz-team-30.webp', '30+'],
+                      ['other', '/assets/crm-quiz-team-other.webp', 'Другое'],
                     ] as const
                   ).map(([value, icon, label]) => (
                     <label key={value} className="crm-quiz__choice">
@@ -183,11 +183,11 @@ export function CrmQuiz() {
                 <div className="crm-quiz__choices">
                   {(
                     [
-                      ['leads', '/assets/crm-quiz-pain-leads.svg', 'Разбор заявок'],
-                      ['schedule', '/assets/crm-quiz-pain-schedule.svg', 'Расписание'],
-                      ['stock', '/assets/crm-quiz-pain-stock.svg', 'Остатки'],
-                      ['reports', '/assets/crm-quiz-pain-reports.svg', 'Отчёты'],
-                      ['other', '/assets/crm-quiz-kind-other.svg', 'Другое'],
+                      ['leads', '/assets/crm-quiz-pain-leads.webp', 'Разбор заявок'],
+                      ['schedule', '/assets/crm-quiz-pain-schedule.webp', 'Расписание'],
+                      ['stock', '/assets/crm-quiz-pain-stock.webp', 'Остатки'],
+                      ['reports', '/assets/crm-quiz-pain-reports.webp', 'Отчёты'],
+                      ['other', '/assets/crm-quiz-team-other.webp', 'Другое'],
                     ] as const
                   ).map(([value, icon, label]) => (
                     <label key={value} className="crm-quiz__choice">
