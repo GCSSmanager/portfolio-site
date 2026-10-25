@@ -1,3 +1,4 @@
+import { PhoneLeadForm } from '@/components/crm/PhoneLeadForm'
 import type { CrmContactsProps } from '@/crm/section-props'
 import { EMAIL, EMAIL_MAILTO, PHONE_DISPLAY, PHONE_TEL, TELEGRAM_URL, TELEGRAM_USERNAME } from '@/lib/contacts'
 
@@ -114,17 +115,18 @@ export function CrmContacts({ showContactsDeal = true }: CrmContactsProps) {
               </div>
             </dl>
             <div className="crm-contacts__cta">
-              <button
-                className="btn btn--primary btn--lure-dark crm-contacts__btn"
-                type="button"
-                data-order-open
-                data-order-source="contacts-order"
-                {...(showContactsDeal === false ? { 'data-order-deal': 'off' } : {})}
-              >
-                Оставить заявку
-              </button>
+              <PhoneLeadForm
+                phoneLeadId="contacts-phone"
+                leadName="Заявка — контакты"
+                leadSource="contacts-phone"
+                submitLabel="Оставить заявку"
+                phoneLeadBtnClass="btn--lure-dark crm-contacts__btn"
+                phoneLeadDealBtn={showContactsDeal}
+              />
               {showContactsDeal ? (
-                <p className="crm-contacts__deal">Скидка 10% при заказе с сайта</p>
+                <p className="crm-contacts__deal">
+                  <span className="crm-contacts__deal-mark">Скидка 10% при заказе с сайта</span>
+                </p>
               ) : null}
             </div>
           </address>
