@@ -6,6 +6,7 @@ import { CrmGuide } from '@/crm/sections/CrmGuide'
 import { CrmHero } from '@/crm/sections/CrmHero'
 import { CrmIntegrations } from '@/crm/sections/CrmIntegrations'
 import { CrmKit } from '@/crm/sections/CrmKit'
+import { CrmPartners } from '@/crm/sections/CrmPartners'
 import { CrmPlans } from '@/crm/sections/CrmPlans'
 import { CrmPricing } from '@/crm/sections/CrmPricing'
 import { CrmProcess } from '@/crm/sections/CrmProcess'
@@ -40,6 +41,7 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
       {cfg.sections.includes('pricing') ? <CrmPricing /> : null}
       {cfg.sections.includes('guide') ? <CrmGuide faqVariant={cfg.faqVariant} /> : null}
       {cfg.sections.includes('quiz') ? <CrmQuiz /> : null}
+      {cfg.sections.includes('partners') ? <CrmPartners /> : null}
       {cfg.sections.includes('contacts') ? (
         <CrmContacts showContactsDeal={cfg.showContactsDeal} />
       ) : null}

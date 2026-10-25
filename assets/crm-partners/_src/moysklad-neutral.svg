@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 112">
+  <rect width="180" height="112" fill="#ebeae6"/>
+  <rect x="34" y="10" width="112" height="92" rx="8" fill="#2d58b1"/>
+  <rect x="52" y="28" width="28" height="18" rx="4" fill="#7ec8ff"/>
+  <rect x="72" y="24" width="28" height="22" rx="4" fill="#ffffff"/>
+  <text x="90" y="82" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#ffffff">MoySklad</text>
+</svg>

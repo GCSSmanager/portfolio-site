@@ -5,6 +5,7 @@ export type CrmPageId = 'custom' | 'free' | 'integrations' | 'about'
 
 export type CrmSectionId =
   | 'hero'
+  | 'partners'
   | 'plans'
   | 'kit'
   | 'integrations'
@@ -30,7 +31,7 @@ export type CrmPageConfig = CrmPageMeta & {
 export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   custom: {
     ...crmPages.custom,
-    sections: ['hero', 'plans', 'process', 'reviews', 'cases', 'pricing', 'guide', 'quiz', 'contacts'],
+    sections: ['hero', 'plans', 'process', 'reviews', 'cases', 'pricing', 'guide', 'quiz', 'partners', 'contacts'],
     heroTitle: 'Разработка CRM под ключ под ваш процесс',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',
@@ -39,13 +40,13 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   },
   free: {
     ...crmPages.free,
-    sections: ['hero', 'kit', 'process', 'reviews', 'cases', 'guide', 'quiz', 'contacts'],
+    sections: ['hero', 'kit', 'process', 'reviews', 'cases', 'guide', 'quiz', 'partners', 'contacts'],
     faqVariant: 'free',
     showContactsDeal: true,
   },
   integrations: {
     ...crmPages.integrations,
-    sections: ['hero', 'integrations', 'process', 'reviews', 'cases', 'guide', 'quiz', 'contacts'],
+    sections: ['hero', 'integrations', 'process', 'reviews', 'cases', 'guide', 'quiz', 'partners', 'contacts'],
     heroTitle: 'Интеграции под ваш процесс',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',
@@ -53,7 +54,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   },
   about: {
     ...crmPages.about,
-    sections: ['about', 'contacts'],
+    sections: ['about', 'partners', 'contacts'],
     showContactsDeal: false,
   },
 }

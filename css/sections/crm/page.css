@@ -22,18 +22,21 @@
   background: var(--color-bg);
 }
 
-.crm-page :is(.crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
+.crm-page :is(.crm-partners, .crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
   padding-block: var(--space-8);
 }
 
-.crm-page :is(#tariffs, #integrations, #reviews, #pricing, #cases, #process, #quiz, #guide, #contacts, #about-top, #about-essence, #about-example, #about-audience) {
+.crm-page :is(#partners, #tariffs, #integrations, #reviews, #pricing, #cases, #process, #quiz, #guide, #contacts, #about-top, #about-essence, #about-example, #about-audience) {
   scroll-margin-top: var(--header-h);
 }
 
 /* Section titles centered; FAQ / quiz / contacts keep default (custom, free, integrations) */
-.crm-page--custom :is(#tariffs, #process, #reviews, #cases, #pricing) > .container > .section__head,
+.crm-page--custom :is(#partners, #tariffs, #process, #reviews, #cases, #pricing) > .container > .section__head,
+.crm-page--custom #partners > .crm-partners__head > .section__head,
 .crm-page--free :is(.crm-kit, #process, #reviews, #cases) > .container > .section__head,
-.crm-page--integrations :is(#integrations, #process, #reviews, #cases) > .container > .section__head {
+.crm-page--free #partners > .crm-partners__head > .section__head,
+.crm-page--integrations :is(#integrations, #process, #reviews, #cases) > .container > .section__head,
+.crm-page--integrations #partners > .crm-partners__head > .section__head {
   margin-inline: auto;
   text-align: center;
   justify-items: center;
@@ -42,7 +45,8 @@
 /* About CRM: all section heads centered except contacts */
 .crm-page--about #about-essence > .container > .section__head,
 .crm-page--about #about-example > .section__head,
-.crm-page--about #about-audience > .container > .section__head {
+.crm-page--about #about-audience > .container > .section__head,
+.crm-page--about #partners > .crm-partners__head > .section__head {
   margin-inline: auto;
   text-align: center;
   justify-items: center;
@@ -59,7 +63,7 @@ html:has(body.is-modal-open) {
 }
 
 @media (max-width: 56rem) {
-  .crm-page :is(.crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
+  .crm-page :is(.crm-partners, .crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
     padding-block: var(--space-7);
   }
 }

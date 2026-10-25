@@ -1,0 +1,106 @@
+/* CRM — partners marquee */
+
+.crm-partners {
+  padding-block: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+  border-block: 1px solid var(--color-line);
+}
+
+.crm-partners__head .section__head {
+  margin-inline: auto;
+  max-width: 40rem;
+  text-align: center;
+  justify-items: center;
+}
+
+.crm-partners__marquee {
+  overflow: hidden;
+  margin-top: var(--space-5);
+  padding-block: var(--space-3);
+  /* без боковой маски — она давала «пустоту» слева при прокрутке */
+}
+
+.crm-partners__track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  will-change: transform;
+}
+
+.crm-partners__track.is-ready {
+  animation: crm-partners-marquee var(--crm-partners-duration, 60s) linear infinite;
+}
+
+.crm-partners__group {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crm-partners__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.25rem;
+  /* padding, не gap у списка — одинаковый шаг и на стыке двух копий ленты */
+  padding-inline: clamp(1.5rem, 3.5vw, 2.75rem);
+}
+
+.crm-partners__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 4.25rem;
+  max-width: min(12rem, 42vw);
+  object-fit: contain;
+  object-position: center;
+}
+
+@keyframes crm-partners-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-1 * var(--crm-partners-loop, 0px)), 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm-partners__marquee {
+    mask-image: none;
+  }
+
+  .crm-partners__track {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    max-width: 44rem;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+    animation: none;
+  }
+
+  .crm-partners__group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .crm-partners__item {
+    padding-inline: var(--space-5);
+    padding-block: var(--space-3);
+  }
+
+  .crm-partners__track .crm-partners__group[aria-hidden='true'] {
+    display: none;
+  }
+}
