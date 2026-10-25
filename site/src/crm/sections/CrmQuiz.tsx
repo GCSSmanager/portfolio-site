@@ -45,6 +45,13 @@ export function CrmQuiz() {
     window.setTimeout(() => setStep(next === 'kind' ? 2 : next === 'team' ? 3 : 4), 180)
   }
 
+  const goBack = () => {
+    if (step === 2) setKind('')
+    else if (step === 3) setTeam('')
+    else if (step === 4) setPain('')
+    setStep((s) => Math.max(1, s - 1))
+  }
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setError(null)
@@ -242,7 +249,7 @@ export function CrmQuiz() {
             <button
               className="crm-quiz__back"
               type="button"
-              onClick={() => setStep((s) => Math.max(1, s - 1))}
+              onClick={goBack}
             >
               Назад
             </button>
