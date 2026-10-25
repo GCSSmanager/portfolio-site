@@ -25,8 +25,9 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Install
-        run: npm ci
+          cache-dependency-path: site/package-lock.json
+      - name: Install site dependencies
+        run: npm ci --prefix site
       - name: Build
         run: npm run build
       - name: Upload Pages artifact

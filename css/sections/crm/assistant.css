@@ -149,6 +149,8 @@
 
 .crm-assist__msg--bot {
   justify-items: start;
+  width: 100%;
+  min-width: 0;
 }
 
 .crm-assist__msg--user {
@@ -183,13 +185,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 .crm-assist__chip {
   display: inline-flex;
   align-items: center;
   flex: 0 0 auto;
-  width: max-content;
+  max-width: 100%;
   padding: 0.28rem 0.55rem;
   border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
   border-radius: 999px;

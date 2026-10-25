@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
-export default defineConfig(({ command }) => ({
+const base = '/crm/demo/flower/'
+
+export default defineConfig(() => ({
   plugins: [react()],
   define: {
     'import.meta.env.VITE_DEMO_MODE': JSON.stringify('true'),
   },
-  base: command === 'build' ? '/crm/demo/flower/' : '/',
+  base,
   build: {
     outDir: '../../_site/crm/demo/flower',
     emptyOutDir: true,
@@ -15,8 +16,10 @@ export default defineConfig(({ command }) => ({
   server: {
     host: true,
     port: 5174,
+    strictPort: true,
   },
   preview: {
     host: true,
+    port: 4174,
   },
 }))

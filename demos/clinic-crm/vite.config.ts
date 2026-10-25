@@ -1,15 +1,22 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-export default defineConfig(({ command }) => ({
+const base = '/crm/demo/clinic/'
+
+export default defineConfig(() => ({
   plugins: [react()],
-  base: command === "build" ? "/crm/demo/clinic/" : "/",
+  base,
   build: {
-    outDir: "../../_site/crm/demo/clinic",
+    outDir: '../../_site/crm/demo/clinic',
     emptyOutDir: true,
   },
   server: {
-    port: 5173,
     host: true,
+    port: 5173,
+    strictPort: true,
   },
-}));
+  preview: {
+    host: true,
+    port: 4173,
+  },
+}))

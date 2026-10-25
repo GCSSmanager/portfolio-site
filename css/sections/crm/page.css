@@ -48,8 +48,14 @@
   justify-items: center;
 }
 
+html:has(body.is-modal-open) {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 .crm-page.is-modal-open {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 @media (max-width: 56rem) {
