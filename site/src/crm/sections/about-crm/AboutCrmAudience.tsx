@@ -1,3 +1,5 @@
+import { PhoneLeadForm } from '@/components/crm/PhoneLeadForm'
+
 export function AboutCrmAudience() {
   return (
       <section className="crm-article__sec crm-article__sec--fit-band" id="about-audience" aria-labelledby="about-audience-title">
@@ -80,11 +82,22 @@ export function AboutCrmAudience() {
       
                 <div className="crm-article__fit-cta">
                   <p>
-                    Опишите, как устроена работа сейчас. На консультации определим, нужна ли CRM вашей модели, и предложим, с чего начать.
+                    Опишите,{' '}
+                    <span className="crm-article__mark">как устроена работа сейчас</span>. На{' '}
+                    <span className="crm-article__mark">консультации</span> определим, нужна ли{' '}
+                    <span className="crm-article__mark">CRM вашей модели</span>, и предложим,{' '}
+                    <span className="crm-article__mark">с чего начать</span>.
                   </p>
-                  <button className="btn btn--primary btn--lure-light" type="button" data-order-open data-order-source="about-audience-consult" data-order-deal="off">
-                    Бесплатная консультация
-                  </button>
+                  <div className="crm-article__fit-form">
+                    <PhoneLeadForm
+                      phoneLeadId="about-audience-phone"
+                      leadName="Бесплатная консультация"
+                      leadSource="about-audience-consult"
+                      submitLabel="Бесплатная консультация"
+                      phoneLeadClass="crm-article__fit-lead"
+                      phoneLeadBtnClass="btn--lure-light"
+                    />
+                  </div>
                 </div>
               </div>
             </section>
