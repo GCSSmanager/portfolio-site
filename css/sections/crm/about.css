@@ -1854,25 +1854,58 @@
   list-style: none;
 }
 
+/* Узкий телефон (~≤512px): иконка по центру над текстом */
 .crm-article__fit li {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--space-4);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: start;
+  gap: var(--space-2);
   margin: 0;
-  padding: var(--space-5);
+  padding: var(--space-4) var(--space-3);
   border-radius: var(--radius-l);
   background: color-mix(in oklab, var(--color-on-accent) 7%, transparent);
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-on-accent) 12%, transparent);
 }
 
 .crm-article__fit-mark {
-  width: 4.75rem;
-  height: 4.75rem;
-  padding: 0.9rem;
+  justify-self: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  margin: 0 0 calc(var(--space-1) * -0.5);
+  padding: 0.42rem;
   border-radius: 50%;
   background: color-mix(in oklab, var(--color-on-accent) 8%, transparent);
   color: var(--color-on-accent);
+}
+
+.crm-article__fit li > div {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 32rem) {
+  /* Одна колонка карточек, экран шире ~512px — иконка слева, по вертикали по центру блока */
+  .crm-article__fit li {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: stretch;
+    align-items: center;
+    gap: clamp(var(--space-3), 2vw, var(--space-4));
+    padding: clamp(var(--space-4), 2.5vw, var(--space-5));
+  }
+
+  .crm-article__fit-mark {
+    justify-self: start;
+    width: clamp(2.65rem, 2rem + 3vw, 3.35rem);
+    height: clamp(2.65rem, 2rem + 3vw, 3.35rem);
+    margin: 0;
+    padding: clamp(0.48rem, 0.22rem + 0.7vw, 0.68rem);
+  }
+
+  .crm-article__fit-yes,
+  .crm-article__fit-no {
+    font-size: var(--step-0);
+  }
 }
 
 .crm-article__fit-yes,
@@ -1888,8 +1921,8 @@
 
 .crm-article__fit-ico {
   flex: 0 0 auto;
-  width: 1.15rem;
-  height: 1.15rem;
+  width: clamp(0.92rem, 0.78rem + 0.35vw, 1.15rem);
+  height: clamp(0.92rem, 0.78rem + 0.35vw, 1.15rem);
   margin-top: 0.18rem;
 }
 
@@ -1947,8 +1980,22 @@
   }
 
   .crm-article__fit li {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
     align-items: start;
     align-content: start;
+  }
+
+  .crm-article__fit-mark {
+    justify-self: center;
+    width: clamp(2.85rem, 2.2rem + 2.2vw, 3.65rem);
+    height: clamp(2.85rem, 2.2rem + 2.2vw, 3.65rem);
+    margin: 0 0 calc(var(--space-2) * -0.35);
+    padding: clamp(0.5rem, 0.35rem + 0.45vw, 0.72rem);
+  }
+
+  .crm-article__fit-yes,
+  .crm-article__fit-no {
+    font-size: clamp(0.9rem, 0.84rem + 0.12vw, var(--step-0));
   }
 }
