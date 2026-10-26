@@ -13,7 +13,7 @@ export type CrmSectionId =
   | 'process'
   | 'reviews'
   | 'cases'
-  | 'pricing'
+  | 'examples'
   | 'guide'
   | 'quiz'
   | 'contacts'
@@ -31,7 +31,7 @@ export type CrmPageConfig = CrmPageMeta & {
 export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   custom: {
     ...crmPages.custom,
-    sections: ['hero', 'plans', 'process', 'reviews', 'cases', 'pricing', 'guide', 'quiz', 'partners', 'contacts'],
+    sections: ['hero', 'plans', 'process', 'reviews', 'cases', 'examples', 'guide', 'quiz', 'partners', 'contacts'],
     heroTitle: 'Разработка CRM под ключ под ваш процесс',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',

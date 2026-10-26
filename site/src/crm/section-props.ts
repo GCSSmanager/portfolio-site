@@ -37,7 +37,7 @@ export type CrmCasesProps = {
   caseKeys?: CrmCaseKey[]
 }
 
-export type CrmPricingProps = Record<string, never>
+export type CrmSystemExamplesProps = Record<string, never>
 
 export type CrmGuideProps = {
   faqVariant?: 'free' | string

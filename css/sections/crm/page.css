@@ -22,16 +22,16 @@
   background: var(--color-bg);
 }
 
-.crm-page :is(.crm-partners, .crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
+.crm-page :is(.crm-partners, .crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-examples, .crm-quiz, .crm-guide, .crm-contacts) {
   padding-block: var(--space-8);
 }
 
-.crm-page :is(#partners, #tariffs, #integrations, #reviews, #pricing, #cases, #process, #quiz, #guide, #contacts, #about-top, #about-essence, #about-example, #about-audience) {
+.crm-page :is(#partners, #tariffs, #integrations, #reviews, #examples, #cases, #process, #quiz, #guide, #contacts, #about-top, #about-essence, #about-example, #about-audience) {
   scroll-margin-top: var(--header-h);
 }
 
 /* Section titles centered; FAQ / quiz / contacts keep default (custom, free, integrations) */
-.crm-page--custom :is(#partners, #tariffs, #process, #reviews, #cases, #pricing) > .container > .section__head,
+.crm-page--custom :is(#partners, #tariffs, #process, #reviews, #cases, #examples) > .container > .section__head,
 .crm-page--custom #partners > .crm-partners__head > .section__head,
 .crm-page--free :is(.crm-kit, #process, #reviews, #cases) > .container > .section__head,
 .crm-page--free #partners > .crm-partners__head > .section__head,
@@ -63,7 +63,7 @@ html:has(body.is-modal-open) {
 }
 
 @media (max-width: 56rem) {
-  .crm-page :is(.crm-partners, .crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-pricing, .crm-quiz, .crm-guide, .crm-contacts) {
+  .crm-page :is(.crm-partners, .crm-kit, .crm-plans, .crm-bridges, .crm-reviews, .crm-cases, .crm-process, .crm-examples, .crm-quiz, .crm-guide, .crm-contacts) {
     padding-block: var(--space-7);
   }
 }

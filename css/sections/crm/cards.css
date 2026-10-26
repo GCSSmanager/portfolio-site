@@ -8,13 +8,25 @@
   margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
-.crm-cards {
+.crm-plans__cards-wrap {
+  --crm-plans-col-gap: clamp(1.25rem, 3vw, 2rem);
+
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.25rem, 3vw, 2rem);
-  align-items: stretch;
+  column-gap: var(--crm-plans-col-gap);
+  row-gap: 0;
+  align-items: start;
   width: min(100%, 62rem);
   margin-inline: auto;
+}
+
+.crm-cards {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--crm-plans-col-gap);
+  align-items: stretch;
+  width: 100%;
 }
 
 .crm-cards--single {
@@ -285,8 +297,8 @@
 }
 
 .crm-plans__pricing-link {
-  width: 100%;
-  max-width: none;
+  grid-column: 2;
+  justify-self: end;
   margin: clamp(1.1rem, 2.5vw, 1.5rem) 0 0;
   text-align: right;
 }
@@ -458,10 +470,19 @@
     margin-bottom: var(--space-5);
   }
 
+  .crm-plans__cards-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 22.5rem);
+  }
+
+  .crm-plans__pricing-link {
+    grid-column: 1;
+  }
+
   .crm-plans .crm-cards {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-3);
-    width: min(100%, 22.5rem);
+    width: 100%;
   }
 
   .crm-plans .crm-card {

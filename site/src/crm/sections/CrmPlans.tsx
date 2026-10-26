@@ -1,4 +1,5 @@
 import type { CrmPlanKey, CrmPlansProps } from '@/crm/section-props'
+import { CRM_CATALOG_FROM_RUB, CRM_INDIVIDUAL_FROM_RUB, formatExamplePriceRub } from '@/data/crm-system-examples'
 
 function showPlan(planKeys: CrmPlanKey[] | undefined, key: CrmPlanKey): boolean {
   return !planKeys || planKeys.includes(key)
@@ -22,7 +23,8 @@ export function CrmPlans({
           </h2>
         </div>
 
-        <div className={`crm-cards${single ? ' crm-cards--single' : ''}`}>
+        <div className="crm-plans__cards-wrap">
+          <div className={`crm-cards${single ? ' crm-cards--single' : ''}`}>
           {showPlan(planKeys, 'custom') ? (
             <article className="crm-card crm-card--featured">
               <header className="crm-card__head">
@@ -39,7 +41,7 @@ export function CrmPlans({
                 <li>Растёт вместе с компанией</li>
               </ul>
               <footer className="crm-card__foot">
-                <p className="crm-card__price">от 10.000 ₽</p>
+                <p className="crm-card__price">от {formatExamplePriceRub(CRM_INDIVIDUAL_FROM_RUB).replace('\u00a0', ' ')}</p>
                 <button
                   className="btn btn--primary btn--lure-light crm-card__btn"
                   type="button"
@@ -61,17 +63,17 @@ export function CrmPlans({
                 <p className="crm-card__eyebrow">Популярное</p>
                 <h3 className="crm-card__title">Решение из каталога</h3>
                 <p className="crm-card__lead">
-                  Готовая система под типовой бизнес из нашего каталога.
+                  Уже собранная CRM под типовую модель — быстрее старта, чем разработка с нуля.
                 </p>
               </header>
               <ul className="crm-card__list" role="list">
-                <li>Продукт проверен на конкретном бизнесе</li>
+                <li>Готовые экраны и процесс под отрасль</li>
                 <li>Единоразовая оплата, без подписок</li>
-                <li className="crm-card__list-item--con">Подходит для конкретной отрасли</li>
-                <li className="crm-card__list-item--con">Меньше гибкости, чем индивидуальная</li>
+                <li className="crm-card__list-item--con">Логика как в шаблоне, не под любой кейс</li>
+                <li className="crm-card__list-item--con">Доработки — как отдельные работы</li>
               </ul>
               <footer className="crm-card__foot">
-                <p className="crm-card__price">от 5.000 ₽</p>
+                <p className="crm-card__price">от {formatExamplePriceRub(CRM_CATALOG_FROM_RUB).replace('\u00a0', ' ')}</p>
                 <button
                   className="btn btn--ghost btn--lure-dark crm-card__btn"
                   type="button"
@@ -86,29 +88,30 @@ export function CrmPlans({
               </footer>
             </article>
           ) : null}
-        </div>
+          </div>
 
-        {showPricing ? (
-          <p className="crm-plans__pricing-link">
-            <a href="#pricing">
-              <span className="crm-plans__pricing-link-text">Подробнее о ценах</span>
-              <svg
-                className="crm-plans__pricing-link-icon"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M8 3v9.5M4.5 9.5 8 13l3.5-3.5"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </p>
-        ) : null}
+          {showPricing ? (
+            <p className="crm-plans__pricing-link">
+              <a href="#examples">
+                <span className="crm-plans__pricing-link-text">Подробнее о ценах</span>
+                <svg
+                  className="crm-plans__pricing-link-icon"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 3v9.5M4.5 9.5 8 13l3.5-3.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </p>
+          ) : null}
+        </div>
       </div>
     </section>
   )

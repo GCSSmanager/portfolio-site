@@ -1,9 +1,18 @@
+import { CRM_CATALOG_FROM_RUB, CRM_INDIVIDUAL_FROM_RUB } from './crm-system-examples'
+
 export type FaqItem = { q: string; a: string }
+
+function formatPriceShort(rub: number) {
+  return `${String(rub).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}\u00a0₽`
+}
+
+/** Ответ бота и FAQ «Сколько это стоит?» */
+export const CRM_PRICE_BOT_ANSWER = `Индивидуальная CRM — от ${formatPriceShort(CRM_INDIVIDUAL_FROM_RUB)}, разовая оплата, система остаётся у Вас. Точную сумму назовём после разбора задачи. Решение из каталога — от ${formatPriceShort(CRM_CATALOG_FROM_RUB)}.`
 
 export const CRM_FAQ: FaqItem[] = [
   {
     q: 'Сколько это стоит?',
-    a: 'Индивидуальная система — от 10.000 ₽, готовое решение из каталога — от 5.000 ₽. В эту сумму входит основа: клиенты, этапы сделок и права сотрудников. Перенос из таблиц, заявки с сайта и из рекламы, уведомления в Telegram — отдельные работы, они указаны в блоке стоимости. Точную сумму назовём после короткого разговора.',
+    a: CRM_PRICE_BOT_ANSWER,
   },
   {
     q: 'Почему нет ежемесячной оплаты?',

@@ -8,7 +8,7 @@ import { CrmIntegrations } from '@/crm/sections/CrmIntegrations'
 import { CrmKit } from '@/crm/sections/CrmKit'
 import { CrmPartners } from '@/crm/sections/CrmPartners'
 import { CrmPlans } from '@/crm/sections/CrmPlans'
-import { CrmPricing } from '@/crm/sections/CrmPricing'
+import { CrmSystemExamples } from '@/crm/sections/CrmSystemExamples'
 import { CrmProcess } from '@/crm/sections/CrmProcess'
 import { CrmQuiz } from '@/crm/sections/CrmQuiz'
 import { CrmReviews } from '@/crm/sections/CrmReviews'
@@ -38,7 +38,7 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
       {cfg.sections.includes('process') ? <CrmProcess /> : null}
       {cfg.sections.includes('reviews') ? <CrmReviews /> : null}
       {cfg.sections.includes('cases') ? <CrmCases /> : null}
-      {cfg.sections.includes('pricing') ? <CrmPricing /> : null}
+      {cfg.sections.includes('examples') ? <CrmSystemExamples /> : null}
       {cfg.sections.includes('guide') ? <CrmGuide faqVariant={cfg.faqVariant} /> : null}
       {cfg.sections.includes('quiz') ? <CrmQuiz /> : null}
       {cfg.sections.includes('partners') ? <CrmPartners /> : null}
