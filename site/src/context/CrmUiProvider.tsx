@@ -124,6 +124,7 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
       <OrderModal
         open={orderOpen}
         showDeal={showDeal}
+        orderSource={orderSource}
         success={orderSuccess}
         error={orderError}
         phone={phone}

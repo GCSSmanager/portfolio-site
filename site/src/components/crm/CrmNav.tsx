@@ -16,7 +16,7 @@ const solutions: { id: CrmSolution; to: string; label: string; aria: string }[] 
   { id: 'about', to: '/crm/about/', label: 'Что такое CRM', aria: 'Что такое CRM' },
 ]
 
-export function CrmNav({ solution, brandHref, dealAlways }: CrmNavProps) {
+export function CrmNav({ solution, brandHref }: CrmNavProps) {
   const { isOpen, toggle, close, burgerLabel, burgerAria } = useCrmNav()
 
   return (
@@ -77,10 +77,9 @@ export function CrmNav({ solution, brandHref, dealAlways }: CrmNavProps) {
             type="button"
             data-order-open
             data-order-source="nav-order"
-            {...(!dealAlways ? { 'data-order-deal': 'off' } : {})}
+            data-order-deal="off"
           >
-            Заказать
-            {dealAlways ? <span className="crm-card__deal" aria-hidden="true">−10%</span> : null}
+            Консультация
           </button>
           <button
             className="nav__burger"

@@ -4,9 +4,9 @@ export function AboutCrmEssence() {
               <div className="container crm-article__sec-inner">
                 <header className="section__head crm-article__sec-head">
                   <p className="section__eyebrow">01 · Суть</p>
-                  <h2 className="section__title" id="about-essence-title">Что это и что умеет</h2>
+                  <h2 className="section__title" id="about-essence-title">Что это такое и как именно работает</h2>
                 </header>
-      
+
                 <ul className="crm-article__powers" role="list">
                   <li className="crm-article__power crm-article__power--deals">
                     <div className="crm-article__power-top">
@@ -89,7 +89,7 @@ export function AboutCrmEssence() {
                     <p className="crm-article__power-text">1С, телефония, сайт — когда без стыковки уже не обойтись.</p>
                   </li>
                 </ul>
-      
+
                 <h3 className="crm-article__roadmap-heading">Как обычно доходят до CRM</h3>
                 <ol className="crm-article__track" aria-label="Путь от блокнота к CRM">
                   <li className="crm-article__track-step crm-article__track-step--note">

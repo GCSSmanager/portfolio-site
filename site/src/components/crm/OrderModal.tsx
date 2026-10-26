@@ -7,6 +7,7 @@ type PhoneMask = ReturnType<typeof usePhoneMask>
 type OrderModalProps = {
   open: boolean
   showDeal: boolean
+  orderSource: string
   success: boolean
   error: string | null
   phone: PhoneMask
@@ -19,6 +20,7 @@ type OrderModalProps = {
 export function OrderModal({
   open,
   showDeal,
+  orderSource,
   success,
   error,
   phone,
@@ -40,7 +42,7 @@ export function OrderModal({
       >
         <div className="modal__header">
           <h2 className="modal__title" id="orderModalTitle">
-            {success ? 'Заявка принята' : 'Оставить заявку'}
+            {success ? 'Заявка принята' : orderSource === 'nav-order' ? 'Консультация' : 'Оставить заявку'}
           </h2>
           <button className="modal__close" type="button" aria-label="Закрыть" onClick={onClose}>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
