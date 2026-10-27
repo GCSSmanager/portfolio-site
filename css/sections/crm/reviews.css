@@ -165,18 +165,31 @@
 
   .crm-review__letter {
     grid-area: letter;
+    width: min(100%, 14.5rem);
+    max-width: 14.5rem;
+    justify-self: center;
   }
 
   .crm-review__shot {
     grid-area: shot;
+    width: min(100%, 17.5rem);
+    max-width: 17.5rem;
+    justify-self: center;
   }
 
   .crm-review__copy {
     grid-area: copy;
+    justify-items: start;
+    width: 100%;
+    text-align: left;
+  }
+
+  .crm-review__copy > p {
+    max-width: none;
   }
 }
 
-@media (max-width: 42rem) {
+@media (max-width: 38rem) {
   .crm-review {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -188,5 +201,11 @@
 
   .crm-review__copy {
     width: 100%;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .crm-review__copy > p {
+    max-width: none;
   }
 }
