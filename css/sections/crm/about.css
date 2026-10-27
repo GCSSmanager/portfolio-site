@@ -64,6 +64,14 @@
   max-width: 44rem;
 }
 
+.crm-article__mast .crm-article__deck.reveal {
+  animation-delay: 0.1s;
+}
+
+.crm-article__mast .crm-article__mast-actions.reveal {
+  animation-delay: 0.2s;
+}
+
 @media (max-width: 35rem) {
   .crm-article__mast-art {
     left: 0;

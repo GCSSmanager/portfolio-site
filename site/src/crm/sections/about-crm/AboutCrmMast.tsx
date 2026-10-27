@@ -20,10 +20,10 @@ export function AboutCrmMast() {
                  />
               </div>
               <div className="container crm-article__mast-inner">
-                <h1 className="crm-article__title" id="about-title">
+                <h1 className="crm-article__title reveal" id="about-title">
                   Что такое <span className="crm-article__mark">CRM</span>
                 </h1>
-                <div className="crm-article__deck">
+                <div className="crm-article__deck reveal">
                   <p>
                     <abbr title="Customer Relationship Management">CRM</abbr> — программа, где ведут клиентов и продажи. Пришла заявка или звонок — у человека появляется карточка: телефон, переписка, на каком этапе сделка, что сделать дальше.
                   </p>
@@ -31,7 +31,7 @@ export function AboutCrmMast() {
                     Несколько менеджеров не переспрашивают друг друга «а что вы ему обещали» — история в карточке. Руководитель смотрит воронку: сколько заявок, кто завис, кому просрочена задача.
                   </p>
                 </div>
-                <div className="crm-article__mast-actions">
+                <div className="crm-article__mast-actions reveal">
                   <button className="btn btn--primary" type="button" data-order-open data-order-source="about-mast-consult" data-order-deal="off">
                     Бесплатная консультация
                   </button>
