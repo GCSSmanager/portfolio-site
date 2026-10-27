@@ -6,6 +6,7 @@ import { CrmNav } from '@/components/crm/CrmNav'
 import { CrmTotop } from '@/components/crm/CrmTotop'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { CrmUiProvider } from '@/context/CrmUiProvider'
+import { crmPageConfig, type CrmPageId } from '@/crm/pageConfig'
 import { crmPages } from '@/crm/meta'
 import type { CrmPageMeta } from '@/types/crm'
 
@@ -18,15 +19,29 @@ const metaByPath: Record<string, CrmPageMeta> = {
   '/crm/about/': crmPages.about,
 }
 
+const pageIdByPath: Record<string, CrmPageId> = {
+  '/crm/custom/': 'custom',
+  '/crm/free/': 'free',
+  '/crm/integrations/': 'integrations',
+  '/crm/about/': 'about',
+}
+
 export function CrmLayout() {
   const { pathname } = useLocation()
   useScrollToTopOnNavigate()
   const meta = metaByPath[pathname] ?? crmPages.custom
   const brandHref = meta.brandHref ?? `/crm/${meta.solution}/`
+  const pageId = pageIdByPath[pathname]
+  const showReviewsAnchor = pageId ? crmPageConfig[pageId].sections.includes('reviews') : false
 
   return (
     <CrmUiProvider>
-      <CrmNav solution={meta.solution} brandHref={brandHref} dealAlways={meta.dealAlways} />
+      <CrmNav
+        solution={meta.solution}
+        brandHref={brandHref}
+        dealAlways={meta.dealAlways}
+        showReviewsAnchor={showReviewsAnchor}
+      />
       <Outlet context={meta} />
       <SiteFooter variant="crm" brandHref={brandHref} />
       <CrmTotop />

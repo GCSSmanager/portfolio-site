@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useCrmNav } from '@/hooks/useCrmNav'
+import { useReviewsTabScrollVisible } from '@/hooks/useReviewsTabScrollVisible'
 import { EMAIL_MAILTO, PHONE_DISPLAY, PHONE_TEL, TELEGRAM_URL } from '@/lib/contacts'
 import type { CrmSolution } from '@/types/crm'
 
@@ -7,6 +8,7 @@ type CrmNavProps = {
   solution: CrmSolution
   brandHref: string
   dealAlways?: boolean
+  showReviewsAnchor?: boolean
 }
 
 const solutions: { id: CrmSolution; to: string; label: string; aria: string }[] = [
@@ -16,20 +18,22 @@ const solutions: { id: CrmSolution; to: string; label: string; aria: string }[] 
   { id: 'about', to: '/crm/about/', label: 'Что такое CRM', aria: 'Что такое CRM' },
 ]
 
-export function CrmNav({ solution, brandHref }: CrmNavProps) {
+export function CrmNav({ solution, brandHref, showReviewsAnchor }: CrmNavProps) {
   const { isOpen, toggle, close, burgerLabel, burgerAria } = useCrmNav()
+  const reviewsTabVisible = useReviewsTabScrollVisible(Boolean(showReviewsAnchor))
 
   return (
     <header className={`nav nav--crm${isOpen ? ' is-nav-open' : ''}`} id="crmNav">
-      <div className="container nav__inner">
-        <Link className="brand-lockup nav__brand" to={brandHref} aria-label="ГКСС — Гибкие корпоративные системы и сервисы">
-          <img className="brand-lockup__mark" src="/assets/gcss-logo.webp" alt="" width={64} height={64} decoding="async" />
-          <span className="brand-lockup__text">
-            <span className="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
-          </span>
-        </Link>
+      <div className="nav__bar">
+        <div className="container nav__inner">
+          <Link className="brand-lockup nav__brand" to={brandHref} aria-label="ГКСС — Гибкие корпоративные системы и сервисы">
+            <img className="brand-lockup__mark" src="/assets/gcss-logo.webp" alt="" width={64} height={64} decoding="async" />
+            <span className="brand-lockup__text">
+              <span className="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>
+            </span>
+          </Link>
 
-        <nav className="nav__menu nav__menu--solutions" id="crmNavMenu" aria-label="Решения">
+          <nav className="nav__menu nav__menu--solutions" id="crmNavMenu" aria-label="Решения">
           {solutions.map((item) => (
             <NavLink
               key={item.id}
@@ -97,7 +101,20 @@ export function CrmNav({ solution, brandHref }: CrmNavProps) {
             <span className="nav__burger-label">{burgerLabel}</span>
           </button>
         </div>
+        </div>
       </div>
+      {showReviewsAnchor ? (
+        <div className={`nav__reviews-slot${reviewsTabVisible ? '' : ' is-hidden'}`}>
+          <div className="container">
+            <a className="nav__reviews-tab" href="#reviews" onClick={close}>
+              <span>Читать отзывы</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                <path d="M8 3v10M4.5 9.5 8 13l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ) : null}
     </header>
   )
 }

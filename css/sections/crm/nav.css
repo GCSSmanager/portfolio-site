@@ -4,6 +4,11 @@
   position: sticky;
   top: 0;
   z-index: var(--z-nav);
+  background: transparent;
+  border-bottom: 0;
+}
+
+.nav--crm .nav__bar {
   background: #0d140f;
   border-bottom: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
 }
@@ -14,6 +19,69 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: var(--space-5);
+}
+
+.nav--crm .nav__reviews-slot {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: calc(var(--z-nav) - 1);
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--duration-mid) var(--ease-out),
+    visibility var(--duration-mid) var(--ease-out);
+}
+
+.nav--crm .nav__reviews-slot.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav--crm .nav__reviews-slot .container {
+  pointer-events: none;
+}
+
+.nav--crm .nav__reviews-tab {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0;
+  padding: 0.42rem 0.9rem 0.48rem;
+  border: 1px solid #0d140f;
+  border-top: 0;
+  border-radius: 0 0 0.65rem 0.65rem;
+  background: #f5f2ea;
+  box-shadow: 0 0.2rem 0.55rem rgb(0 0 0 / 12%);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  text-decoration: none;
+  color: #1b3022;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.nav--crm .nav__reviews-tab svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+.nav--crm .nav__reviews-tab:hover {
+  color: #152119;
+  border-color: #0d140f;
+  background: color-mix(in oklab, #f5f2ea 88%, white);
+}
+
+.nav--crm.is-nav-open .nav__reviews-slot {
+  visibility: hidden;
 }
 
 .nav--crm .nav__link,
@@ -627,6 +695,10 @@
 
 @media (max-width: 25rem) { /* ~400px: только действия в шапке */
   .nav--crm .nav__brand {
+    display: none;
+  }
+
+  .nav--crm .nav__reviews-slot {
     display: none;
   }
 
