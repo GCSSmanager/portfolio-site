@@ -22,7 +22,7 @@
   height: 100%;
   object-fit: cover;
   object-position: 52% 38%;
-  opacity: 0.86;
+  opacity: 0.76;
 }
 
 .crm-hero__scrim {
@@ -31,11 +31,11 @@
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(rgb(10 16 12 / 0.34), rgb(10 16 12 / 0.34)),
+    linear-gradient(rgb(10 16 12 / 0.42), rgb(10 16 12 / 0.42)),
     radial-gradient(
       ellipse 115% 95% at 50% 38%,
-      rgb(10 16 12 / 0.12) 30%,
-      rgb(10 16 12 / 0.4) 100%
+      rgb(10 16 12 / 0.18) 30%,
+      rgb(10 16 12 / 0.48) 100%
     );
 }
 
@@ -462,17 +462,17 @@
   }
 
   .crm-hero__bg {
-    opacity: 0.8;
+    opacity: 0.7;
     object-position: 58% 28%;
   }
 
   .crm-hero__scrim {
     background:
-      linear-gradient(rgb(10 16 12 / 0.38), rgb(10 16 12 / 0.38)),
+      linear-gradient(rgb(10 16 12 / 0.44), rgb(10 16 12 / 0.44)),
       radial-gradient(
         ellipse 140% 90% at 50% 18%,
-        rgb(10 16 12 / 0.1) 0%,
-        rgb(10 16 12 / 0.44) 100%
+        rgb(10 16 12 / 0.16) 0%,
+        rgb(10 16 12 / 0.52) 100%
       );
   }
 

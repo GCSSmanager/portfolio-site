@@ -1,7 +1,7 @@
 /* CRM — quiz */
 
 .crm-quiz {
-  --quiz-field: color-mix(in oklab, var(--color-fg) 88%, black);
+  --quiz-field: color-mix(in oklab, var(--color-fg) 92%, black);
   --quiz-paper: var(--color-bg);
   --quiz-paper-soft: color-mix(in oklab, var(--color-bg) 55%, transparent);
   --quiz-paper-mid: color-mix(in oklab, var(--color-bg) 40%, transparent);
@@ -23,6 +23,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  opacity: 0.78;
   pointer-events: none;
 }
 
@@ -32,7 +33,7 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: color-mix(in oklab, var(--quiz-field) 76%, transparent);
+  background: color-mix(in oklab, var(--quiz-field) 84%, transparent);
 }
 
 .crm-quiz::before {
