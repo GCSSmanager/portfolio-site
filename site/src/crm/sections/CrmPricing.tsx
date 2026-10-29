@@ -13,6 +13,7 @@ export function CrmPricing() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [locked, setLocked] = useState(false)
+  const [sending, setSending] = useState(false)
   const phone = usePhoneMask()
 
   const selection = useMemo(() => {
@@ -47,10 +48,12 @@ export function CrmPricing() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setError(null)
+    if (sending) return
     if (!phone.complete) {
       setError('Введите номер полностью: +7 (___) ___-__-__')
       return
     }
+    setSending(true)
     const range = selection.names.length
       ? `Диапазон: от ${formatPriceRub(selection.from)} до ${formatPriceRub(selection.to)}.`
       : 'Услуги не отмечены.'
@@ -69,6 +72,8 @@ export function CrmPricing() {
       setLocked(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
+    } finally {
+      setSending(false)
     }
   }
 
@@ -132,8 +137,8 @@ export function CrmPricing() {
                     onBlur={phone.onBlur}
                   />
                 </label>
-                <button className="btn btn--primary crm-pricing__cta" type="submit" disabled={!phone.complete}>
-                  Заказать звонок
+                <button className="btn btn--primary crm-pricing__cta" type="submit" disabled={!phone.complete || sending}>
+                  {sending ? 'Отправка...' : 'Заказать звонок'}
                   <span className="crm-pricing__deal" aria-hidden="true">
                     −10%
                   </span>

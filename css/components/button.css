@@ -68,6 +68,17 @@
   transform: translateY(1px);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  background: color-mix(in oklab, var(--color-fg) 18%, var(--color-bg));
+  border-color: color-mix(in oklab, var(--color-fg) 14%, var(--color-line));
+  color: color-mix(in oklab, var(--color-fg) 45%, var(--color-muted));
+  box-shadow: none;
+  transform: none;
+  filter: none;
+  opacity: 1;
+}
+
 .btn-row {
   display: flex;
   flex-wrap: wrap;

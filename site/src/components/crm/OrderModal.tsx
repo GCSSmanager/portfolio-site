@@ -13,6 +13,7 @@ type OrderModalProps = {
   phone: PhoneMask
   nameRef: RefObject<HTMLInputElement | null>
   messageRef: RefObject<HTMLTextAreaElement | null>
+  sending: boolean
   onClose: () => void
   onSubmit: () => void
 }
@@ -26,6 +27,7 @@ export function OrderModal({
   phone,
   nameRef,
   messageRef,
+  sending,
   onClose,
   onSubmit,
 }: OrderModalProps) {
@@ -33,7 +35,7 @@ export function OrderModal({
 
   return (
     <div className="modal modal--form is-open" id="orderModal" aria-hidden="false">
-      <div className="modal__overlay" onClick={onClose} />
+      <div className="modal__overlay" onClick={sending ? undefined : onClose} />
       <div
         className="modal__panel modal__panel--form"
         role="dialog"
@@ -44,7 +46,7 @@ export function OrderModal({
           <h2 className="modal__title" id="orderModalTitle">
             {success ? 'Заявка принята' : orderSource === 'nav-order' ? 'Консультация' : 'Оставить заявку'}
           </h2>
-          <button className="modal__close" type="button" aria-label="Закрыть" onClick={onClose}>
+          <button className="modal__close" type="button" aria-label="Закрыть" disabled={sending} onClick={onClose}>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
               <path d="M3 3l10 10M13 3L3 13" />
             </svg>
@@ -111,8 +113,8 @@ export function OrderModal({
                   />
                 </label>
                 {error ? <p className="crm-order-form__error">{error}</p> : null}
-                <button className="btn btn--primary crm-order-form__submit" type="submit" disabled={!phone.complete}>
-                  Отправить
+                <button className="btn btn--primary crm-order-form__submit" type="submit" disabled={!phone.complete || sending}>
+                  {sending ? 'Отправка...' : 'Отправить'}
                 </button>
                 <LegalNote />
               </form>

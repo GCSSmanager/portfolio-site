@@ -44,6 +44,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
   const [busy, setBusy] = useState(false)
   const [composer, setComposer] = useState('')
   const [contactError, setContactError] = useState<string | null>(null)
+  const [contactSending, setContactSending] = useState(false)
   const logRef = useRef<HTMLDivElement>(null)
   const phone = usePhoneMask()
   const nameRef = useRef<HTMLInputElement>(null)
@@ -129,6 +130,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
 
   const submitContact = async () => {
     setContactError(null)
+    if (contactSending) return
     if (!phone.complete) {
       setContactError('Введите номер полностью: +7 (___) ___-__-__')
       return
@@ -136,6 +138,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
     const name = nameRef.current?.value.trim() || 'Заявка из чата'
     const reply = pendingReplyRef.current || ASSIST_CONTACT_REPLY
     const pendingQuestion = pendingQuestionRef.current || ''
+    setContactSending(true)
 
     try {
       await sendCrmLead({
@@ -149,8 +152,11 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
       }
     } catch (err) {
       setContactError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
+      setContactSending(false)
       return
     }
+
+    setContactSending(false)
 
     setContactsDone(true)
     setContactPhone(phone.value)
@@ -247,8 +253,8 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
                         onBlur={phone.onBlur}
                       />
                       {contactError ? <p className="crm-assist__form-error">{contactError}</p> : null}
-                      <button className="crm-assist__card-submit" type="submit" disabled={!phone.complete}>
-                        Отправить
+                      <button className="crm-assist__card-submit" type="submit" disabled={!phone.complete || contactSending}>
+                        {contactSending ? 'Отправка...' : 'Отправить'}
                       </button>
                       <p className="crm-legal-note">
                         Нажимая кнопку, вы соглашаетесь на{' '}

@@ -38,6 +38,7 @@ export function CrmQuiz() {
   const [pain, setPain] = useState('')
   const [done, setDone] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [sending, setSending] = useState(false)
   const phone = usePhoneMask()
 
   const goNextFromRadio = (next: string, setter: (v: string) => void, value: string) => {
@@ -55,10 +56,12 @@ export function CrmQuiz() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setError(null)
+    if (sending) return
     if (!phone.complete) {
       setError('Введите номер полностью: +7 (___) ___-__-__')
       return
     }
+    setSending(true)
     try {
       await sendCrmLead({
         name: 'Квиз',
@@ -76,6 +79,8 @@ export function CrmQuiz() {
       setDone(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
+    } finally {
+      setSending(false)
     }
   }
 
@@ -236,8 +241,8 @@ export function CrmQuiz() {
                     onBlur={phone.onBlur}
                   />
                 </label>
-                <button className="btn btn--primary crm-quiz__submit" type="submit" disabled={!phone.complete}>
-                  Отправить
+                <button className="btn btn--primary crm-quiz__submit" type="submit" disabled={!phone.complete || sending}>
+                  {sending ? 'Отправка...' : 'Отправить'}
                 </button>
                 <LegalNote />
                 {error ? <p className="crm-quiz__error">{error}</p> : null}

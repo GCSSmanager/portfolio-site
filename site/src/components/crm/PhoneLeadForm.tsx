@@ -44,11 +44,13 @@ export function PhoneLeadForm({
   const phone = usePhoneMask()
   const [error, setError] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setError(null)
 
+    if (sending) return
     if (!phone.complete) {
       const input = event.currentTarget.querySelector<HTMLInputElement>('input[name="phone"]')
       input?.setCustomValidity('Введите номер полностью: +7 (___) ___-__-__')
@@ -58,6 +60,7 @@ export function PhoneLeadForm({
 
     const input = event.currentTarget.querySelector<HTMLInputElement>('input[name="phone"]')
     input?.setCustomValidity('')
+    setSending(true)
 
     try {
       await sendCrmLead({
@@ -71,6 +74,8 @@ export function PhoneLeadForm({
       setSubmitted(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
+    } finally {
+      setSending(false)
     }
   }
 
@@ -111,8 +116,8 @@ export function PhoneLeadForm({
           onKeyDown={phone.onKeyDown}
           onBlur={phone.onBlur}
         />
-        <button className={btnClass} type="submit" disabled={!phone.complete}>
-          {submitLabel}
+        <button className={btnClass} type="submit" disabled={!phone.complete || sending}>
+          {sending ? 'Отправка...' : submitLabel}
           {phoneLeadDealBtn ? (
             <span className="crm-card__deal" aria-hidden="true">
               −10%

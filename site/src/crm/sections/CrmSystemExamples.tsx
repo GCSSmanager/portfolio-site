@@ -40,15 +40,18 @@ function LaunchCard({ example }: { example: CrmLaunchExample }) {
 export function CrmSystemExamples() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [sending, setSending] = useState(false)
   const phone = usePhoneMask()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setError(null)
+    if (sending) return
     if (!phone.complete) {
       setError('Введите номер полностью: +7 (___) ___-__-__')
       return
     }
+    setSending(true)
     try {
       await sendCrmLead({
         name: 'Цены с сайта',
@@ -62,6 +65,8 @@ export function CrmSystemExamples() {
       setSubmitted(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
+    } finally {
+      setSending(false)
     }
   }
 
@@ -107,8 +112,8 @@ export function CrmSystemExamples() {
                     onBlur={phone.onBlur}
                   />
                 </label>
-                <button className="btn btn--primary crm-examples__cta" type="submit" disabled={!phone.complete}>
-                  Получить расчёт
+                <button className="btn btn--primary crm-examples__cta" type="submit" disabled={!phone.complete || sending}>
+                  {sending ? 'Отправка...' : 'Получить расчёт'}
                 </button>
               </div>
               <LegalNote />

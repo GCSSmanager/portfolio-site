@@ -20,6 +20,7 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
   const [orderSource, setOrderSource] = useState('crm-order')
   const [showDeal, setShowDeal] = useState(true)
   const [presetMessage, setPresetMessage] = useState('')
+  const [orderSending, setOrderSending] = useState(false)
   const phone = usePhoneMask()
   const nameRef = useRef<HTMLInputElement>(null)
   const messageRef = useRef<HTMLTextAreaElement>(null)
@@ -27,6 +28,7 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
   const openOrder = useCallback((options?: { source?: string; dealOff?: boolean; message?: string }) => {
     setOrderSuccess(false)
     setOrderError(null)
+    setOrderSending(false)
     setOrderSource(options?.source ?? 'crm-order')
     setShowDeal(!options?.dealOff)
     setPresetMessage(options?.message ?? '')
@@ -94,12 +96,14 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
 
   const submitOrder = useCallback(async () => {
     setOrderError(null)
+    if (orderSending) return
     if (!phone.complete) {
       setOrderError('Введите номер полностью: +7 (___) ___-__-__')
       return
     }
     const name = nameRef.current?.value.trim() || 'Заявка с сайта'
     const message = messageRef.current?.value.trim() || ''
+    setOrderSending(true)
     try {
       await sendCrmLead({
         name,
@@ -113,8 +117,10 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
       setOrderSuccess(true)
     } catch (err) {
       setOrderError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
+    } finally {
+      setOrderSending(false)
     }
-  }, [orderSource, phone.complete, phone.value])
+  }, [orderSending, orderSource, phone.complete, phone.value])
 
   const value = useMemo(() => ({ openOrder, openDemoPicker }), [openDemoPicker, openOrder])
 
@@ -130,6 +136,7 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
         phone={phone}
         nameRef={nameRef}
         messageRef={messageRef}
+        sending={orderSending}
         onClose={closeOrder}
         onSubmit={submitOrder}
       />
