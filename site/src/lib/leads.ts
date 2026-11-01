@@ -69,7 +69,11 @@ export async function sendCrmLead(payload: CrmLeadPayload): Promise<void> {
   }
 }
 
-export async function sendCrmChat(payload: { phone: string; message: string }): Promise<void> {
+export async function sendCrmChat(payload: {
+  phone: string
+  message: string
+  sessionId: string
+}): Promise<void> {
   const url = new URL('chat', LEADS_ENDPOINT).href
   let response: Response
   try {
@@ -86,5 +90,64 @@ export async function sendCrmChat(payload: { phone: string; message: string }): 
   if (!response.ok || !data.ok) {
     const code = data.code || (response.status === 429 ? 'rate_limited' : 'unknown')
     throw new Error(getLeadErrorMessage(code))
+  }
+}
+
+export type CrmChatReply = { id: number; text: string; at?: number }
+
+export async function pollCrmChat(
+  sessionId: string,
+  after: number,
+): Promise<{ items: CrmChatReply[]; seq: number }> {
+  const url = new URL('chat/poll', LEADS_ENDPOINT)
+  url.searchParams.set('sessionId', sessionId)
+  url.searchParams.set('after', String(after))
+
+  let response: Response
+  try {
+    response = await fetch(url.href, { method: 'GET' })
+  } catch {
+    throw new Error(getLeadErrorMessage('network'))
+  }
+
+  const data = (await response.json().catch(() => ({}))) as {
+    ok?: boolean
+    code?: string
+    items?: CrmChatReply[]
+    seq?: number
+  }
+  if (!response.ok || !data.ok) {
+    const code = data.code || (response.status === 429 ? 'rate_limited' : 'unknown')
+    throw new Error(getLeadErrorMessage(code))
+  }
+  return { items: data.items ?? [], seq: data.seq ?? after }
+}
+
+const CHAT_SESSION_KEY = 'gcss-crm-chat-session'
+
+export function createChatSessionId(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID()
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0
+    const v = c === 'x' ? r : (r & 0x3) | 0x8
+    return v.toString(16)
+  })
+}
+
+export function loadChatSessionId(): string | null {
+  try {
+    return sessionStorage.getItem(CHAT_SESSION_KEY)
+  } catch {
+    return null
+  }
+}
+
+export function saveChatSessionId(sessionId: string): void {
+  try {
+    sessionStorage.setItem(CHAT_SESSION_KEY, sessionId)
+  } catch {
+    /* ignore */
   }
 }

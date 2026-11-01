@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom'
 import { CRM_FAQ, FREE_FAQ_OVERRIDES } from '@/data/crm-faq'
 import type { CrmSolution } from '@/types/crm'
 import { usePhoneMask } from '@/hooks/usePhoneMask'
-import { sendCrmChat, sendCrmLead } from '@/lib/leads'
+import {
+  createChatSessionId,
+  loadChatSessionId,
+  pollCrmChat,
+  saveChatSessionId,
+  sendCrmChat,
+  sendCrmLead,
+} from '@/lib/leads'
 
-const ASSIST_CONTACT_REPLY = 'Спасибо за вопрос! Мы скоро с вами свяжемся, чтобы ответить на него.'
+const ASSIST_CONTACT_REPLY = 'Спасибо! Напишите вопрос — ответим здесь в чате.'
 const ASSIST_OPEN_DELAY_MS = 20_000
+const CHAT_POLL_MS = 3_000
 
 type Chip = { q: string; reply?: string }
 
@@ -50,6 +58,8 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
   const nameRef = useRef<HTMLInputElement>(null)
   const pendingReplyRef = useRef<string | null>(null)
   const pendingQuestionRef = useRef<string | null>(null)
+  const [chatSessionId, setChatSessionId] = useState<string | null>(() => loadChatSessionId())
+  const adminReplyCursorRef = useRef(0)
 
   const scrollLog = useCallback(() => {
     const log = logRef.current
@@ -118,15 +128,56 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
         return
       }
 
+      const sessionId = chatSessionId
+      if (!sessionId) return
+
       setBusy(true)
-      void sendCrmChat({ phone: contactPhone, message: text }).catch(() => {})
-      window.setTimeout(() => {
-        setMessages((prev) => [...prev, { id: `b-${Date.now()}`, role: 'bot', text: reply }])
-        setBusy(false)
-      }, 420)
+      void sendCrmChat({ phone: contactPhone, message: text, sessionId })
+        .catch(() => {
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: `b-err-${Date.now()}`,
+              role: 'bot',
+              text: 'Не удалось отправить сообщение. Попробуйте ещё раз или позвоните нам.',
+            },
+          ])
+        })
+        .finally(() => setBusy(false))
     },
-    [busy, contactPhone, contactsDone, resolveReply, showContactCard],
+    [busy, chatSessionId, contactPhone, contactsDone, resolveReply, showContactCard],
   )
+
+  useEffect(() => {
+    if (!open || !contactsDone || !chatSessionId) return
+
+    let cancelled = false
+
+    const tick = async () => {
+      try {
+        const { items } = await pollCrmChat(chatSessionId, adminReplyCursorRef.current)
+        if (cancelled || items.length === 0) return
+        adminReplyCursorRef.current = items[items.length - 1]!.id
+        setMessages((prev) => [
+          ...prev,
+          ...items.map((item) => ({
+            id: `admin-${item.id}`,
+            role: 'bot' as const,
+            text: item.text,
+          })),
+        ])
+      } catch {
+        /* poll again later */
+      }
+    }
+
+    void tick()
+    const timer = window.setInterval(() => void tick(), CHAT_POLL_MS)
+    return () => {
+      cancelled = true
+      window.clearInterval(timer)
+    }
+  }, [open, contactsDone, chatSessionId])
 
   const submitContact = async () => {
     setContactError(null)
@@ -157,6 +208,12 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
     }
 
     setContactSending(false)
+
+    const sessionId = chatSessionId ?? createChatSessionId()
+    if (!chatSessionId) {
+      setChatSessionId(sessionId)
+      saveChatSessionId(sessionId)
+    }
 
     setContactsDone(true)
     setContactPhone(phone.value)
