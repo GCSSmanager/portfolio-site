@@ -3,14 +3,8 @@ import { Link } from 'react-router-dom'
 import { CRM_FAQ, FREE_FAQ_OVERRIDES } from '@/data/crm-faq'
 import type { CrmSolution } from '@/types/crm'
 import { usePhoneMask } from '@/hooks/usePhoneMask'
-import {
-  createChatSessionId,
-  loadChatSessionId,
-  pollCrmChat,
-  saveChatSessionId,
-  sendCrmChat,
-  sendCrmLead,
-} from '@/lib/leads'
+import { loadStoredChat, saveStoredChat, type StoredChatMessage } from '@/lib/chat-persist'
+import { createChatSessionId, pollCrmChat, sendCrmChat, sendCrmLead } from '@/lib/leads'
 
 const ASSIST_ACK_QUESTION =
   'Вопрос передали менеджеру. Ответ придёт здесь в чате — обычно в рабочее время в течение часа.'
@@ -43,14 +37,24 @@ function initialGreet(chips: Chip[]): Msg[] {
   return [{ id: 'greet', role: 'bot', kind: 'chips', chips, text: '' }]
 }
 
+function messagesFromStore(stored: StoredChatMessage[] | undefined, chips: Chip[]): Msg[] {
+  if (stored?.length) return stored.map((m) => ({ ...m }))
+  return initialGreet(chips)
+}
+
+function toStoredMessages(msgs: Msg[]): StoredChatMessage[] {
+  return msgs.filter((m): m is StoredChatMessage => !('kind' in m))
+}
+
 export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
+  const boot = useMemo(() => loadStoredChat(), [])
+  const offerChips = useMemo((): Chip[] => chips.map((q) => ({ q, reply: CHIP_REPLIES[q] })), [chips])
   const [open, setOpen] = useState(false)
   const [dismissed, setDismissed] = useState(false)
-  const offerChips = useMemo((): Chip[] => chips.map((q) => ({ q, reply: CHIP_REPLIES[q] })), [chips])
-  const [messages, setMessages] = useState<Msg[]>(() => initialGreet(offerChips))
-  const [asked, setAsked] = useState<Set<number>>(() => new Set())
-  const [contactsDone, setContactsDone] = useState(false)
-  const [contactPhone, setContactPhone] = useState('')
+  const [messages, setMessages] = useState<Msg[]>(() => messagesFromStore(boot?.messages, offerChips))
+  const [asked, setAsked] = useState<Set<number>>(() => new Set(boot?.asked ?? []))
+  const [contactsDone, setContactsDone] = useState(() => boot?.contactsDone ?? false)
+  const [contactPhone, setContactPhone] = useState(() => boot?.contactPhone ?? '')
   const [busy, setBusy] = useState(false)
   const [composer, setComposer] = useState('')
   const [contactError, setContactError] = useState<string | null>(null)
@@ -60,8 +64,10 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
   const nameRef = useRef<HTMLInputElement>(null)
   const pendingReplyRef = useRef<string | null | undefined>(undefined)
   const pendingQuestionRef = useRef<string | null>(null)
-  const [chatSessionId, setChatSessionId] = useState<string | null>(() => loadChatSessionId())
-  const adminReplyCursorRef = useRef(0)
+  const [chatSessionId, setChatSessionId] = useState<string | null>(() => boot?.sessionId ?? null)
+  const [adminReplyAfter, setAdminReplyAfter] = useState(() => boot?.adminReplyAfter ?? 0)
+  const adminReplyAfterRef = useRef(adminReplyAfter)
+  adminReplyAfterRef.current = adminReplyAfter
 
   const scrollLog = useCallback(() => {
     const log = logRef.current
@@ -71,6 +77,42 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
   useEffect(() => {
     scrollLog()
   }, [messages, scrollLog])
+
+  useEffect(() => {
+    saveStoredChat({
+      sessionId: chatSessionId,
+      contactsDone,
+      contactPhone,
+      asked: [...asked],
+      adminReplyAfter,
+      messages: toStoredMessages(messages),
+      savedAt: Date.now(),
+    })
+  }, [messages, contactsDone, contactPhone, asked, chatSessionId, adminReplyAfter])
+
+  useEffect(() => {
+    if (!contactsDone || !chatSessionId) return
+    let cancelled = false
+    void pollCrmChat(chatSessionId, adminReplyAfterRef.current).then(({ items }) => {
+      if (cancelled || items.length === 0) return
+      const lastId = items[items.length - 1]!.id
+      adminReplyAfterRef.current = lastId
+      setAdminReplyAfter(lastId)
+      setMessages((prev) => [
+        ...prev,
+        ...items.map((item) => ({
+          id: `admin-${item.id}`,
+          role: 'bot' as const,
+          text: item.text,
+        })),
+      ])
+    })
+    return () => {
+      cancelled = true
+    }
+    // один раз после загрузки: догнать ответы, пока вкладка была закрыта
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     if (dismissed) return
@@ -158,10 +200,12 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
     const loop = async () => {
       while (!cancelled) {
         try {
-          const { items } = await pollCrmChat(chatSessionId, adminReplyCursorRef.current)
+          const { items } = await pollCrmChat(chatSessionId, adminReplyAfterRef.current)
           if (cancelled) return
           if (items.length > 0) {
-            adminReplyCursorRef.current = items[items.length - 1]!.id
+            const lastId = items[items.length - 1]!.id
+            adminReplyAfterRef.current = lastId
+            setAdminReplyAfter(lastId)
             setMessages((prev) => [
               ...prev,
               ...items.map((item) => ({
@@ -227,7 +271,6 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
 
     if (!chatSessionId) {
       setChatSessionId(sessionId)
-      saveChatSessionId(sessionId)
     }
 
     setContactsDone(true)

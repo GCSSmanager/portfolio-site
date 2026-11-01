@@ -135,8 +135,6 @@ export async function pollCrmChat(
   return { items: data.items ?? [], seq: data.seq ?? after }
 }
 
-const CHAT_SESSION_KEY = 'gcss-crm-chat-session'
-
 export function createChatSessionId(): string {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
     return crypto.randomUUID()
@@ -148,18 +146,3 @@ export function createChatSessionId(): string {
   })
 }
 
-export function loadChatSessionId(): string | null {
-  try {
-    return sessionStorage.getItem(CHAT_SESSION_KEY)
-  } catch {
-    return null
-  }
-}
-
-export function saveChatSessionId(sessionId: string): void {
-  try {
-    sessionStorage.setItem(CHAT_SESSION_KEY, sessionId)
-  } catch {
-    /* ignore */
-  }
-}
