@@ -12,7 +12,9 @@ import {
   sendCrmLead,
 } from '@/lib/leads'
 
-const ASSIST_CONTACT_REPLY = 'Спасибо! Напишите вопрос — ответим здесь в чате.'
+const ASSIST_ACK_QUESTION =
+  'Вопрос передали менеджеру. Ответ придёт здесь в чате — обычно в рабочее время в течение часа.'
+const ASSIST_ACK_CONTACT = 'Контакты получили. Можете написать вопрос в поле ниже.'
 const ASSIST_OPEN_DELAY_MS = 20_000
 const CHAT_POLL_MS = 3_000
 
@@ -56,7 +58,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
   const logRef = useRef<HTMLDivElement>(null)
   const phone = usePhoneMask()
   const nameRef = useRef<HTMLInputElement>(null)
-  const pendingReplyRef = useRef<string | null>(null)
+  const pendingReplyRef = useRef<string | null | undefined>(undefined)
   const pendingQuestionRef = useRef<string | null>(null)
   const [chatSessionId, setChatSessionId] = useState<string | null>(() => loadChatSessionId())
   const adminReplyCursorRef = useRef(0)
@@ -99,7 +101,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
       const chip =
         chipIndex >= 0 ? offerChips[chipIndex] : offerChips.find((c) => normalize(c.q) === normalize(text))
       if (chip?.reply) return chip.reply
-      return findFaqAnswer(chip?.q || text)?.a || ASSIST_CONTACT_REPLY
+      return findFaqAnswer(chip?.q || text)?.a ?? null
     },
     [findFaqAnswer, offerChips],
   )
@@ -187,9 +189,11 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
       return
     }
     const name = nameRef.current?.value.trim() || 'Заявка из чата'
-    const reply = pendingReplyRef.current || ASSIST_CONTACT_REPLY
-    const pendingQuestion = pendingQuestionRef.current || ''
+    const faqOrChipReply = pendingReplyRef.current ?? null
+    const pendingQuestion = pendingQuestionRef.current?.trim() || ''
     setContactSending(true)
+
+    const sessionId = chatSessionId ?? createChatSessionId()
 
     try {
       await sendCrmLead({
@@ -199,6 +203,17 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
         message: pendingQuestion,
         metrikaGoal: 'crm-chat',
       })
+      if (pendingQuestion) {
+        try {
+          await sendCrmChat({
+            phone: phone.value,
+            message: pendingQuestion,
+            sessionId,
+          })
+        } catch {
+          /* заявка уже в TG; чат-нить опциональна */
+        }
+      }
     } catch (err) {
       setContactError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
       setContactSending(false)
@@ -207,7 +222,6 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
 
     setContactSending(false)
 
-    const sessionId = chatSessionId ?? createChatSessionId()
     if (!chatSessionId) {
       setChatSessionId(sessionId)
       saveChatSessionId(sessionId)
@@ -215,7 +229,14 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
 
     setContactsDone(true)
     setContactPhone(phone.value)
-    pendingReplyRef.current = null
+
+    const botText = faqOrChipReply
+      ? faqOrChipReply
+      : pendingQuestion
+        ? ASSIST_ACK_QUESTION
+        : ASSIST_ACK_CONTACT
+
+    pendingReplyRef.current = undefined
     pendingQuestionRef.current = null
 
     setMessages((prev) => prev.filter((m) => !('kind' in m && m.kind === 'contact')))
@@ -224,7 +245,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
       { id: `u-phone-${Date.now()}`, role: 'user', text: name ? `${name}, ${phone.value}` : phone.value },
     ])
     window.setTimeout(() => {
-      setMessages((prev) => [...prev, { id: `b-reply-${Date.now()}`, role: 'bot', text: reply }])
+      setMessages((prev) => [...prev, { id: `b-reply-${Date.now()}`, role: 'bot', text: botText }])
     }, 320)
   }
 
