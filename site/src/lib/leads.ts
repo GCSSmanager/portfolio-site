@@ -1,6 +1,9 @@
 import { buildMetrikaPayload } from './metrika'
 
-const LEADS_ENDPOINT = 'https://gcss-tg-leads.diatsht.workers.dev/'
+const WORKER_ORIGIN = 'https://gcss-tg-leads.diatsht.workers.dev'
+const LEADS_ENDPOINT = `${WORKER_ORIGIN}/`
+const CHAT_ENDPOINT = `${WORKER_ORIGIN}/chat`
+const CHAT_POLL_ENDPOINT = `${WORKER_ORIGIN}/chat/poll`
 
 const LEAD_ERROR_MESSAGES: Record<string, string> = {
   rate_limited:
@@ -82,10 +85,9 @@ export async function sendCrmChat(payload: {
   message: string
   sessionId: string
 }): Promise<void> {
-  const url = new URL('chat', LEADS_ENDPOINT).href
   let response: Response
   try {
-    response = await fetch(url, {
+    response = await fetch(CHAT_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -107,13 +109,13 @@ export async function pollCrmChat(
   sessionId: string,
   after: number,
 ): Promise<{ items: CrmChatReply[]; seq: number }> {
-  const url = new URL('chat/poll', LEADS_ENDPOINT)
+  const url = new URL(CHAT_POLL_ENDPOINT)
   url.searchParams.set('sessionId', sessionId)
   url.searchParams.set('after', String(after))
 
   let response: Response
   try {
-    response = await fetch(url.href, { method: 'GET' })
+    response = await fetch(url.toString(), { method: 'GET', credentials: 'omit' })
   } catch {
     throw new Error(getLeadErrorMessage('network'))
   }

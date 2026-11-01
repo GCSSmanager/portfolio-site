@@ -53,7 +53,7 @@ export default {
       return handleWebhook(request, env);
     }
 
-    if (path === "/chat/poll" && request.method === "GET") {
+    if (request.method === "GET" && isChatPollRequest(request, path)) {
       return handleChatPoll(request, env, corsHeaders);
     }
 
@@ -505,6 +505,17 @@ async function readReplies(env, sessionId) {
 
 function sessionTag(sessionId) {
   return sessionId.replace(/-/g, "").slice(0, 8).toUpperCase();
+}
+
+function isChatPollPath(path) {
+  return path === "/chat/poll" || path === "/chat/chat/poll";
+}
+
+function isChatPollRequest(request, path) {
+  if (isChatPollPath(path)) return true;
+  if (path !== "/chat" && path !== "/") return false;
+  const url = new URL(request.url);
+  return url.searchParams.has("sessionId");
 }
 
 async function sendTelegram(env, text, metrikaToken) {
