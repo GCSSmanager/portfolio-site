@@ -111,9 +111,6 @@ export function CrmUiProvider({ children }: { children: ReactNode }) {
         source: orderSource,
         ...(message ? { message } : {}),
       })
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-form')
-      }
       setOrderSuccess(true)
     } catch (err) {
       setOrderError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')

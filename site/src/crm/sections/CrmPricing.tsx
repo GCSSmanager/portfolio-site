@@ -65,9 +65,6 @@ export function CrmPricing() {
         source: 'pricing-estimate',
         message: [names, range, 'Точную сумму уточним после разбора задачи.'].filter(Boolean).join(' '),
       })
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-form')
-      }
       setSubmitted(true)
       setLocked(true)
     } catch (err) {
@@ -154,10 +151,4 @@ export function CrmPricing() {
       </div>
     </section>
   )
-}
-
-declare global {
-  interface Window {
-    ym?: (id: number, method: string, goal: string) => void
-  }
 }

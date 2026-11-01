@@ -1,3 +1,5 @@
+import { buildMetrikaPayload } from './metrika'
+
 const LEADS_ENDPOINT = 'https://gcss-tg-leads.diatsht.workers.dev/'
 
 const LEAD_ERROR_MESSAGES: Record<string, string> = {
@@ -38,12 +40,18 @@ export type CrmLeadPayload = {
   phone: string
   source: string
   message?: string
+  /** false — без кнопки Метрики в TG; по умолчанию crm-form */
+  metrikaGoal?: string | false
 }
 
 export async function sendCrmLead(payload: CrmLeadPayload): Promise<void> {
-  const body = {
-    ...payload,
+  const { metrikaGoal = 'crm-form', ...lead } = payload
+  const body: Record<string, unknown> = {
+    ...lead,
     openedAt: getLeadOpenedAt(),
+  }
+  if (metrikaGoal !== false) {
+    body.metrika = await buildMetrikaPayload(metrikaGoal, lead)
   }
 
   let response: Response

@@ -197,10 +197,8 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
         phone: phone.value,
         source: 'crm-assist',
         message: pendingQuestion,
+        metrikaGoal: 'crm-chat',
       })
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-chat')
-      }
     } catch (err) {
       setContactError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
       setContactSending(false)
@@ -386,8 +384,3 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
   )
 }
 
-declare global {
-  interface Window {
-    ym?: (id: number, method: string, goal: string) => void
-  }
-}

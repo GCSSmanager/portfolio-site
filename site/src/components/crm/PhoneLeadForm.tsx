@@ -3,12 +3,6 @@ import { sendCrmLead } from '@/lib/leads'
 import { usePhoneMask } from '@/hooks/usePhoneMask'
 import { LegalNote } from '@/components/crm/LegalNote'
 
-declare global {
-  interface Window {
-    ym?: (id: number, method: string, goal: string) => void
-  }
-}
-
 export type PhoneLeadFormProps = {
   leadName: string
   leadSource: string
@@ -68,9 +62,6 @@ export function PhoneLeadForm({
         phone: phone.value,
         source: leadSource,
       })
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-form')
-      }
       setSubmitted(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')

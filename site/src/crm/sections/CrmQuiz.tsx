@@ -73,9 +73,6 @@ export function CrmQuiz() {
           `Что занимает время? ${QUIZ_PAIN[pain] || pain}`,
         ].join('\n'),
       })
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-form')
-      }
       setDone(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
@@ -263,10 +260,4 @@ export function CrmQuiz() {
       </div>
     </section>
   )
-}
-
-declare global {
-  interface Window {
-    ym?: (id: number, method: string, goal: string) => void
-  }
 }

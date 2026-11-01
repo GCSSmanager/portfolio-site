@@ -59,9 +59,6 @@ export function CrmSystemExamples() {
         source: 'system-examples',
         message: 'Запрос расчёта стоимости под задачу (блок «Подробнее о ценах»).',
       })
-      if (typeof window.ym === 'function') {
-        window.ym(112716152, 'reachGoal', 'crm-form')
-      }
       setSubmitted(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Не удалось отправить заявку.')
