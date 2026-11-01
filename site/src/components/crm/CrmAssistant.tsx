@@ -16,7 +16,7 @@ const ASSIST_ACK_QUESTION =
   'Вопрос передали менеджеру. Ответ придёт здесь в чате — обычно в рабочее время в течение часа.'
 const ASSIST_ACK_CONTACT = 'Контакты получили. Можете написать вопрос в поле ниже.'
 const ASSIST_OPEN_DELAY_MS = 20_000
-const CHAT_POLL_MS = 3_000
+const CHAT_POLL_ERROR_MS = 2_000
 
 type Chip = { q: string; reply?: string }
 
@@ -155,29 +155,32 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
 
     let cancelled = false
 
-    const tick = async () => {
-      try {
-        const { items } = await pollCrmChat(chatSessionId, adminReplyCursorRef.current)
-        if (cancelled || items.length === 0) return
-        adminReplyCursorRef.current = items[items.length - 1]!.id
-        setMessages((prev) => [
-          ...prev,
-          ...items.map((item) => ({
-            id: `admin-${item.id}`,
-            role: 'bot' as const,
-            text: item.text,
-          })),
-        ])
-      } catch {
-        /* poll again later */
+    const loop = async () => {
+      while (!cancelled) {
+        try {
+          const { items } = await pollCrmChat(chatSessionId, adminReplyCursorRef.current)
+          if (cancelled) return
+          if (items.length > 0) {
+            adminReplyCursorRef.current = items[items.length - 1]!.id
+            setMessages((prev) => [
+              ...prev,
+              ...items.map((item) => ({
+                id: `admin-${item.id}`,
+                role: 'bot' as const,
+                text: item.text,
+              })),
+            ])
+          }
+        } catch {
+          if (cancelled) return
+          await new Promise((r) => window.setTimeout(r, CHAT_POLL_ERROR_MS))
+        }
       }
     }
 
-    void tick()
-    const timer = window.setInterval(() => void tick(), CHAT_POLL_MS)
+    void loop()
     return () => {
       cancelled = true
-      window.clearInterval(timer)
     }
   }, [open, contactsDone, chatSessionId])
 

@@ -108,10 +108,12 @@ export type CrmChatReply = { id: number; text: string; at?: number }
 export async function pollCrmChat(
   sessionId: string,
   after: number,
+  waitSec = 25,
 ): Promise<{ items: CrmChatReply[]; seq: number }> {
   const url = new URL(CHAT_POLL_ENDPOINT)
   url.searchParams.set('sessionId', sessionId)
   url.searchParams.set('after', String(after))
+  url.searchParams.set('wait', String(Math.max(0, Math.min(25, waitSec))))
 
   let response: Response
   try {

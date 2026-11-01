@@ -24,7 +24,9 @@ const ALLOWED_ORIGINS = [
 
 const MAX_LEADS = 5;
 const MAX_CHATS = 10;
-const MAX_POLLS = 120;
+const MAX_POLLS = 180;
+const POLL_WAIT_MAX_SEC = 25;
+const POLL_WAIT_STEP_MS = 350;
 const WINDOW_MS = 60_000;
 const MIN_DWELL_MS = 10_000;
 const SESSION_TTL_SEC = 7 * 86400;
@@ -191,9 +193,25 @@ async function handleChatPoll(request, env, corsHeaders) {
     return json({ ok: false, error: "Too many requests", code: "rate_limited" }, 429, corsHeaders);
   }
 
-  const data = await readReplies(env, sessionId);
-  const items = data.items.filter((it) => it.id > after);
+  const waitSec = Math.min(
+    POLL_WAIT_MAX_SEC,
+    Math.max(0, Number(url.searchParams.get("wait") || 0))
+  );
+  const deadline = Date.now() + waitSec * 1000;
+  let data = await readReplies(env, sessionId);
+  let items = data.items.filter((it) => it.id > after);
+
+  while (items.length === 0 && waitSec > 0 && Date.now() < deadline) {
+    await sleep(POLL_WAIT_STEP_MS);
+    data = await readReplies(env, sessionId);
+    items = data.items.filter((it) => it.id > after);
+  }
+
   return json({ ok: true, items, seq: data.seq }, 200, corsHeaders);
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function handleSetupWebhook(request, env) {
