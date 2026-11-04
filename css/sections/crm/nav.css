@@ -185,8 +185,6 @@
 }
 
 .nav--crm .nav__cta {
-  position: relative;
-  overflow: visible;
   background: #f5f2ea;
   border-color: #f5f2ea;
   color: #1b3022;

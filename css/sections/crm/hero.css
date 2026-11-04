@@ -287,11 +287,9 @@
 }
 
 .crm-hero__btn {
-  position: relative;
   min-width: 12.5rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  overflow: visible;
   background: #f5f2ea;
   border-color: #f5f2ea;
   color: #1b3022;

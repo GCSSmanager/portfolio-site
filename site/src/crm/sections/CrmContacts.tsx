@@ -121,7 +121,6 @@ export function CrmContacts({ showContactsDeal = true }: CrmContactsProps) {
                 leadSource="contacts-phone"
                 submitLabel="Оставить заявку"
                 phoneLeadBtnClass="btn--lure-dark crm-contacts__btn"
-                phoneLeadDealBtn={showContactsDeal}
               />
               {showContactsDeal ? (
                 <p className="crm-contacts__deal">

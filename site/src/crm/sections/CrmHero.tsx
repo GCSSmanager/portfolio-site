@@ -111,7 +111,6 @@ export function CrmHero(props: CrmHeroProps) {
               phoneLeadId="heroPhone"
               phoneLeadClass="crm-hero__form"
               phoneLeadBtnClass="btn--lure-light crm-hero__btn"
-              phoneLeadDealBtn={Boolean(dealAlways)}
               noteOnHero
               phoneInputClassName="crm-hero__phone"
               errorClassName="crm-hero__form-error crm-phone-lead__error"
