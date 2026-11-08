@@ -643,7 +643,7 @@
   }
 }
 
-@media (max-width: 46rem) { /* ~736px: номер → иконка (после бургера на 58rem) */
+@media (max-width: 48rem) { /* ~768px: номер → иконка (после бургера на 58rem) */
   .nav--crm .nav__contact--bar {
     display: none;
   }
@@ -653,7 +653,7 @@
   }
 }
 
-@media (max-width: 29rem) { /* nav: номер → burger-меню; бургер — только полоски */
+@media (max-width: 31rem) { /* слово «меню» скрыто, бургер — только полоски */
   .nav__burger {
     justify-content: center;
     gap: 0;
@@ -673,7 +673,9 @@
     white-space: nowrap;
     border: 0;
   }
+}
 
+@media (max-width: 29rem) { /* nav: номер в меню бургера */
   .nav--crm .nav__contact--menu {
     display: block;
     width: 100%;
@@ -691,12 +693,8 @@
   }
 }
 
-@media (max-width: 25rem) { /* ~400px: только действия в шапке */
+@media (max-width: 27rem) { /* логотип на 2rem раньше */
   .nav--crm .nav__brand {
-    display: none;
-  }
-
-  .nav--crm .nav__reviews-slot {
     display: none;
   }
 
@@ -708,5 +706,11 @@
   .nav--crm .nav__links {
     width: 100%;
     justify-content: flex-end;
+  }
+}
+
+@media (max-width: 25rem) { /* ~400px: только действия в шапке */
+  .nav--crm .nav__reviews-slot {
+    display: none;
   }
 }

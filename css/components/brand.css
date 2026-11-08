@@ -40,18 +40,20 @@ a.brand-lockup:hover {
   color: color-mix(in oklab, #f5f2ea 58%, transparent);
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 42rem) {
   .brand-lockup__tagline {
     display: none;
   }
+}
 
+@media (max-width: 40rem) {
   .brand-lockup__mark {
     width: 2.35rem;
     height: 2.35rem;
   }
 }
 
-@media (max-width: 28rem) {
+@media (max-width: 30rem) {
   .nav--crm .brand-lockup__tagline {
     display: none;
   }
