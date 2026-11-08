@@ -24,6 +24,7 @@ export type CrmPageConfig = CrmPageMeta & {
   heroMark?: string
   heroCta?: string
   heroMore?: string
+  demoHref?: string
   showPricing?: boolean
   faqVariant?: 'free'
   showContactsDeal?: boolean
@@ -43,6 +44,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
     ...crmPages.free,
     sections: ['hero', 'kit', 'reviews', 'cases', 'guide', 'partners', 'contacts'],
     heroMore: 'Автосервис, ресторан, ремонт, риелторы и другие. Ставим мы, файл скачивать не нужно.',
+    demoHref: '/crm/demo/free/',
     faqVariant: 'free',
     showContactsDeal: true,
   },

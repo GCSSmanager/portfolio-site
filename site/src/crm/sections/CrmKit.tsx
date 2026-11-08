@@ -1,4 +1,11 @@
+import { useLocation } from 'react-router-dom'
+import { crmPageConfig } from '@/crm/pageConfig'
+
 export function CrmKit() {
+  const location = useLocation()
+  const demoHref = crmPageConfig.free.demoHref ?? '/crm/demo/free/'
+  const demoUrl = `${demoHref}?from=${encodeURIComponent(`${location.pathname}${location.search}${location.hash}`)}`
+
   return (
     <section className="crm-kit" aria-labelledby="crm-kit-title">
       <div className="container">
@@ -69,15 +76,9 @@ export function CrmKit() {
           </ul>
 
           <div className="crm-kit__action">
-            <button
-              className="btn btn--primary btn--lure-dark"
-              type="button"
-              data-order-open
-              data-order-source="kit-free"
-              data-order-deal="off"
-            >
+            <a className="btn btn--primary btn--lure-dark" href={demoUrl} target="_blank" rel="noopener">
               Получить бесплатно
-            </button>
+            </a>
           </div>
         </div>
       </div>

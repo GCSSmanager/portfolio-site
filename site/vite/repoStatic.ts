@@ -93,6 +93,30 @@ export function repoStaticDev(repoRoot: string): Plugin {
           }
         }
 
+        if (url === '/crm/demo/free') {
+          res.statusCode = 302
+          res.setHeader('Location', '/crm/demo/free/')
+          res.end()
+          return
+        }
+
+        if (url.startsWith('/crm/demo/free/')) {
+          const root = path.join(repoRoot, 'demos', 'free-crm')
+          let rel = decodeURIComponent(url.slice('/crm/demo/free/'.length))
+          if (!rel) rel = 'index.html'
+          const filePath = path.resolve(root, rel)
+          if (filePath.startsWith(root + path.sep) || filePath === root) {
+            try {
+              if (fs.statSync(filePath).isFile()) {
+                sendFile(res, filePath)
+                return
+              }
+            } catch {
+              /* fall through to the built copy */
+            }
+          }
+        }
+
         if (url.startsWith('/crm/demo/')) {
           const siteRoot = path.join(repoRoot, '_site')
           const rel = decodeURIComponent(url.replace(/^\//, ''))

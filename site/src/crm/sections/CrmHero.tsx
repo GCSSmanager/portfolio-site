@@ -1,5 +1,23 @@
+import { useLocation } from 'react-router-dom'
 import type { CrmHeroProps } from '@/crm/section-props'
 import { PhoneLeadForm } from '@/components/crm/PhoneLeadForm'
+
+function PerksDemoButton() {
+  return (
+    <button type="button" className="crm-hero__perks-demo" data-demo-picker-open>
+      <span className="crm-hero__perks-demo-text">Протестировать бесплатно</span>
+      <svg className="crm-hero__perks-demo-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path
+          d="M3.5 8h7.5M8.5 5.5 11 8l-2.5 2.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  )
+}
 
 function heroAriaLabel(props: CrmHeroProps): string {
   if (props.heroMark && props.heroTitle) return `${props.heroTitle} ${props.heroMark}`
@@ -13,8 +31,13 @@ export function CrmHero(props: CrmHeroProps) {
     heroMark,
     heroCta = 'Получить бесплатно',
     heroMore = 'аренда и риелторы, автосервис, ресторан, ремонт техники, и многие другие',
+    demoHref,
     dealAlways,
   } = props
+  const location = useLocation()
+  const demoUrl = demoHref
+    ? `${demoHref}?from=${encodeURIComponent(`${location.pathname}${location.search}${location.hash}`)}`
+    : null
 
   const leadName = dealAlways ? 'Скидка 10%' : 'Получить бесплатно'
   const leadSource = dealAlways ? 'hero-deal' : 'hero-free'
@@ -76,44 +99,37 @@ export function CrmHero(props: CrmHeroProps) {
                   <span className="crm-hero__perk-value">Работа по договору</span>
                 </li>
               </ul>
-              <div className="crm-hero__perks-foot">
-                <button
-                  type="button"
-                  className="crm-hero__perks-demo"
-                  data-demo-picker-open
-                >
-                  <span className="crm-hero__perks-demo-text">Протестировать бесплатно</span>
-                  <svg
-                    className="crm-hero__perks-demo-icon"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M3.5 8h7.5M8.5 5.5 11 8l-2.5 2.5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
+              {demoUrl ? null : (
+                <div className="crm-hero__perks-foot">
+                  <PerksDemoButton />
+                </div>
+              )}
             </div>
           </aside>
           <div className="crm-hero__lead-form">
-            <PhoneLeadForm
-              leadName={leadName}
-              leadSource={leadSource}
-              submitLabel={heroCta}
-              phoneLeadId="heroPhone"
-              phoneLeadClass="crm-hero__form"
-              phoneLeadBtnClass="btn--lure-light crm-hero__btn"
-              noteOnHero
-              phoneInputClassName="crm-hero__phone"
-              errorClassName="crm-hero__form-error crm-phone-lead__error"
-              doneClassName="crm-hero__done crm-phone-lead__done"
-            />
+            {demoUrl ? (
+              <a
+                className="btn btn--primary btn--lure-light crm-hero__btn crm-hero__demo"
+                href={demoUrl}
+                target="_blank"
+                rel="noopener"
+              >
+                {heroCta}
+              </a>
+            ) : (
+              <PhoneLeadForm
+                leadName={leadName}
+                leadSource={leadSource}
+                submitLabel={heroCta}
+                phoneLeadId="heroPhone"
+                phoneLeadClass="crm-hero__form"
+                phoneLeadBtnClass="btn--lure-light crm-hero__btn"
+                noteOnHero
+                phoneInputClassName="crm-hero__phone"
+                errorClassName="crm-hero__form-error crm-phone-lead__error"
+                doneClassName="crm-hero__done crm-phone-lead__done"
+              />
+            )}
           </div>
         </div>
       </div>

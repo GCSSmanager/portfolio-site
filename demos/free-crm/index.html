@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CRM</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <div id="login" class="login">
+      <div class="login__grid">
+        <form id="login-form" class="card" autocomplete="off">
+          <h1 class="card__title">Вход</h1>
+          <p id="login-error" class="login__error" hidden></p>
+          <label class="field">
+            <span>Логин</span>
+            <input id="login-name" name="username" autocomplete="username" required />
+          </label>
+          <label class="field">
+            <span>Пароль</span>
+            <input id="login-pass" name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn login__submit" type="submit">Войти</button>
+        </form>
+        <section class="card" aria-labelledby="accounts-title">
+          <h2 class="card__title card__title--sub" id="accounts-title">Тестовые доступы</h2>
+          <p class="card__lead">Нажмите строку — подставим логин и пароль.</p>
+          <ul id="accounts" class="accounts"></ul>
+        </section>
+      </div>
+    </div>
+
+    <div id="app" class="window" hidden>
+      <aside class="side">
+        <div class="side__brand">
+          <span class="side__mark" aria-hidden="true">C</span>
+          <span>
+            <span class="side__title">CRM</span>
+            <span class="side__hint">Учёт клиентов</span>
+          </span>
+        </div>
+        <nav class="nav" aria-label="Разделы">
+          <a href="#home" data-view="home">Главная</a>
+          <a href="#clients" data-view="clients">Клиенты</a>
+          <a href="#deals" data-view="deals">Сделки</a>
+          <a href="#tasks" data-view="tasks">Задачи</a>
+          <a href="#roles" data-view="roles">Пользователи</a>
+          <button type="button" id="logout">Выйти</button>
+        </nav>
+        <div class="side__foot">
+          <p id="user" class="side__user"></p>
+        </div>
+      </aside>
+      <main class="main">
+        <div class="bar">
+          <h1 id="heading">Главная</h1>
+          <button type="button" class="btn" id="add" hidden>Добавить</button>
+        </div>
+        <div id="board" class="board"></div>
+        <p id="empty" class="empty" hidden></p>
+        <ul id="list" class="list"></ul>
+      </main>
+    </div>
+
+    <dialog id="editor" class="editor" aria-labelledby="editor-title" tabindex="-1">
+      <form id="editor-form" autocomplete="off">
+        <h2 id="editor-title"></h2>
+        <div id="editor-fields" class="editor__fields"></div>
+        <div class="editor__actions">
+          <button type="button" class="btn btn--quiet btn--danger" id="editor-delete" hidden>Удалить</button>
+          <button type="button" class="btn btn--quiet" id="editor-cancel">Отмена</button>
+          <button type="submit" class="btn">Сохранить</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="call" class="popup" tabindex="-1">
+      <form id="call-form" autocomplete="off">
+        <div class="popup__head">
+          <h2>Заказать звонок</h2>
+          <button type="button" id="call-close" aria-label="Закрыть">×</button>
+        </div>
+        <p id="call-done" class="popup__done" hidden>Заявка отправлена. Свяжемся в течение часа.</p>
+        <div id="call-body" class="popup__body">
+          <label class="field">
+            <span>Имя</span>
+            <input id="call-name" name="name" autocomplete="name" />
+          </label>
+          <label class="field">
+            <span>Телефон</span>
+            <input id="call-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="18" placeholder="+7 (___) ___-__-__" />
+          </label>
+          <p id="call-error" class="login__error" hidden></p>
+          <button class="btn" type="submit">Заказать звонок</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="welcome" class="welcome" aria-labelledby="welcome-title" tabindex="-1">
+      <p class="welcome__kicker">Демо CRM</p>
+      <h2 id="welcome-title">Поставим бесплатно</h2>
+      <p>Такую же программу установим бесплатно. Клиенты, сделки и задачи будут храниться у вас постоянно, а не исчезнут вместе с браузером.</p>
+      <p>Сейчас это демо: все записи только в этом браузере.</p>
+      <div class="welcome__bar">
+        <button type="button" class="btn" id="welcome-ok">Понятно</button>
+      </div>
+    </dialog>
+
+    <dialog id="phone-gate" class="popup" tabindex="-1">
+      <form id="phone-gate-form" autocomplete="off">
+        <h2>Продолжить демо</h2>
+        <p class="card__lead">Введите номер телефона, чтобы продолжить пользоваться демо.</p>
+        <label class="field">
+          <span>Телефон</span>
+          <input id="gate-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="18" placeholder="+7 (___) ___-__-__" />
+        </label>
+        <p id="gate-error" class="login__error" hidden></p>
+        <button class="btn" type="submit">Продолжить</button>
+      </form>
+    </dialog>
+
+    <div class="badge" id="badge">
+      <button type="button" class="badge__chip" id="call-chip" hidden>Заказать звонок</button>
+      <div class="badge__menu" id="badge-menu">
+        <button type="button" id="call-open">Заказать звонок</button>
+        <button type="button" id="reset">Сбросить демо</button>
+        <a id="back" href="/crm/free/">Выйти в CRM</a>
+      </div>
+      <button type="button" class="badge__logo" id="badge-toggle" aria-label="Меню демо" aria-expanded="false">
+        <img src="/assets/gcss-logo.webp" alt="" width="48" height="48" draggable="false" />
+      </button>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

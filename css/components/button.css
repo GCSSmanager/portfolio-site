@@ -10,6 +10,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   gap: 0.55em;
   min-height: 2.75rem;
   padding: 0.7rem 1.35rem;

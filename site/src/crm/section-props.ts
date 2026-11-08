@@ -15,6 +15,7 @@ export type CrmHeroProps = {
   heroMark?: string
   heroCta?: string
   heroMore?: string
+  demoHref?: string
   dealAlways?: boolean
 }
 

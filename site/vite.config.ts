@@ -26,6 +26,7 @@ export default defineConfig(() => ({
         { src: '../favicon.ico', dest: '.' },
         { src: '../styles-crm-shell.css', dest: '.' },
         { src: '../CNAME', dest: '.' },
+        { src: '../demos/free-crm/*', dest: 'crm/demo/free' },
       ],
     }),
   ],
