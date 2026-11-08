@@ -5,12 +5,16 @@
   background: var(--color-bg);
 }
 
-/* Free & integrations: alternate band on first block vs process */
+/* Free: kit stays sand; partners takes the darker band, contacts the lighter page ground */
 .crm-page--free .crm-kit {
   background: #ece8dc;
 }
 
-.crm-page--free .crm-process {
+.crm-page--free .crm-partners {
+  background: #ece8dc;
+}
+
+.crm-page--free .crm-contacts {
   background: var(--color-bg);
 }
 

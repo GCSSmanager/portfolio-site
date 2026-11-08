@@ -4,7 +4,7 @@ import { PhoneLeadForm } from '@/components/crm/PhoneLeadForm'
 function heroAriaLabel(props: CrmHeroProps): string {
   if (props.heroMark && props.heroTitle) return `${props.heroTitle} ${props.heroMark}`
   if (props.heroTitle) return props.heroTitle
-  return 'Бесплатная CRM-система с установкой для отслеживания продаж'
+  return 'Бесплатная программа для учёта клиентов'
 }
 
 export function CrmHero(props: CrmHeroProps) {
@@ -12,7 +12,7 @@ export function CrmHero(props: CrmHeroProps) {
     heroTitle,
     heroMark,
     heroCta = 'Получить бесплатно',
-    heroMore = 'Зафиксировать скидку в 10% для вашего номера',
+    heroMore = 'аренда и риелторы, автосервис, ресторан, ремонт техники, и многие другие',
     dealAlways,
   } = props
 
@@ -45,9 +45,7 @@ export function CrmHero(props: CrmHeroProps) {
               ) : (
                 <>
                   <span className="crm-hero__mark">Бесплатная</span>{' '}
-                  <span className="crm-hero__shade">
-                    CRM-система с установкой для отслеживания продаж
-                  </span>
+                  <span className="crm-hero__shade">программа для учёта клиентов</span>
                 </>
               )}
             </h1>

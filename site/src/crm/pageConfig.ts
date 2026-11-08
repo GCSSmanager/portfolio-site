@@ -23,6 +23,7 @@ export type CrmPageConfig = CrmPageMeta & {
   heroTitle?: string
   heroMark?: string
   heroCta?: string
+  heroMore?: string
   showPricing?: boolean
   faqVariant?: 'free'
   showContactsDeal?: boolean
@@ -32,7 +33,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   custom: {
     ...crmPages.custom,
     sections: ['hero', 'plans', 'process', 'reviews', 'cases', 'examples', 'guide', 'quiz', 'partners', 'contacts'],
-    heroTitle: 'Разработка CRM под ключ под ваш процесс',
+    heroTitle: 'Программа учёта клиентов и заявок',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',
     showPricing: true,
@@ -40,7 +41,8 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   },
   free: {
     ...crmPages.free,
-    sections: ['hero', 'kit', 'process', 'reviews', 'cases', 'guide', 'quiz', 'partners', 'contacts'],
+    sections: ['hero', 'kit', 'reviews', 'cases', 'guide', 'partners', 'contacts'],
+    heroMore: 'Автосервис, ресторан, ремонт, риелторы и другие. Ставим мы, файл скачивать не нужно.',
     faqVariant: 'free',
     showContactsDeal: true,
   },

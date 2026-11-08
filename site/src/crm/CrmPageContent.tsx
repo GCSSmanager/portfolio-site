@@ -28,6 +28,7 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
           heroTitle={cfg.heroTitle}
           heroMark={cfg.heroMark}
           heroCta={cfg.heroCta}
+          heroMore={cfg.heroMore}
           dealAlways={cfg.dealAlways}
         />
       ) : null}
