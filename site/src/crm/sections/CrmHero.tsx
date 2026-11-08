@@ -5,7 +5,7 @@ import { PhoneLeadForm } from '@/components/crm/PhoneLeadForm'
 function PerksDemoButton() {
   return (
     <button type="button" className="crm-hero__perks-demo" data-demo-picker-open>
-      <span className="crm-hero__perks-demo-text">Протестировать бесплатно</span>
+      <span className="crm-hero__perks-demo-text">Бесплатное интерактивное портфолио</span>
       <svg className="crm-hero__perks-demo-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path
           d="M3.5 8h7.5M8.5 5.5 11 8l-2.5 2.5"
@@ -88,22 +88,25 @@ export function CrmHero(props: CrmHeroProps) {
             <div className="crm-hero__perks-card">
               <ul className="crm-hero__perks-list">
                 <li>
-                  <span className="crm-hero__perk-value">1 неделя</span>
-                  <span className="crm-hero__perk-label">запуск из любого города</span>
+                  <span className="crm-hero__perk-value">200+</span>
+                  <span className="crm-hero__perk-label">довольных клиентов</span>
                 </li>
                 <li>
-                  <span className="crm-hero__perk-value">Бессрочно</span>
-                  <span className="crm-hero__perk-label">поддержка после сдачи</span>
+                  <span className="crm-hero__perk-value">10{'\u00a0'}лет</span>
+                  <span className="crm-hero__perk-label">опыта</span>
                 </li>
-                <li className="crm-hero__perks-list-item--solo">
-                  <span className="crm-hero__perk-value">Работа по договору</span>
+                <li>
+                  <span className="crm-hero__perk-value">от{'\u00a0'}1{'\u00a0'}недели</span>
+                  <span className="crm-hero__perk-label">запуск</span>
+                </li>
+                <li>
+                  <span className="crm-hero__perk-value">бессрочно</span>
+                  <span className="crm-hero__perk-label">поддержка</span>
                 </li>
               </ul>
-              {demoUrl ? null : (
-                <div className="crm-hero__perks-foot">
-                  <PerksDemoButton />
-                </div>
-              )}
+              <div className="crm-hero__perks-foot">
+                <PerksDemoButton />
+              </div>
             </div>
           </aside>
           <div className="crm-hero__lead-form">
