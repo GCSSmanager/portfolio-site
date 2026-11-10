@@ -1,13 +1,24 @@
+import { useLocation } from 'react-router-dom'
 import type { CrmCaseKey, CrmCasesProps } from '@/crm/section-props'
+
+const CASE_DEMO_HREF: Record<CrmCaseKey, string> = {
+  flower: '/crm/demo/flower/',
+  pest: '/crm/demo/pest/',
+  clinic: '/crm/demo/clinic/',
+}
 
 function showCase(caseKeys: CrmCaseKey[] | undefined, key: CrmCaseKey): boolean {
   return !caseKeys || caseKeys.includes(key)
 }
 
-function CaseDemoPickerCta() {
+function CaseDemoCta({ caseKey }: { caseKey: CrmCaseKey }) {
+  const location = useLocation()
+  const from = encodeURIComponent(`${location.pathname}${location.search}${location.hash}`)
+  const href = `${CASE_DEMO_HREF[caseKey]}?from=${from}`
+
   return (
     <p className="crm-case__demo">
-      <button type="button" data-demo-picker-open>
+      <a href={href} target="_blank" rel="noopener">
         <span className="crm-case__demo-text">Попробовать бесплатно</span>
         <svg className="crm-case__demo-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path
@@ -18,7 +29,7 @@ function CaseDemoPickerCta() {
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </a>
     </p>
   )
 }
@@ -73,7 +84,7 @@ export function CrmCases({ caseKeys }: CrmCasesProps) {
                   <p className="crm-case__label">отказов клиенту «нет в наличии»</p>
                 </li>
               </ul>
-              <CaseDemoPickerCta />
+              <CaseDemoCta caseKey="flower" />
             </article>
           ) : null}
 
@@ -113,7 +124,7 @@ export function CrmCases({ caseKeys }: CrmCasesProps) {
                   <p className="crm-case__label">смена мастеров и операторов на контроле</p>
                 </li>
               </ul>
-              <CaseDemoPickerCta />
+              <CaseDemoCta caseKey="pest" />
             </article>
           ) : null}
 
@@ -147,7 +158,7 @@ export function CrmCases({ caseKeys }: CrmCasesProps) {
                   <p className="crm-case__label">загрузка расписания</p>
                 </li>
               </ul>
-              <CaseDemoPickerCta />
+              <CaseDemoCta caseKey="clinic" />
             </article>
           ) : null}
         </div>
