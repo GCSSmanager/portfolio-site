@@ -132,9 +132,11 @@
 }
 
 @media (max-width: 40rem) {
-  /* Как .modal--form: не на весь экран; два режима — только этот и десктоп (без промежуточной сетки) */
+  /* Карточка, не на весь экран. Высота не больше видимой области: шапка с крестиком остаётся на экране, список скроллится. */
   .modal.modal--demos {
     --demo-picker-rows: 3;
+    --demo-picker-pad-top: max(1rem, env(safe-area-inset-top, 0px));
+    --demo-picker-pad-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     --demo-picker-panel-w: min(calc(100vw - 2rem), 24rem);
     --demo-picker-thumb-aspect-h: calc((var(--demo-picker-panel-w) - 3rem) * 10 / 16);
     --demo-picker-thumb-vh-h: calc((min(90dvh, 42rem) - 14rem) / var(--demo-picker-rows));
@@ -144,15 +146,21 @@
       var(--demo-picker-thumb-aspect-h)
     );
 
-    padding: 1rem;
+    padding:
+      var(--demo-picker-pad-top)
+      max(1rem, env(safe-area-inset-right, 0px))
+      var(--demo-picker-pad-bottom)
+      max(1rem, env(safe-area-inset-left, 0px));
     place-items: center;
-    align-content: center;
+    align-content: safe center;
   }
 
   .modal.modal--demos .modal__panel--demos {
     width: min(100%, 24rem);
     height: auto;
-    max-height: none;
+    max-height: calc(100dvh - var(--demo-picker-pad-top) - var(--demo-picker-pad-bottom));
+    overflow: auto;
+    overscroll-behavior: contain;
     border-radius: var(--radius-l);
     border: 1px solid var(--color-line);
     margin-inline: auto;
@@ -160,7 +168,10 @@
   }
 
   .modal.modal--demos .modal__header {
-    position: static;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--color-bg-elevated);
     padding: 0.95rem 1rem;
   }
 
