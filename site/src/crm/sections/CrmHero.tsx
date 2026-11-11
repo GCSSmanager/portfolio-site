@@ -20,9 +20,10 @@ function PerksDemoButton() {
 }
 
 function heroAriaLabel(props: CrmHeroProps): string {
-  if (props.heroMark && props.heroTitle) return `${props.heroTitle} ${props.heroMark}`
-  if (props.heroTitle) return props.heroTitle
-  return 'Бесплатная программа для учёта клиентов'
+  const lead = 'Аналог amoCRM и Битрикс24'
+  if (props.heroMark && props.heroTitle) return `${lead}. ${props.heroTitle} ${props.heroMark}`
+  if (props.heroTitle) return `${lead}. ${props.heroTitle}`
+  return `${lead}. Бесплатная программа для учёта клиентов`
 }
 
 export function CrmHero(props: CrmHeroProps) {
@@ -56,7 +57,8 @@ export function CrmHero(props: CrmHeroProps) {
       <div className="crm-hero__inner">
         <div className="crm-hero__copy reveal">
           <div className="crm-hero__lede">
-            <h1 className="crm-hero__title">
+            <h1 className="crm-hero__title">Аналог amoCRM и&nbsp;Битрикс</h1>
+            <p className="crm-hero__sub">
               {heroMark && heroTitle ? (
                 <>
                   <span className="crm-hero__shade">{heroTitle}</span>
@@ -71,7 +73,7 @@ export function CrmHero(props: CrmHeroProps) {
                   <span className="crm-hero__shade">программа для учёта клиентов</span>
                 </>
               )}
-            </h1>
+            </p>
             <div className="crm-hero__rule" aria-hidden="true" />
           </div>
           {dealAlways || props.heroMore != null ? (
