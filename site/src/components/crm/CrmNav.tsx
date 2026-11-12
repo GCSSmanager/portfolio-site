@@ -83,7 +83,7 @@ export function CrmNav({ solution, brandHref, showReviewsAnchor }: CrmNavProps) 
             data-order-source="nav-order"
             data-order-deal="off"
           >
-            Консультация
+            Заказать звонок
           </button>
           <button
             className="nav__burger"

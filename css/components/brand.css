@@ -37,6 +37,7 @@ a.brand-lockup:hover {
 }
 
 .nav--crm .brand-lockup__tagline {
+  max-width: 12.5rem;
   color: color-mix(in oklab, #f5f2ea 58%, transparent);
 }
 
