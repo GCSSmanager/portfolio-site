@@ -35,6 +35,18 @@ export function AboutCrmMast() {
                   <button className="btn btn--primary" type="button" data-order-open data-order-source="about-mast-consult" data-order-deal="off">
                     Бесплатная консультация
                   </button>
+                  <button className="crm-article__mark crm-article__mast-demo" type="button" data-demo-picker-open>
+                    <span>Бесплатное интерактивное демо</span>
+                    <svg viewBox="2.6 4.5 9.3 7" fill="none" aria-hidden="true">
+                      <path
+                        d="M3.5 8h7.5M8.5 5.5 11 8l-2.5 2.5"
+                        stroke="currentColor"
+                        strokeWidth="1.25"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
     </header>
