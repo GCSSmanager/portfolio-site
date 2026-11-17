@@ -3,6 +3,7 @@ import { AboutCrmArticle } from '@/crm/sections/AboutCrmArticle'
 import { CrmCases } from '@/crm/sections/CrmCases'
 import { CrmContacts } from '@/crm/sections/CrmContacts'
 import { CrmGuide } from '@/crm/sections/CrmGuide'
+import { CrmFears } from '@/crm/sections/CrmFears'
 import { CrmHero } from '@/crm/sections/CrmHero'
 import { CrmIntegrations } from '@/crm/sections/CrmIntegrations'
 import { CrmKit } from '@/crm/sections/CrmKit'
@@ -33,6 +34,7 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
           dealAlways={cfg.dealAlways}
         />
       ) : null}
+      {cfg.sections.includes('fears') ? <CrmFears /> : null}
       {cfg.sections.includes('plans') ? <CrmPlans showPricing={cfg.showPricing} /> : null}
       {cfg.sections.includes('kit') ? <CrmKit /> : null}
       {cfg.sections.includes('integrations') ? <CrmIntegrations /> : null}
