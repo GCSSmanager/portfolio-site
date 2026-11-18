@@ -15,7 +15,7 @@ const CHAT_POLL_ERROR_MS = 2_000
 type Chip = { q: string; reply?: string }
 
 const CHIP_REPLIES: Record<string, string> = {
-  'Заказать CRM': 'Отлично! Скоро свяжемся с вами.',
+  'Заказать CRM': 'Отлично! Скоро свяжемся с Вами.',
   'Получить бесплатно': 'Хорошо, оформим бесплатный пакет. Скоро свяжемся.',
 }
 
@@ -379,7 +379,7 @@ export function CrmAssistant({ chips, solution }: CrmAssistantProps) {
                         {contactSending ? 'Отправка...' : 'Отправить'}
                       </button>
                       <p className="crm-legal-note">
-                        Нажимая кнопку, вы соглашаетесь на{' '}
+                        Нажимая кнопку, Вы соглашаетесь на{' '}
                         <Link to="/legal/consent/">обработку персональных данных</Link> и с{' '}
                         <Link to="/legal/privacy/">политикой конфиденциальности</Link>.
                       </p>

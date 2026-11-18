@@ -53,7 +53,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   integrations: {
     ...crmPages.integrations,
     sections: ['hero', 'about-us', 'fears', 'integrations', 'process', 'reviews', 'cases', 'guide', 'quiz', 'partners', 'contacts'],
-    heroTitle: 'Интеграции под ваш процесс',
+    heroTitle: 'Интеграции под Ваш процесс',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',
     showContactsDeal: true,

@@ -31,7 +31,7 @@ export function CrmPlans({
                 <p className="crm-card__eyebrow">Рекомендуем</p>
                 <h3 className="crm-card__title">Индивидуальная CRM</h3>
                 <p className="crm-card__lead">
-                  Система под вашу модель продаж и процессы — без компромиссов под чужой сервис.
+                  Система под Вашу модель продаж и процессы — без компромиссов под чужой сервис.
                 </p>
               </header>
               <ul className="crm-card__list" role="list">

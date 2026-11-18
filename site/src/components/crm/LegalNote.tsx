@@ -7,7 +7,7 @@ type LegalNoteProps = {
 export function LegalNote({ noteOnHero }: LegalNoteProps) {
   return (
     <p className={`crm-legal-note${noteOnHero ? ' crm-legal-note--hero' : ''}`}>
-      Нажимая кнопку, вы соглашаетесь на{' '}
+      Нажимая кнопку, Вы соглашаетесь на{' '}
       <Link to="/legal/consent/">обработку персональных данных</Link> и с{' '}
       <Link to="/legal/privacy/">политикой конфиденциальности</Link>.
     </p>

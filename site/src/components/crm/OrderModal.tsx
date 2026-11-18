@@ -121,7 +121,7 @@ export function OrderModal({
             </div>
           ) : (
             <div className="crm-order-success" id="orderSuccess">
-              <p className="crm-order-success__text">Спасибо! Мы свяжемся с вами в течение часа.</p>
+              <p className="crm-order-success__text">Спасибо! Мы свяжемся с Вами в течение часа.</p>
             </div>
           )}
         </div>

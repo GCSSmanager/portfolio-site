@@ -109,7 +109,7 @@ export function CrmQuiz() {
           </h2>
           <p className="crm-quiz__lead">
             <span className="crm-quiz__mark">
-              Ответьте на вопросы — назовём сумму и зафиксируем скидку 10% за вашим номером.
+              Ответьте на вопросы — назовём сумму и зафиксируем скидку 10% за Вашим номером.
             </span>
           </p>
         </header>
@@ -126,7 +126,7 @@ export function CrmQuiz() {
           {step === 1 ? (
             <div className="crm-quiz__panel is-current">
               <fieldset className="crm-quiz__set">
-                <legend className="crm-quiz__question">Какая у вас отрасль?</legend>
+                <legend className="crm-quiz__question">Какая у Вас отрасль?</legend>
                 <div className="crm-quiz__choices">
                   {(
                     [

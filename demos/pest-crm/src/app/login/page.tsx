@@ -46,7 +46,7 @@ export default function LoginPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">{project.name}</h1>
-            <p className="mt-1 text-sm text-gray-500">Демо на сайте ГКСС — данные только в вашем браузере</p>
+            <p className="mt-1 text-sm text-gray-500">Демо на сайте ГКСС — данные только в Вашем браузере</p>
           </div>
         </div>
 

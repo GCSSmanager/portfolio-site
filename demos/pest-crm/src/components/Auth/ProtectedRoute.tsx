@@ -32,7 +32,7 @@ export default function ProtectedRoute({ children, allowedRoles }: Props) {
         <div className="text-center">
           <div className="mb-4 text-6xl">🚫</div>
           <h2 className="mb-2 text-xl font-bold text-gray-900">Нет доступа</h2>
-          <p className="text-gray-500">У вас нет прав для просмотра этой страницы</p>
+          <p className="text-gray-500">У Вас нет прав для просмотра этой страницы</p>
         </div>
       </div>
     );

@@ -69,7 +69,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
     >
       {done ? (
         <p className="crm-field__hint">
-          Спасибо! Мы свяжемся с вами в течение часа. Скидку −10% зафиксируем в заявке.
+          Спасибо! Мы свяжемся с Вами в течение часа. Скидку −10% зафиксируем в заявке.
         </p>
       ) : (
         <>

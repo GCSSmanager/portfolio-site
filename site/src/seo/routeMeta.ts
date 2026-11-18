@@ -13,7 +13,7 @@ export type RouteSeo = {
 export const crmRouteSeo = {
   custom: {
     title: 'Разработка CRM под ключ — индивидуальная CRM без подписки | ГКСС',
-    description: 'CRM под ваш процесс. Скидка 10% при заказе с сайта.',
+    description: 'CRM под Ваш процесс. Скидка 10% при заказе с сайта.',
     canonical: `${SITE_ORIGIN}/crm/custom/`,
   },
   free: {

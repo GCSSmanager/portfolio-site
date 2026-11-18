@@ -127,7 +127,7 @@ export function PhoneLeadForm({
           hidden={!submitted}
           role="status"
         >
-          Заявка отправлена. Свяжемся с вами в течение часа.
+          Заявка отправлена. Свяжемся с Вами в течение часа.
         </p>
       ) : null}
     </>

@@ -143,7 +143,7 @@ export function CrmIntegrations() {
         <div className="crm-bridges__close">
           <p className="crm-bridges__pitch">
             Больше 1000 успешных интеграций: реклама, мессенджеры, телефония, оплаты. Напишите, как у
-            вас приходят заявки — обсудим и соберём связку под ваш процесс.
+            Вас приходят заявки — обсудим и соберём связку под Ваш процесс.
           </p>
           <button
             className="btn btn--primary btn--lure-dark crm-bridges__cta"

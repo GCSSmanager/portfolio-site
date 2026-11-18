@@ -85,7 +85,7 @@ export function AboutCrmAudience() {
                     Опишите,{' '}
                     <span className="crm-article__mark">как устроена работа сейчас</span>. На{' '}
                     <span className="crm-article__mark">консультации</span> определим, нужна ли{' '}
-                    <span className="crm-article__mark">CRM вашей модели</span>, и предложим,{' '}
+                    <span className="crm-article__mark">CRM Вашей модели</span>, и предложим,{' '}
                     <span className="crm-article__mark">с чего начать</span>.
                   </p>
                   <div className="crm-article__fit-form">

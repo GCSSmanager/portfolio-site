@@ -108,7 +108,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
         <div className="px-5 py-5">
           {done ? (
             <p className="text-sm leading-relaxed text-ink">
-              Спасибо! Мы свяжемся с вами в течение часа. Скидку −10% зафиксируем в заявке.
+              Спасибо! Мы свяжемся с Вами в течение часа. Скидку −10% зафиксируем в заявке.
             </p>
           ) : (
             <>

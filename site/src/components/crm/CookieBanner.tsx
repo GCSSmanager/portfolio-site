@@ -19,7 +19,7 @@ export function CookieBanner() {
   return (
     <div className="crm-cookie">
       <p className="crm-cookie__text">
-        Мы используем cookie. Продолжая пользоваться сайтом, вы соглашаетесь с{' '}
+        Мы используем cookie. Продолжая пользоваться сайтом, Вы соглашаетесь с{' '}
         <Link to="/legal/privacy/">политикой конфиденциальности</Link>.
       </p>
       <button
