@@ -1,6 +1,6 @@
 /**
  * Ввод даты прихода: ДД/ММ/ГГ (год двумя цифрами), время ЧЧ:ММ необязательно.
- * Время не указано — полночь выбранного календарного дня (локальная TZ браузера).
+ * Время не указано – полночь выбранного календарного дня (локальная TZ браузера).
  */
 
 /** Оставляет только цифры и форматирует маской ДД/ММ/ГГ при наборе (как в модалках склада). */
@@ -209,7 +209,7 @@ export function isReceivedAtSubmitReady(dateStr: string, timeStr: string): boole
   return validateReceivedAtInput(d, t).ok
 }
 
-/** Текст ошибки под полем — только когда isReceivedAtInputBad. */
+/** Текст ошибки под полем – только когда isReceivedAtInputBad. */
 export function receivedAtInputBadMessage(dateStr: string, timeStr: string): string | null {
   if (!isReceivedAtInputBad(dateStr, timeStr)) return null
   const r = validateReceivedAtInput(dateStr.trim(), timeStr.trim())

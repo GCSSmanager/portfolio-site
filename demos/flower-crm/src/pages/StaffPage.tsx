@@ -295,7 +295,7 @@ export function StaffPage() {
             {staff.map((u) => (
               <li key={u.id} className="staff-page__row">
                 <div className="staff-page__row-main">
-                  <span className="staff-page__staff-name">{u.name || '—'}</span>
+                  <span className="staff-page__staff-name">{u.name || '–'}</span>
                   <div className="staff-page__row-meta">
                     <span className="staff-page__mono">{formatRuPhoneMasked(u.phone ?? '')}</span>
                     <span className="staff-page__muted">{u.login}</span>

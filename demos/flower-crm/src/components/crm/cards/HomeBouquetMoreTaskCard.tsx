@@ -20,7 +20,7 @@ export function HomeBouquetMoreTaskCard({ row }: Props) {
           <h3 className="crm-card-mini__name">{row.name}</h3>
           {needsAssemble ? (
             <p className="crm-home-price-miss__task" role="status">
-              Соберите букет на складе — кнопка «Букет» в шапке.
+              Соберите букет на складе – кнопка «Букет» в шапке.
             </p>
           ) : null}
           {needsPrice ? (

@@ -69,7 +69,7 @@ function serializeAdvancedBatchRow(
   const sf = batch.store_flower_id
     ? db.storeFlowers.find((s) => s.id === batch.store_flower_id)
     : null
-  let display_name = '—'
+  let display_name = '–'
   let latin_name: string | null = null
   let rank = ''
   let rank_label = ''

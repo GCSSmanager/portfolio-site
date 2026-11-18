@@ -5,7 +5,7 @@ import { UNDO_REVERT_SECONDS } from './stock/constants'
 type Props = {
   /** Момент отправки PATCH (timestamp ms). */
   deadlineMs: number
-  /** Клик по кнопке до дедлайна — отменить отправку (без запроса). */
+  /** Клик по кнопке до дедлайна – отменить отправку (без запроса). */
   onCancel: () => void
   className?: string
 }

@@ -10,7 +10,7 @@ interface Props {
   onDiscuss?: () => void;
 }
 
-/** Плашка с логотипом справа снизу — меню демо + кнопка «Обсудить внедрение». */
+/** Плашка с логотипом справа снизу – меню демо + кнопка «Обсудить внедрение». */
 export function SiteBackBadge({ onDiscuss }: Props) {
   const [open, setOpen] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);

@@ -105,7 +105,7 @@ export function EmployeeColumn({
     clinicDay,
   });
   const workWindow = workInterval(rangeStart, rangeEnd, shift, clinicDay);
-  // В parallel диагностика не в busy; в windows/day — блокирует клики.
+  // В parallel диагностика не в busy; в windows/day – блокирует клики.
   const busyIntervals = [
     ...appointments.map((appointment) => ({ startMin: appointment.startMin, endMin: appointment.endMin })),
     ...(lunch ? [lunch] : []),

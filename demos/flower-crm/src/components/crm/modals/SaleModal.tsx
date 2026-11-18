@@ -211,7 +211,7 @@ export function SaleModal({
                           line && priceNeedsManual ? ' crm-field--sale-price-miss' : ''
                         }`.trim()}
                         invalid={showLineErrors && priceFieldInvalid}
-                        placeholder="—"
+                        placeholder="–"
                         value={row.unitPrice}
                         disabled={!line || saleBusy}
                         onChange={(e) => setRow(row.key, { unitPrice: e.target.value })}

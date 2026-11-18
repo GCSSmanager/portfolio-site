@@ -117,7 +117,7 @@ export function CrmContacts({ showContactsDeal = true }: CrmContactsProps) {
             <div className="crm-contacts__cta">
               <PhoneLeadForm
                 phoneLeadId="contacts-phone"
-                leadName="Заявка — контакты"
+                leadName="Заявка – контакты"
                 leadSource="contacts-phone"
                 submitLabel="Оставить заявку"
                 phoneLeadBtnClass="btn--lure-dark crm-contacts__btn"

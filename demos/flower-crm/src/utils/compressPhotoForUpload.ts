@@ -2,7 +2,7 @@
 export const PHOTO_UPLOAD_MAX_EDGE = 512
 
 const JPEG_QUALITY = 0.82
-/** Уже маленький JPEG — не перекодируем. */
+/** Уже маленький JPEG – не перекодируем. */
 const SKIP_IF_BYTES = 280_000
 
 function scaledSize(width: number, height: number, maxEdge: number): { w: number; h: number } {

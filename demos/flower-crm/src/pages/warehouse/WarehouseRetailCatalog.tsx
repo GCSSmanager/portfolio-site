@@ -15,7 +15,7 @@ import './stock/warehouse-stock-list.css'
 type Props = {
   onOpenEdit?: (row: RetailProductRow) => void
   onOpenAdd?: () => void
-  /** Увеличивается после сохранения карточки — перезагрузить список. */
+  /** Увеличивается после сохранения карточки – перезагрузить список. */
   reloadToken?: number
   onOpenStockDiscard?: (row: RetailProductRow) => void
 }

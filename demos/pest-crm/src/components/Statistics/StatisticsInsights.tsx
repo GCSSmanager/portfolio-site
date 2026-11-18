@@ -40,12 +40,12 @@ export default function StatisticsInsights({
     { label: 'ЧП', current: current.netProfit, previous: previous?.netProfit || 0, money: true },
   ];
   const marketing = [
-    { label: 'CAC (РК / перв.)', value: current.primary > 0 && current.adSpend > 0 ? money(current.adSpend / current.primary) : '—' },
-    { label: 'CPO (РК / все)', value: current.orders > 0 && current.adSpend > 0 ? money(current.adSpend / current.orders) : '—' },
-    { label: 'ROAS (оборот / РК)', value: current.adSpend > 0 ? `${((current.revenue / current.adSpend) * 100).toFixed(0)}%` : '—' },
-    { label: 'ROMI (ЧП / РК)', value: current.adSpend > 0 ? `${((current.netProfit / current.adSpend) * 100).toFixed(0)}%` : '—' },
-    { label: 'Отмены', value: current.leads > 0 ? `${((current.cancellations / current.leads) * 100).toFixed(1)}%` : '—' },
-    { label: 'Повторные', value: current.orders > 0 ? `${((current.secondary / current.orders) * 100).toFixed(1)}%` : '—' },
+    { label: 'CAC (РК / перв.)', value: current.primary > 0 && current.adSpend > 0 ? money(current.adSpend / current.primary) : '–' },
+    { label: 'CPO (РК / все)', value: current.orders > 0 && current.adSpend > 0 ? money(current.adSpend / current.orders) : '–' },
+    { label: 'ROAS (оборот / РК)', value: current.adSpend > 0 ? `${((current.revenue / current.adSpend) * 100).toFixed(0)}%` : '–' },
+    { label: 'ROMI (ЧП / РК)', value: current.adSpend > 0 ? `${((current.netProfit / current.adSpend) * 100).toFixed(0)}%` : '–' },
+    { label: 'Отмены', value: current.leads > 0 ? `${((current.cancellations / current.leads) * 100).toFixed(1)}%` : '–' },
+    { label: 'Повторные', value: current.orders > 0 ? `${((current.secondary / current.orders) * 100).toFixed(1)}%` : '–' },
   ];
   const funnel = [
     { label: 'Все лиды', value: current.leads, color: 'bg-blue-500' },
@@ -97,7 +97,7 @@ export default function StatisticsInsights({
         <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5">
           <h3 className="font-semibold text-gray-900">Воронка</h3>
           <span className="text-xs text-gray-400">
-            {current.leads > 0 ? `${Math.round((current.orders / current.leads) * 100)}% в заказ` : '—'}
+            {current.leads > 0 ? `${Math.round((current.orders / current.leads) * 100)}% в заказ` : '–'}
           </span>
         </div>
         <div className="flex items-center p-4">
@@ -114,7 +114,7 @@ export default function StatisticsInsights({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-4-4 4 4-4 4" />
                   </svg>
                   <span className="text-[0.625rem] font-medium">
-                    {item.value > 0 ? `${Math.round((funnel[index + 1].value / item.value) * 100)}%` : '—'}
+                    {item.value > 0 ? `${Math.round((funnel[index + 1].value / item.value) * 100)}%` : '–'}
                   </span>
                 </div>
               )}

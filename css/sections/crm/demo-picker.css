@@ -1,4 +1,4 @@
-/* CRM — выбор демо (оболочка модалки как у .modal--form) */
+/* CRM – выбор демо (оболочка модалки как у .modal--form) */
 
 .modal__panel--demos {
   width: min(100%, 32rem);
@@ -40,7 +40,7 @@
 
 .crm-demo-picker__card--clinic {
   --demo-accent: #3f6174;
-  /* Y: меньше % — выше в кадре (0% = верх файла) */
+  /* Y: меньше % – выше в кадре (0% = верх файла) */
   --demo-thumb-position-x: 50%;
   --demo-thumb-position-y: 20%;
 }

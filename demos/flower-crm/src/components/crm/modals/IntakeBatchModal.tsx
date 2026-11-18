@@ -135,7 +135,7 @@ export function IntakeBatchModal({
         errorMessage={receivedAtError}
         dateAriaLabel="Дата прихода"
         timeAriaLabel="Время прихода (необязательно)"
-        hint="Пусто — сейчас. Шесть цифр → ДД/ММ/ГГ. Время необязательно."
+        hint="Пусто – сейчас. Шесть цифр → ДД/ММ/ГГ. Время необязательно."
       />
       <CrmModal.Actions submitLabel="Добавить" submitBusy={creating} />
     </CrmModal>

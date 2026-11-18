@@ -2,7 +2,7 @@
 
 html.drag-sort-active .crm-modal__body-scroll {
   overflow-anchor: none;
-  /* Запас по краям — тень и scale не обрезаются */
+  /* Запас по краям – тень и scale не обрезаются */
   padding-top: 0.65rem;
   padding-bottom: 0.75rem;
 }

@@ -118,9 +118,9 @@ export function ExpenseEntryModal({
         <p className="crm-field__hint crm-field__hint--tight">
           {category === 'regular'
             ? isUtilities
-              ? 'Коммуналка — сумму вносите при оплате по счётчику'
+              ? 'Коммуналка – сумму вносите при оплате по счётчику'
               : 'Регулярная статья'
-            : 'Разовый расход (дата — сегодня)'}
+            : 'Разовый расход (дата – сегодня)'}
         </p>
         <CrmField label="Название" value={name} onChange={(ev) => setName(ev.target.value)} />
         {category === 'regular' ? (

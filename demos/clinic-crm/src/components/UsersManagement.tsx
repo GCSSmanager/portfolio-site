@@ -161,7 +161,7 @@ export function UsersManagement() {
                     <tr key={user.id} className="hover:bg-surface/60">
                       <Td>{user.username}</Td>
                       <Td>{ROLE_LABELS[user.role]}</Td>
-                      <Td className="text-ink-muted">{user.employee?.shortName ?? "—"}</Td>
+                      <Td className="text-ink-muted">{user.employee?.shortName ?? "–"}</Td>
                       <Td className="space-x-2 whitespace-nowrap text-right">
                         {!isDirector && (
                           <>

@@ -10,7 +10,7 @@ interface Props {
   open: boolean;
   tipId: string;
   content: DemoTipContent;
-  /** Галочка «не показывать подсказки» — только у подсказок страниц, не у welcome. */
+  /** Галочка «не показывать подсказки» – только у подсказок страниц, не у welcome. */
   showMute?: boolean;
   muteChecked: boolean;
   onMuteChange: (muted: boolean) => void;

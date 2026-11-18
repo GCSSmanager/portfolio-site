@@ -311,7 +311,7 @@ export function SettingsPage() {
                   disabled={saving}
                   careAnchor
                   dateAriaLabel="Дата отсчёта ухода"
-                  hint="Шесть цифр: 19/05/26 или восемь: 19/05/2026. Пока дата не наступила — задач ухода на главной нет; можно указать дату в прошлом."
+                  hint="Шесть цифр: 19/05/26 или восемь: 19/05/2026. Пока дата не наступила – задач ухода на главной нет; можно указать дату в прошлом."
                   onChange={(v) => {
                     setNextCareDate(v)
                     if (formErr?.includes('дат')) setFormErr(null)

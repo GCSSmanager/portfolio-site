@@ -9,9 +9,9 @@ export type CrmPageToolbarProps = {
   titleId?: string
   lead?: ReactNode
   actions?: ReactNode
-  /** toolbar — title/lead слева, кнопки справа; stacked — кнопки в строке с h1; block — классическая шапка. */
+  /** toolbar – title/lead слева, кнопки справа; stacked – кнопки в строке с h1; block – классическая шапка. */
   layout?: CrmPageToolbarLayout
-  /** section — компактный lead во вкладках склада. */
+  /** section – компактный lead во вкладках склада. */
   density?: CrmPageToolbarDensity
   /** Меньший lead (как на странице «Цены»). */
   leadCompact?: boolean

@@ -9,7 +9,7 @@ interface Props {
   startTime: string;
   endTime: string;
   note: string;
-  /** Одна дата (клик по календарю) — без диапазона С/По. */
+  /** Одна дата (клик по календарю) – без диапазона С/По. */
   singleDay?: boolean;
   onStartDateChange: (value: string) => void;
   onEndDateChange: (value: string) => void;

@@ -72,7 +72,7 @@ export const getStoredUser = (): UserInfo | null => {
   return s ? JSON.parse(s) : null;
 };
 
-/** Сессия недействительна (401) — AuthSessionSync сбрасывает React-состояние и роут. */
+/** Сессия недействительна (401) – AuthSessionSync сбрасывает React-состояние и роут. */
 export const AUTH_SESSION_INVALID_EVENT = 'pest-crm:session-invalid';
 
 export function notifyAuthSessionInvalid(): void {
@@ -674,7 +674,7 @@ export const api = {
     return fetchApi<Order[]>(`/orders/search/query?${q}`);
   },
 
-  /** Заказы с этим телефоном (кроме spam). excludeId — не показывать текущий при редактировании. */
+  /** Заказы с этим телефоном (кроме spam). excludeId – не показывать текущий при редактировании. */
   findOrdersByPhone: (phone: string, excludeId?: string) => {
     const q = new URLSearchParams({ phone });
     if (excludeId) q.set('excludeId', excludeId);

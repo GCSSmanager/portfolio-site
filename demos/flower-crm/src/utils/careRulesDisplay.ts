@@ -109,7 +109,7 @@ export function buildCareDisplaySections(rules: CareRuleRow[]): CareDisplaySecti
     if (days != null) {
       push('water_trim', {
         id: 'water_change_interval_days',
-        text: `Смена воды — раз в ${numRu(days)} суток.`,
+        text: `Смена воды – раз в ${numRu(days)} суток.`,
       })
     }
   }
@@ -120,7 +120,7 @@ export function buildCareDisplaySections(rules: CareRuleRow[]): CareDisplaySecti
     if (days != null) {
       push('water_trim', {
         id: 'cut_interval_days',
-        text: `Подрезка стебля при смене воды — раз в ${numRu(days)} суток.`,
+        text: `Подрезка стебля при смене воды – раз в ${numRu(days)} суток.`,
       })
     }
   }
@@ -145,8 +145,8 @@ export function buildCareDisplaySections(rules: CareRuleRow[]): CareDisplaySecti
       const [a, b] = p
       const text =
         a === b
-          ? `Температура воды при смене — около ${numRu(a, true)} °C.`
-          : `Температура воды при смене — ${numRu(a, true)}–${numRu(b, true)} °C.`
+          ? `Температура воды при смене – около ${numRu(a, true)} °C.`
+          : `Температура воды при смене – ${numRu(a, true)}–${numRu(b, true)} °C.`
       push('water_trim', { id: 'vase_water_temp_celsius', text })
     }
   }
@@ -171,8 +171,8 @@ export function buildCareDisplaySections(rules: CareRuleRow[]): CareDisplaySecti
       const [a, b] = p
       const text =
         a === b
-          ? `Температура помещения для показа — примерно ${numRu(a)} °C.`
-          : `Температура помещения для показа — примерно ${numRu(a)}–${numRu(b)} °C.`
+          ? `Температура помещения для показа – примерно ${numRu(a)} °C.`
+          : `Температура помещения для показа – примерно ${numRu(a)}–${numRu(b)} °C.`
       push('temperature', { id: 'display_room_temp_celsius', text })
     }
   }
@@ -194,7 +194,7 @@ export function buildCareDisplaySections(rules: CareRuleRow[]): CareDisplaySecti
   if (angle && (angle.kind === 'integer' || angle.kind === 'decimal')) {
     const n = getNum(angle)
     if (n != null) {
-      push('water_trim', { id: 'cut_angle_degrees', text: `Угол среза стебля — ${numRu(n)}°.` })
+      push('water_trim', { id: 'cut_angle_degrees', text: `Угол среза стебля – ${numRu(n)}°.` })
     }
   }
 

@@ -36,7 +36,7 @@ export function basicPeriodicNeedClearedOnly(
   return false
 }
 
-/** Когда наступила basic_next_care_date — якорь цикла и сдвиг следующей даты (как advance_basic_shop_calendar_if_due). */
+/** Когда наступила basic_next_care_date – якорь цикла и сдвиг следующей даты (как advance_basic_shop_calendar_if_due). */
 export function advanceBasicShopCalendarIfDue(db: DemoDb, shopUid: number): boolean {
   const owner = db.users.find((u) => u.id === shopUid && u.role === 'owner')
   if (!owner || owner.warehouse_mode !== 'basic') return false

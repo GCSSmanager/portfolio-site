@@ -53,7 +53,7 @@ export const CONFLICT_TEMPLATES: Record<ConflictKind, Omit<ScheduleConflict, "ki
   employee_diagnostic: {
     title: "Специалист на диагностике",
     shortLabel: "диагностика",
-    hint: "На это время стоит окно диагностики — обычная запись недоступна.",
+    hint: "На это время стоит окно диагностики – обычная запись недоступна.",
     tone: "danger",
   },
   client_busy: {
@@ -232,7 +232,7 @@ export function getAppointmentConflict({
     if (features.diagnosticBookingMode === "day") {
       if (employeeOnDiagnosticDay(employee.id, date, diagnosticPeriods)) {
         return conflict("employee_diagnostic", {
-          hint: "Специалист в периоде диагностики — день недоступен для записей.",
+          hint: "Специалист в периоде диагностики – день недоступен для записей.",
         });
       }
     } else {

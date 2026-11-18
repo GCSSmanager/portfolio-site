@@ -54,5 +54,5 @@ export function formatClientCategories(
   for (const category of CLIENT_CATEGORY_OPTIONS) {
     if (categories.includes(category.value)) parts.push(CLIENT_CATEGORY_LABELS[category.value]);
   }
-  return parts.length > 0 ? parts.join(" · ") : "—";
+  return parts.length > 0 ? parts.join(" · ") : "–";
 }

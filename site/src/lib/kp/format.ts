@@ -30,11 +30,11 @@ function daysWord(n: number) {
 }
 
 export function formatDays(n: number) {
-  return n ? `${n} ${daysWord(n)}` : '—'
+  return n ? `${n} ${daysWord(n)}` : '–'
 }
 
 export function formatWorkDays(n: number) {
-  if (!n) return '—'
+  if (!n) return '–'
   const word = daysWord(n)
   if (word === 'день') return `${n} рабочий день`
   if (word === 'дня') return `${n} рабочих дня`

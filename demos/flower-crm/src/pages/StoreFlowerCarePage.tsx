@@ -93,7 +93,7 @@ export function StoreFlowerCarePage() {
           </header>
           {data.care_editable && isOwner ? (
             <p className="crm-field__hint">
-              Чтобы изменить правила, откройте карточку цветка (✎) в списке — блок «Базовый уход».
+              Чтобы изменить правила, откройте карточку цветка (✎) в списке – блок «Базовый уход».
             </p>
           ) : data.care_editable && !isOwner ? (
             <p className="crm-field__hint">Изменение правил доступно только владельцу магазина.</p>

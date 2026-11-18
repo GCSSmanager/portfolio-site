@@ -31,7 +31,7 @@ export function ageYearsOnDate(birthDate: string | Date, onDate: string | Date):
   return age;
 }
 
-/** Диапазон по возрасту; null — вне детских полос или дата не указана. */
+/** Диапазон по возрасту; null – вне детских полос или дата не указана. */
 export function groupAgeRangeFromBirthDate(
   birthDate: string | Date | null | undefined,
   onDate: string | Date,
@@ -44,7 +44,7 @@ export function groupAgeRangeFromBirthDate(
   return null;
 }
 
-/** Без даты рождения — подходит к любой группе; без диапазона — все подходят. */
+/** Без даты рождения – подходит к любой группе; без диапазона – все подходят. */
 export function clientFitsGroupAgeRange(
   birthDate: string | Date | null | undefined,
   range: GroupAgeRange | null | undefined,

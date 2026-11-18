@@ -12,19 +12,19 @@ function textTip(title: string, body: string, ctaLabel?: string): DemoTipContent
   return { title, body, ctaLabel };
 }
 
-/** Контент оболочки клиники — слайды = выгода для бизнеса + место под gif. */
+/** Контент оболочки клиники – слайды = выгода для бизнеса + место под gif. */
 export const clinicDemoShell: DemoShellConfig = {
   id: "clinic",
   muteKey: "clinic-demo.tipsMuted",
   seenPrefix: "clinic-demo.tipSeen.",
   welcome: textTip(
     "Интерактивное демо",
-    "Здесь можно свободно менять записи, клиентов, справочники и настройки — всё сохраняется только у Вас в браузере.\n\nСправа снизу логотип ГКСС открывает меню: подсказка текущей страницы с короткими роликами, включение и выключение подсказок, сброс демо и выход.",
+    "Здесь можно свободно менять записи, клиентов, справочники и настройки – всё сохраняется только у Вас в браузере.\n\nСправа снизу логотип ГКСС открывает меню: подсказка текущей страницы с короткими роликами, включение и выключение подсказок, сброс демо и выход.",
   ),
   pages: {
     "/": tip("Расписание", slides(
       {
-        headline: "Весь день клиники на одном экране — администратор сразу видит, кто свободен, и закрывает больше записей за смену",
+        headline: "Весь день клиники на одном экране – администратор сразу видит, кто свободен, и закрывает больше записей за смену",
         media: {
           kind: "gif",
           src: "tips/schedule-overview.gif",
@@ -32,7 +32,7 @@ export const clinicDemoShell: DemoShellConfig = {
         },
       },
       {
-        headline: "Автоподбор свободного окна за секунды — клиент записывается с первого звонка, а не «уходит подумать»",
+        headline: "Автоподбор свободного окна за секунды – клиент записывается с первого звонка, а не «уходит подумать»",
         media: {
           kind: "gif",
           src: "tips/schedule-autoslot.gif",
@@ -40,7 +40,7 @@ export const clinicDemoShell: DemoShellConfig = {
         },
       },
       {
-        headline: "Перенос записи с проверкой занятости — без двойных записей и скандалов у кабинета",
+        headline: "Перенос записи с проверкой занятости – без двойных записей и скандалов у кабинета",
         media: {
           kind: "gif",
           src: "tips/schedule-drag.gif",
@@ -48,7 +48,7 @@ export const clinicDemoShell: DemoShellConfig = {
         },
       },
       {
-        headline: "Печать расписания смены за клик — ресепшен и кабинеты работают без утреннего Excel",
+        headline: "Печать расписания смены за клик – ресепшен и кабинеты работают без утреннего Excel",
         media: {
           kind: "gif",
           src: "tips/schedule-print.gif",
@@ -58,7 +58,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/client-schedule": tip("Расписание клиента", slides(
       {
-        headline: "Создание и перенос занятий в карточке клиента — курс собирается за минуты, без звонков «куда поставить»",
+        headline: "Создание и перенос занятий в карточке клиента – курс собирается за минуты, без звонков «куда поставить»",
         media: {
           kind: "gif",
           src: "tips/client-schedule-edit.gif",
@@ -66,7 +66,7 @@ export const clinicDemoShell: DemoShellConfig = {
         },
       },
       {
-        headline: "Копирование слотов на неделю вперёд — администратор не набивает одно и то же вручную каждый день",
+        headline: "Копирование слотов на неделю вперёд – администратор не набивает одно и то же вручную каждый день",
         media: {
           kind: "gif",
           src: "tips/client-schedule-copypaste.gif",
@@ -76,7 +76,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/analytics": tip("Аналитика", slides(
       {
-        headline: "Загрузка специалистов на цифрах — видно, кого дозагрузить и где не нужен лишний найм",
+        headline: "Загрузка специалистов на цифрах – видно, кого дозагрузить и где не нужен лишний найм",
         media: {
           kind: "gif",
           src: "tips/analytics-employees.gif",
@@ -84,7 +84,7 @@ export const clinicDemoShell: DemoShellConfig = {
         },
       },
       {
-        headline: "Клиенты по визитам и категориям — спрос и состав базы без ручных сводок",
+        headline: "Клиенты по визитам и категориям – спрос и состав базы без ручных сводок",
         media: {
           kind: "gif",
           src: "tips/analytics-clients.gif",
@@ -94,7 +94,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/diagnostics": tip("Диагностика", slides(
       {
-        headline: "Периоды, окна и запись на комиссию в одном месте — обычное расписание специалистов не ломается",
+        headline: "Периоды, окна и запись на комиссию в одном месте – обычное расписание специалистов не ломается",
         media: {
           kind: "gif",
           src: "tips/diagnostics.gif",
@@ -104,7 +104,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/document-route": tip("Маршрутизация", slides(
       {
-        headline: "Чек-лист документов по курсу — видно, кто на курсе, кто заканчивает и кто уже закрыт",
+        headline: "Чек-лист документов по курсу – видно, кто на курсе, кто заканчивает и кто уже закрыт",
         media: {
           kind: "gif",
           src: "tips/document-route.gif",
@@ -114,7 +114,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/documents": tip("Документы", slides(
       {
-        headline: "Пакет Word заполняется из карточки клиента за минуты — без ручного копирования ФИО и дат",
+        headline: "Пакет Word заполняется из карточки клиента за минуты – без ручного копирования ФИО и дат",
         media: {
           kind: "gif",
           src: "tips/documents.gif",
@@ -124,7 +124,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/directories": tip("Справочники", slides(
       {
-        headline: "Карточка клиента под рукой — телефон, курс и история без блокнотов и переписки в чатах",
+        headline: "Карточка клиента под рукой – телефон, курс и история без блокнотов и переписки в чатах",
         media: {
           kind: "gif",
           src: "tips/directories-clients.gif",
@@ -132,7 +132,7 @@ export const clinicDemoShell: DemoShellConfig = {
         },
       },
       {
-        headline: "Специалисты с графиком и кабинетами — смена сразу видит, кого можно записать",
+        headline: "Специалисты с графиком и кабинетами – смена сразу видит, кого можно записать",
         media: {
           kind: "gif",
           src: "tips/directories-employees.gif",
@@ -142,7 +142,7 @@ export const clinicDemoShell: DemoShellConfig = {
     )),
     "/users": tip("Пользователи", slides(
       {
-        headline: "Свои роли со своими доступами — администратор, специалист и директор видят только своё",
+        headline: "Свои роли со своими доступами – администратор, специалист и директор видят только своё",
         media: {
           kind: "gif",
           src: "tips/users.gif",

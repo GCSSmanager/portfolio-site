@@ -6,12 +6,12 @@ export function CrmAboutUs() {
           <div className="crm-about-us__copy">
             <p className="section__eyebrow">О компании</p>
             <p className="crm-about-us__lead">
-              ГКСС — это команда <span className="crm-about-us__blob">опытных и ответственных</span> специалистов. Мы помогаем бизнесу расти и зарабатывать, разрабатывая{' '}
+              ГКСС – это команда <span className="crm-about-us__blob">опытных и ответственных</span> специалистов. Мы помогаем бизнесу расти и зарабатывать, разрабатывая{' '}
               <span className="crm-about-us__blob">продающие сайты</span> и внедряя эффективные{' '}
               <span className="crm-about-us__blob">CRM-системы</span>.
             </p>
             <p className="crm-about-us__lead">
-              Программисты, тестировщики, дизайнеры и менеджеры работают вместе — ради{' '}
+              Программисты, тестировщики, дизайнеры и менеджеры работают вместе – ради{' '}
               <span className="crm-about-us__blob">успеха Вашего бизнеса</span>.
             </p>
           </div>

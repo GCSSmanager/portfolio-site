@@ -465,7 +465,7 @@ export function TasksPage() {
             count={(data.sections ?? []).length}
             expanded={sectionsOpen.taskSections}
             onToggle={() => setSectionsOpen((s) => ({ ...s, taskSections: !s.taskSections }))}
-            emptyHint="Свои разделы пока не созданы — «Новый раздел»"
+            emptyHint="Свои разделы пока не созданы – «Новый раздел»"
             allowEmptyBody
             className="tasks-page__panel"
           >
@@ -474,7 +474,7 @@ export function TasksPage() {
                 <li key={s.id} className="tasks-page__row tasks-page__row--builtin">
                   <div className="tasks-page__row-body">
                     <strong className="tasks-page__name">{s.name}</strong>
-                    <p className="tasks-page__desc">Встроенный раздел — нельзя переименовать или удалить</p>
+                    <p className="tasks-page__desc">Встроенный раздел – нельзя переименовать или удалить</p>
                   </div>
                 </li>
               ))}
@@ -541,7 +541,7 @@ export function TasksPage() {
             count={customTasks.length}
             expanded={sectionsOpen.custom}
             onToggle={() => setSectionsOpen((s) => ({ ...s, custom: !s.custom }))}
-            emptyHint="Пока нет пользовательских задач — нажмите «Новая задача»"
+            emptyHint="Пока нет пользовательских задач – нажмите «Новая задача»"
             allowEmptyBody
             className="tasks-page__panel"
           >

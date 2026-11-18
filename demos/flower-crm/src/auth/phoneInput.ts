@@ -1,5 +1,5 @@
 /**
- * Нормализация: «7» + до 10 цифр. Не начинается с 7 (кроме 8→7) — добавляется 7.
+ * Нормализация: «7» + до 10 цифр. Не начинается с 7 (кроме 8→7) – добавляется 7.
  */
 export function digitsFromPhoneInput(raw: string): string {
   let d = raw.replace(/\D/g, '')
@@ -14,7 +14,7 @@ export function digitsFromPhoneInput(raw: string): string {
 }
 
 /**
- * Backspace по скобке/тиру/пробелу не меняет «подряд цифр» — тогда считаем, что удаляют с конца: убираем последнюю цифру.
+ * Backspace по скобке/тиру/пробелу не меняет «подряд цифр» – тогда считаем, что удаляют с конца: убираем последнюю цифру.
  */
 export function applyPhoneFieldChange(prevDigits: string, prevDisplay: string, newRaw: string): string {
   if (!newRaw.trim()) {

@@ -30,7 +30,7 @@ const DURATION_OPTIONS = [15, 30, 45, 60, 75, 90, 120, 150, 180].map((value) => 
 function formatPeriodRange(startDate: string, endDate: string) {
   const start = format(parseISO(startDate.slice(0, 10)), "dd.MM.yyyy");
   const end = format(parseISO(endDate.slice(0, 10)), "dd.MM.yyyy");
-  return start === end ? start : `${start} — ${end}`;
+  return start === end ? start : `${start} – ${end}`;
 }
 
 function participantStatusToConflict(status: DiagnosticPeriodParticipantStatus | undefined): ScheduleConflict | null {
@@ -468,7 +468,7 @@ export function DiagnosticsPage() {
                       <ListSkeleton rows={4} />
                     ) : (slotsQ.data?.slots.length ?? 0) === 0 ? (
                       <div className="rounded-2xl border border-line bg-surface/60 px-4 py-6 text-sm text-ink-muted text-center">
-                        Интервалов пока нет — добавьте окна приёма выше
+                        Интервалов пока нет – добавьте окна приёма выше
                       </div>
                     ) : (
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
@@ -783,7 +783,7 @@ function DiagnosticPeriodForm({
             )}
           </div>
           <p className="mb-2 text-[11px] text-ink-muted">
-            Занятость записями не мешает — пересечения смотрите при добавлении слотов.
+            Занятость записями не мешает – пересечения смотрите при добавлении слотов.
           </p>
           <div className="grid grid-cols-2 gap-2">
             {employees.map((employee) => {
@@ -809,7 +809,7 @@ function DiagnosticPeriodForm({
                   {!checking && conflict && (
                     <div className="text-[10px] text-red-600 truncate" title={status?.detail ?? conflict.title}>
                       {conflict.shortLabel}
-                      {status?.detail ? ` · ${status.detail.split(" — ")[0]}` : ""}
+                      {status?.detail ? ` · ${status.detail.split(" – ")[0]}` : ""}
                     </div>
                   )}
                   {!checking && !conflict && available && !selected && (

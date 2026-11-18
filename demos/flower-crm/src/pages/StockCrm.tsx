@@ -278,7 +278,7 @@ export function StockCrm({ surface = 'warehouse' }: { surface?: StockCrmSurface 
     consumables: false,
   })
 
-  /** Снимок списка «Дела» с прошлого рендера — для короткой анимации исчезнувших карточек. */
+  /** Снимок списка «Дела» с прошлого рендера – для короткой анимации исчезнувших карточек. */
   const prevCareSnapshotRef = useRef<BatchRow[]>([])
   const syncDroppedLatestRef = useRef<Map<string, BatchRow>>(new Map())
   const leavingScheduledRef = useRef<Set<string>>(new Set())
@@ -709,7 +709,7 @@ export function StockCrm({ surface = 'warehouse' }: { surface?: StockCrmSurface 
     [batchesInStock, retailForSale, bouquetsForSale],
   )
 
-  /** В заказе нет «букета на заказ» — только готовые позиции склада (как в проде). */
+  /** В заказе нет «букета на заказ» – только готовые позиции склада (как в проде). */
   const orderStockOptions = useMemo(
     () => saleStockOptions.filter((o) => o.kind !== 'custom_bouquet'),
     [saleStockOptions],
@@ -1757,7 +1757,7 @@ export function StockCrm({ surface = 'warehouse' }: { surface?: StockCrmSurface 
     }
     const bouquetCount = bouquetAssembleCount
     if (bouquetCount < 1) {
-      setBouquetAssembleError('Количество букетов — целое число не меньше 1.')
+      setBouquetAssembleError('Количество букетов – целое число не меньше 1.')
       setBouquetAssembleInvalid('qty')
       return
     }
@@ -2030,7 +2030,7 @@ export function StockCrm({ surface = 'warehouse' }: { surface?: StockCrmSurface 
       }
       const quantity = Number.parseInt(ln.qty.trim(), 10)
       if (!Number.isFinite(quantity) || quantity < 1) {
-        setIntakeFormError('В каждой заполненной строке количество — целое число не меньше 1.')
+        setIntakeFormError('В каждой заполненной строке количество – целое число не меньше 1.')
         setIntakeInvalidField('lines')
         return
       }
@@ -2494,7 +2494,7 @@ export function StockCrm({ surface = 'warehouse' }: { surface?: StockCrmSurface 
             </div>
             <div className="crm-home-deals" aria-label="Список дел по категориям">
               {!hasUnderlyingHomeTasks && (batches?.length ?? 0) > 0 ? (
-                <p className="crm-care-empty">Все партии в порядке — подрезка и вода по графику, цены на остатки заданы.</p>
+                <p className="crm-care-empty">Все партии в порядке – подрезка и вода по графику, цены на остатки заданы.</p>
               ) : !hasUnderlyingHomeTasks ? (
                 <p className="crm-care-empty">Запланированных поставок на сегодня и ранее нет.</p>
               ) : (

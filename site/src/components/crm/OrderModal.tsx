@@ -58,7 +58,7 @@ export function OrderModal({
               {showDeal ? (
                 <div className="crm-order-deal">
                   <span className="crm-order-deal__badge">−10%</span>
-                  <p className="crm-order-deal__text">Скидка при заказе с сайта — зафиксируем в заявке</p>
+                  <p className="crm-order-deal__text">Скидка при заказе с сайта – зафиксируем в заявке</p>
                 </div>
               ) : null}
               <form

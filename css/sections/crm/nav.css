@@ -1,4 +1,4 @@
-/* CRM — sticky header, icons → burger */
+/* CRM – sticky header, icons → burger */
 
 .nav--crm {
   position: sticky;
@@ -585,7 +585,7 @@
   }
 }
 
-@media (max-width: 31rem) { /* слово «меню» скрыто, бургер — только полоски */
+@media (max-width: 31rem) { /* слово «меню» скрыто, бургер – только полоски */
   .nav__burger {
     justify-content: center;
     gap: 0;

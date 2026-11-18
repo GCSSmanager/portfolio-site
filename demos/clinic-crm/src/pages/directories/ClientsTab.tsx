@@ -298,9 +298,9 @@ export function ClientsTab() {
                         <Td>
                           <ClientCategoryBadges ageCategory={c.ageCategory} categories={c.categories} compact />
                         </Td>
-                        <Td className="text-ink-muted">{c.phone ?? "—"}</Td>
-                        <Td className="text-ink-muted">{c.group?.name ?? "—"}</Td>
-                        <Td className="text-xs text-ink-muted">{c.note ?? "—"}</Td>
+                        <Td className="text-ink-muted">{c.phone ?? "–"}</Td>
+                        <Td className="text-ink-muted">{c.group?.name ?? "–"}</Td>
+                        <Td className="text-xs text-ink-muted">{c.note ?? "–"}</Td>
                         <Td className="space-x-2 text-right">
                           {canOpenCard && (
                             <Button variant="ghost" className="!h-8 !px-3" onClick={() => setCardClientId(c.id)}>
@@ -459,8 +459,8 @@ function ClientHistoryModal({
               <h2 className="text-lg font-semibold text-ink">{data.client.fullName}</h2>
               <div className="mt-3 space-y-2 text-sm">
                 <InfoLine label="Категории" value={formatClientCategories(data.client.ageCategory, data.client.categories)} />
-                <InfoLine label="Телефон" value={data.client.phone ?? "—"} />
-                <InfoLine label="Группа" value={data.client.group?.name ?? "—"} />
+                <InfoLine label="Телефон" value={data.client.phone ?? "–"} />
+                <InfoLine label="Группа" value={data.client.group?.name ?? "–"} />
               </div>
               {data.client.note && (
                 <div className="mt-4 rounded-2xl bg-surface px-3 py-2 text-sm text-ink-muted">
@@ -550,7 +550,7 @@ function HistoryCourseRow({ course }: { course: ClientCourse }) {
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-sm font-semibold tabular-nums text-ink">
           {prettyDate(course.startedAt)}
-          {course.completedAt ? ` — ${prettyDate(course.completedAt)}` : ""}
+          {course.completedAt ? ` – ${prettyDate(course.completedAt)}` : ""}
         </span>
         <span
           className={[
@@ -660,7 +660,7 @@ function ClientForm({ open, item, groups, onClose, onSave, loading }: {
       setGroupId(item?.groupId ?? "");
       setAgeCategory(item?.ageCategory ?? "");
       setCategories(item?.categories ?? []);
-      // Новый клиент — по умолчанию первичный; уже в базе без флага — повторный.
+      // Новый клиент – по умолчанию первичный; уже в базе без флага – повторный.
       setIsPrimary(item ? !!item.isPrimary : true);
     }
   }
@@ -718,7 +718,7 @@ function ClientForm({ open, item, groups, onClose, onSave, loading }: {
             value={groupId}
             onChange={setGroupId}
             options={[
-              { value: "", label: "— без группы —" },
+              { value: "", label: "– без группы –" },
               ...groups.map((g) => ({ value: g.id, label: g.name })),
             ]}
             placeholder="Выберите группу"
@@ -733,7 +733,7 @@ function ClientForm({ open, item, groups, onClose, onSave, loading }: {
         />
         {!isPrimary && (
           <p className="text-xs text-ink-muted -mt-2">
-            Снимите галочку, если клиент уже бывал раньше — в статистике он будет повторным.
+            Снимите галочку, если клиент уже бывал раньше – в статистике он будет повторным.
           </p>
         )}
         <ModalFooter

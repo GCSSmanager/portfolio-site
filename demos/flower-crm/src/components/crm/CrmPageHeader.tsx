@@ -24,7 +24,7 @@ type Props = {
   showSupplierDelivery?: boolean
   /** Владелец: новый приход и новый товар без срока (на главной и на складе). */
   showStockReceivingActions?: boolean
-  /** На складе товар создают в разделе «Товары без срока» — кнопку в шапке можно скрыть. */
+  /** На складе товар создают в разделе «Товары без срока» – кнопку в шапке можно скрыть. */
   showHeaderRetailProduct?: boolean
   onOpenSupplierDelivery: () => void
   onOpenIntake: () => void

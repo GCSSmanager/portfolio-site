@@ -23,7 +23,7 @@ function loadMinutes(employeeId: string, appointments: Appointment[]) {
     .reduce((sum, a) => sum + (a.endMin - a.startMin), 0);
 }
 
-/** Конец последней записи клиента в этот день — якорь для последовательности автоподбора. */
+/** Конец последней записи клиента в этот день – якорь для последовательности автоподбора. */
 export function clientLastEndOnDay(
   clientId: string | undefined,
   date: string,
@@ -41,7 +41,7 @@ export function clientLastEndOnDay(
   return lastEnd;
 }
 
-/** Чем меньше score — тем лучше. При якоре клиента сначала слоты после его последней записи. */
+/** Чем меньше score – тем лучше. При якоре клиента сначала слоты после его последней записи. */
 function scoreSuggestionStart(startMin: number, anchorMin: number | null, employeeLoad = 0) {
   const load = employeeLoad * 0.18;
   if (anchorMin == null) return startMin + load;

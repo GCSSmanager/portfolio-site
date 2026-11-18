@@ -14,7 +14,7 @@ export function CrmPriceField({
   invalid,
   className: inputExtraClass,
   autoComplete = 'off',
-  placeholder = '—',
+  placeholder = '–',
   type: inputType = 'text',
   inputMode: inputModeProp = 'decimal',
   ...inputProps

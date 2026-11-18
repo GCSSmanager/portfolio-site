@@ -20,7 +20,7 @@ export function ClientCategoryBadges({
   const hasAge = !!ageCategory;
   const tags = categories ?? [];
   if (!hasAge && tags.length === 0) {
-    return <span className="text-ink-muted">—</span>;
+    return <span className="text-ink-muted">–</span>;
   }
 
   return (

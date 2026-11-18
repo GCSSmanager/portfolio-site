@@ -7,7 +7,7 @@ export function normalizeTaxonSearchQuery(raw: string): string {
   return s.trim().replace(/\s+/g, ' ')
 }
 
-/** Ответ GET /api/taxons/search/?q=… (при supplier_id — закупка из SupplierOffer). */
+/** Ответ GET /api/taxons/search/?q=… (при supplier_id – закупка из SupplierOffer). */
 export type TaxonSearchHit = {
   id: number
   name: string
@@ -18,7 +18,7 @@ export type TaxonSearchHit = {
   unit_purchase_price?: number | null
 }
 
-/** Токены запроса в нижнем регистре — как `_taxon_search_words` на бэкенде. */
+/** Токены запроса в нижнем регистре – как `_taxon_search_words` на бэкенде. */
 export function taxonSearchQueryWords(normalizedQuery: string): string[] {
   return normalizedQuery
     .toLowerCase()

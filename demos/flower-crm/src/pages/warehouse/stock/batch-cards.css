@@ -1,6 +1,6 @@
 /* StockCrm: карточка партии (мини)
-   — Приёмка: одна сплошная тонкая рамка (фиолетовая), без смешения с уходом по графику.
-   — Подрезка / вода / оба: диагональный градиент фона (угол–угол) + рамки как раньше.
+   – Приёмка: одна сплошная тонкая рамка (фиолетовая), без смешения с уходом по графику.
+   – Подрезка / вода / оба: диагональный градиент фона (угол–угол) + рамки как раньше.
    Hover: только brightness, границы не перетираются. */
 
 .crm-batch-grid > li {
@@ -24,7 +24,7 @@
   }
 }
 
-/* Карточка выпала из «Дела» — исчезновение на месте (после истечения окна отката / синка) */
+/* Карточка выпала из «Дела» – исчезновение на месте (после истечения окна отката / синка) */
 .crm-batch-grid > li.crm-batch-grid__item--exiting {
   animation: crm-batch-card-exit 0.48s ease-out forwards;
   pointer-events: none;
@@ -52,21 +52,21 @@
   filter: brightness(0.985);
 }
 
-/* Только приёмка — одна сплошная рамка */
+/* Только приёмка – одна сплошная рамка */
 .crm-card-mini--intake {
   border-width: var(--crm-card-accent-border, 2px);
   border-color: var(--crm-intake-frame);
   background: var(--c-tint-accent);
 }
 
-/* Только подрезка — вся рамка + градиент «тепло» по диагонали */
+/* Только подрезка – вся рамка + градиент «тепло» по диагонали */
 .crm-card-mini--care-trim {
   border-width: var(--crm-card-accent-border, 2px);
   border-color: var(--crm-care-trim-edge);
   background: var(--crm-care-trim-bg);
 }
 
-/* Только вода — вся рамка + градиент «холод» по диагонали */
+/* Только вода – вся рамка + градиент «холод» по диагонали */
 .crm-card-mini--care-water {
   border-width: var(--crm-card-accent-border, 2px);
   border-color: var(--crm-care-water-edge);
@@ -296,7 +296,7 @@
   background: var(--gradient-batch-bouquet);
 }
 
-/* @deprecated — use .crm-bouquet-recipe-list */
+/* @deprecated – use .crm-bouquet-recipe-list */
 .crm-bouquet-flowers {
   list-style: none;
   margin: 0.2rem 0 0;
@@ -409,7 +409,7 @@
   color: var(--crm-ink);
 }
 
-/* Плановая поставка: прайс в верхнем ряду карточки (стили строки — ниже, .crm-delivery-lines__row-top) */
+/* Плановая поставка: прайс в верхнем ряду карточки (стили строки – ниже, .crm-delivery-lines__row-top) */
 .crm-delivery-lines__plan-offer--inline {
   display: flex;
   flex-direction: row;
@@ -599,7 +599,7 @@
   align-self: center;
 }
 
-/* Должен идти после базового .crm-delivery-lines__qty — иначе column перебивает row */
+/* Должен идти после базового .crm-delivery-lines__qty – иначе column перебивает row */
 .crm-delivery-lines__qty.crm-delivery-lines__qty--inline {
   display: flex;
   flex-direction: row;

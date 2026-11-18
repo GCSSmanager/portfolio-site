@@ -6,7 +6,7 @@ import { employeeShift } from "../schedule";
 
 export interface ScheduleDayBlock extends Interval {
   label: string;
-  /** Если задан — блок отсутствия, кликабельный и с подписью в каждом часе. */
+  /** Если задан – блок отсутствия, кликабельный и с подписью в каждом часе. */
   absenceId?: string;
   /** Блок диагностики: подпись скрывать на занятых слотах. */
   isDiagnostic?: boolean;

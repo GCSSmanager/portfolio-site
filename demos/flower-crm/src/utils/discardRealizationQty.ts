@@ -8,7 +8,7 @@ export function realizationBalanceError(minRequired: number): string {
 }
 
 /**
- * Списание / инвентаризация: n — на складе, m — на реализации, k — списать, r — с реализации.
+ * Списание / инвентаризация: n – на складе, m – на реализации, k – списать, r – с реализации.
  * r ≤ m, r ≤ k, k ≤ n, (k − r) ≤ (n − m).
  */
 export function validateDiscardRealizationQty(
@@ -35,7 +35,7 @@ export function validateDiscardRealizationQty(
 }
 
 /**
- * Приёмка: m — реал. в накладной, d — брак, g — на склад (принято − брак), r — брак из реализации.
+ * Приёмка: m – реал. в накладной, d – брак, g – на склад (принято − брак), r – брак из реализации.
  * r ≤ m, r ≤ d, (m − r) ≤ g.
  */
 export function validateReceiveRealizationDefectQty(

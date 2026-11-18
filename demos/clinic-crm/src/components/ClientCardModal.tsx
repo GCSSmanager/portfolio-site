@@ -160,7 +160,7 @@ export function ClientCardModal({ clientId, onClose }: Props) {
             </div>
             <div className="flex justify-between gap-3">
               <span className="text-ink-muted">Телефон</span>
-              <span className="font-medium text-ink">{data.client.phone || "—"}</span>
+              <span className="font-medium text-ink">{data.client.phone || "–"}</span>
             </div>
             {data.client.group?.name && (
               <div className="flex justify-between gap-3">
@@ -450,7 +450,7 @@ function PastCourseBlock({
           <>
             <span className="font-medium text-ink">
               {prettyDate(course.startedAt)}
-              {course.completedAt ? ` — ${prettyDate(course.completedAt)}` : ""}
+              {course.completedAt ? ` – ${prettyDate(course.completedAt)}` : ""}
             </span>
             <div className="flex items-center gap-1">
               <Button

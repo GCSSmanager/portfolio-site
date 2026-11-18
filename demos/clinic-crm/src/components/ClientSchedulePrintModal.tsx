@@ -82,8 +82,8 @@ export function ClientSchedulePrintModal({
       ? selectedClient.fullName
       : "Расписание клиента";
   const subtitle = scheduleMeta?.isGroupSchedule
-    ? `${startDate} — ${endDate}`
-    : `${startDate} — ${endDate}`;
+    ? `${startDate} – ${endDate}`
+    : `${startDate} – ${endDate}`;
   const showClientName = !!scheduleMeta?.isGroupSchedule;
   const printDates = sortedScheduleDates(entries);
   const pagePrintPages = useMemo(() => {

@@ -17,7 +17,7 @@ function todayStr() {
 }
 
 function periodLabel(a: Absence) {
-  return `${format(parseISO(a.startDate.slice(0, 10)), "dd.MM.yyyy")} — ${format(parseISO(a.endDate.slice(0, 10)), "dd.MM.yyyy")}`;
+  return `${format(parseISO(a.startDate.slice(0, 10)), "dd.MM.yyyy")} – ${format(parseISO(a.endDate.slice(0, 10)), "dd.MM.yyyy")}`;
 }
 
 function timeLabel(a: Absence) {
@@ -124,7 +124,7 @@ export function AbsencesTab() {
               {rows.map((a: Absence) => (
                 <div key={a.id} className="rounded-2xl border border-line bg-surface/40 p-3">
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-semibold text-ink">{a.employee?.shortName ?? "—"}</div>
+                    <div className="truncate text-sm font-semibold text-ink">{a.employee?.shortName ?? "–"}</div>
                     <div className="mt-0.5 text-xs text-ink-muted">{ABSENCE_LABELS[a.type]}</div>
                     <div className="mt-1 text-xs text-ink-muted">
                       {periodLabel(a)} · {timeLabel(a)}
@@ -158,11 +158,11 @@ export function AbsencesTab() {
                 <tbody>
                   {rows.map((a: Absence) => (
                     <tr key={a.id} className="hover:bg-surface/60">
-                      <Td>{a.employee?.shortName ?? "—"}</Td>
+                      <Td>{a.employee?.shortName ?? "–"}</Td>
                       <Td>{ABSENCE_LABELS[a.type]}</Td>
                       <Td className="whitespace-nowrap text-xs text-ink-muted">{periodLabel(a)}</Td>
                       <Td className="text-xs text-ink-muted">{timeLabel(a)}</Td>
-                      <Td className="text-xs text-ink-muted">{a.note ?? "—"}</Td>
+                      <Td className="text-xs text-ink-muted">{a.note ?? "–"}</Td>
                       <Td className="space-x-2 text-right">
                         <Button variant="ghost" className="!h-8 !px-3" onClick={() => setEditing(a)}>
                           Изменить

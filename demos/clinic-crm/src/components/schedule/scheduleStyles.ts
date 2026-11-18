@@ -6,7 +6,7 @@ export const scheduleZ = {
   diagnostic: "z-10",
   appointment: "z-20",
   appointmentHover: "z-30",
-  /** Подсказки слотов / вставки — ниже sticky осей. */
+  /** Подсказки слотов / вставки – ниже sticky осей. */
   pasteTarget: "z-[35]",
   /** Левая ось ниже верхней, иначе при вертикальном скролле даты наползают на шапку часов. */
   stickyLeft: "z-[40]",

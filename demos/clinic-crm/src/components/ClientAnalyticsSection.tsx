@@ -312,8 +312,8 @@ function ClientAnalyticsCard({ item }: { item: ClientAnalyticsItem }) {
           <MiniMetric label="Визиты" value={String(item.visitCount)} />
           <MiniMetric label="Неявки" value={String(item.noShowCount)} />
           <MiniMetric label="Часы" value={hours(item.visitMinutes)} />
-          <MiniMetric label="Первый визит" value={item.firstVisitDate ? dayLabel(item.firstVisitDate) : "—"} />
-          <MiniMetric label="Последний визит" value={item.lastVisitDate ? dayLabel(item.lastVisitDate) : "—"} />
+          <MiniMetric label="Первый визит" value={item.firstVisitDate ? dayLabel(item.firstVisitDate) : "–"} />
+          <MiniMetric label="Последний визит" value={item.lastVisitDate ? dayLabel(item.lastVisitDate) : "–"} />
         </div>
 
         {item.topService && (

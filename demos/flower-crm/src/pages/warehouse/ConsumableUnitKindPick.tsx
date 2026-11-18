@@ -3,7 +3,7 @@ import type { ConsumableUnitKind } from '../../components/crm/stock/types'
 import { CrmPickField, type CrmPickOption } from './CrmPickField'
 
 const OPTIONS: CrmPickOption[] = [
-  { value: 'meter', label: 'Сантиметры', meta: 'лента, плёнка — приход в метрах на катушку' },
+  { value: 'meter', label: 'Сантиметры', meta: 'лента, плёнка – приход в метрах на катушку' },
   { value: 'piece', label: 'Штуки', meta: 'упаковки, оазис, держатели' },
 ]
 

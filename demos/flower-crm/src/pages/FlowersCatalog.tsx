@@ -396,7 +396,7 @@ export function FlowersCatalog() {
       !searchLoading &&
       searchHits &&
       searchHits.length === 0 ? (
-        <p className={crmPageStatusPanelClass()}>Ничего не найдено — уточните запрос.</p>
+        <p className={crmPageStatusPanelClass()}>Ничего не найдено – уточните запрос.</p>
       ) : null}
 
       {!error &&

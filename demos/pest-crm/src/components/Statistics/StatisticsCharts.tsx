@@ -262,7 +262,7 @@ export default function StatisticsCharts({
                         Number(chartDaily[hover].adSpend) || 0,
                         chartDaily[hover].createdPrimaryCount ?? 0,
                       );
-                      return value == null ? '—' : `${formatValue(value)} ₽`;
+                      return value == null ? '–' : `${formatValue(value)} ₽`;
                     })()}
                   </span>
                 </div>

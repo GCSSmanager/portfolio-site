@@ -1,4 +1,4 @@
-/* FlowerFlow — premium selling landing */
+/* FlowerFlow – premium selling landing */
 
 .landing-page {
   --lp-ink: var(--c-ink);
@@ -36,7 +36,7 @@
   color: var(--lp-lime);
 }
 
-/* —— Botanical decor —— */
+/* –– Botanical decor –– */
 .lp-decor {
   position: absolute;
   display: block;
@@ -107,7 +107,7 @@
   }
 }
 
-/* —— Header —— */
+/* –– Header –– */
 .landing-page__header {
   position: fixed;
   inset: 0 0 auto;
@@ -155,7 +155,7 @@
   }
 }
 
-/* —— Hero —— */
+/* –– Hero –– */
 .lp-hero {
   position: relative;
   display: grid;
@@ -453,7 +453,7 @@
   }
 }
 
-/* —— Marquee —— */
+/* –– Marquee –– */
 .landing-marquee {
   overflow: hidden;
   padding: 0.75rem 0;
@@ -484,7 +484,7 @@
   }
 }
 
-/* —— Problems —— */
+/* –– Problems –– */
 .lp-problems {
   padding: clamp(3.5rem, 9vw, 6rem) var(--lp-pad);
   background: linear-gradient(180deg, var(--lp-cream), var(--lp-paper));
@@ -575,7 +575,7 @@
   color: var(--lp-ink);
 }
 
-/* —— Steps —— */
+/* –– Steps –– */
 .lp-steps {
   padding: clamp(3.5rem, 9vw, 6rem) var(--lp-pad);
   background: var(--lp-cream);
@@ -659,7 +659,7 @@
   color: var(--lp-muted);
 }
 
-/* —— Features (vertical) —— */
+/* –– Features (vertical) –– */
 .lp-feat {
   padding: clamp(3.5rem, 9vw, 6.5rem) var(--lp-pad);
   background: linear-gradient(180deg, var(--lp-cream), var(--lp-paper));
@@ -796,7 +796,7 @@
   object-position: top center;
 }
 
-/* —— Home cluster: 4 плавающие карточки —— */
+/* –– Home cluster: 4 плавающие карточки –– */
 .lp-feat__media--home {
   will-change: transform;
 }
@@ -887,7 +887,7 @@
   animation: lp-float 6s ease-in-out infinite;
 }
 
-/* —— Compare —— */
+/* –– Compare –– */
 .lp-compare {
   padding: clamp(3.5rem, 9vw, 6rem) var(--lp-pad);
   background: linear-gradient(180deg, var(--lp-paper), var(--lp-cream));
@@ -1011,7 +1011,7 @@
   }
 }
 
-/* Узкие экраны: карточки в столбик — показываем контраст статично, без наведения */
+/* Узкие экраны: карточки в столбик – показываем контраст статично, без наведения */
 @media (max-width: 819px) {
   .lp-compare__card--before {
     opacity: 0.6;
@@ -1094,7 +1094,7 @@
   background: var(--lp-lime);
 }
 
-/* —— Metrics —— */
+/* –– Metrics –– */
 .lp-metrics {
   padding: clamp(3.5rem, 9vw, 6rem) var(--lp-pad);
   background: var(--lp-cream);
@@ -1200,7 +1200,7 @@
   color: var(--lp-muted);
 }
 
-/* —— Testimonials —— */
+/* –– Testimonials –– */
 .lp-quote {
   padding: clamp(3.5rem, 9vw, 6rem) var(--lp-pad);
   background: linear-gradient(180deg, var(--lp-cream), var(--lp-paper));
@@ -1316,7 +1316,7 @@
   color: var(--lp-muted);
 }
 
-/* —— FAQ —— */
+/* –– FAQ –– */
 .lp-faq {
   padding: clamp(3.5rem, 9vw, 6rem) var(--lp-pad);
   background: var(--lp-paper);
@@ -1391,7 +1391,7 @@
   color: var(--lp-muted);
 }
 
-/* —— Final CTA —— */
+/* –– Final CTA –– */
 .lp-cta {
   display: flex;
   justify-content: center;
@@ -1445,7 +1445,7 @@
   color: var(--lp-muted);
 }
 
-/* —— Footer —— */
+/* –– Footer –– */
 .landing-footer {
   display: flex;
   flex-wrap: wrap;

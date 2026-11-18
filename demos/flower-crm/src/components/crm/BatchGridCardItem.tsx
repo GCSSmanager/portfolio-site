@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode
 }
 
-/** `<li>` нельзя сразу с классом выхода — keyframes не стартуют; класс вешается на следующий кадр. */
+/** `<li>` нельзя сразу с классом выхода – keyframes не стартуют; класс вешается на следующий кадр. */
 export function BatchGridCardItem({ exitIntent, children }: Props) {
   const [exitClassOn, setExitClassOn] = useState(false)
 

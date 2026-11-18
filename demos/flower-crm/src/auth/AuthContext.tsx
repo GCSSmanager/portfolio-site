@@ -73,7 +73,7 @@ type AuthContextValue = {
   subscriptionActive: boolean
   /** ISO-дата окончания подписки или null (бессрочно). */
   subscriptionUntil: string | null
-  /** Владелец магазина — полный доступ; флорист — ограниченный; customer — личный аккаунт. */
+  /** Владелец магазина – полный доступ; флорист – ограниченный; customer – личный аккаунт. */
   role: FloristRole
   isOwner: boolean
   isCustomer: boolean

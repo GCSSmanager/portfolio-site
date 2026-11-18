@@ -32,7 +32,7 @@ interface Props {
   allowAttendance?: boolean;
   /** Клик по слоту только для отметки отсутствия (специалист). */
   allowAbsenceOnly?: boolean;
-  /** Клик по отсутствию — открыть редактирование. */
+  /** Клик по отсутствию – открыть редактирование. */
   allowOpenAbsence?: boolean;
   /** После клика по свободному окну можно сменить специалиста (фильтр по специальности). */
   suggestionAllowPickSlot?: boolean;
@@ -152,7 +152,7 @@ export function ScheduleGrid({
     async (appointment: Appointment) => {
       if (!canOpenAppointments) return;
 
-      // Групповая услуга — всегда как занятие группы, даже если участник один
+      // Групповая услуга – всегда как занятие группы, даже если участник один
       // (иначе нет «+ Клиент» и нельзя добрать состав).
       if (appointment.groupSessionId && appointment.service.isGroup) {
         onOpenGroup([appointment]);

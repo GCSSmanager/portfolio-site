@@ -57,7 +57,7 @@ function notifySubscriptionExpired(): void {
 
 /**
  * Обёртка над fetch для API: при обрыве сети или ответе прокси 502/503/504
- * поднимает событие — приложение уходит на страницу «сервер недоступен».
+ * поднимает событие – приложение уходит на страницу «сервер недоступен».
  * По умолчанию credentials: 'include'.
  */
 export async function apiFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {

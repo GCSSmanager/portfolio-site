@@ -1,4 +1,4 @@
-/* CRM — partners marquee */
+/* CRM – partners marquee */
 
 .crm-partners {
   padding-block: var(--space-6) var(--space-5);
@@ -17,7 +17,7 @@
   overflow: hidden;
   margin-top: var(--space-5);
   padding-block: var(--space-3);
-  /* без боковой маски — она давала «пустоту» слева при прокрутке */
+  /* без боковой маски – она давала «пустоту» слева при прокрутке */
 }
 
 .crm-partners__track {
@@ -51,7 +51,7 @@
   align-items: center;
   justify-content: center;
   height: 4.25rem;
-  /* padding, не gap у списка — одинаковый шаг и на стыке двух копий ленты */
+  /* padding, не gap у списка – одинаковый шаг и на стыке двух копий ленты */
   padding-inline: clamp(1.5rem, 3.5vw, 2.75rem);
 }
 

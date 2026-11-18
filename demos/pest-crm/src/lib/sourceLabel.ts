@@ -36,7 +36,7 @@ const pathLabel = (segment: string): string => {
   return decoded;
 };
 
-/** Хост и первый сегмент path — только из исходной строки, как написано */
+/** Хост и первый сегмент path – только из исходной строки, как написано */
 const parseRawUrlParts = (full: string): { host: string; pathSeg: string } | null => {
   const href = full.trim();
   const m = href.match(/^(?:https?:\/\/)?([^\/\?#]+)(?:\/([^\/\?#]*))?/i);
@@ -54,7 +54,7 @@ export type SourceLabelInfo = {
 
 export function getSourceLabelInfo(source: string | null | undefined): SourceLabelInfo {
   const full = String(source || '').trim();
-  if (!full) return { short: '—', full: '—', isLong: false };
+  if (!full) return { short: '–', full: '–', isLong: false };
 
   if (!looksLikeUrl(full)) {
     return { short: full, full, isLong: full.length > 48 };

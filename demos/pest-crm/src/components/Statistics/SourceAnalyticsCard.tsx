@@ -234,7 +234,7 @@ export default function SourceAnalyticsCard({
                     </div>
                   </div>
                   <div className="shrink-0 text-right">
-                    <div className="font-semibold tabular-nums text-gray-900">{cashDesk ? formatMoney(cashDesk) : '—'}</div>
+                    <div className="font-semibold tabular-nums text-gray-900">{cashDesk ? formatMoney(cashDesk) : '–'}</div>
                     <div className="mt-1 text-xs text-gray-500">
                       <span className="text-green-700">{source.primary || 0} перв.</span>
                       <span className="mx-1">·</span>
@@ -279,10 +279,10 @@ export default function SourceAnalyticsCard({
                     </td>
                     <td className="px-3 py-2.5 text-right font-semibold text-gray-900">{source.count}</td>
                     <td className="px-3 py-2.5 text-right font-medium text-indigo-600">
-                      {conv && conv.conversion > 0 ? `${conv.conversion.toFixed(1)}%` : '—'}
+                      {conv && conv.conversion > 0 ? `${conv.conversion.toFixed(1)}%` : '–'}
                     </td>
-                    <td className="px-3 py-2.5 text-right font-medium text-green-700">{cashDesk ? formatMoney(cashDesk) : '—'}</td>
-                    <td className="px-4 py-2.5 text-right text-red-600">{source.cancelled || '—'}</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-green-700">{cashDesk ? formatMoney(cashDesk) : '–'}</td>
+                    <td className="px-4 py-2.5 text-right text-red-600">{source.cancelled || '–'}</td>
                   </tr>
                 );
               })}

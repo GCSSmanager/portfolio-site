@@ -21,7 +21,7 @@ export interface DemoTipSlide {
 export interface DemoTipContent {
   /** Служебный/навигационный заголовок модалки (раздел). */
   title: string;
-  /** Если нет slides — простой текст (welcome и текстовые подсказки). */
+  /** Если нет slides – простой текст (welcome и текстовые подсказки). */
   body?: string;
   ctaLabel?: string;
   media?: DemoMediaSlot;

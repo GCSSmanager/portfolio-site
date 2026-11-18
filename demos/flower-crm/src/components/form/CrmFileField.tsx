@@ -20,7 +20,7 @@ export type CrmFileFieldProps = {
 const isDemo = import.meta.env.VITE_DEMO_MODE === 'true'
 const DEMO_PHOTO_HINT = 'В демо загрузка фото недоступна.'
 
-/** Загрузка файла (фото и т.п.) — кастомная кнопка вместо нативного «Выберите файл». */
+/** Загрузка файла (фото и т.п.) – кастомная кнопка вместо нативного «Выберите файл». */
 export function CrmFileField({
   label,
   invalid = false,

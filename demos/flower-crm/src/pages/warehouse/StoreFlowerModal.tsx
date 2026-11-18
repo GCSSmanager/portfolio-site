@@ -57,7 +57,7 @@ export type StoreFlowerEntryInitial = {
   notes: string
   catalogTaxon: TaxonSearchHit | null
   careRules: StoreFlowerCareRuleDraft[]
-  /** Цена продажи за шт., ₽ (пусто — не задана). */
+  /** Цена продажи за шт., ₽ (пусто – не задана). */
   unitPrice: string
 }
 
@@ -295,7 +295,7 @@ export function StoreFlowerModal({
           onOpenChange={setCatalogDd}
           busy={catalogLoading}
           value={catalogQuery}
-          placeholder="Вид из каталога — клик для списка, от 1 буквы поиск"
+          placeholder="Вид из каталога – клик для списка, от 1 буквы поиск"
           onChange={(e) => {
             setCatalogQuery(e.target.value)
             setCatalogTaxon(null)
@@ -468,7 +468,7 @@ export function StoreFlowerModal({
           label="Цена продажи, ₽/шт"
           value={unitPrice}
           onChange={(e) => setUnitPrice(e.target.value)}
-          hint="Пусто — цена не задана (можно указать позже в «Ценах»)."
+          hint="Пусто – цена не задана (можно указать позже в «Ценах»)."
         />
         <CrmModal.Actions>
           {mode === 'edit' && onDelete != null ? (

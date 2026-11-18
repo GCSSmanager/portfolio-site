@@ -89,7 +89,7 @@ export function ClinicHoursCard({
                         onChange={(next) => updateDay(day.weekday, { startMin: timeToMin(next) })}
                       />
                     </div>
-                    <span className="hidden text-ink-muted sm:inline">—</span>
+                    <span className="hidden text-ink-muted sm:inline">–</span>
                     <div className="min-w-0 sm:w-40">
                       <TimePicker
                         value={minToTime(day.endMin)}

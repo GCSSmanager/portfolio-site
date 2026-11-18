@@ -23,7 +23,7 @@ export default function ClickToCallPhone({
   const display = formatPhoneRu(phone) || phone;
 
   if (!phone?.trim()) {
-    return <span className={className}>—</span>;
+    return <span className={className}>–</span>;
   }
 
   const openDemo = (e: React.MouseEvent) => {
@@ -78,7 +78,7 @@ export function ClickToCallPhoneList({
         .filter(Boolean);
 
   if (!list.length) {
-    return <span className={className}>—</span>;
+    return <span className={className}>–</span>;
   }
 
   return (

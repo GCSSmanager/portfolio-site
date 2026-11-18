@@ -129,7 +129,7 @@ export function employeeBusyForDate(
     busy.push({ startMin: shiftRow.lunchStartMin, endMin: shiftRow.lunchEndMin });
   }
 
-  // Режим диагностики: day — весь день; windows — только окна; parallel — не блокирует
+  // Режим диагностики: day – весь день; windows – только окна; parallel – не блокирует
   const mode = String(db.features?.diagnosticBookingMode ?? "windows").toLowerCase();
   if (mode !== "parallel") {
     for (const period of db.diagnosticPeriods) {
@@ -292,7 +292,7 @@ export function validateAppointmentWrite(
     serviceId: string;
     roomId?: string | null;
     groupSessionId?: string | null;
-    /** Перенос существующей группы — не валидировать как join */
+    /** Перенос существующей группы – не валидировать как join */
     movingExistingGroup?: boolean;
     excludeAppointmentId?: string;
     excludeAppointmentIds?: string[];

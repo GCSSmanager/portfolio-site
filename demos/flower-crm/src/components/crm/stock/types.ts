@@ -29,7 +29,7 @@ export type BatchRow = {
   photo_url?: string | null
   /** Интервал ухода (дней), только базовый режим */
   basic_care_interval_days?: number
-  /** Базовый режим: две строки списка по одному виду — только для PATCH basic-care */
+  /** Базовый режим: две строки списка по одному виду – только для PATCH basic-care */
   basic_batch_scope?: 'cleared' | 'intake_pending'
 }
 
@@ -216,7 +216,7 @@ export type HomeSectionRow = {
   sort_order: number
 }
 
-/** Ленты задач в разделе — назначение с бэкенда (ShopHomeSystemTask.section_id). */
+/** Ленты задач в разделе – назначение с бэкенда (ShopHomeSystemTask.section_id). */
 export type HomeSectionFeeds = {
   supplier_deliveries?: boolean
   intake?: boolean

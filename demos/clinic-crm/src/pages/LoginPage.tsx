@@ -76,7 +76,7 @@ export function LoginPage() {
 
         <div className="rounded-3xl border border-line bg-panel p-5 shadow-card">
           <div className="text-sm font-semibold text-ink">Тестовые доступы</div>
-          <p className="mt-1 text-xs text-ink-muted">Нажмите строку — подставим логин и пароль.</p>
+          <p className="mt-1 text-xs text-ink-muted">Нажмите строку – подставим логин и пароль.</p>
           <ul className="mt-3 divide-y divide-line">
             {DEMO_ACCOUNTS.map((account) => (
               <li key={account.username}>

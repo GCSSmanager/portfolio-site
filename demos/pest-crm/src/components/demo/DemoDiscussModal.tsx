@@ -70,7 +70,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
         <form onSubmit={submit} className="space-y-4">
           <div className="flex items-start gap-3 rounded-xl border border-emerald-100 bg-emerald-50/80 px-4 py-3">
             <span className="shrink-0 rounded-md bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">−10%</span>
-            <p className="text-sm text-gray-700">Скидка при заказе с демо — зафиксируем в заявке</p>
+            <p className="text-sm text-gray-700">Скидка при заказе с демо – зафиксируем в заявке</p>
           </div>
 
           <Input label="Имя" value={name} onChange={e => setName(e.target.value)} autoComplete="name" />

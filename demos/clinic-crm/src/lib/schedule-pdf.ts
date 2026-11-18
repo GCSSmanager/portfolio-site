@@ -167,7 +167,7 @@ function triggerPdfDownload(url: string, filename: string) {
 
 /**
  * Показать PDF. Передайте окно из `openPdfPreviewWindow()` (синхронно по клику).
- * Десктоп и телефон: вкладка с PDF. Share — только запасной путь на мобилке, если вкладку заблокировали.
+ * Десктоп и телефон: вкладка с PDF. Share – только запасной путь на мобилке, если вкладку заблокировали.
  */
 export async function openPdfBlob(blob: Blob, filename: string, previewWindow?: Window | null) {
   const url = URL.createObjectURL(blob);
@@ -178,7 +178,7 @@ export async function openPdfBlob(blob: Blob, filename: string, previewWindow?: 
     return;
   }
 
-  // Попытка открыть сразу (может сработать, если вызов ещё в жесте — обычно нет после await)
+  // Попытка открыть сразу (может сработать, если вызов ещё в жесте – обычно нет после await)
   const opened = window.open(url, "_blank");
   if (opened) {
     revokeLater();
@@ -209,7 +209,7 @@ export async function openPdfBlob(blob: Blob, filename: string, previewWindow?: 
   triggerPdfDownload(url, filename);
 
   if (isMobile) {
-    // iOS/Android: download часто молчит — открываем в текущей вкладке
+    // iOS/Android: download часто молчит – открываем в текущей вкладке
     window.location.assign(url);
     return;
   }

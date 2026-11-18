@@ -1,6 +1,6 @@
 import type { FloristRole } from './AuthContext'
 
-/** Куда вести после успешного входа (полная перезагрузка — для Keychain / Safari). */
+/** Куда вести после успешного входа (полная перезагрузка – для Keychain / Safari). */
 export function authPostLoginPath(subscriptionActive: boolean, role: FloristRole = 'owner'): string {
   if (role === 'customer') return '/'
   if (subscriptionActive) return '/'

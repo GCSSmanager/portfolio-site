@@ -30,8 +30,8 @@ export function SubscriptionPage() {
     <main className="flowers-page flowers-page--subscription">
       <h1 className="flowers-page__title">Подписка</h1>
       <p className="subscription-page__lead">
-        Статус доступа к FlowerFlow для Вашего магазина. При регистрации — 14 дней бесплатно; продление
-        после окончания срока — у управляющего платформы.
+        Статус доступа к FlowerFlow для Вашего магазина. При регистрации – 14 дней бесплатно; продление
+        после окончания срока – у управляющего платформы.
       </p>
 
       <section

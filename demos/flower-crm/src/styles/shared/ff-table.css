@@ -1,6 +1,6 @@
-/* ═══ FlowerFlow — единый минималистичный стиль таблиц ═══ */
+/* ═══ FlowerFlow – единый минималистичный стиль таблиц ═══ */
 
-/* —— Обёртки —— */
+/* –– Обёртки –– */
 .ff-table-wrap,
 .expenses-page__table-wrap,
 .sales-page__table-wrap,
@@ -13,7 +13,7 @@
   overflow: auto;
 }
 
-/* —— Базовая таблица —— */
+/* –– Базовая таблица –– */
 .ff-table,
 .expenses-page__table,
 .suppliers-page__table,
@@ -126,7 +126,7 @@
   white-space: normal;
 }
 
-/* —— Табличные списки (цены, персонал) —— */
+/* –– Табличные списки (цены, персонал) –– */
 .ff-data-list,
 .crm-prices-list,
 .staff-page__list {

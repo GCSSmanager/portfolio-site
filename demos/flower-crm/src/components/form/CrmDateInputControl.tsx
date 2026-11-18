@@ -37,7 +37,7 @@ export type CrmDateInputControlProps = {
   careAnchor?: boolean
   onBlur?: FocusEventHandler<HTMLInputElement>
   inputClass?: string
-  /** В строке «дата + время» — растягиваться в ряду. */
+  /** В строке «дата + время» – растягиваться в ряду. */
   inRow?: boolean
   /** Узкая кнопка календаря (строки поставки). */
   compact?: boolean

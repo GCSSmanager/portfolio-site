@@ -1,4 +1,4 @@
-/* CRM — quiz */
+/* CRM – quiz */
 
 .crm-quiz {
   --quiz-field: color-mix(in oklab, var(--color-fg) 92%, black);

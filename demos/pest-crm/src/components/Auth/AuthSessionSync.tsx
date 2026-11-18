@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AUTH_SESSION_INVALID_EVENT } from '@/lib/api';
 import { useAuth } from '@/contexts/AuthContext';
 
-/** Единая точка выхода при 401 и «Сбросить демо» — без window.location.hash. */
+/** Единая точка выхода при 401 и «Сбросить демо» – без window.location.hash. */
 export function AuthSessionSync() {
   const navigate = useNavigate();
   const { logout } = useAuth();

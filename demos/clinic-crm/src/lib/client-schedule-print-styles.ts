@@ -202,7 +202,7 @@ export const schedulePrintPdfCss = `
     font-size: 8px;
     font-weight: 600;
   }
-  /* Превью: ничего не прячем — если не влезло, видно сразу. */
+  /* Превью: ничего не прячем – если не влезло, видно сразу. */
   .print-schedule.is-preview .schedule-row {
     height: auto;
     min-height: var(--sp-row-height);

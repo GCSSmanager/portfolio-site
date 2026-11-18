@@ -39,7 +39,7 @@ export function WarehouseStockCareMeta(props: WarehouseStockCareMetaProps) {
       {lines.map((line, i) => (
         <span key={line.key}>
           {i > 0 ? <span className="warehouse-stock-row__care-sep"> · </span> : null}
-          {line.label} · {line.iso ? formatWhenCompact(line.iso) : '—'}
+          {line.label} · {line.iso ? formatWhenCompact(line.iso) : '–'}
         </span>
       ))}
     </p>

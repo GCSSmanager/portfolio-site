@@ -115,7 +115,7 @@ function DistributionContent() {
                 <div className="mt-2 pt-2 border-t border-gray-200/50">
                     {assigningOrderId === order.id ? (
                         <div className="space-y-1">
-                            <button onClick={() => handleAssign(order.id, null)} className="w-full text-left px-2 py-1.5 text-xs rounded-lg hover:bg-white text-gray-500">— Снять назначение —</button>
+                            <button onClick={() => handleAssign(order.id, null)} className="w-full text-left px-2 py-1.5 text-xs rounded-lg hover:bg-white text-gray-500">– Снять назначение –</button>
                             {workingMasters.map(m => (
                                 <button key={m.id} onClick={() => handleAssign(order.id, m.id)}
                                     className={`w-full text-left px-2 py-1.5 text-xs rounded-lg hover:bg-white ${order.masterId === m.id ? 'font-bold text-green-700 bg-green-100' : 'text-gray-700'}`}>
@@ -253,7 +253,7 @@ function DistributionContent() {
                                 title={m.name}
                                 subtitle={
                                     <>
-                                        <div>Ср. чек: {m.avgCheck > 0 ? `${m.avgCheck.toLocaleString()} ₽` : '—'}</div>
+                                        <div>Ср. чек: {m.avgCheck > 0 ? `${m.avgCheck.toLocaleString()} ₽` : '–'}</div>
                                         <div className="font-medium text-green-700">Касса: {cashDesk.toLocaleString()} ₽</div>
                                         {m.notes ? <div>{m.notes}</div> : null}
                                     </>

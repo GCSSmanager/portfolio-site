@@ -219,7 +219,7 @@ export function AppointmentFormFields({
         ) : attendanceOnly && isEdit && !isGroupEdit ? (
           <div className="flex items-center gap-2">
             <div className="flex h-9 min-w-0 flex-1 items-center rounded-xl border border-line bg-surface px-3 text-sm text-ink">
-              {draft.appointment?.client.fullName ?? "—"}
+              {draft.appointment?.client.fullName ?? "–"}
             </div>
             {onOpenClientCard && draft.appointment?.client.id && (
               <Button
@@ -235,7 +235,7 @@ export function AppointmentFormFields({
         ) : isEdit && fixedClientId ? (
           <div className="flex items-center gap-2">
             <div className="flex h-9 min-w-0 flex-1 items-center rounded-xl border border-line bg-surface px-3 text-sm text-ink">
-              {clients.find((client) => client.id === activeClientIds[0])?.fullName ?? "—"}
+              {clients.find((client) => client.id === activeClientIds[0])?.fullName ?? "–"}
             </div>
             {onOpenClientCard && activeClientIds[0] && (
               <Button
@@ -370,7 +370,7 @@ export function AppointmentFormFields({
               {rooms.find((room) => room.id === roomId)?.name
                 ?? draft.appointment?.room?.name
                 ?? draft.groupMembers?.[0]?.room?.name
-                ?? "—"}
+                ?? "–"}
             </div>
           </Field>
         ) : (

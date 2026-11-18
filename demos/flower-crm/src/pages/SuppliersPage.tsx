@@ -375,7 +375,7 @@ export function SuppliersPage() {
                 </CrmButton>
               </div>
               {s.offers.length === 0 ? (
-                <p className="suppliers-page__muted">Позиций нет — добавьте виды с закупочной ценой.</p>
+                <p className="suppliers-page__muted">Позиций нет – добавьте виды с закупочной ценой.</p>
               ) : (
                 <>
                   <ul className="suppliers-page__offer-cards" aria-label={`Прайс: ${s.name}`}>
@@ -428,7 +428,7 @@ export function SuppliersPage() {
                     {s.offers.map((o) => (
                       <tr key={`${s.id}-${o.store_flower_id}`}>
                         <td>{o.display_name}</td>
-                        <td className="suppliers-page__latin">{o.latin_name ?? '—'}</td>
+                        <td className="suppliers-page__latin">{o.latin_name ?? '–'}</td>
                         <td>{o.rank_label}</td>
                         <td className="suppliers-page__td-num">{o.unit_purchase_price}</td>
                         <td className="suppliers-page__td-actions">

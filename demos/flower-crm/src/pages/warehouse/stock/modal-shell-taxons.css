@@ -31,7 +31,7 @@ html:has(dialog.crm-modal[open]) {
   overflow-wrap: break-word;
 }
 
-/* Длинные формы и списки — прокрутка внутри окна, шапка на месте */
+/* Длинные формы и списки – прокрутка внутри окна, шапка на месте */
 .crm-modal__box--scroll {
   display: flex;
   flex-direction: column;

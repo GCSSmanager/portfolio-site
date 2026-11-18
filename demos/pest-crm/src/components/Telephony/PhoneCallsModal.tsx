@@ -16,7 +16,7 @@ interface Props {
 }
 
 const formatDuration = (seconds: number): string => {
-  if (seconds <= 0) return '—';
+  if (seconds <= 0) return '–';
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
   return `${m}:${s.toString().padStart(2, '0')}`;
@@ -152,7 +152,7 @@ export default function PhoneCallsModal({ phone, isOpen, onClose }: Props) {
                           hour: '2-digit',
                           minute: '2-digit',
                         })
-                        : '—'}
+                        : '–'}
                     </span>
                     <span className="text-xs px-2 py-0.5 rounded-full bg-white border border-gray-200 text-gray-600">
                       {directionLabel[call.direction] || call.direction}

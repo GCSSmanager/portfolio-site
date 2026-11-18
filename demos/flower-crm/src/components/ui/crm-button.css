@@ -26,7 +26,7 @@
   width: 100%;
 }
 
-/* —— Склад / toolbar —— */
+/* –– Склад / toolbar –– */
 .crm-btn--add {
   flex-shrink: 0;
   padding: 0.4rem 0.85rem;
@@ -43,7 +43,7 @@
   border-color: var(--c-tint-accent);
 }
 
-/* —— Модалки —— */
+/* –– Модалки –– */
 .crm-btn--ghost {
   padding: 0.45rem 0.75rem;
   font-size: 0.82rem;
@@ -108,7 +108,7 @@
   filter: none;
 }
 
-/* —— Каталог / accent toolbar —— */
+/* –– Каталог / accent toolbar –– */
 .crm-btn--accent {
   padding: 0.4rem 0.75rem;
   font-size: 0.82rem;
@@ -146,7 +146,7 @@
   color: var(--c-danger-hover);
 }
 
-/* —— Пустое состояние —— */
+/* –– Пустое состояние –– */
 .crm-btn--empty {
   padding: 0.35rem 0.65rem;
   font-size: 0.8rem;
@@ -165,7 +165,7 @@
   background: var(--crm-paper);
 }
 
-/* —— Авторизация —— */
+/* –– Авторизация –– */
 .crm-btn--login-primary {
   flex: 1;
   min-width: 0;
@@ -230,7 +230,7 @@
   color: var(--fc-text, var(--brand-ink-soft));
 }
 
-/* —— Лендинг / 404 —— */
+/* –– Лендинг / 404 –– */
 .crm-btn--landing-auth {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
@@ -286,7 +286,7 @@
   box-shadow: 0 0 0 3px var(--c-tint-accent);
 }
 
-/* —— Задачи / цветы —— */
+/* –– Задачи / цветы –– */
 .crm-btn--tasks-link {
   align-self: flex-start;
   font-size: 0.85rem;
@@ -340,7 +340,7 @@
   opacity: 0.5;
 }
 
-/* —— Персонал —— */
+/* –– Персонал –– */
 .crm-btn--staff-submit {
   margin-top: 0.25rem;
   padding: 0.55rem 0.85rem;
@@ -375,7 +375,7 @@
   color: var(--c-danger-hover);
 }
 
-/* —— Задачи на главной (ссылки) —— */
+/* –– Задачи на главной (ссылки) –– */
 .crm-btn--home-task-primary {
   display: inline-flex;
   align-items: center;
@@ -410,7 +410,7 @@
   border-color: var(--c-accent-border);
 }
 
-/* —— Шапка главной —— */
+/* –– Шапка главной –– */
 .crm-btn--home-head {
   display: inline-flex;
   flex-direction: row;
@@ -484,7 +484,7 @@
   white-space: nowrap;
 }
 
-/* —— Иконки действий на карточках —— */
+/* –– Иконки действий на карточках –– */
 .crm-btn--icon-act {
   width: var(--crm-icon-hit, 2rem);
   height: var(--crm-icon-hit, 2rem);
@@ -549,7 +549,7 @@
   border-color: var(--c-danger-border);
 }
 
-/* —— Приёмка / уход на карточках —— */
+/* –– Приёмка / уход на карточках –– */
 .crm-btn--intake {
   width: 100%;
   padding: 0.35rem 0.45rem;
@@ -635,7 +635,7 @@
   gap: 0;
 }
 
-/* —— Поставщики —— */
+/* –– Поставщики –– */
 .crm-btn--suppliers-plan {
   padding: 0.4rem 0.75rem;
   font-size: 0.82rem;
@@ -703,7 +703,7 @@
   color: var(--c-danger);
 }
 
-/* —— Расходы —— */
+/* –– Расходы –– */
 .crm-btn--expenses-section-add {
   padding: 0.35rem 0.75rem;
   font-size: 0.82rem;
@@ -731,7 +731,7 @@
   color: var(--fc-accent, var(--brand-green));
 }
 
-/* —— Строки модалок —— */
+/* –– Строки модалок –– */
 .crm-btn--line-remove {
   align-self: center;
   width: 1.75rem;
@@ -767,7 +767,7 @@
   background: var(--brand-tint-green);
 }
 
-/* —— Сворачиваемые блоки —— */
+/* –– Сворачиваемые блоки –– */
 .crm-btn--collapsible-title {
   display: flex;
   flex-direction: row;
@@ -823,7 +823,7 @@
   color: var(--crm-ink);
 }
 
-/* —— Выпадающие списки —— */
+/* –– Выпадающие списки –– */
 .crm-btn--taxon-dd {
   display: flex;
   flex-direction: row;
@@ -870,7 +870,7 @@
   opacity: 0.65;
 }
 
-/* —— Дерево каталога —— */
+/* –– Дерево каталога –– */
 .crm-btn--tree-toggle {
   flex: 0 0 var(--flowers-tree-toggle, 1.75rem);
   position: relative;
@@ -896,7 +896,7 @@
   box-shadow: 0 0 0 2px var(--fc-accent-soft);
 }
 
-/* —— Статистика —— */
+/* –– Статистика –– */
 .crm-btn--stats-sort {
   display: inline-flex;
   align-items: center;
@@ -954,7 +954,7 @@
   color: var(--crm-ink-soft);
 }
 
-/* —— Инвентаризация —— */
+/* –– Инвентаризация –– */
 .crm-btn--inventory-head {
   width: 100%;
   display: grid;
@@ -966,7 +966,7 @@
   font: inherit;
 }
 
-/* —— Период отчёта —— */
+/* –– Период отчёта –– */
 .crm-btn--period-preset {
   padding: 0.28rem 0.55rem;
   font-size: 0.78rem;

@@ -14,7 +14,7 @@ export const CONSUMABLE_PLACEHOLDER = '/consumable-placeholder.webp'
 
 export type ProductPlaceholderKind = 'flower' | 'retail' | 'bouquet' | 'consumable' | 'custom_bouquet'
 
-/** Эмодзи-плейсхолдер без фото — как в разделе «Продажи». */
+/** Эмодзи-плейсхолдер без фото – как в разделе «Продажи». */
 export function productPlaceholderEmoji(kind: ProductPlaceholderKind): string {
   switch (kind) {
     case 'bouquet':

@@ -14,7 +14,7 @@ function lineDisplay(db: DemoDb, ln: DemoSupplierDeliveryLine) {
     const p = db.retailProducts.find((x) => x.id === ln.retail_product_id)
     return {
       stock_kind: 'retail' as const,
-      display_name: p?.name ?? '—',
+      display_name: p?.name ?? '–',
       latin_name: null as string | null,
       rank_label: 'Товар',
       photo_url: photoUrlFromPath(p?.photo_path ?? null),
@@ -27,7 +27,7 @@ function lineDisplay(db: DemoDb, ln: DemoSupplierDeliveryLine) {
   const t = tid ? db.taxons.find((x) => x.id === tid) : null
   return {
     stock_kind: 'flower' as const,
-    display_name: t ? (t.name_ru || t.name) : '—',
+    display_name: t ? (t.name_ru || t.name) : '–',
     latin_name: t?.name ?? null,
     rank_label: t ? (RANK_LABEL_RU[t.rank] ?? t.rank) : '',
     photo_url: photoUrlFromPath(sf?.photo_path ?? null),
@@ -61,7 +61,7 @@ export function serializeSupplierDeliveryCare(db: DemoDb, d: DemoSupplierDeliver
     id: d.id,
     kind: 'supplier_delivery' as const,
     supplier_id: d.supplier_id,
-    supplier_name: supplier?.name ?? '—',
+    supplier_name: supplier?.name ?? '–',
     expected_arrival_date: d.expected_arrival_date,
     lines,
     care_kind: 'pending_receive' as const,

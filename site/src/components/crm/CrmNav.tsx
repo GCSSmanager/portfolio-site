@@ -18,7 +18,7 @@ export function CrmNav({ brandHref, showMenu = true, showReviews = false, showPr
     <header className={`nav nav--crm${isOpen ? ' is-nav-open' : ''}`} id="crmNav">
       <div className="nav__bar">
         <div className="container nav__inner">
-          <Link className="brand-lockup nav__brand" to={brandHref} aria-label="ГКСС — Гибкие корпоративные системы и сервисы">
+          <Link className="brand-lockup nav__brand" to={brandHref} aria-label="ГКСС – Гибкие корпоративные системы и сервисы">
             <img className="brand-lockup__mark" src="/assets/gcss-logo.webp" alt="" width={64} height={64} decoding="async" />
             <span className="brand-lockup__text">
               <span className="brand-lockup__tagline">Гибкие корпоративные системы и сервисы</span>

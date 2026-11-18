@@ -260,12 +260,12 @@ function MasterHistoryContent() {
                     ['Клиент', selectedOrder.clientName],
                     ['Вредитель', selectedOrder.pest],
                     ['Объект', selectedOrder.objectType],
-                    ['Объём', selectedOrder.volume || '—'],
+                    ['Объём', selectedOrder.volume || '–'],
                     ['Дата', new Date(`${selectedOrder.date}T00:00:00`).toLocaleDateString('ru-RU')],
                     ['Время', selectedOrder.time],
-                    ['Источник', selectedOrder.source || '—'],
-                    ['Менеджер', selectedOrder.manager || '—'],
-                    ['Мастер', selectedOrder.masterName || '—'],
+                    ['Источник', selectedOrder.source || '–'],
+                    ['Менеджер', selectedOrder.manager || '–'],
+                    ['Мастер', selectedOrder.masterName || '–'],
                   ].map(([label, value]) => (
                     <div key={label} className="flex justify-between gap-4 border-b border-gray-200 pb-2 last:border-0 last:pb-0">
                       <dt className="text-gray-500">{label}</dt>
@@ -280,7 +280,7 @@ function MasterHistoryContent() {
                 <dl className="space-y-2 text-sm">
                   <div>
                     <dt className="text-gray-500">Адрес</dt>
-                    <dd className="mt-1 font-medium text-gray-900">{selectedOrder.address || '—'}</dd>
+                    <dd className="mt-1 font-medium text-gray-900">{selectedOrder.address || '–'}</dd>
                   </div>
                   <div>
                     <dt className="text-gray-500">Телефоны</dt>
@@ -288,7 +288,7 @@ function MasterHistoryContent() {
                       {(selectedOrder.phones || []).map(phone => (
                         <div key={phone}>{formatPhoneRu(phone) || phone}</div>
                       ))}
-                      {!selectedOrder.phones?.length && '—'}
+                      {!selectedOrder.phones?.length && '–'}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-4 border-t border-gray-200 pt-2">

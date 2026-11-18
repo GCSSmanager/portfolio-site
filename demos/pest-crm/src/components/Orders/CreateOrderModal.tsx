@@ -33,7 +33,7 @@ export interface CreateOrderInitialValues {
   basePrice?: number;
   date?: string;
   time?: string;
-  /** Зафиксировать источник — нельзя сменить в форме */
+  /** Зафиксировать источник – нельзя сменить в форме */
   lockSource?: boolean;
   externalCrmId?: number;
   roistatVisitId?: string;
@@ -133,14 +133,14 @@ export default function CreateOrderModal({
         setMasters(ms);
         let nextSources = srcs;
 
-        // Зафиксированный источник — гарантируем, что он есть в списке
+        // Зафиксированный источник – гарантируем, что он есть в списке
         const lockedSource = initialValues?.lockSource ? initialValues.source?.trim() : '';
         if (lockedSource && !nextSources.some((s) => s.name === lockedSource)) {
           try {
             const created = await api.createSource(lockedSource);
             nextSources = [...nextSources, created].sort((a, b) => a.name.localeCompare(b.name, 'ru'));
           } catch {
-            // уже есть / нет прав — подставим вручную в options ниже
+            // уже есть / нет прав – подставим вручную в options ниже
             nextSources = [
               ...nextSources,
               { id: 'locked', name: lockedSource, isActive: true } as Source,
@@ -370,7 +370,7 @@ export default function CreateOrderModal({
   };
 
   const masterOptions = [
-    { value: '', label: '— Не назначен —' },
+    { value: '', label: '– Не назначен –' },
     ...masters.map(master => ({
       value: master.id,
       label: `${master.name}${master.phone ? ` (${master.phone})` : ''}`,

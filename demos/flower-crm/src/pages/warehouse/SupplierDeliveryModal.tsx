@@ -54,7 +54,7 @@ export function SupplierDeliveryModal({
   const [lines, setLines] = useState<TaxonQtyLineRow[]>(() => [newTaxonQtyLine()])
   const [busy, setBusy] = useState(false)
   const [localError, setLocalError] = useState<string | null>(null)
-  /** Какое поле подсветить рамкой (server — только текст сверху). */
+  /** Какое поле подсветить рамкой (server – только текст сверху). */
   const [issueField, setIssueField] = useState<'supplier' | 'date' | 'lines' | 'server' | null>(null)
 
   useEffect(() => {
@@ -307,7 +307,7 @@ export function SupplierDeliveryModal({
             errorMessage={expectedAtError}
             dateAriaLabel="Дата привоза"
             timeAriaLabel="Время привоза (необязательно)"
-            hint="Пусто — сегодня. Шесть цифр → ДД/ММ/ГГ. Время необязательно."
+            hint="Пусто – сегодня. Шесть цифр → ДД/ММ/ГГ. Время необязательно."
           />
 
           <div

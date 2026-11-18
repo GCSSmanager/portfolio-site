@@ -1,4 +1,4 @@
-/** Как SESSION_FLORIST_USER_ID на Django — id FloristUser в localStorage. */
+/** Как SESSION_FLORIST_USER_ID на Django – id FloristUser в localStorage. */
 export const SESSION_FLORIST_USER_ID = 'flower-demo.sessionUserId'
 
 export function getSessionUserId(): number | null {

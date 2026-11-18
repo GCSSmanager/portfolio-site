@@ -12,7 +12,7 @@ if (fs.existsSync(flowerIndex) && fs.existsSync(clinicIndex) && fs.existsSync(pe
   process.exit(0)
 }
 
-console.log('[dev] Демо не найдены в _site — собираем clinic + flower + pest (как на GitHub Pages)…')
+console.log('[dev] Демо не найдены в _site – собираем clinic + flower + pest (как на GitHub Pages)…')
 execSync('npm run build:clinic && npm run build:flower && npm run build:pest', {
   cwd: repoRoot,
   stdio: 'inherit',

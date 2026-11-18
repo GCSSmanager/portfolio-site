@@ -84,7 +84,7 @@ export function KpPage() {
           <img className="kp-bar__logo" src="/assets/gcss-logo.webp" alt="" width={36} height={36} />
           <div>
             <p className="kp-bar__title">Коммерческое предложение</p>
-            <p className="kp-bar__hint">Заполните поля — справа лист, из него PDF</p>
+            <p className="kp-bar__hint">Заполните поля – справа лист, из него PDF</p>
           </div>
         </div>
         <button className="btn btn--primary btn--lure-light" type="button" onClick={() => void downloadPdf()}>
@@ -261,7 +261,7 @@ export function KpPage() {
                     <td>{stage.name ? `${index + 1}. ${stage.name}` : `Этап ${index + 1}`}</td>
                     <td>{stage.scope}</td>
                     <td>{formatDays(stage.days)}</td>
-                    <td>{stage.price ? formatPrice(stage.price) : '—'}</td>
+                    <td>{stage.price ? formatPrice(stage.price) : '–'}</td>
                   </tr>
                 ))}
               </tbody>

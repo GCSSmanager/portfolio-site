@@ -7,7 +7,7 @@ export function stripMoneyGrouping(raw: string): string {
   return raw.trim().replace(/[\s\u00a0\u202f]/g, '')
 }
 
-/** Значение для поля цены/суммы без разделителя тысяч — корректно парсится обратно. */
+/** Значение для поля цены/суммы без разделителя тысяч – корректно парсится обратно. */
 export function formatMoneyInputValue(value: number): string {
   if (!Number.isFinite(value)) return ''
   const rounded = Math.round(value * 100) / 100

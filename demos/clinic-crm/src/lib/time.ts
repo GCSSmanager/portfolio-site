@@ -1,6 +1,6 @@
 export const SLOT_MIN = 15;
 export const DAY_START = 9 * 60; // 09:00
-export const DAY_END = 18 * 60; // 18:00 (Пт — 16:45, задаётся справочником)
+export const DAY_END = 18 * 60; // 18:00 (Пт – 16:45, задаётся справочником)
 export const LUNCH_START = 13 * 60;
 export const LUNCH_END = 13 * 60 + 45;
 

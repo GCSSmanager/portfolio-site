@@ -46,7 +46,7 @@ export default function LoginPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">{project.name}</h1>
-            <p className="mt-1 text-sm text-gray-500">Демо на сайте ГКСС — данные только в Вашем браузере</p>
+            <p className="mt-1 text-sm text-gray-500">Демо на сайте ГКСС – данные только в Вашем браузере</p>
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export default function LoginPage() {
 
           <div className="rounded-2xl border border-emerald-100 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="text-lg font-semibold text-gray-900">Тестовые доступы</h2>
-            <p className="mt-1 text-sm text-gray-500">Нажмите строку — подставим логин и пароль</p>
+            <p className="mt-1 text-sm text-gray-500">Нажмите строку – подставим логин и пароль</p>
             <ul className="mt-5 space-y-2">
               {DEMO_ACCOUNTS.map(acc => (
                 <li key={acc.login}>

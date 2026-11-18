@@ -19,7 +19,7 @@ type Props = {
   onPhoneChange: (value: string) => void;
   orderNumberError?: string;
   phoneError?: string;
-  /** Если задан — выбор из списка сразу отдаёт заявку (например, модалка поиска). */
+  /** Если задан – выбор из списка сразу отдаёт заявку (например, модалка поиска). */
   onOrderPick?: (order: Order) => void;
   orderNumberLabel?: string;
   phoneLabel?: string;
@@ -189,7 +189,7 @@ export default function OrderSearchFields({
             setOpenField('orderNumber');
           }}
           onFocus={() => setOpenField('orderNumber')}
-          placeholder="Начните вводить номер — подскажем заявки"
+          placeholder="Начните вводить номер – подскажем заявки"
           error={orderNumberError}
           autoComplete="off"
         />

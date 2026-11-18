@@ -89,7 +89,7 @@ export function BouquetAssembleModal({
         </p>
       ) : null}
       <p className="crm-field__hint crm-field__hint--tight">
-        Со склада спишутся цветы (вне реализации) и расходники по рецепту. Лента — в сантиметрах, упаковка — в
+        Со склада спишутся цветы (вне реализации) и расходники по рецепту. Лента – в сантиметрах, упаковка – в
         штуках.
       </p>
       {sortedBouquets.length === 0 ? (
@@ -115,7 +115,7 @@ export function BouquetAssembleModal({
           {selected &&
           selected.recipe_lines.length === 0 &&
           (selected.consumable_recipe_lines?.length ?? 0) === 0 ? (
-            <p className="crm-field__error">У выбранного букета нет состава — отредактируйте карточку.</p>
+            <p className="crm-field__error">У выбранного букета нет состава – отредактируйте карточку.</p>
           ) : null}
           <CrmQtyField
             label="Сколько букетов собрать"
@@ -127,7 +127,7 @@ export function BouquetAssembleModal({
           />
           {qtyInvalid && selected && bouquetQty.trim() !== '' ? (
             <p className="crm-field__error" role="status">
-              Количество букетов — целое число не меньше 1.
+              Количество букетов – целое число не меньше 1.
             </p>
           ) : null}
           {usageRows.length > 0 || consumableUsageRows.length > 0 ? (
@@ -201,7 +201,7 @@ export function BouquetAssembleModal({
           ) : null}
           {hasShortage && bouquetQtyValid ? (
             <p className="crm-field__error" role="status">
-              Не хватает цветов или расходников — уменьшите число букетов или пополните остаток.
+              Не хватает цветов или расходников – уменьшите число букетов или пополните остаток.
             </p>
           ) : null}
         </>

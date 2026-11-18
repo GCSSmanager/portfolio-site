@@ -119,7 +119,7 @@ export function TaxonPickQtyRow({
   unitCost = '',
   quantityMin = 0,
   supplierId,
-  /** Пока нет поставщика — поле поиска отключено (только модалка поставки). */
+  /** Пока нет поставщика – поле поиска отключено (только модалка поставки). */
   requireSupplierForSearch = false,
   /** Редактируемая цена за шт. (приход на склад). */
   showUnitCost = false,
@@ -436,7 +436,7 @@ export function TaxonPickQtyRow({
               taxon.unit_purchase_price != null &&
               Number.isFinite(taxon.unit_purchase_price)
                 ? formatOfferRub(taxon.unit_purchase_price)
-                : '—'}
+                : '–'}
             </span>
             {taxon != null &&
             isFlowerStockHit(taxon) &&

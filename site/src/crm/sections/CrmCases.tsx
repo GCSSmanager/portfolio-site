@@ -68,7 +68,7 @@ export function CrmCases({ caseKeys }: CrmCasesProps) {
                 </div>
               </div>
               <p className="crm-case__note">
-                Склад без сюрпризов: приёмка и инвентаризация — минуты, не часы.
+                Склад без сюрпризов: приёмка и инвентаризация – минуты, не часы.
               </p>
               <ul className="crm-case__metrics">
                 <li>
@@ -108,7 +108,7 @@ export function CrmCases({ caseKeys }: CrmCasesProps) {
                 </div>
               </div>
               <p className="crm-case__note">
-                От локального бизнеса — к сети: аналитика, города и контроль смены.
+                От локального бизнеса – к сети: аналитика, города и контроль смены.
               </p>
               <ul className="crm-case__metrics">
                 <li>

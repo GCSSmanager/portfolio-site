@@ -924,7 +924,7 @@ export default function UsersModal({ isOpen, onClose }: Props) {
                                                             </div>
                                                             {workHoursDraft.length === 0 ? (
                                                                 <p className="text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-2 py-1.5">
-                                                                    Интервалы не заданы — автодозвон на этого оператора не пойдёт
+                                                                    Интервалы не заданы – автодозвон на этого оператора не пойдёт
                                                                 </p>
                                                             ) : (
                                                                 workHoursDraft.map((interval, index) => (

@@ -693,7 +693,7 @@ export function WarehouseInventoryPage() {
                                   )}
                                 </>
                               ) : (
-                                <span className="crm-supplier-receive-table__unit">—</span>
+                                <span className="crm-supplier-receive-table__unit">–</span>
                               )}
                             </td>
                           </tr>

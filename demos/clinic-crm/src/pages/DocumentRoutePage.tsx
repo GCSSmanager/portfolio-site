@@ -141,7 +141,7 @@ export function DocumentRoutePage() {
                     </div>
                     {check.checked && (
                       <div className="shrink-0 text-right text-[11px] leading-snug text-ink-muted">
-                        <div>{check.checkedByName ?? "—"}</div>
+                        <div>{check.checkedByName ?? "–"}</div>
                         <div>{formatCheckedAt(check.checkedAt)}</div>
                       </div>
                     )}

@@ -45,7 +45,7 @@ function rowToEntry(row: DeliveryServiceRow): DeliveryServiceEntryInitial {
 }
 
 function formatCityPrice(price: string | null): string {
-  if (price == null || price === '') return '—'
+  if (price == null || price === '') return '–'
   return formatRubNumber(parseAmount(price))
 }
 

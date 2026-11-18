@@ -276,14 +276,14 @@ export function OrderModal({
                           line && priceNeedsManual ? ' crm-field--sale-price-miss' : ''
                         }`.trim()}
                         invalid={showLineErrors && priceFieldInvalid}
-                        placeholder="—"
+                        placeholder="–"
                         value={row.unitPrice}
                         disabled={!line || orderBusy}
                         onChange={(e) => setRow(row.key, { unitPrice: e.target.value })}
                       />
                       {line && priceNeedsManual ? (
                         <p className="crm-sale-warning" role="status">
-                          Цена не задана — укажите вручную.
+                          Цена не задана – укажите вручную.
                         </p>
                       ) : null}
                       <CrmQtyField
@@ -412,11 +412,11 @@ export function OrderModal({
             hint={
               isPickup
                 ? todayDdMmYyMask()
-                  ? `Без даты — выдача сегодня (${todayDdMmYyMask()})`
-                  : 'Без даты — выдача сегодня'
+                  ? `Без даты – выдача сегодня (${todayDdMmYyMask()})`
+                  : 'Без даты – выдача сегодня'
                 : todayDdMmYyMask()
-                  ? `Без даты — доставка сегодня (${todayDdMmYyMask()})`
-                  : 'Без даты — доставка сегодня'
+                  ? `Без даты – доставка сегодня (${todayDdMmYyMask()})`
+                  : 'Без даты – доставка сегодня'
             }
           />
           {productTotal !== null ? (

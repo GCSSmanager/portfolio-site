@@ -1,4 +1,4 @@
-/* CRM — статья «Что такое CRM» */
+/* CRM – статья «Что такое CRM» */
 
 .crm-article {
   --article-sand: #ece8dc;
@@ -552,7 +552,7 @@
     );
   }
 
-  /* Стрелка в середине сегмента — как на десктопе */
+  /* Стрелка в середине сегмента – как на десктопе */
   .crm-article__track-step:not(:last-child)::before {
     content: "";
     position: absolute;
@@ -642,7 +642,7 @@
 }
 
 
-/* Пример — змея вокруг вертикального CRM */
+/* Пример – змея вокруг вертикального CRM */
 
 .crm-article__snake {
   --snake-arr: 6rem;
@@ -1924,7 +1924,7 @@
 }
 
 @media (min-width: 32rem) {
-  /* Одна колонка карточек, экран шире ~512px — иконка слева, по вертикали по центру блока */
+  /* Одна колонка карточек, экран шире ~512px – иконка слева, по вертикали по центру блока */
   .crm-article__fit li {
     grid-template-columns: auto minmax(0, 1fr);
     justify-items: stretch;
@@ -2022,7 +2022,7 @@
   min-width: 0;
 }
 
-/* .crm-phone-lead в forms-shared идёт позже в бандле — селектор с двумя классами обязателен */
+/* .crm-phone-lead в forms-shared идёт позже в бандле – селектор с двумя классами обязателен */
 .crm-article__sec--fit-band .crm-phone-lead.crm-article__fit-lead {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

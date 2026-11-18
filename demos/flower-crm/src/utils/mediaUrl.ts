@@ -1,4 +1,4 @@
-/** URL картинки с бэкенда (/media/… или абсолютный) — для dev через proxy Vite. */
+/** URL картинки с бэкенда (/media/… или абсолютный) – для dev через proxy Vite. */
 export function mediaUrl(raw: string | null | undefined): string | null {
   if (raw == null) return null
   const s = raw.trim()

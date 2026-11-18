@@ -12,7 +12,7 @@ const STATUS_LABEL: Record<string, string> = {
 interface Props {
   orders: Order[];
   loading?: boolean;
-  /** Для первичного — жёстче (красный), для повторного — предупреждение */
+  /** Для первичного – жёстче (красный), для повторного – предупреждение */
   blockPrimary?: boolean;
 }
 
@@ -35,7 +35,7 @@ export default function PhoneDuplicateHint({ orders, loading, blockPrimary }: Pr
     <div className={`border px-4 py-3 rounded-xl text-sm space-y-2 ${tone}`}>
       <p className="font-medium">
         {blockPrimary
-          ? 'Уже есть заказы с этим номером — первичный создать нельзя. Выберите «Повторный» или другой телефон.'
+          ? 'Уже есть заказы с этим номером – первичный создать нельзя. Выберите «Повторный» или другой телефон.'
           : 'Уже есть заказы с этим номером:'}
       </p>
       <ul className="space-y-1.5 max-h-40 overflow-y-auto">

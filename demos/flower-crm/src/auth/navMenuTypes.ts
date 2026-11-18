@@ -1,4 +1,4 @@
-/** Разделы, видимые в шапке у новых пользователей (остальное — только через бургер). */
+/** Разделы, видимые в шапке у новых пользователей (остальное – только через бургер). */
 export const NAV_HEADER_DEFAULT_VISIBLE = new Set(['home', 'warehouse', 'statistics'])
 
 function defaultNavVisible(id: string): boolean {

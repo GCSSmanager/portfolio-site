@@ -25,17 +25,17 @@ export function HomeSalesTripleDisplay({
   if (qty == null) {
     return (
       <>
-        <span className="crm-home-headboard__sales-qty">—</span>
+        <span className="crm-home-headboard__sales-qty">–</span>
         <span className="crm-home-headboard__sales-sep" aria-hidden>
           {' '}
           ·{' '}
         </span>
-        <span className="crm-home-headboard__sales-rev">—</span>
+        <span className="crm-home-headboard__sales-rev">–</span>
         <span className="crm-home-headboard__sales-sep" aria-hidden>
           {' '}
           ·{' '}
         </span>
-        <span className="crm-home-headboard__sales-profit">—</span>
+        <span className="crm-home-headboard__sales-profit">–</span>
       </>
     )
   }

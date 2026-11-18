@@ -22,7 +22,7 @@ export function CrmGuide({ faqVariant }: CrmGuideProps) {
               </h2>
             </div>
             <p className="crm-guide__lead">
-              Не нашли ответа на свой вопрос —{' '}
+              Не нашли ответа на свой вопрос –{' '}
               <a href={PHONE_TEL}>звоните нам</a>
               !
             </p>

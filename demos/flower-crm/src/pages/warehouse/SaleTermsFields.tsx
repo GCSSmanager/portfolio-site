@@ -127,7 +127,7 @@ export function RealizationLineBlock({
             wrapperClass={`crm-sale-terms__inline-val${fixedInvalid ? ' crm-field--invalid' : ''}`}
             value={saleTermsFixedPrice}
             invalid={fixedInvalid}
-            placeholder="—"
+            placeholder="–"
             aria-label="Фиксированная цена поставщику, ₽/шт"
             onChange={(e) => onSaleTermsFixedPriceChange(e.target.value)}
             suffix={<span className="crm-delivery-lines__suffix">₽/шт</span>}

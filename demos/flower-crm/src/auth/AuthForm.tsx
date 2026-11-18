@@ -12,7 +12,7 @@ type Props = {
 
 const isDemo = import.meta.env.VITE_DEMO_MODE === 'true'
 
-/** Форма входа / регистрации (отдельная страница — Safari сохраняет пароль надёжнее, чем в `<dialog>`). */
+/** Форма входа / регистрации (отдельная страница – Safari сохраняет пароль надёжнее, чем в `<dialog>`). */
 export function AuthForm({ onAuthenticated }: Props) {
   const { error, clearError, doLogin, doRegister } = useAuth()
   const [phoneDigits, setPhoneDigits] = useState('')

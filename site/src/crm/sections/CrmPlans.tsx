@@ -31,13 +31,13 @@ export function CrmPlans({
                 <p className="crm-card__eyebrow">Рекомендуем</p>
                 <h3 className="crm-card__title">Индивидуальная CRM</h3>
                 <p className="crm-card__lead">
-                  Система под Вашу модель продаж и процессы — без компромиссов под чужой сервис.
+                  Система под Вашу модель продаж и процессы – без компромиссов под чужой сервис.
                 </p>
               </header>
               <ul className="crm-card__list" role="list">
                 <li>Полная персонализация: экраны, кнопки, внешний вид</li>
                 <li>Любая логика, отчёты и интеграции</li>
-                <li>Разовая оплата — продукт остаётся Вашим</li>
+                <li>Разовая оплата – продукт остаётся Вашим</li>
                 <li>Растёт вместе с компанией</li>
               </ul>
               <footer className="crm-card__foot">
@@ -63,14 +63,14 @@ export function CrmPlans({
                 <p className="crm-card__eyebrow">Популярное</p>
                 <h3 className="crm-card__title">Решение из каталога</h3>
                 <p className="crm-card__lead">
-                  Уже собранная CRM под типовую модель — быстрее старта, чем разработка с нуля.
+                  Уже собранная CRM под типовую модель – быстрее старта, чем разработка с нуля.
                 </p>
               </header>
               <ul className="crm-card__list" role="list">
                 <li>Готовые экраны и процесс под отрасль</li>
                 <li>Единоразовая оплата, без подписок</li>
                 <li className="crm-card__list-item--con">Логика как в шаблоне, не под любой кейс</li>
-                <li className="crm-card__list-item--con">Доработки — как отдельные работы</li>
+                <li className="crm-card__list-item--con">Доработки – как отдельные работы</li>
               </ul>
               <footer className="crm-card__foot">
                 <p className="crm-card__price">от {formatExamplePriceRub(CRM_CATALOG_FROM_RUB).replace('\u00a0', ' ')}</p>

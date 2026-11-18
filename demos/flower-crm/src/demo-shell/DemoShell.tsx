@@ -58,7 +58,7 @@ function tipForPath(config: DemoShellConfig, pathname: string): ActiveTip | null
   return { id: `page:${path}`, content: page };
 }
 
-/** Синхронно: что показать без useEffect — без кадра «пустой страницы». */
+/** Синхронно: что показать без useEffect – без кадра «пустой страницы». */
 function resolveAutoTip(
   config: DemoShellConfig,
   pathname: string,

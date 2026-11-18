@@ -80,7 +80,7 @@ export function SalesAddToCartModal({
     if (!product) return
     const q = Number.parseInt(qty.trim(), 10)
     if (!Number.isFinite(q) || q < 1 || q > product.qty) {
-      setFormError(`Количество — от 1 до ${product.qty} шт.`)
+      setFormError(`Количество – от 1 до ${product.qty} шт.`)
       return
     }
     let saleRq = 0
@@ -89,7 +89,7 @@ export function SalesAddToCartModal({
       const raw = realizationQty.trim()
       saleRq = raw === '' ? 0 : Number.parseInt(raw, 10)
       if (!Number.isFinite(saleRq) || saleRq < 0 || saleRq > q || saleRq > realizationCap) {
-        setFormError(`С реализации — от 0 до ${Math.min(realizationCap, q)} шт.`)
+        setFormError(`С реализации – от 0 до ${Math.min(realizationCap, q)} шт.`)
         return
       }
     }
@@ -131,14 +131,14 @@ export function SalesAddToCartModal({
               priceNeedsManual ? ' crm-field--sale-price-miss' : ''
             }`.trim()}
             invalid={priceFieldInvalid}
-            placeholder="—"
+            placeholder="–"
             value={unitPrice}
             disabled={busy}
             onChange={(e) => setUnitPrice(e.target.value)}
           />
           {priceNeedsManual ? (
             <p className="crm-sale-warning" role="status">
-              Цена не задана — укажите вручную.
+              Цена не задана – укажите вручную.
             </p>
           ) : null}
           <CrmQtyField

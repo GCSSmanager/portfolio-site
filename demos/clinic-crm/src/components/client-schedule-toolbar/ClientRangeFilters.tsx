@@ -42,7 +42,7 @@ export function ClientRangeFilters({
         />
       </div>
       <DatePicker value={startDate} onChange={onStartDateChange} className="!h-10 !w-[8.5rem] !rounded-2xl shadow-card sm:!w-36" />
-      <span className="text-xs text-ink-muted">—</span>
+      <span className="text-xs text-ink-muted">–</span>
       <DatePicker value={endDate} onChange={onEndDateChange} className="!h-10 !w-[8.5rem] !rounded-2xl shadow-card sm:!w-36" />
       <button
         type="button"

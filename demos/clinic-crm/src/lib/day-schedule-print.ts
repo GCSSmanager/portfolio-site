@@ -86,7 +86,7 @@ function absenceWindow(absence: Absence, employee: Employee, date: string) {
   return { startMin, endMin, windowStart: fallbackStart, windowEnd: fallbackEnd };
 }
 
-/** Весь рабочий день / без явных часов — колонка целиком. */
+/** Весь рабочий день / без явных часов – колонка целиком. */
 function isFullDayAbsence(absence: Absence, employee: Employee, date: string) {
   if (absence.startMin == null && absence.endMin == null) return true;
   const window = absenceWindow(absence, employee, date);
@@ -107,7 +107,7 @@ function absenceToPrintEntry(absence: Absence, employee: Employee, date: string)
     endMin: window.endMin,
     title,
     clientName: "",
-    // Для OTHER заметка уже в title — не дублируем.
+    // Для OTHER заметка уже в title – не дублируем.
     specialist: absence.type === "OTHER" ? "" : note,
     kind: "absence",
     employeeId: employee.id,

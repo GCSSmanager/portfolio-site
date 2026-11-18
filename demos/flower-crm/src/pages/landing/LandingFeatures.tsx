@@ -188,7 +188,7 @@ export function LandingFeatures() {
           transition={{ duration: 0.6 }}
         >
           <span className="lp-eyebrow">Что внутри FlowerFlow</span>
-          <h2 id="feat-title">Весь магазин — в одном экране</h2>
+          <h2 id="feat-title">Весь магазин – в одном экране</h2>
           <p>Модули, которые работают как одна система. Без переключений между таблицами и чатами.</p>
         </motion.div>
 

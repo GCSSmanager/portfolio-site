@@ -65,7 +65,7 @@ function toHistoryRow(s: DemoFlowerSale, includeFinancials: boolean) {
   return row
 }
 
-/** История продаж за период — форма как `list_sales_history` на Django. */
+/** История продаж за период – форма как `list_sales_history` на Django. */
 export function listSalesHistory(
   db: DemoDb,
   shopUid: number,

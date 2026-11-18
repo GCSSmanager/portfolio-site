@@ -14,7 +14,7 @@ export function formatExamplePriceRub(value: number) {
   return `${String(value).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}\u00a0₽`
 }
 
-/** Примеры из смет — мало пунктов в начале, больше в конце. */
+/** Примеры из смет – мало пунктов в начале, больше в конце. */
 export const CRM_LAUNCH_EXAMPLES: CrmLaunchExample[] = [
   {
     id: 'start',

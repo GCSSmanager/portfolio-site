@@ -370,7 +370,7 @@ export default function OrderDetailsModal({ order, isOpen, onClose, onSuccess }:
   })();
 
   const masterOptions = [
-    { value: '', label: '— Не назначен —' },
+    { value: '', label: '– Не назначен –' },
     ...masters.map(m => ({ value: m.id, label: `${m.name}${m.phone ? ` (${m.phone})` : ''}` })),
   ];
 
@@ -396,7 +396,7 @@ export default function OrderDetailsModal({ order, isOpen, onClose, onSuccess }:
       && !(order.status === 'cancelled' && order.cancelType === 'on_site');
     if (becomingOnSiteCancel) {
       const label = order.orderNumber ? `#${order.orderNumber}` : order.clientName;
-      if (!confirm(`Точно отмена на месте?\n\n${label} — статус сменится на «Отмена на месте».`)) {
+      if (!confirm(`Точно отмена на месте?\n\n${label} – статус сменится на «Отмена на месте».`)) {
         return;
       }
     }
@@ -717,7 +717,7 @@ export default function OrderDetailsModal({ order, isOpen, onClose, onSuccess }:
         </>
         )}
 
-        {/* Master Check Status — visible to admin & operator */}
+        {/* Master Check Status – visible to admin & operator */}
         {canEdit && activeTab === 'details' && !isEditing && (
           <div className="border-t border-gray-100 pt-4 sm:pt-6">
             <h4 className="font-medium text-gray-900 mb-3 text-sm sm:text-base">Прозвон и сверка с мастером</h4>

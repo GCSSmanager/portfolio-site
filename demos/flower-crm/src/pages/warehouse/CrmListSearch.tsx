@@ -24,7 +24,7 @@ export function CrmListSearch({
   maxVisible,
   /** При фокусе показать весь список (даже при пустом запросе). */
   openListOnFocus = false,
-  /** При пустом запросе — эти ключи всегда сверху; при вводе текста фильтруются как обычно. */
+  /** При пустом запросе – эти ключи всегда сверху; при вводе текста фильтруются как обычно. */
   pinWhenEmptyKeys = [],
 }: {
   options: CrmListSearchOption[]
@@ -35,7 +35,7 @@ export function CrmListSearch({
   invalid?: boolean
   disabled?: boolean
   emptyHint?: string
-  /** По умолчанию — весь отфильтрованный список; число — обрезка сверху. */
+  /** По умолчанию – весь отфильтрованный список; число – обрезка сверху. */
   maxVisible?: number
   openListOnFocus?: boolean
   pinWhenEmptyKeys?: string[]

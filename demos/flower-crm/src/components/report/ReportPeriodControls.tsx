@@ -100,7 +100,7 @@ export function ReportPeriodControls({ value, onChange, disabled = false, classN
           onBlur={commitFrom}
         />
         <span className="report-period__sep" aria-hidden>
-          —
+          –
         </span>
         <CrmDateField
           label="По"

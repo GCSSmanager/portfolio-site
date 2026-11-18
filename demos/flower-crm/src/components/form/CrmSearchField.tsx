@@ -56,7 +56,7 @@ export function useCrmSearchDropdown(blurDelayMs = 150) {
 }
 
 export type CrmSearchFieldProps = {
-  /** Без label — только оболочка поиска (внутри строки прихода, вложенный label). */
+  /** Без label – только оболочка поиска (внутри строки прихода, вложенный label). */
   label?: string
   invalid?: boolean
   wrapperClass?: string
@@ -72,7 +72,7 @@ export type CrmSearchFieldProps = {
 
 /**
  * Поле поиска с выпадающим списком (`children` при `open`).
- * С label — ячейка формы; без label — только `crm-taxon-search`.
+ * С label – ячейка формы; без label – только `crm-taxon-search`.
  */
 export function CrmSearchField({
   label,

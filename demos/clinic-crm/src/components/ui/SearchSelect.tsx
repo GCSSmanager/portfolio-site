@@ -216,7 +216,7 @@ export function SearchSelect({
   );
 }
 
-/** Короткий список без поиска — тот же стиль, что SearchSelect. */
+/** Короткий список без поиска – тот же стиль, что SearchSelect. */
 export function Picker({
   value,
   onChange,

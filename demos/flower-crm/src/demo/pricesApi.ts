@@ -22,7 +22,7 @@ function onStockStoreFlowerIds(db: DemoDb, shopUid: number): Set<number> {
 function flowerDisplayName(db: DemoDb, sf: DemoDb['storeFlowers'][number]): string {
   if (sf.name_override.trim()) return sf.name_override.trim()
   const t = db.taxons.find((x) => x.id === sf.taxon_id)
-  return t ? (t.name_ru || t.name).trim() || t.name : '—'
+  return t ? (t.name_ru || t.name).trim() || t.name : '–'
 }
 
 export function pricesCatalogPayload(db: DemoDb, shopUid: number) {

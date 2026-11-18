@@ -19,7 +19,7 @@ export function taxonDisplay(taxons: DemoTaxon[], id: number | null): {
 } {
   const t = taxons.find((x) => x.id === id)
   if (!t) {
-    return { display_name: '—', latin_name: null, rank: '', rank_label: '' }
+    return { display_name: '–', latin_name: null, rank: '', rank_label: '' }
   }
   const display = (t.name_ru || t.name).trim() || t.name
   return {

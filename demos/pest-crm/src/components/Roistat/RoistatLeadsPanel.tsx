@@ -86,7 +86,7 @@ export default function RoistatLeadsPanel({ onCreateFromLead, refreshKey = 0 }: 
 
   const handleSpam = async (lead: RoistatLead) => {
     const phone = formatPhoneRu(lead.phone) || lead.phone;
-    if (!confirm(`Точно спам?\n\n${phone} — заявка уйдёт во вкладку «Спам», её можно будет вернуть.`)) {
+    if (!confirm(`Точно спам?\n\n${phone} – заявка уйдёт во вкладку «Спам», её можно будет вернуть.`)) {
       return;
     }
     try {
@@ -177,7 +177,7 @@ export default function RoistatLeadsPanel({ onCreateFromLead, refreshKey = 0 }: 
                       <span>{formatPhoneRu(lead.phone) || lead.phone}</span>
                     </button>
                   ) : (
-                    <span className="text-sm font-semibold text-gray-400">—</span>
+                    <span className="text-sm font-semibold text-gray-400">–</span>
                   )}
                   <span className="text-xs text-gray-500">{formatLeadDate(lead.createdAt)}</span>
                 </div>

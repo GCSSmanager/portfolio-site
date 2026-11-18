@@ -75,7 +75,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
         <>
           <div className="demo-discuss-deal">
             <span className="demo-discuss-deal__badge">−10%</span>
-            <p className="demo-discuss-deal__text">Скидка при заказе с демо — зафиксируем в заявке</p>
+            <p className="demo-discuss-deal__text">Скидка при заказе с демо – зафиксируем в заявке</p>
           </div>
 
           <label className="crm-field">

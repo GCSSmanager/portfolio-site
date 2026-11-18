@@ -55,7 +55,7 @@ type CrmModalProps = {
   boxClassName?: string
   /** Рендер в `document.body` (для вложенных overflow). */
   portal?: boolean
-  /** Если задан — контент оборачивается в `<form class="crm-form crm-form--tight">`. */
+  /** Если задан – контент оборачивается в `<form class="crm-form crm-form--tight">`. */
   onSubmit?: FormEventHandler<HTMLFormElement>
   /** Доп. класс формы (например `login-form`). */
   formClassName?: string
@@ -113,7 +113,7 @@ function CrmModalRoot({
   children,
 }: CrmModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
-  /** Не закрывать по клику на backdrop сразу после showModal() — тот же клик, что открыл окно. */
+  /** Не закрывать по клику на backdrop сразу после showModal() – тот же клик, что открыл окно. */
   const suppressBackdropCloseUntil = useRef(0)
   const autoTitleId = useId()
   const titleId = titleIdProp ?? autoTitleId.replace(/:/g, '')

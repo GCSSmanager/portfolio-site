@@ -7,7 +7,7 @@ import { loadStoredChat, saveStoredChat, type StoredChatMessage } from '@/lib/ch
 import { createChatSessionId, pollCrmChat, sendCrmChat, sendCrmLead } from '@/lib/leads'
 
 const ASSIST_ACK_QUESTION =
-  'Вопрос передали менеджеру. Ответ придёт здесь в чате — обычно в рабочее время в течение часа.'
+  'Вопрос передали менеджеру. Ответ придёт здесь в чате – обычно в рабочее время в течение часа.'
 const ASSIST_ACK_CONTACT = 'Контакты получили. Можете написать вопрос в поле ниже.'
 const ASSIST_OPEN_DELAY_MS = 20_000
 const CHAT_POLL_ERROR_MS = 2_000

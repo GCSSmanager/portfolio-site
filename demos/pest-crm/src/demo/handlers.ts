@@ -115,7 +115,7 @@ function filterProject(orders: Order[], _project: CrmProjectId): Order[] {
   return orders.filter(o => !o.crmProject || o.crmProject === 'pest-control');
 }
 
-/** Заказы и аналитика хранят source как строку — при переименовании справочника обновляем ссылки. */
+/** Заказы и аналитика хранят source как строку – при переименовании справочника обновляем ссылки. */
 function renameSourceNameInDb(db: DemoDb, oldName: string, newName: string): void {
   if (!oldName || !newName || oldName === newName) return;
 

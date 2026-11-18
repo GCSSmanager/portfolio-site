@@ -8,7 +8,7 @@ import {
 
 type CrmMaskedInputProps = {
   kind: 'date' | 'time'
-  /** Дата: 6 цифр ДДММГГ (по умолчанию) или 8 — ДДММГГГГ для настроек. */
+  /** Дата: 6 цифр ДДММГГ (по умолчанию) или 8 – ДДММГГГГ для настроек. */
   dateDigits?: 6 | 8
   value: string
   onChange: (value: string) => void

@@ -471,7 +471,7 @@
   overflow-x: auto;
 }
 
-/* Инвентаризация: карточки на мобилке (десктоп — таблица) */
+/* Инвентаризация: карточки на мобилке (десктоп – таблица) */
 .crm-inventory-cards,
 .crm-inventory-detail-cards {
   display: none;

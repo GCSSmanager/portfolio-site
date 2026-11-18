@@ -1,6 +1,6 @@
 import type { UserRole } from '@/types';
 
-/** Тестовые учётки демо — держим рядом с сидом, чтобы логин и seed не разъезжались. */
+/** Тестовые учётки демо – держим рядом с сидом, чтобы логин и seed не разъезжались. */
 export const DEMO_ACCOUNTS: Array<{
   login: string;
   password: string;

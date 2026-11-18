@@ -6,7 +6,7 @@ function mediaUrl(src: string) {
   return `${base}${src.replace(/^\//, "")}`;
 }
 
-/** Кадр 16:9 от ширины модалки — высота растёт вместе с шириной. */
+/** Кадр 16:9 от ширины модалки – высота растёт вместе с шириной. */
 export function DemoMediaFrame({ media }: { media?: DemoMediaSlot }) {
   if (!media || media.kind === "none") return null;
 

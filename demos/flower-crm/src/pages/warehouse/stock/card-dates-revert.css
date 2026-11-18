@@ -1,4 +1,4 @@
-/* StockCrm: блок приёмки / воды / подрезки — вертикальный список строк; откат рядом со временем */
+/* StockCrm: блок приёмки / воды / подрезки – вертикальный список строк; откат рядом со временем */
 
 .crm-card-mini__dates {
   display: flex;
@@ -171,7 +171,7 @@
   cursor: default;
 }
 
-/* Advanced: не показываем второй ↺ от серверного revert — плейсхолдер под размер кнопки */
+/* Advanced: не показываем второй ↺ от серверного revert – плейсхолдер под размер кнопки */
 .crm-date-revert--advanced-no-undo {
   display: inline-block;
   opacity: 0;
@@ -237,7 +237,7 @@
   pointer-events: none;
 }
 
-/* Три строки дат: приёмка / вода / подрезка — стабильная сетка */
+/* Три строки дат: приёмка / вода / подрезка – стабильная сетка */
 .crm-card-mini__dates--two {
   grid-template-rows: repeat(2, minmax(0, auto));
 }
@@ -246,7 +246,7 @@
   gap: 0.35rem;
 }
 
-/* Базовый режим: одна строка — либо приёмка, либо «Уход:» */
+/* Базовый режим: одна строка – либо приёмка, либо «Уход:» */
 .crm-card-mini__dates--basic-one {
   gap: 0.35rem;
 }
@@ -259,7 +259,7 @@
   justify-content: flex-end;
 }
 
-/* Слот под иконку или ↺ — фиксированная ширина, без скачка при смене состояния */
+/* Слот под иконку или ↺ – фиксированная ширина, без скачка при смене состояния */
 .crm-card-mini__action-slot {
   box-sizing: border-box;
   flex: 0 0 auto;
@@ -290,7 +290,7 @@
   opacity: 0.65;
 }
 
-/* Конец окна отката: keyframes — transition с «opacity: 0» не анимирует первый кадр */
+/* Конец окна отката: keyframes – transition с «opacity: 0» не анимирует первый кадр */
 @keyframes crm-undo-fade-out {
   from {
     opacity: 1;
@@ -305,7 +305,7 @@
   pointer-events: none;
 }
 
-/* После fade — невидимый резерв до ответа API (иначе строка «прыгает») */
+/* После fade – невидимый резерв до ответа API (иначе строка «прыгает») */
 .crm-date-revert--undo.crm-date-revert--gone-placeholder {
   display: inline-block;
   vertical-align: middle;

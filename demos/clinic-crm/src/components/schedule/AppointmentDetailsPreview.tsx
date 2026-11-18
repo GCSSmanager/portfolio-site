@@ -81,7 +81,7 @@ export function AppointmentDetailsPreview({
           label={appointments.length > 1 && specialistLabel.includes(",") ? "Специалисты" : "Специалист"}
           value={specialistLabel}
         />
-        <PreviewRow label="Кабинет" value={primary.room?.name ?? "—"} />
+        <PreviewRow label="Кабинет" value={primary.room?.name ?? "–"} />
         {primary.note?.trim() && <PreviewRow label="Заметка" value={primary.note.trim()} />}
       </div>
     </div>,

@@ -7,7 +7,7 @@ type Props = {
   className?: string;
   /** светлый текст на цветном фоне (шапка заказа) */
   light?: boolean;
-  /** выравнивание блока (в статистике — влево, в карточке заказа — вправо) */
+  /** выравнивание блока (в статистике – влево, в карточке заказа – вправо) */
   align?: 'start' | 'end';
 };
 
@@ -15,8 +15,8 @@ export default function SourceLabel({ source, className = '', light = false, ali
   const [expanded, setExpanded] = useState(false);
   const info = getSourceLabelInfo(source);
 
-  if (!source || info.short === '—') {
-    return <span className={className}>—</span>;
+  if (!source || info.short === '–') {
+    return <span className={className}>–</span>;
   }
 
   if (!info.isLong) {

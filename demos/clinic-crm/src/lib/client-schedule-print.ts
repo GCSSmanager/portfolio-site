@@ -38,11 +38,11 @@ export interface SchedulePrintColumn {
   /** Ключ для объединения соседних колонок (дата или id специалиста). */
   date: string;
   appointments: ClientScheduleEntry[];
-  /** Подпись шапки; если нет — форматируется date как dd.MM.yyyy. */
+  /** Подпись шапки; если нет – форматируется date как dd.MM.yyyy. */
   label?: string;
-  /** Весь день отсутствует — серый столбец с подписью по центру. */
+  /** Весь день отсутствует – серый столбец с подписью по центру. */
   fullDayAbsenceLabel?: string;
-  /** День диагностики — как отсутствие (штриховка); записи (брони) остаются в колонке. */
+  /** День диагностики – как отсутствие (штриховка); записи (брони) остаются в колонке. */
   fullDayDiagnosticLabel?: string;
 }
 
@@ -111,7 +111,7 @@ function renderAppointmentCellHtml(entry: ClientScheduleEntry, showClientName: b
   `;
 }
 
-/** Сколько записей влезает в одну ячейку — с запасом, чтобы в печати не обрезало. */
+/** Сколько записей влезает в одну ячейку – с запасом, чтобы в печати не обрезало. */
 export function appointmentsPerColumn() {
   const usable = SCHEDULE_PRINT_CELL_BODY_HEIGHT - SCHEDULE_PRINT_CELL_SAFETY_PX;
   return Math.max(1, Math.floor(usable / SCHEDULE_PRINT_APPOINTMENT_HEIGHT));

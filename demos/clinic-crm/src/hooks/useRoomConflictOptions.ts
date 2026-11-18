@@ -24,7 +24,7 @@ export function useRoomConflictOptions({
   excludeAppointmentIds = [],
   excludeCoStaffSessionId,
   isGroupService = false,
-  emptyLabel = "— не указан —",
+  emptyLabel = "– не указан –",
 }: Params) {
   return useMemo(() => {
     const conflicts = new Map<string, ScheduleConflict | null>();

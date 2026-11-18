@@ -42,7 +42,7 @@ type Props = {
   invalid?: boolean
   disabled?: boolean
   placeholder?: string
-  /** Длинные подписи разделов — одна строка с многоточием в кнопке и в списке */
+  /** Длинные подписи разделов – одна строка с многоточием в кнопке и в списке */
   clampLabels?: boolean
 }
 

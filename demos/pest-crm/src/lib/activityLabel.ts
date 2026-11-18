@@ -10,7 +10,7 @@ const LABELS: Record<string, string> = {
 
 export function activityActionLabel(action: string): string {
   const trimmed = action.trim();
-  if (!trimmed) return '—';
+  if (!trimmed) return '–';
   return LABELS[trimmed] ?? trimmed;
 }
 

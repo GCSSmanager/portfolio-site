@@ -343,7 +343,7 @@ export function createSeedDb() {
       );
     }
 
-    // Групповая галокамера раз в день в 12:00 — Яшины (AGE_8_11).
+    // Групповая галокамера раз в день в 12:00 – Яшины (AGE_8_11).
     const haloGroupId = id("gs");
     appointments.push(
       apt({

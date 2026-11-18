@@ -610,7 +610,7 @@ function DashboardContent() {
   );
 }
 
-/* ─── Page export — route by role ───────────────────────────── */
+/* ─── Page export – route by role ───────────────────────────── */
 export default function Dashboard() {
   return (
     <ProtectedRoute>

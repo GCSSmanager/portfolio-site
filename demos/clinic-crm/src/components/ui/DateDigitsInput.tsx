@@ -10,7 +10,7 @@ interface Props {
   invalid?: boolean;
 }
 
-/** Пустая или полная валидная дата — ок; частично набранная / 32.13.2020 — нет. */
+/** Пустая или полная валидная дата – ок; частично набранная / 32.13.2020 – нет. */
 export function isBirthDateDigitsOk(digitsOrFormatted: string) {
   const digits = onlyDigits(digitsOrFormatted);
   if (!digits) return true;
@@ -55,7 +55,7 @@ function digitsToYmd(digits: string): string | null {
 
 /**
  * Ввод даты только цифрами с автоформатом ДД.ММ.ГГГГ.
- * value/onChange — YYYY-MM-DD (как у DatePicker) или "".
+ * value/onChange – YYYY-MM-DD (как у DatePicker) или "".
  */
 export function DateDigitsInput({
   value,

@@ -3,7 +3,7 @@ import { createSeedDb, nearestOpenDay, type DemoDb } from "./seed";
 
 const DB_KEY = "clinic-demo.db";
 
-/** Данные живут в localStorage — переживают закрытие вкладки/браузера на этом устройстве. */
+/** Данные живут в localStorage – переживают закрытие вкладки/браузера на этом устройстве. */
 export function loadDb(): DemoDb {
   const raw = localStorage.getItem(DB_KEY);
   if (raw) {

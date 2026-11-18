@@ -8,7 +8,7 @@ function requestUrl(input: RequestInfo | URL): string {
   return input.url
 }
 
-/** Подмена fetch для /api/* — данные из localStorage (см. store.ts). */
+/** Подмена fetch для /api/* – данные из localStorage (см. store.ts). */
 export function installDemoFetch() {
   if (installed || typeof window === 'undefined') return
   installed = true

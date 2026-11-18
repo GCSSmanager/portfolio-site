@@ -34,7 +34,7 @@ export function AboutCrmEssence() {
                       </span>
                       <p className="crm-article__power-title">Задачи</p>
                     </div>
-                    <p className="crm-article__power-text">Перезвон, счёт, договор — с датой и ответственным.</p>
+                    <p className="crm-article__power-text">Перезвон, счёт, договор – с датой и ответственным.</p>
                   </li>
                   <li className="crm-article__power crm-article__power--channels">
                     <div className="crm-article__power-top">
@@ -47,7 +47,7 @@ export function AboutCrmEssence() {
                       </span>
                       <p className="crm-article__power-title">Каналы</p>
                     </div>
-                    <p className="crm-article__power-text">Сайт, звонки, мессенджеры — в одной базе.</p>
+                    <p className="crm-article__power-text">Сайт, звонки, мессенджеры – в одной базе.</p>
                   </li>
                   <li className="crm-article__power crm-article__power--team">
                     <div className="crm-article__power-top">
@@ -73,7 +73,7 @@ export function AboutCrmEssence() {
                       </span>
                       <p className="crm-article__power-title">Отчёты</p>
                     </div>
-                    <p className="crm-article__power-text">Заявки, конверсия, просрочки — без сводки в Excel.</p>
+                    <p className="crm-article__power-text">Заявки, конверсия, просрочки – без сводки в Excel.</p>
                   </li>
                   <li className="crm-article__power crm-article__power--links">
                     <div className="crm-article__power-top">
@@ -86,7 +86,7 @@ export function AboutCrmEssence() {
                       </span>
                       <p className="crm-article__power-title">Интеграции</p>
                     </div>
-                    <p className="crm-article__power-text">1С, телефония, сайт — когда без стыковки уже не обойтись.</p>
+                    <p className="crm-article__power-text">1С, телефония, сайт – когда без стыковки уже не обойтись.</p>
                   </li>
                 </ul>
 
@@ -98,7 +98,7 @@ export function AboutCrmEssence() {
                     </div>
                     <div className="crm-article__track-card">
                       <p className="crm-article__track-label">Блокнот</p>
-                      <p className="crm-article__track-text">Телефон на полях — хватает, пока клиентов мало и продаёт один человек.</p>
+                      <p className="crm-article__track-text">Телефон на полях – хватает, пока клиентов мало и продаёт один человек.</p>
                     </div>
                   </li>
                   <li className="crm-article__track-step crm-article__track-step--sheet">
@@ -116,7 +116,7 @@ export function AboutCrmEssence() {
                     </div>
                     <div className="crm-article__track-card">
                       <p className="crm-article__track-label">Чаты и файлы</p>
-                      <p className="crm-article__track-text">WhatsApp, почта, «final_v2.xlsx» — заявка теряется между каналами.</p>
+                      <p className="crm-article__track-text">WhatsApp, почта, «final_v2.xlsx» – заявка теряется между каналами.</p>
                     </div>
                   </li>
                   <li className="crm-article__track-step crm-article__track-step--crm">
@@ -125,7 +125,7 @@ export function AboutCrmEssence() {
                     </div>
                     <div className="crm-article__track-card">
                       <p className="crm-article__track-label">CRM</p>
-                      <p className="crm-article__track-text">Заявка, карточка клиента, этапы и задачи — в одном окне для всей команды.</p>
+                      <p className="crm-article__track-text">Заявка, карточка клиента, этапы и задачи – в одном окне для всей команды.</p>
                       <button className="btn btn--primary crm-article__track-cta" type="button" data-order-open data-order-source="about-roadmap-consult" data-order-deal="off">
                         Обсудить внедрение
                       </button>

@@ -36,9 +36,9 @@ export function buildKpPdfDoc({ form, logo }: BuildPdfOptions): TDocumentDefinit
         bold: true,
         lineHeight: 1.15,
       },
-      { text: stage.scope || '—', lineHeight: 1.15 },
+      { text: stage.scope || '–', lineHeight: 1.15 },
       { text: formatDays(stage.days), lineHeight: 1.15 },
-      { text: stage.price ? formatPrice(stage.price) : '—', alignment: 'right' as const, lineHeight: 1.15 },
+      { text: stage.price ? formatPrice(stage.price) : '–', alignment: 'right' as const, lineHeight: 1.15 },
     ]),
     [
       { text: 'Итого', colSpan: 2, bold: true, fontSize: 10, lineHeight: 1 },

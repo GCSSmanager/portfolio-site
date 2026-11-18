@@ -8,7 +8,7 @@ type Props = {
   phone: string;
 };
 
-/** В портфолио-демо звонки не уходят в телефонию — только пояснение. */
+/** В портфолио-демо звонки не уходят в телефонию – только пояснение. */
 export function DemoPhoneCallModal({ open, onClose, phone }: Props) {
   const display = formatPhoneRu(phone) || phone;
 
@@ -17,7 +17,7 @@ export function DemoPhoneCallModal({ open, onClose, phone }: Props) {
       <div className="space-y-4 py-1 text-center sm:text-left">
         <p className="text-lg font-semibold text-gray-900">{display}</p>
         <p className="text-sm leading-relaxed text-gray-600">
-          Это демо на сайте — звонок не выполняется.
+          Это демо на сайте – звонок не выполняется.
           В CRM оператор нажимает «Позвонить», отвечает на входящий на свой номер,
           после этого система соединяет с клиентом.
         </p>

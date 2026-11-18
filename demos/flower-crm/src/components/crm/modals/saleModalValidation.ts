@@ -44,7 +44,7 @@ function isSaleModalLineComplete(
   return true
 }
 
-/** Неверное «с реализации»: не число, < 0 или больше допустимого. Пустое поле — ок (0). */
+/** Неверное «с реализации»: не число, < 0 или больше допустимого. Пустое поле – ок (0). */
 export function isSaleModalLineRealizationInvalid(
   row: SaleModalLineRow,
   line: SaleStockOption | undefined,
@@ -133,7 +133,7 @@ export function buildStockLineApiBody(
     }
     if (saleRq > qty || saleRq > realizationCap) {
       return {
-        error: `С реализации — не больше ${Math.min(realizationCap, qty)} шт.`,
+        error: `С реализации – не больше ${Math.min(realizationCap, qty)} шт.`,
       }
     }
   }

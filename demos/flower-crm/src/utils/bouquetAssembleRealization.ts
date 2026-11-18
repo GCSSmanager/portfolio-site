@@ -18,7 +18,7 @@ export type BouquetAssembleUsageRow = {
   storeFlowerId: number
   displayName: string
   perBouquet: number
-  /** null — количество букетов ещё не задано */
+  /** null – количество букетов ещё не задано */
   needTotal: number | null
   stockTotal: number
   stockRealization: number
@@ -48,7 +48,7 @@ export function storeFlowerQuantityStock(batches: BatchStockRow[]): Map<number, 
   return m
 }
 
-/** На реализации по видам — сумма по всем партиям store_flower_id. */
+/** На реализации по видам – сумма по всем партиям store_flower_id. */
 export function storeFlowerRealizationStock(batches: BatchStockRow[]): Map<number, number> {
   const m = new Map<number, number>()
   for (const b of batches) {

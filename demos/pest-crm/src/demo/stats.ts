@@ -18,7 +18,7 @@ import { CITY_NAMES, cityCodeOf, type CityCode } from '@/lib/cityLabel';
 
 function bumpSourceDayStat(map: Record<string, SourceDayStat>, order: Order) {
   const city = cityCodeOf(order);
-  const sourceName = order.source || '—';
+  const sourceName = order.source || '–';
   const key = `${sourceName}\0${city}`;
   if (!map[key]) {
     map[key] = {
@@ -168,7 +168,7 @@ function buildStatisticsFromOrders(
 
   const managerMap: Record<string, ManagerStat> = {};
   for (const o of orders) {
-    const name = o.manager || '—';
+    const name = o.manager || '–';
     if (!managerMap[name]) {
       managerMap[name] = { name, primary: 0, secondary: 0, completedCount: 0, completedSum: 0 };
     }

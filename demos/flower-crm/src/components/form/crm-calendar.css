@@ -79,7 +79,7 @@
   color: var(--crm-ink, var(--text));
 }
 
-/* Внутри dialog.crm-modal (top layer) — поверх содержимого модалки; ширина задаётся из JS */
+/* Внутри dialog.crm-modal (top layer) – поверх содержимого модалки; ширина задаётся из JS */
 dialog.crm-modal > .crm-calendar-popover--in-modal {
   z-index: 100;
   width: auto;

@@ -20,7 +20,7 @@ type Props = {
   photoPreviewUrl: string | null
   flowerLines: TaxonQtyLineRow[]
   consumableLines: TaxonQtyLineRow[]
-  /** На складе уже есть собранные букеты — рецепт всё равно можно менять (для следующих сборок). */
+  /** На складе уже есть собранные букеты – рецепт всё равно можно менять (для следующих сборок). */
   recipeHasAssembledStock?: boolean
   formError: string | null
   invalidField: 'name' | 'lines' | 'price' | null
@@ -137,7 +137,7 @@ export function BouquetRecipeModal({
         label="Цена продажи, ₽/шт"
         value={unitPrice}
         onChange={(e) => onUnitPriceChange(e.target.value)}
-        hint="Пусто — цена не задана."
+        hint="Пусто – цена не задана."
         invalid={invalidField === 'price'}
       />
       <div className={`crm-field${showLineErrors ? ' crm-field--invalid' : ''}`.trim()}>
@@ -200,7 +200,7 @@ export function BouquetRecipeModal({
       <div className={`crm-field${showLineErrors ? ' crm-field--invalid' : ''}`.trim()}>
         <span className="crm-field__lab">Расходники (на один букет)</span>
         <p className="crm-field__hint crm-field__hint--tight">
-          Лента и плёнка — в сантиметрах, упаковка и оазис — в штуках.
+          Лента и плёнка – в сантиметрах, упаковка и оазис – в штуках.
         </p>
         <>
           <ul

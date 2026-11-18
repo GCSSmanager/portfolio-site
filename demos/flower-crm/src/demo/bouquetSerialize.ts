@@ -279,7 +279,7 @@ export function serializeBouquetRow(
 
   const recipe_lines = b.recipe_lines.map((ln) => {
     const sf = db.storeFlowers.find((s) => s.id === ln.store_flower_id)
-    const meta = sf ? storeFlowerDisplay(db, sf) : { display_name: '—', taxon_id: null }
+    const meta = sf ? storeFlowerDisplay(db, sf) : { display_name: '–', taxon_id: null }
     return {
       store_flower_id: ln.store_flower_id,
       taxon_id: meta.taxon_id,
@@ -292,7 +292,7 @@ export function serializeBouquetRow(
     const c = db.consumables.find((x) => x.id === ln.consumable_id)
     return {
       consumable_id: ln.consumable_id,
-      display_name: c?.name ?? '—',
+      display_name: c?.name ?? '–',
       unit_kind: c?.unit_kind ?? 'piece',
       unit_label: c?.unit_kind === 'meter' ? 'м' : 'шт',
       quantity: ln.quantity,

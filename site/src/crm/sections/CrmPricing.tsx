@@ -32,7 +32,7 @@ export function CrmPricing() {
 
   const totalLabel =
     selection.names.length === 0
-      ? 'Отметьте услуги — появится диапазон'
+      ? 'Отметьте услуги – появится диапазон'
       : `От ${formatPriceRub(selection.from)} до ${formatPriceRub(selection.to)}`
 
   const toggle = (value: string) => {

@@ -4,7 +4,7 @@ import { ActivityAction } from '@/lib/activityLabel';
 import type { DemoDb, DemoUser } from './store';
 import type { Order } from '@/types';
 
-/** Детерминированный RNG от даты — при сбросе демо набор тот же, но выглядит «живым». */
+/** Детерминированный RNG от даты – при сбросе демо набор тот же, но выглядит «живым». */
 function mulberry32(seed: number) {
   return () => {
     let t = (seed += 0x6d2b79f5);
@@ -19,7 +19,7 @@ const LEAD_SOURCES = ['Яндекс', '2GIS', 'Авито', 'Сарафан', '�
 const LEAD_COMMENTS = [
   'Клопы в спальне, нужен выезд',
   'Тараканы на кухне',
-  'После отдыха на даче — клещи',
+  'После отдыха на даче – клещи',
   'Срочно, дети дома',
   'Повторная обработка через месяц',
   'Уточнить цену и время',

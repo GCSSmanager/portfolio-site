@@ -69,17 +69,17 @@ export const consumablePackUnitLabel = consumablePackVolumeHint
 
 export function consumableIntakeHint(unitKind: ConsumableUnitKind | string | undefined): string {
   if (isPieceUnit(unitKind)) {
-    return 'На складе учитываются штуки. Укажите, сколько шт в одной упаковке, число упаковок и цену за упаковку — остаток посчитается сам.'
+    return 'На складе учитываются штуки. Укажите, сколько шт в одной упаковке, число упаковок и цену за упаковку – остаток посчитается сам.'
   }
-  return 'На складе учёт в сантиметрах. Укажите, сколько метров в катушке при приходе, число катушек и цену — остаток в см посчитается сам.'
+  return 'На складе учёт в сантиметрах. Укажите, сколько метров в катушке при приходе, число катушек и цену – остаток в см посчитается сам.'
 }
 
 /** Короткая подсказка в строке «Нового прихода». */
 export function consumableIntakeBatchHint(unitKind: ConsumableUnitKind | string | undefined): string {
   if (isPieceUnit(unitKind)) {
-    return 'Сколько шт в одной упаковке, сколько упаковок привезли и цена за упаковку — остаток на складе посчитается сам.'
+    return 'Сколько шт в одной упаковке, сколько упаковок привезли и цена за упаковку – остаток на складе посчитается сам.'
   }
-  return 'Сколько метров в катушке, сколько катушек и цена — на склад запишутся сантиметры.'
+  return 'Сколько метров в катушке, сколько катушек и цена – на склад запишутся сантиметры.'
 }
 
 /** Подпись количества расходника в рецепте букета. */
@@ -116,7 +116,7 @@ export function formatPackSizeLabel(
 ): string {
   const n = parseConsumableMeters(packSize)
   const unit = consumableUnitLabel(unitKind)
-  if (n == null) return `— ${unit}`
+  if (n == null) return `– ${unit}`
   return `${n.toLocaleString('ru-RU', { maximumFractionDigits: 3 })} ${unit} ${consumablePackVolumeHint(unitKind)}`
 }
 

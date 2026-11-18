@@ -259,7 +259,7 @@ function stageLabel(stage) {
 }
 
 function clientName(id) {
-  return state.clients.find((item) => item.id === id)?.name || '—'
+  return state.clients.find((item) => item.id === id)?.name || '–'
 }
 
 function roleName(id) {
@@ -407,7 +407,7 @@ function homeColumn(title, rows, kind) {
     button.className = 'item__main'
     const name = document.createElement('span')
     name.className = 'item__title'
-    name.textContent = kind === 'clients' ? row.name || '—' : row.title || '—'
+    name.textContent = kind === 'clients' ? row.name || '–' : row.title || '–'
     const meta = document.createElement('span')
     meta.className = 'item__meta'
     if (kind === 'clients') meta.textContent = [row.phone, row.note].filter(Boolean).join(' · ')
@@ -485,17 +485,17 @@ function render() {
     meta.className = 'item__meta'
 
     if (current === 'clients') {
-      title.textContent = row.name || '—'
+      title.textContent = row.name || '–'
       meta.textContent = [row.phone, row.note].filter(Boolean).join(' · ')
     } else if (current === 'deals') {
-      title.textContent = row.title || '—'
+      title.textContent = row.title || '–'
       meta.textContent = `${clientName(row.clientId)} · ${showMoney(row.amount)} · ${stageLabel(row.stage)}`
     } else if (current === 'tasks') {
-      title.textContent = row.title || '—'
+      title.textContent = row.title || '–'
       title.classList.toggle('is-done', Boolean(row.done))
       meta.textContent = [showDate(row.due), roleName(row.roleId)].filter(Boolean).join(' · ')
     } else {
-      title.textContent = row.name || '—'
+      title.textContent = row.name || '–'
       meta.textContent = [row.role, row.login].filter(Boolean).join(' · ')
     }
 
@@ -562,9 +562,9 @@ function openEditor(kind, record) {
     controls.due.type = 'date'
     controls.due.value = record?.due || ''
     controls.roleId = mountPick(
-      [{ value: '', label: '—' }, ...state.roles.map((role) => ({ value: role.id, label: role.name }))],
+      [{ value: '', label: '–' }, ...state.roles.map((role) => ({ value: role.id, label: role.name }))],
       record?.roleId || '',
-      '—',
+      '–',
     )
     controls.done = document.createElement('input')
     controls.done.type = 'checkbox'

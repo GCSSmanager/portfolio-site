@@ -206,8 +206,8 @@ export function DocumentsPage() {
     onSuccess: ({ data, headers }, vars) => {
       const fallback =
         vars.merge || !vars.templateId
-          ? `${name || "документ"} — документы.docx`
-          : `${name || "документ"} — ${templates.find((item) => item.id === vars.templateId)?.title ?? "документ"}.docx`;
+          ? `${name || "документ"} – документы.docx`
+          : `${name || "документ"} – ${templates.find((item) => item.id === vars.templateId)?.title ?? "документ"}.docx`;
       downloadBlob(data, filenameFromHeader(headers["content-disposition"], fallback));
     },
     onError: async (e) => {

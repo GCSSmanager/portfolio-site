@@ -1,4 +1,4 @@
-/** Ответ GET /api/me/flowers/search/?q=… (при supplier_id — закупка из SupplierOffer). */
+/** Ответ GET /api/me/flowers/search/?q=… (при supplier_id – закупка из SupplierOffer). */
 export type StoreFlowerSearchHit = {
   id: number
   store_flower_id: number

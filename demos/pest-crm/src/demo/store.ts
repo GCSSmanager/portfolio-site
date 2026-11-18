@@ -23,7 +23,7 @@ import { ensureDemoJournal } from './enrichSeed';
 import { createSeedDb } from './seed';
 
 export const DB_KEY = 'pest-demo.db';
-/** Служебное поле в JSON; смена не форсирует пересид — только «Сбросить демо». */
+/** Служебное поле в JSON; смена не форсирует пересид – только «Сбросить демо». */
 export const DB_VERSION = 1;
 
 export type DemoUser = User & { password: string };

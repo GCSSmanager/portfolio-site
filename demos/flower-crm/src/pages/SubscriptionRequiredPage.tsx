@@ -4,7 +4,7 @@ import { CrmButton } from '../components/ui/CrmButton'
 import '../auth/auth.css'
 import './notFound.css'
 
-/** Отдельный «тупиковый» экран: сессия есть, подписки нет — как 404, без навигации по ЛК. */
+/** Отдельный «тупиковый» экран: сессия есть, подписки нет – как 404, без навигации по ЛК. */
 export function SubscriptionRequiredPage() {
   const navigate = useNavigate()
   const { phone, subscriptionActive, loading, backendUnreachable, logout } = useAuth()

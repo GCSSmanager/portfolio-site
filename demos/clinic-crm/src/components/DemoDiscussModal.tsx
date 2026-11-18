@@ -117,7 +117,7 @@ export function DemoDiscussModal({ open, onOpenChange }: Props) {
                   −10%
                 </span>
                 <p className="text-sm leading-snug text-ink">
-                  Скидка при заказе с демо — зафиксируем в заявке
+                  Скидка при заказе с демо – зафиксируем в заявке
                 </p>
               </div>
 

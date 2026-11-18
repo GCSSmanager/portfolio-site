@@ -29,7 +29,7 @@ export function formatRubNumber(n: number, maximumFractionDigits = 0): string {
 }
 
 export function formatRubBriefFromString(s: string | undefined | null): string {
-  if (s == null || s === '') return '—'
+  if (s == null || s === '') return '–'
   return formatRubNumber(parseAmount(s))
 }
 

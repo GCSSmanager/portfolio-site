@@ -20,7 +20,7 @@ function optionalText(raw: unknown, maxLen?: number): string {
 function serializeOffer(db: DemoDb, o: DemoSupplierOffer) {
   const sf = db.storeFlowers.find((s) => s.id === o.store_flower_id)
   const t = db.taxons.find((x) => x.id === (sf?.taxon_id ?? o.taxon_id))
-  const display = t ? (t.name_ru || t.name) : sf?.name_override ?? '—'
+  const display = t ? (t.name_ru || t.name) : sf?.name_override ?? '–'
   return {
     store_flower_id: o.store_flower_id,
     taxon_id: o.taxon_id,

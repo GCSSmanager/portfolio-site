@@ -125,7 +125,7 @@ type FlowerSpec = {
   fixedPrice: string | null
 }
 
-/** Стартовый склад «старше» окна статистики — иначе весь приход попадает в закупки за 90 дн. */
+/** Стартовый склад «старше» окна статистики – иначе весь приход попадает в закупки за 90 дн. */
 const DEMO_STOCK_RECEIVED_DAYS_AGO = 120
 
 function buildFlowerStock(ownerId: number, specs: FlowerSpec[]): {

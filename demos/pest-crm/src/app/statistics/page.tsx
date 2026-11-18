@@ -764,7 +764,7 @@ function StatisticsContent() {
       onChange={setSourceScope}
       conversionData={conversionData}
       onOpenConversion={periodMode === 'month' ? openSourceDetail : undefined}
-      conversionPeriodHint={periodMode === 'custom' ? 'Клики суммируются по месяцам внутри выбранного периода. Редактирование — в режиме «Месяц».' : undefined}
+      conversionPeriodHint={periodMode === 'custom' ? 'Клики суммируются по месяцам внутри выбранного периода. Редактирование – в режиме «Месяц».' : undefined}
     />
   );
 
@@ -1064,7 +1064,7 @@ function StatisticsContent() {
               </div>
               <div className="px-4 py-3">
                 <div className="text-xs text-gray-500">Реклама</div>
-                <div className="mt-1 font-bold tabular-nums text-red-600">{hideAdSpend ? '—' : formatMoney(cityScoped ? todayStats.adSpend : Number(localAdSpend[todayStats.date]) || todayStats.adSpend)}</div>
+                <div className="mt-1 font-bold tabular-nums text-red-600">{hideAdSpend ? '–' : formatMoney(cityScoped ? todayStats.adSpend : Number(localAdSpend[todayStats.date]) || todayStats.adSpend)}</div>
               </div>
               <div className="px-4 py-3">
                 <div className="text-xs text-gray-500">Чистая прибыль</div>
@@ -1110,8 +1110,8 @@ function StatisticsContent() {
                 {showDailyStats && (hideAdSpend || cityScoped) && (
                   <p className="border-t border-gray-100 px-4 py-2 text-xs text-amber-800 bg-amber-50 lg:px-6">
                     {hideAdSpend
-                      ? 'При фильтре по источнику сумма РК в таблице не редактируется и не входит в сводку — учитываются заказы выбранного источника.'
-                      : 'При фильтре по городу РК показана только по городу (доля из общих расходов дня); редактирование — без фильтра «все города».'}
+                      ? 'При фильтре по источнику сумма РК в таблице не редактируется и не входит в сводку – учитываются заказы выбранного источника.'
+                      : 'При фильтре по городу РК показана только по городу (доля из общих расходов дня); редактирование – без фильтра «все города».'}
                   </p>
                 )}
                 {showDailyStats && <div className="flex flex-wrap items-center justify-end gap-3 border-t border-gray-100 px-4 py-3 lg:px-6">
@@ -1199,23 +1199,23 @@ function StatisticsContent() {
                           <td className="px-3 py-2.5 text-center"><CreatedCountButton day={day} type="primary" /></td>
                           <td className="px-3 py-2.5 text-center"><CreatedCountButton day={day} type="secondary" /></td>
                           <td className="px-3 py-2.5 text-center">
-                            {day.primaryCount > 0 ? <span className="inline-flex items-center justify-center w-6 h-6 bg-green-100 text-green-700 rounded-lg text-sm font-medium">{day.primaryCount}</span> : <span className="text-gray-300">—</span>}
+                            {day.primaryCount > 0 ? <span className="inline-flex items-center justify-center w-6 h-6 bg-green-100 text-green-700 rounded-lg text-sm font-medium">{day.primaryCount}</span> : <span className="text-gray-300">–</span>}
                           </td>
                           <td className="px-3 py-2.5 text-center">
-                            {day.secondaryCount > 0 ? <span className="inline-flex items-center justify-center w-6 h-6 bg-amber-100 text-amber-700 rounded-lg text-sm font-medium">{day.secondaryCount}</span> : <span className="text-gray-300">—</span>}
+                            {day.secondaryCount > 0 ? <span className="inline-flex items-center justify-center w-6 h-6 bg-amber-100 text-amber-700 rounded-lg text-sm font-medium">{day.secondaryCount}</span> : <span className="text-gray-300">–</span>}
                           </td>
-                          <td className="px-3 py-2.5 text-right">{day.primarySum > 0 ? <span className="text-sm text-gray-900">{formatNumber(day.primarySum)}</span> : <span className="text-gray-300">—</span>}</td>
-                          <td className="px-3 py-2.5 text-right">{day.secondarySum > 0 ? <span className="text-sm text-gray-900">{formatNumber(day.secondarySum)}</span> : <span className="text-gray-300">—</span>}</td>
-                          <td className="px-3 py-2.5 text-right">{day.totalSum > 0 ? <span className="text-sm font-bold text-gray-900">{formatNumber(day.totalSum)}</span> : <span className="text-gray-300">—</span>}</td>
-                          <td className="px-3 py-2.5 text-right">{day.cashDesk > 0 ? <span className="text-sm font-medium text-green-600">{formatNumber(day.cashDesk)}</span> : <span className="text-gray-300">—</span>}</td>
-                          <td className="px-3 py-2.5 text-right">{day.masterIncome > 0 ? <span className="text-sm font-medium text-purple-600">{formatNumber(day.masterIncome)}</span> : <span className="text-gray-300">—</span>}</td>
+                          <td className="px-3 py-2.5 text-right">{day.primarySum > 0 ? <span className="text-sm text-gray-900">{formatNumber(day.primarySum)}</span> : <span className="text-gray-300">–</span>}</td>
+                          <td className="px-3 py-2.5 text-right">{day.secondarySum > 0 ? <span className="text-sm text-gray-900">{formatNumber(day.secondarySum)}</span> : <span className="text-gray-300">–</span>}</td>
+                          <td className="px-3 py-2.5 text-right">{day.totalSum > 0 ? <span className="text-sm font-bold text-gray-900">{formatNumber(day.totalSum)}</span> : <span className="text-gray-300">–</span>}</td>
+                          <td className="px-3 py-2.5 text-right">{day.cashDesk > 0 ? <span className="text-sm font-medium text-green-600">{formatNumber(day.cashDesk)}</span> : <span className="text-gray-300">–</span>}</td>
+                          <td className="px-3 py-2.5 text-right">{day.masterIncome > 0 ? <span className="text-sm font-medium text-purple-600">{formatNumber(day.masterIncome)}</span> : <span className="text-gray-300">–</span>}</td>
                           <td className="px-3 py-2.5">
                             {sourceScoped ? (
-                              <span className="text-gray-300">—</span>
+                              <span className="text-gray-300">–</span>
                             ) : cityScoped ? (
                               day.adSpend > 0
                                 ? <span className="block w-24 text-right text-sm font-medium text-red-600">{formatNumber(day.adSpend)}</span>
-                                : <span className="text-gray-300">—</span>
+                                : <span className="text-gray-300">–</span>
                             ) : (
                             <input type="text" inputMode="numeric" pattern="[0-9]*"
                               className={`w-24 px-2 py-1.5 text-right text-sm rounded-lg border transition-all focus:outline-none focus:ring-2 ${isDirty ? 'border-orange-300 bg-orange-50 focus:ring-orange-500/20' : 'border-gray-200 bg-white focus:ring-blue-500/20'}`}
@@ -1227,12 +1227,12 @@ function StatisticsContent() {
                               const spend = cityScoped ? (day.adSpend || 0) : (Number(localAdSpend[day.date]) || 0);
                               return (day.createdPrimaryCount ?? 0) > 0 && spend > 0
                                 ? <span className="text-sm font-medium text-red-600">{formatNumber(Math.round(spend / (day.createdPrimaryCount ?? 0)))}</span>
-                                : <span className="text-gray-300">—</span>;
+                                : <span className="text-gray-300">–</span>;
                             })()}
                           </td>
                           <td className="px-3 py-2.5 text-right">
                             <span className={`text-sm font-bold px-2 py-1 rounded-lg ${dayNetProfit > 0 ? 'text-green-700 bg-green-50' : dayNetProfit < 0 ? 'text-red-700 bg-red-50' : 'text-gray-400'}`}>
-                              {dayNetProfit !== 0 ? `${dayNetProfit > 0 ? '+' : ''}${formatNumber(dayNetProfit)}` : '—'}
+                              {dayNetProfit !== 0 ? `${dayNetProfit > 0 ? '+' : ''}${formatNumber(dayNetProfit)}` : '–'}
                             </span>
                           </td>
                         </tr>
@@ -1255,7 +1255,7 @@ function StatisticsContent() {
                       <td className="px-3 py-3 text-center font-medium text-red-600">
                         {totals.createdPrimaryCount > 0 && totals.adSpend > 0
                           ? formatNumber(Math.round(totals.adSpend / totals.createdPrimaryCount))
-                          : <span className="text-gray-300">—</span>}
+                          : <span className="text-gray-300">–</span>}
                       </td>
                       <td className="px-3 py-3 text-right">
                         <span className={`font-bold px-2 py-0.5 rounded ${totals.netProfit > 0 ? 'text-green-700 bg-green-100' : 'text-red-700 bg-red-100'}`}>
@@ -1317,12 +1317,12 @@ function StatisticsContent() {
                 <div className="grid grid-cols-3 gap-3">
                   <div className="flex flex-col items-center py-1"><span className="text-xs text-gray-600">Сдано в кассу</span><span className="text-sm font-semibold text-green-600">{formatMoney(totals.cashDesk)}</span></div>
                   <div className="flex flex-col items-center py-1"><span className="text-xs text-gray-600">Доход мастеров</span><span className="text-sm font-semibold text-purple-600">{formatMoney(totals.masterIncome)}</span></div>
-                  <div className="flex flex-col items-center py-1"><span className="text-xs text-gray-600">Сумма РК</span><span className="text-sm font-semibold text-red-600">{hideAdSpend ? '—' : formatMoney(totals.adSpend)}</span></div>
+                  <div className="flex flex-col items-center py-1"><span className="text-xs text-gray-600">Сумма РК</span><span className="text-sm font-semibold text-red-600">{hideAdSpend ? '–' : formatMoney(totals.adSpend)}</span></div>
                 </div>
                 {!scoped && totals.monthlyExpensesTotal > 0 && (
                   <div className="space-y-1 border-t border-gray-100 py-2 px-1">
                     {periodMode === 'custom' && (
-                      <p className="text-xs text-gray-500">Операционные расходы — сумма по календарным месяцам, попавшим в выбранный период.</p>
+                      <p className="text-xs text-gray-500">Операционные расходы – сумма по календарным месяцам, попавшим в выбранный период.</p>
                     )}
                     <div className="flex items-center justify-between">
                       {periodMode === 'month' ? (
@@ -1359,9 +1359,9 @@ function StatisticsContent() {
                 </div>
                 <div className="h-px bg-gray-100"></div>
                 <div>
-                  <div className="flex justify-between py-1"><span className="text-xs text-gray-600">Стоимость первичного лида (CPL)</span><span className="text-sm font-semibold text-gray-900">{hideAdSpend ? '—' : formatMoney(totals.costPerLead)}</span></div>
-                  <div className="flex justify-between py-1"><span className="text-xs text-gray-600">Ср. стоимость успешного заказа</span><span className="text-sm font-semibold text-gray-900">{hideAdSpend ? '—' : formatMoney(totals.costPerSuccessfulOrder)}</span></div>
-                  <div className="flex justify-between py-1"><span className="text-xs text-gray-600">ДРР %</span><span className="text-sm font-semibold text-gray-900">{hideAdSpend ? '—' : formatPercent(totals.drrPercent)}</span></div>
+                  <div className="flex justify-between py-1"><span className="text-xs text-gray-600">Стоимость первичного лида (CPL)</span><span className="text-sm font-semibold text-gray-900">{hideAdSpend ? '–' : formatMoney(totals.costPerLead)}</span></div>
+                  <div className="flex justify-between py-1"><span className="text-xs text-gray-600">Ср. стоимость успешного заказа</span><span className="text-sm font-semibold text-gray-900">{hideAdSpend ? '–' : formatMoney(totals.costPerSuccessfulOrder)}</span></div>
+                  <div className="flex justify-between py-1"><span className="text-xs text-gray-600">ДРР %</span><span className="text-sm font-semibold text-gray-900">{hideAdSpend ? '–' : formatPercent(totals.drrPercent)}</span></div>
                   <div className="flex justify-between py-1"><span className="text-xs text-gray-600">Ср. чек первички</span><span className="text-sm font-semibold text-green-600">{formatMoney(totals.avgCheckPrimary)}</span></div>
                   <div className="flex justify-between py-1"><span className="text-xs text-gray-600">Ср. чек повтора</span><span className="text-sm font-semibold text-amber-600">{formatMoney(totals.avgCheckSecondary)}</span></div>
                   <div className="-mx-4 flex justify-between rounded-lg bg-gray-50 px-4 py-1.5"><span className="text-xs font-medium text-gray-700">Ср. чек общий</span><span className="text-sm font-bold text-gray-900">{formatMoney(totals.avgCheckTotal)}</span></div>
@@ -1460,7 +1460,7 @@ function StatisticsContent() {
                   </div>
                   <div>
                     <div className="text-[0.6875rem] text-gray-400">Реклама</div>
-                    <div className="mt-1 truncate text-sm font-semibold tabular-nums">{hideAdSpend ? '—' : formatNumber(totals.adSpend)}</div>
+                    <div className="mt-1 truncate text-sm font-semibold tabular-nums">{hideAdSpend ? '–' : formatNumber(totals.adSpend)}</div>
                   </div>
                 </div>
               </section>
@@ -1502,7 +1502,7 @@ function StatisticsContent() {
                   </div>
                   <div className="grid grid-cols-2 gap-2 pt-2">
                     <div className="flex justify-between items-center p-2 bg-gray-50 rounded-lg"><span className="text-xs text-gray-600">Касса</span><span className="font-bold text-green-600 text-sm">{formatNumber(totals.cashDesk)}</span></div>
-                    <div className="flex justify-between items-center p-2 bg-gray-50 rounded-lg"><span className="text-xs text-gray-600">Реклама</span><span className="font-bold text-red-600 text-sm">{hideAdSpend ? '—' : formatNumber(totals.adSpend)}</span></div>
+                    <div className="flex justify-between items-center p-2 bg-gray-50 rounded-lg"><span className="text-xs text-gray-600">Реклама</span><span className="font-bold text-red-600 text-sm">{hideAdSpend ? '–' : formatNumber(totals.adSpend)}</span></div>
                     {!scoped && totals.monthlyExpensesTotal > 0 && (
                       periodMode === 'month' ? (
                         <button
@@ -1536,9 +1536,9 @@ function StatisticsContent() {
                     <div className="p-2 bg-gray-50 rounded-lg"><div className="text-lg font-bold">{formatPercent(totals.profitabilityPercent)}</div><div className="text-xs text-gray-500">Рентабельность</div></div>
                   </div>
                   <div className="space-y-1 pt-2">
-                    <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">CPL</span><span className="font-semibold">{hideAdSpend ? '—' : formatMoney(totals.costPerLead)}</span></div>
-                    <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">Ср. стоимость успешного</span><span className="font-semibold">{hideAdSpend ? '—' : formatMoney(totals.costPerSuccessfulOrder)}</span></div>
-                    <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">ДРР %</span><span className="font-semibold">{hideAdSpend ? '—' : formatPercent(totals.drrPercent)}</span></div>
+                    <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">CPL</span><span className="font-semibold">{hideAdSpend ? '–' : formatMoney(totals.costPerLead)}</span></div>
+                    <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">Ср. стоимость успешного</span><span className="font-semibold">{hideAdSpend ? '–' : formatMoney(totals.costPerSuccessfulOrder)}</span></div>
+                    <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">ДРР %</span><span className="font-semibold">{hideAdSpend ? '–' : formatPercent(totals.drrPercent)}</span></div>
                     <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">Ср. чек 1°</span><span className="font-semibold text-green-600">{formatMoney(totals.avgCheckPrimary)}</span></div>
                     <div className="flex justify-between py-1.5"><span className="text-sm text-gray-600">Ср. чек 2°</span><span className="font-semibold text-amber-600">{formatMoney(totals.avgCheckSecondary)}</span></div>
                     <div className="flex justify-between py-2 bg-gray-50 -mx-3 px-3 rounded-lg"><span className="text-sm font-medium">Ср. чек общий</span><span className="font-bold">{formatMoney(totals.avgCheckTotal)}</span></div>
@@ -1655,7 +1655,7 @@ function StatisticsContent() {
           setShowExpensesModal(false);
           setExpenseShowValidation(false);
         }}
-        title={`Расходы — ${months[month - 1]} ${year}`}
+        title={`Расходы – ${months[month - 1]} ${year}`}
         size="md"
       >
         <div className="space-y-4">
@@ -1806,7 +1806,7 @@ function StatisticsContent() {
                       <p className="text-xs text-red-600 mt-1">{REQUIRED_FIELD_ERROR}</p>
                     ) : null}
                   </div>
-                  <div className="text-center"><div className={`text-xl font-bold ${convRate > 0 ? 'text-indigo-600' : 'text-gray-400'}`}>{convRate > 0 ? `${convRate.toFixed(1)}%` : '—'}</div><div className="text-xs text-gray-500 mt-0.5">Конверсия</div></div>
+                  <div className="text-center"><div className={`text-xl font-bold ${convRate > 0 ? 'text-indigo-600' : 'text-gray-400'}`}>{convRate > 0 ? `${convRate.toFixed(1)}%` : '–'}</div><div className="text-xs text-gray-500 mt-0.5">Конверсия</div></div>
                 </div>
               </div>
               {currentSourceStats && (

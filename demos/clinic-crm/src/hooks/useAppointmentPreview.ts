@@ -26,7 +26,7 @@ export function clampPreviewPosition(
 
   let top = rect.top;
   if (top + height > viewportH - MARGIN) {
-    // Сначала пробуем прижать к низу экрана, затем — над блоком.
+    // Сначала пробуем прижать к низу экрана, затем – над блоком.
     top = viewportH - height - MARGIN;
     if (top < MARGIN && rect.top > height + MARGIN) {
       top = rect.top - height - MARGIN;

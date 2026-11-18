@@ -304,7 +304,7 @@ export function SalesPage() {
         rqMax > 0 &&
         (item.realizationQty < 0 || item.realizationQty > rqMax)
       ) {
-        setCartError(`Позиция ${n}: с реализации — от 0 до ${rqMax} шт.`)
+        setCartError(`Позиция ${n}: с реализации – от 0 до ${rqMax} шт.`)
         return
       }
     }

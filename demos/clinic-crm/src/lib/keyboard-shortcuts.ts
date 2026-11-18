@@ -2,7 +2,7 @@ export function isModifierKey(event: KeyboardEvent) {
   return event.metaKey || event.ctrlKey;
 }
 
-/** Physical key match — works across keyboard layouts (e.g. Russian «с» on KeyC). */
+/** Physical key match – works across keyboard layouts (e.g. Russian «с» on KeyC). */
 export function isModifierShortcut(event: KeyboardEvent, code: string) {
   return isModifierKey(event) && event.code === code;
 }

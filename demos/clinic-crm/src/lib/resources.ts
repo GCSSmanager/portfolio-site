@@ -2,7 +2,7 @@ import { api } from "./api";
 
 export const resources = {
   employees: {
-    /** all=false — только активные; all=true — включая удалённых */
+    /** all=false – только активные; all=true – включая удалённых */
     list: (all = false) => api.get("/api/employees", { params: { all } }).then((r) => r.data),
     create: (data: unknown) => api.post("/api/employees", data).then((r) => r.data),
     update: (id: string, data: unknown) => api.patch(`/api/employees/${id}`, data).then((r) => r.data),

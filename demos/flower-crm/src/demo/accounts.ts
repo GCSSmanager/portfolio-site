@@ -1,6 +1,6 @@
 import type { FloristRole } from '../auth/AuthContext'
 
-/** Тестовые учётки демо — держим рядом с сидом, чтобы логин и seed не разъезжались. */
+/** Тестовые учётки демо – держим рядом с сидом, чтобы логин и seed не разъезжались. */
 export const DEMO_ACCOUNTS: Array<{
   phone: string
   password: string

@@ -114,7 +114,7 @@ function alignDemoDay(db: DemoDb) {
   saveDb(db)
 }
 
-/** Данные живут в localStorage — переживают закрытие вкладки на этом устройстве. */
+/** Данные живут в localStorage – переживают закрытие вкладки на этом устройстве. */
 export function loadDb(): DemoDb {
   const raw = localStorage.getItem(DB_KEY)
   if (raw) {

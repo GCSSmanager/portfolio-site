@@ -14,7 +14,7 @@ export function CrmKit() {
           <h2 className="section__title" id="crm-kit-title">
             Что входит
           </h2>
-          <p className="section__lead">База, сделки и задачи — чтобы вести продажи в одном месте.</p>
+          <p className="section__lead">База, сделки и задачи – чтобы вести продажи в одном месте.</p>
         </div>
 
         <div className="crm-kit__stage">

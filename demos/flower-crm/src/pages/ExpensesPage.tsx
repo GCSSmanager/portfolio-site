@@ -52,7 +52,7 @@ type ApiExpense = {
 function formatRegularAmount(row: ApiExpense): string {
   if (row.variable_amount || row.period === 'utilities') return 'по оплате'
   const n = parseAmount(row.amount_rub)
-  if (n <= 0) return '—'
+  if (n <= 0) return '–'
   return formatRubNumber(n)
 }
 
@@ -124,7 +124,7 @@ function ExpenseAdditionalCard({
       <p className="expenses-page__card-amt">{formatRubNumber(parseAmount(row.amount_rub))}</p>
       <div className="expenses-page__card-foot">
         <span className="expenses-page__card-date">
-          {row.expense_date ? formatDateRu(row.expense_date) : '—'}
+          {row.expense_date ? formatDateRu(row.expense_date) : '–'}
         </span>
         <CrmRowActions onEdit={onEdit} onDelete={onDelete} />
       </div>
@@ -166,7 +166,7 @@ function ExpenseRegularCard({
         </div>
         <div className="expenses-page__card-detail">
           <dt>День оплаты</dt>
-          <dd>{row.due_day != null ? dueDayShortLabel(row.period, row.due_day) : '—'}</dd>
+          <dd>{row.due_day != null ? dueDayShortLabel(row.period, row.due_day) : '–'}</dd>
         </div>
         <div className="expenses-page__card-detail">
           <dt>Статус</dt>
@@ -178,13 +178,13 @@ function ExpenseRegularCard({
             ) : row.due_date ? (
               <span className="expenses-page__td-muted">{formatDateRu(row.due_date)}</span>
             ) : (
-              '—'
+              '–'
             )}
           </dd>
         </div>
         <div className="expenses-page__card-detail">
           <dt>Начислено</dt>
-          <dd>{row.allocated_rub ? formatRubNumber(parseAmount(row.allocated_rub)) : '—'}</dd>
+          <dd>{row.allocated_rub ? formatRubNumber(parseAmount(row.allocated_rub)) : '–'}</dd>
         </div>
       </dl>
       {(row.payments?.length ?? 0) > 0 ? (
@@ -523,7 +523,7 @@ export function ExpensesPage() {
                       addlRows.map((row) => (
                         <tr key={row.id}>
                           <td className="expenses-page__td-date">
-                            {row.expense_date ? formatDateRu(row.expense_date) : '—'}
+                            {row.expense_date ? formatDateRu(row.expense_date) : '–'}
                           </td>
                           <td>{row.name}</td>
                           <td className="expenses-page__td-num">{formatRubNumber(parseAmount(row.amount_rub))}</td>
@@ -599,7 +599,7 @@ export function ExpensesPage() {
                                 {periodLabel(payload.period_choices, row.period)}
                               </td>
                               <td className="expenses-page__td-muted">
-                                {row.due_day != null ? dueDayShortLabel(row.period, row.due_day) : '—'}
+                                {row.due_day != null ? dueDayShortLabel(row.period, row.due_day) : '–'}
                               </td>
                               <td className="expenses-page__td-status">
                                 {row.paid_in_period ? (
@@ -609,11 +609,11 @@ export function ExpensesPage() {
                                 ) : row.due_date ? (
                                   <span className="expenses-page__td-muted">{formatDateRu(row.due_date)}</span>
                                 ) : (
-                                  '—'
+                                  '–'
                                 )}
                               </td>
                               <td className="expenses-page__td-num">
-                                {row.allocated_rub ? formatRubNumber(parseAmount(row.allocated_rub)) : '—'}
+                                {row.allocated_rub ? formatRubNumber(parseAmount(row.allocated_rub)) : '–'}
                               </td>
                               <CrmRowActions
                                 as="td"

@@ -66,7 +66,7 @@ export function formatPeriodRu(from: string, to: string): string {
     if (Number.isNaN(d.getTime())) return iso
     return d.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })
   }
-  return `${fmt(from)} — ${fmt(to)}`
+  return `${fmt(from)} – ${fmt(to)}`
 }
 
 export function periodSubtitle(range: ReportPeriodRange): string {
@@ -89,7 +89,7 @@ export function periodClampNotice(requested: ReportPeriodRange): string | null {
   }
   if (requestedDays > MAX_REPORT_DAYS) {
     parts.push(
-      `выбрано ${requestedDays} ${daysLabel(requestedDays)}, максимум ${MAX_REPORT_DAYS} — показано ${formatPeriodRu(clamped.from, clamped.to)}`,
+      `выбрано ${requestedDays} ${daysLabel(requestedDays)}, максимум ${MAX_REPORT_DAYS} – показано ${formatPeriodRu(clamped.from, clamped.to)}`,
     )
   } else if (clamped.from !== from || clamped.to !== to) {
     parts.push(`показано ${formatPeriodRu(clamped.from, clamped.to)}`)
@@ -137,7 +137,7 @@ export function chartXTickIndicesEveryOther(pointCount: number): number[] {
   return indices
 }
 
-/** Больше подписей оси X — для прокручиваемого графика на узком экране. */
+/** Больше подписей оси X – для прокручиваемого графика на узком экране. */
 export function chartXTickIndicesDense(pointCount: number): number[] {
   const n = pointCount
   if (n <= 0) return []
@@ -159,7 +159,7 @@ export function chartXTickIndices(pointCount: number): number[] {
   return tickFractions(n, 7)
 }
 
-/** Подпись на оси X — только цифры ДД.ММ (без названий месяцев и без года). */
+/** Подпись на оси X – только цифры ДД.ММ (без названий месяцев и без года). */
 export function formatChartXAxisLabel(iso: string): string {
   const d = new Date(`${iso}T12:00:00`)
   if (Number.isNaN(d.getTime())) {
@@ -171,7 +171,7 @@ export function formatChartXAxisLabel(iso: string): string {
   return `${day}.${month}`
 }
 
-/** Дата в подсказке точки графика — с годом. */
+/** Дата в подсказке точки графика – с годом. */
 export function formatChartTooltipDate(iso: string): string {
   const d = new Date(`${iso}T12:00:00`)
   if (Number.isNaN(d.getTime())) return iso

@@ -560,7 +560,7 @@ export async function handleDemoFetch(pathWithQuery: string, init?: RequestInit)
               return {
                 store_flower_id: p.store_flower_id,
                 taxon_id: p.taxon_id,
-                display_name: meta ? (meta.name_ru || meta.name) : '—',
+                display_name: meta ? (meta.name_ru || meta.name) : '–',
                 unit_price: p.unit_price,
               }
             }),
@@ -1197,7 +1197,7 @@ export async function handleDemoFetch(pathWithQuery: string, init?: RequestInit)
     }
   }
 
-  // market/* — витрина для покупателя (нужна любая сессия)
+  // market/* – витрина для покупателя (нужна любая сессия)
   if (segments[1] === 'market' && segments[2] === 'shops') {
     const uid = getSessionUserId()
     if (uid == null) return err('Требуется вход.', 401)

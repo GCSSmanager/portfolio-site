@@ -3,7 +3,7 @@ import { useEffect } from "react";
 let lockCount = 0;
 
 /**
- * Блокируем только overflow — без position:fixed на body.
+ * Блокируем только overflow – без position:fixed на body.
  * position:fixed на iOS ломает клики по кнопкам в порталах/модалках.
  */
 export function lockBodyScroll() {

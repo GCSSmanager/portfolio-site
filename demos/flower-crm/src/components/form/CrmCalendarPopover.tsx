@@ -39,7 +39,7 @@ function sameCalendarDay(a: Date, b: Date): boolean {
 const CALENDAR_MAX_WIDTH_PX = 280
 const CALENDAR_EDGE_PAD_PX = 8
 
-/** В `showModal()` контент в body ниже top layer — рендерим внутрь открытого dialog. */
+/** В `showModal()` контент в body ниже top layer – рендерим внутрь открытого dialog. */
 function resolveCalendarPortalRoot(anchor: HTMLElement | null): HTMLElement {
   const dialog = anchor?.closest('dialog')
   if (dialog instanceof HTMLDialogElement && dialog.open) {

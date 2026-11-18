@@ -87,19 +87,19 @@ export function WarehousePartyMiniCard({
         <span className="warehouse-party-mini__date">
           <span className="warehouse-party-mini__date-lab">{arrivalLabel}</span>
           <span className="warehouse-party-mini__date-val">
-            {arrivalAt ? formatWhenCompact(arrivalAt) : '—'}
+            {arrivalAt ? formatWhenCompact(arrivalAt) : '–'}
           </span>
         </span>
         <span className="warehouse-party-mini__date">
           <span className="warehouse-party-mini__date-lab">Вода</span>
           <span className="warehouse-party-mini__date-val">
-            {lastWaterAt ? formatWhenCompact(lastWaterAt) : '—'}
+            {lastWaterAt ? formatWhenCompact(lastWaterAt) : '–'}
           </span>
         </span>
         <span className="warehouse-party-mini__date">
           <span className="warehouse-party-mini__date-lab">Подрезка</span>
           <span className="warehouse-party-mini__date-val">
-            {lastTrimAt ? formatWhenCompact(lastTrimAt) : '—'}
+            {lastTrimAt ? formatWhenCompact(lastTrimAt) : '–'}
           </span>
         </span>
       </div>

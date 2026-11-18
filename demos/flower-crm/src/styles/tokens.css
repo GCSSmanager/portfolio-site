@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════
-   FlowerFlow — единственный источник цветов (только :root)
+   FlowerFlow – единственный источник цветов (только :root)
    Минимальная палитра: бумага · чернила · зелёный · лайм
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* —— База (8 цветов) —— */
+  /* –– База (8 цветов) –– */
   --c-ink: #0f1f17;
   --c-muted: #4a6358;
   --c-paper: #e8e2d4;
@@ -24,7 +24,7 @@
   --c-rose: #ff6b4a;
   --c-ink-deep: #0a1410;
 
-  /* —— Производные (color-mix, без hex) —— */
+  /* –– Производные (color-mix, без hex) –– */
   --c-border: color-mix(in srgb, var(--c-ink) 14%, transparent);
   --c-border-strong: color-mix(in srgb, var(--c-ink) 22%, transparent);
   --c-tint-accent: color-mix(in srgb, var(--c-accent) 12%, var(--c-surface));
@@ -131,7 +131,7 @@
   --c-home-border-intake: color-mix(in srgb, var(--c-cool) 22%, transparent);
   --c-home-border-order: color-mix(in srgb, var(--c-cool) 24%, transparent);
 
-  /* —— Таблицы —— */
+  /* –– Таблицы –– */
   --table-radius: var(--radius);
   --table-border: var(--border-strong);
   --table-head-bg: var(--bg-cream);
@@ -146,7 +146,7 @@
   --table-body-size: 0.84rem;
   --table-frame-shadow: none;
 
-  /* Care / batch — семантика из базовой палитры */
+  /* Care / batch – семантика из базовой палитры */
   --care-water-accent: var(--c-cool);
   --care-water-bg: var(--c-tint-cool);
   --care-water-border: var(--c-tint-cool-border);
@@ -183,18 +183,18 @@
   --banner-error-bg: var(--c-tint-danger);
   --c-focus-error: color-mix(in srgb, var(--c-danger) 18%, transparent);
 
-  /* —— Тени —— */
+  /* –– Тени –– */
   --shadow-sm: 0 1px 3px color-mix(in srgb, var(--c-ink) 6%, transparent);
   --shadow-md: 0 4px 16px color-mix(in srgb, var(--c-ink) 8%, transparent);
   --shadow-panel: 0 1px 2px color-mix(in srgb, var(--c-ink) 4%, transparent),
     0 12px 32px color-mix(in srgb, var(--c-ink) 7%, transparent);
   --shadow-cta: 0 6px 0 var(--c-highlight);
 
-  /* —— Ширина оболочки (шапка + контент) —— */
+  /* –– Ширина оболочки (шапка + контент) –– */
   --app-shell-max: 120rem;
   --app-shell-padding-x: clamp(1rem, 3vw, 1.5rem);
 
-  /* —— Типографика / фон —— */
+  /* –– Типографика / фон –– */
   --text: var(--c-ink);
   --text-muted: var(--c-muted);
   --bg: var(--c-paper);
@@ -207,7 +207,7 @@
   --link: var(--c-accent);
   --link-hover: var(--c-accent-hover);
 
-  /* —— Кнопки —— */
+  /* –– Кнопки –– */
   --btn-radius: 10px;
   --btn-radius-pill: 999px;
   --btn-border: 1px solid var(--c-border-strong);
@@ -219,13 +219,13 @@
   --btn-disabled-bg: var(--c-disabled);
   --btn-disabled-fg: var(--c-muted);
 
-  /* —— Анимация —— */
+  /* –– Анимация –– */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --sans: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
   --radius: 12px;
   --radius-sm: 8px;
 
-  /* —— Алиасы (обратная совместимость) —— */
+  /* –– Алиасы (обратная совместимость) –– */
   --brand-ink: var(--c-ink);
   --brand-ink-soft: var(--c-muted);
   --brand-paper: var(--c-paper);
@@ -283,13 +283,13 @@
   --crm-radius: var(--radius);
   --crm-radius-sm: var(--radius-sm);
   --crm-batch-card-width: 300px;
-  /** Только плейсхолдер загрузки (skeleton); карточки — по контенту. */
+  /** Только плейсхолдер загрузки (skeleton); карточки – по контенту. */
   --crm-batch-card-height: 284px;
   --crm-ico-glyph: 1.125rem;
   --crm-icon-hit: 2rem;
   --crm-card-accent-border: 2px;
 
-  /* Семантика карточек партий — только через токены */
+  /* Семантика карточек партий – только через токены */
   --crm-amber: var(--c-warm);
   --crm-amber-bg: var(--c-tint-warm);
   --crm-blue: var(--c-cool);

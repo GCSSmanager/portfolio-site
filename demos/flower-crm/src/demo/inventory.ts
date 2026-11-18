@@ -23,10 +23,10 @@ export type InventorySnapshotLine = {
 
 function displayForStoreFlower(db: DemoDb, sfId: number): { name: string; rank: string } {
   const sf = db.storeFlowers.find((s) => s.id === sfId)
-  if (!sf) return { name: '—', rank: '' }
+  if (!sf) return { name: '–', rank: '' }
   if (sf.name_override.trim()) return { name: sf.name_override.trim(), rank: '' }
   const t = db.taxons.find((x) => x.id === sf.taxon_id)
-  if (!t) return { name: '—', rank: '' }
+  if (!t) return { name: '–', rank: '' }
   return { name: (t.name_ru || t.name).trim() || t.name, rank: t.rank === 'cultivar' ? 'Сорт' : '' }
 }
 
@@ -67,7 +67,7 @@ export function buildInventorySnapshot(db: DemoDb, shopUid: number): InventorySn
       }
     } else {
       const t = db.taxons.find((x) => x.id === b.taxon_id)
-      const name = t ? (t.name_ru || t.name).trim() || t.name : '—'
+      const name = t ? (t.name_ru || t.name).trim() || t.name : '–'
       merged.set(`batch:${b.id}`, {
         line_key: `batch:${b.id}`,
         stock_kind: KIND_FLOWER,

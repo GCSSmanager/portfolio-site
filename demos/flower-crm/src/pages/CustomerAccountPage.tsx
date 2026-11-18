@@ -133,7 +133,7 @@ export function CustomerAccountPage() {
           <p className="customer-account__owner-lead">Владеете цветочным магазином?</p>
           {isDemo ? (
             <p className="crm-field__hint" role="status">
-              В демо регистрация магазина недоступна — войдите как владелец или флорист с экрана входа.
+              В демо регистрация магазина недоступна – войдите как владелец или флорист с экрана входа.
             </p>
           ) : null}
           {registerError ? (

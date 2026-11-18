@@ -20,7 +20,7 @@ export function HomeExpensePaymentTaskCard({ task }: Props) {
           <p className="crm-home-price-miss__task" role="status">
             {task.variable_amount
               ? 'Внести оплату по счётчику'
-              : `Внести оплату — ${formatRubNumber(parseAmount(task.amount_rub))} ₽`}
+              : `Внести оплату – ${formatRubNumber(parseAmount(task.amount_rub))} ₽`}
             {task.due_date ? ` (срок ${formatDateRu(task.due_date)})` : ''}
           </p>
           <p className="crm-card-mini__latin">{task.period_label}</p>

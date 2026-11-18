@@ -85,7 +85,7 @@ export function ScheduleDisplaySettings({ preferences, onSave, compact = false }
       </Field>
 
       <p className="text-xs text-ink-muted leading-relaxed">
-        При фильтре «Все» используется узкая колонка — удобнее листать много специалистов.
+        При фильтре «Все» используется узкая колонка – удобнее листать много специалистов.
         Если выбран один специалист, колонка расширяется до второго значения.
       </p>
 

@@ -6,7 +6,7 @@
   padding-bottom: 2rem;
 }
 
-/* Настройки: интервал ухода — целое число дней, ввод слева */
+/* Настройки: интервал ухода – целое число дней, ввод слева */
 .settings-page__interval-days-field .crm-field__input {
   max-width: 5rem;
   text-align: left;
@@ -656,7 +656,7 @@
   margin-bottom: 0.65rem;
 }
 
-/* Мобилка: карточки (десктоп — таблица в .expenses-page__table-wrap--desktop) */
+/* Мобилка: карточки (десктоп – таблица в .expenses-page__table-wrap--desktop) */
 .expenses-page__cards {
   display: none;
   list-style: none;

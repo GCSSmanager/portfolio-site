@@ -87,7 +87,7 @@ export function DemoLoginPage() {
     <div className="login-page">
       <div className="login-page__grid">
         <div className="login-card login-card--form">
-          <h1 className="login-card__title">Демо CRM — цветочный магазин</h1>
+          <h1 className="login-card__title">Демо CRM – цветочный магазин</h1>
           <p className="login-card__lead">Выберите роль справа или войдите с подставленными данными.</p>
 
           <form
@@ -149,7 +149,7 @@ export function DemoLoginPage() {
 
         <div className="login-card login-card--accounts">
           <h2 className="login-card__title login-card__title--sub">Тестовые доступы</h2>
-          <p className="login-card__lead">Нажмите строку — подставим телефон и пароль.</p>
+          <p className="login-card__lead">Нажмите строку – подставим телефон и пароль.</p>
           <ul className="login-demo-accounts">
             {DEMO_ACCOUNTS.map((account) => (
               <li key={account.phone}>

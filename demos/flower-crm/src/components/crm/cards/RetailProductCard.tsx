@@ -14,7 +14,7 @@ export function RetailProductCard({
   onRequestStockDiscard,
 }: {
   row: RetailProductRow
-  /** Если false — не даём ссылку в раздел «Цены» (флорист). */
+  /** Если false – не даём ссылку в раздел «Цены» (флорист). */
   showPricesLink?: boolean
   showUnitCost?: boolean
   /** Компактная строка для склада (без карточки-мини). */
@@ -56,7 +56,7 @@ export function RetailProductCard({
               цена
             </Link>
           ) : (
-            <span className="crm-card-mini__price-muted">—</span>
+            <span className="crm-card-mini__price-muted">–</span>
           )}
         </span>
         {showStockDiscard && row.quantity > 0 && onRequestStockDiscard ? (
@@ -101,7 +101,7 @@ export function RetailProductCard({
                 <strong>
                   {cost != null
                     ? cost.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-                    : '—'}{' '}
+                    : '–'}{' '}
                   ₽/шт
                 </strong>
                 {price != null ? (

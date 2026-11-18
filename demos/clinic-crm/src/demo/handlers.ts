@@ -82,7 +82,7 @@ function enrichDiagnostic(db: DemoDb, period: DemoDb["diagnosticPeriods"][number
       const employee = db.employees.find((e) => e.id === employeeId);
       return {
         employeeId,
-        employee: employee ?? { id: employeeId, shortName: "—", fullName: "—", color: "#888", isActive: true },
+        employee: employee ?? { id: employeeId, shortName: "–", fullName: "–", color: "#888", isActive: true },
       };
     }),
     intervals: date ? period.intervals.filter((i) => i.date === date) : period.intervals,
@@ -93,7 +93,7 @@ function intervalsOverlap(a: Interval, b: Interval) {
   return a.startMin < b.endMin && a.endMin > b.startMin;
 }
 
-/** Опции времени для «+ Интервал» — как в оригинальном CRM. */
+/** Опции времени для «+ Интервал» – как в оригинальном CRM. */
 function diagnosticIntervalStartOptions(
   db: DemoDb,
   period: DemoDb["diagnosticPeriods"][number],
@@ -215,10 +215,10 @@ function enrichAppointment(db: DemoDb, apt: DemoDb["appointments"][number]) {
   const room = apt.roomId ? db.rooms.find((r) => r.id === apt.roomId) : null;
   return {
     ...apt,
-    client: client ? { id: client.id, fullName: client.fullName } : { id: apt.clientId, fullName: "—" },
+    client: client ? { id: client.id, fullName: client.fullName } : { id: apt.clientId, fullName: "–" },
     employee: employee
       ? { id: employee.id, shortName: employee.shortName, color: employee.color }
-      : { id: apt.employeeId, shortName: "—", color: "#888" },
+      : { id: apt.employeeId, shortName: "–", color: "#888" },
     service: service
       ? {
           id: service.id,
@@ -227,7 +227,7 @@ function enrichAppointment(db: DemoDb, apt: DemoDb["appointments"][number]) {
           isGroup: service.isGroup,
           durationMin: service.durationMin,
         }
-      : { id: apt.serviceId, name: "—", color: "#888", isGroup: false, durationMin: 30 },
+      : { id: apt.serviceId, name: "–", color: "#888", isGroup: false, durationMin: 30 },
     room: room ? { id: room.id, name: room.name, capacity: room.capacity } : null,
   };
 }
@@ -1423,7 +1423,7 @@ export async function handleDemoRequest(config: InternalAxiosRequestConfig): Pro
       const service = db.services.find((s) => s.id === appointment.serviceId);
       const serviceStat = item.services.get(appointment.serviceId) ?? {
         serviceId: appointment.serviceId,
-        name: service?.name ?? "—",
+        name: service?.name ?? "–",
         count: 0,
         minutes: 0,
       };
@@ -1593,7 +1593,7 @@ export async function handleDemoRequest(config: InternalAxiosRequestConfig): Pro
     const { shift, busy, error } = employeeBusyForDate(db, employeeId, date);
     if (error) return err(error, 404);
     if (!shift) return ok({ free: [], reason: "нет рабочей смены в этот день" });
-    // lunch уже в busy — в freeWindows передаём смену без lunch*, чтобы не задвоить
+    // lunch уже в busy – в freeWindows передаём смену без lunch*, чтобы не задвоить
     const windows = freeWindows(
       { startMin: shift.startMin, endMin: shift.endMin },
       busy,
@@ -1678,7 +1678,7 @@ export async function handleDemoRequest(config: InternalAxiosRequestConfig): Pro
                 shortName: employee.shortName,
                 available: false,
                 shortLabel: "диагностика",
-                detail: `${formattedDay} — другой период`,
+                detail: `${formattedDay} – другой период`,
               };
             }
           }
@@ -1900,7 +1900,7 @@ export async function handleDemoRequest(config: InternalAxiosRequestConfig): Pro
       return err("Дата вне периода диагностики");
     }
     const defined = period.intervals.find((i) => i.date === date && i.startMin === startMin);
-    if (!defined) return err("Такого интервала нет — сначала добавьте его", 409);
+    if (!defined) return err("Такого интервала нет – сначала добавьте его", 409);
     if (!diagnosticSlotFree(db, period.id, date, startMin)) {
       return err("Слот уже занят", 409);
     }
@@ -2072,7 +2072,7 @@ export async function handleDemoRequest(config: InternalAxiosRequestConfig): Pro
       const merge = Boolean(body.merge) || !templateId;
       const blob = merge ? await mergeDocx(filled) : filled[0]!;
       const label = merge && templates.length > 1 ? "документы" : templates[0]!.title;
-      const filename = `${safeFilePart(values.FIO || "документ")} — ${safeFilePart(label)}.docx`;
+      const filename = `${safeFilePart(values.FIO || "документ")} – ${safeFilePart(label)}.docx`;
       return {
         status: 200,
         data: blob,
@@ -2212,7 +2212,7 @@ export async function handleDemoRequest(config: InternalAxiosRequestConfig): Pro
         return {
           courseId: course.id,
           clientId: course.clientId,
-          clientName: client?.fullName ?? "—",
+          clientName: client?.fullName ?? "–",
           startedAt: course.startedAt,
           completedAt: course.completedAt,
           isCompleted: course.isCompleted,

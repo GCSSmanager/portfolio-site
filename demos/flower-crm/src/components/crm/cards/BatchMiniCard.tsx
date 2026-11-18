@@ -21,7 +21,7 @@ const DEFER_MS = UNDO_REVERT_SECONDS * 1000
 type Props = {
   row: BatchRow
   busy: boolean
-  /** Режим склада API: `basic` | `advanced` — отложенная отправка ухода/приёмки в обоих. */
+  /** Режим склада API: `basic` | `advanced` – отложенная отправка ухода/приёмки в обоих. */
   warehouseMode?: string
   catalogFlowerNav: CatalogNavState
   onPatch: (action: BatchPatchAction) => void | Promise<void>
@@ -43,11 +43,11 @@ export function BatchMiniCard({
   const basicMergedUi = row.line_kind === 'basic' && warehouseMode === 'basic'
   const varietyMergedUi = row.line_kind === 'basic' && warehouseMode === 'variety'
   const mergedUi = basicMergedUi || varietyMergedUi
-  /** Объединённый ряд (базовый / по видам) или продвинутый — отложенный PATCH ухода/приёмки. */
+  /** Объединённый ряд (базовый / по видам) или продвинутый – отложенный PATCH ухода/приёмки. */
   const deferCarePatches = mergedUi || warehouseMode === 'advanced'
   const needsCareTrim = Boolean(row.care_needs_trim)
   const needsCareWater = Boolean(row.care_needs_water)
-  /** Базовый: общий уход. По видам: тот же один «Уход», но порог — подрезка или вода по каталогу. */
+  /** Базовый: общий уход. По видам: тот же один «Уход», но порог – подрезка или вода по каталогу. */
   const needsMergedCareAction = basicMergedUi
     ? needsCareTrim
     : varietyMergedUi
@@ -214,7 +214,7 @@ export function BatchMiniCard({
                         variant="intake"
                         className="crm-btn--row crm-btn--icon-cell crm-btn--intake-box"
                         disabled={intakeActDisabled}
-                        title="Подрезка и смена воды — сейчас (отметить приёмку)"
+                        title="Подрезка и смена воды – сейчас (отметить приёмку)"
                         aria-label="Отметить приёмку"
                         onClick={startIntakeDeferred}
                       >
@@ -268,7 +268,7 @@ export function BatchMiniCard({
                         variant="intake"
                         className="crm-btn--row crm-btn--icon-cell crm-btn--intake-box"
                         disabled={intakeActDisabled}
-                        title="Подрезка и смена воды — сейчас (отметить приёмку)"
+                        title="Подрезка и смена воды – сейчас (отметить приёмку)"
                         aria-label="Отметить приёмку"
                         onClick={startIntakeDeferred}
                       >
@@ -285,7 +285,7 @@ export function BatchMiniCard({
               <span className="crm-card-mini__cell-lab">Вода</span>
               <div className="crm-card-mini__cell-val">
                 {row.intake_pending ? (
-                  <span className="crm-card-mini__time">—</span>
+                  <span className="crm-card-mini__time">–</span>
                 ) : (
                   <>
                     <span className="crm-card-mini__action-slot">
@@ -312,7 +312,7 @@ export function BatchMiniCard({
               <span className="crm-card-mini__cell-lab">Подрезка</span>
               <div className="crm-card-mini__cell-val">
                 {row.intake_pending ? (
-                  <span className="crm-card-mini__time">—</span>
+                  <span className="crm-card-mini__time">–</span>
                 ) : (
                   <>
                     <span className="crm-card-mini__action-slot">

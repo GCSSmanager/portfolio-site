@@ -12,7 +12,7 @@ export type CrmProject = {
 export const DEFAULT_PROJECT_ID: CrmProjectId = 'pest-control';
 export const PROJECT_STORAGE_KEY = 'crm_project';
 
-/** В демо на портфолио — только дезинсекция, без переключателя «сушка». */
+/** В демо на портфолио – только дезинсекция, без переключателя «сушка». */
 export const CRM_PROJECTS: CrmProject[] = [
   {
     id: 'pest-control',

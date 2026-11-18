@@ -159,7 +159,7 @@ export function EmployeesTab() {
                 const deleted = e.isActive === false;
                 const schedule = e.workShifts?.length
                   ? e.workShifts.map((s) => WEEKDAYS.find((d) => d.value === s.weekday)?.label).filter(Boolean).join(", ")
-                  : "—";
+                  : "–";
                 return (
                   <div
                     key={e.id}
@@ -263,12 +263,12 @@ export function EmployeesTab() {
                             {e.shortName}
                           </span>
                         </Td>
-                        <Td className="text-ink-muted">{e.specialty?.name || e.position || "—"}</Td>
-                        <Td className="text-ink-muted">{e.defaultRoom?.name ?? "—"}</Td>
+                        <Td className="text-ink-muted">{e.specialty?.name || e.position || "–"}</Td>
+                        <Td className="text-ink-muted">{e.defaultRoom?.name ?? "–"}</Td>
                         <Td className="text-xs text-ink-muted">
                           {e.workShifts?.length
                             ? e.workShifts.map((s) => WEEKDAYS.find((d) => d.value === s.weekday)?.label).filter(Boolean).join(", ")
-                            : "—"}
+                            : "–"}
                         </Td>
                         <Td>
                           {!deleted && (

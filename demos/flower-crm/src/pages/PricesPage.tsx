@@ -316,7 +316,7 @@ export function PricesPage() {
       <CrmPageStatus error={error} loading={rows === null} />
 
       {rows !== null && !hasData && !error ? (
-        <p className={crmPageStatusPanelClass()}>Пока нет позиций для цен — добавьте цветы, вещи или букеты.</p>
+        <p className={crmPageStatusPanelClass()}>Пока нет позиций для цен – добавьте цветы, вещи или букеты.</p>
       ) : null}
 
       {hasData ? (
@@ -331,7 +331,7 @@ export function PricesPage() {
               hint={
                 filterActive
                   ? 'Совпадение по словам в названии; все три списка ниже фильтруются одновременно.'
-                  : 'Введите часть названия — списки цветов, вещей и букетов сузятся.'
+                  : 'Введите часть названия – списки цветов, вещей и букетов сузятся.'
               }
             />
           </div>
@@ -381,7 +381,7 @@ export function PricesPage() {
                       <div className="crm-prices-list__inputs">
                         <CrmPriceField
                           label="Цена, ₽/шт"
-                          placeholder="—"
+                          placeholder="–"
                           aria-label={`Цена за штуку: ${t.display_name}`}
                           value={priceShown}
                           disabled={rowBusy}
@@ -410,7 +410,7 @@ export function PricesPage() {
               emptyHint={
                 filterActive
                   ? 'Ничего не найдено по запросу.'
-                  : 'Пока нет вещей без срока — добавьте на «Склад» или «Главная».'
+                  : 'Пока нет вещей без срока – добавьте на «Склад» или «Главная».'
               }
             >
               <ul className="crm-prices-list prices-page__list">
@@ -435,7 +435,7 @@ export function PricesPage() {
                       <div className="crm-prices-list__inputs">
                         <CrmPriceField
                           label="Цена, ₽/шт"
-                          placeholder="—"
+                          placeholder="–"
                           aria-label={`Цена за штуку: ${r.name}`}
                           value={priceShown}
                           disabled={rowBusy}
@@ -461,7 +461,7 @@ export function PricesPage() {
               emptyHint={
                 filterActive
                   ? 'Ничего не найдено по запросу.'
-                  : 'Пока нет букетов — добавьте рецепт на «Склад» или «Главная».'
+                  : 'Пока нет букетов – добавьте рецепт на «Склад» или «Главная».'
               }
             >
               <ul className="crm-prices-list prices-page__list">
@@ -486,7 +486,7 @@ export function PricesPage() {
                       <div className="crm-prices-list__inputs">
                         <CrmPriceField
                           label="Цена, ₽/шт"
-                          placeholder="—"
+                          placeholder="–"
                           aria-label={`Цена за штуку: ${b.name}`}
                           value={priceShown}
                           disabled={rowBusy}

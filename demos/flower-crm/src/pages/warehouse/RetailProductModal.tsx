@@ -114,7 +114,7 @@ export function RetailProductModal({
         label="Цена продажи, ₽/шт"
         value={unitPrice}
         onChange={(e) => setUnitPrice(e.target.value)}
-        hint="Пусто — цена не задана."
+        hint="Пусто – цена не задана."
       />
       <CrmModal.Actions>
         {mode === 'edit' && onDelete != null ? (

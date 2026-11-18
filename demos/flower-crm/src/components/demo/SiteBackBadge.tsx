@@ -12,7 +12,7 @@ type Props = {
   onDiscuss?: () => void
 }
 
-/** Плашка с логотипом справа снизу — меню демо + «Обсудить внедрение». */
+/** Плашка с логотипом справа снизу – меню демо + «Обсудить внедрение». */
 export function SiteBackBadge({ onDiscuss }: Props) {
   const [open, setOpen] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
