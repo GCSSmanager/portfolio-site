@@ -81,8 +81,8 @@ export function CrmFears() {
         <div className="section__head">
           <p className="section__eyebrow">Страхи и что предлагаем</p>
           <h2 className="section__title" id="crm-fears-title">
-            <span className="crm-fears__blob">Сделаем прототип</span>. Не устроит —{' '}
-            <span className="crm-fears__blob">вернём деньги</span>.
+            Работаем по <span className="crm-fears__blob">договору</span>.{' '}
+            <span className="crm-fears__blob">100% гарантия</span> результата.
           </h2>
         </div>
 
