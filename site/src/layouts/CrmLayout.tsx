@@ -32,15 +32,15 @@ export function CrmLayout() {
   const meta = metaByPath[pathname] ?? crmPages.custom
   const brandHref = meta.brandHref ?? `/crm/${meta.solution}/`
   const pageId = pageIdByPath[pathname]
-  const showReviewsAnchor = pageId ? crmPageConfig[pageId].sections.includes('reviews') : false
+  const sections = pageId ? crmPageConfig[pageId].sections : []
 
   return (
     <CrmUiProvider>
       <CrmNav
-        solution={meta.solution}
         brandHref={brandHref}
-        dealAlways={meta.dealAlways}
-        showReviewsAnchor={showReviewsAnchor}
+        showMenu={pageId !== 'about'}
+        showReviews={sections.includes('reviews')}
+        showPrices={sections.includes('examples')}
       />
       <Outlet context={meta} />
       <SiteFooter variant="crm" brandHref={brandHref} />

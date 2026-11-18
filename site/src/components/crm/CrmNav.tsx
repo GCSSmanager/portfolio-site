@@ -1,26 +1,24 @@
-import { Link, NavLink } from 'react-router-dom'
+import type { MouseEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { useCrmNav } from '@/hooks/useCrmNav'
-import { useReviewsTabScrollVisible } from '@/hooks/useReviewsTabScrollVisible'
 import { EMAIL_MAILTO, PHONE_DISPLAY, PHONE_TEL, TELEGRAM_URL } from '@/lib/contacts'
-import type { CrmSolution } from '@/types/crm'
 
 type CrmNavProps = {
-  solution: CrmSolution
   brandHref: string
-  dealAlways?: boolean
-  showReviewsAnchor?: boolean
+  showMenu?: boolean
+  showReviews?: boolean
+  showPrices?: boolean
 }
 
-const solutions: { id: CrmSolution; to: string; label: string; aria: string }[] = [
-  { id: 'custom', to: '/crm/custom/', label: 'Индивидуальная', aria: 'Индивидуальная' },
-  { id: 'free', to: '/crm/free/', label: 'Бесплатная', aria: 'Бесплатная' },
-  { id: 'integrations', to: '/crm/integrations/', label: 'Интеграции', aria: 'Интеграции' },
-  { id: 'about', to: '/crm/about/', label: 'Что такое CRM', aria: 'Что такое CRM' },
-]
+const linkClass = 'nav__link nav__link--section'
 
-export function CrmNav({ solution, brandHref, showReviewsAnchor }: CrmNavProps) {
+export function CrmNav({ brandHref, showMenu = true, showReviews = false, showPrices = false }: CrmNavProps) {
   const { isOpen, toggle, close, burgerLabel, burgerAria } = useCrmNav()
-  const reviewsTabVisible = useReviewsTabScrollVisible(Boolean(showReviewsAnchor))
+
+  const stay = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    close()
+  }
 
   return (
     <header className={`nav nav--crm${isOpen ? ' is-nav-open' : ''}`} id="crmNav">
@@ -33,25 +31,33 @@ export function CrmNav({ solution, brandHref, showReviewsAnchor }: CrmNavProps) 
             </span>
           </Link>
 
-          <nav className="nav__menu nav__menu--solutions" id="crmNavMenu" aria-label="Решения">
-          {solutions.map((item) => (
-            <NavLink
-              key={item.id}
-              className={({ isActive }) =>
-                `nav__link nav__link--solution${isActive || solution === item.id ? ' is-current' : ''}`
-              }
-              to={item.to}
-              aria-label={item.aria}
-              onClick={close}
-            >
-              <SolutionIcon id={item.id} />
-              <span className="nav__link-text">{item.label}</span>
-            </NavLink>
-          ))}
+          {showMenu ? (
+          <nav className="nav__menu nav__menu--sections" id="crmNavMenu" aria-label="Разделы страницы">
+          <a className={linkClass} href="#" onClick={stay}>
+            <AboutIcon />
+            <span className="nav__link-text">О нас</span>
+          </a>
+          {showReviews ? (
+            <a className={linkClass} href="#reviews" onClick={close}>
+              <ReviewsIcon />
+              <span className="nav__link-text">Отзывы</span>
+            </a>
+          ) : null}
+          {showPrices ? (
+            <a className={linkClass} href="#examples" onClick={close}>
+              <PricesIcon />
+              <span className="nav__link-text">Цены</span>
+            </a>
+          ) : null}
+          <a className={linkClass} href="#contacts" onClick={close}>
+            <ContactsIcon />
+            <span className="nav__link-text">Контакты</span>
+          </a>
           <a className="nav__contact nav__contact--menu" href={PHONE_TEL}>
             <span>{PHONE_DISPLAY}</span>
           </a>
         </nav>
+          ) : null}
 
         <div className="nav__links">
           <div className="nav__reach" aria-label="Связаться">
@@ -85,6 +91,7 @@ export function CrmNav({ solution, brandHref, showReviewsAnchor }: CrmNavProps) 
           >
             Заказать звонок
           </button>
+          {showMenu ? (
           <button
             className="nav__burger"
             type="button"
@@ -100,61 +107,46 @@ export function CrmNav({ solution, brandHref, showReviewsAnchor }: CrmNavProps) 
             </span>
             <span className="nav__burger-label">{burgerLabel}</span>
           </button>
+          ) : null}
         </div>
         </div>
       </div>
-      {showReviewsAnchor ? (
-        <div className={`nav__reviews-slot${reviewsTabVisible ? '' : ' is-hidden'}`}>
-          <div className="container">
-            <a className="nav__reviews-tab" href="#reviews" onClick={close}>
-              <span>Читать отзывы</span>
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                <path d="M8 3v10M4.5 9.5 8 13l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      ) : null}
     </header>
   )
 }
 
-function SolutionIcon({ id }: { id: CrmSolution }) {
-  if (id === 'custom') {
-    return (
-      <svg className="nav__link-icon nav__link-icon--key" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-        <circle cx="7" cy="12" r="3.75" />
-        <circle cx="7" cy="12" r="1.45" />
-        <path d="M10.75 12h9.5" />
-        <path d="M17.25 12v3" />
-        <path d="M20 12v2.15" />
-      </svg>
-    )
-  }
-  if (id === 'free') {
-    return (
-      <svg className="nav__link-icon nav__link-icon--tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-        <path d="M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z" />
-        <circle cx="9.15" cy="9.15" r="1.05" strokeWidth="1.55" />
-        <circle cx="13.15" cy="13.15" r="1.05" strokeWidth="1.55" />
-        <path d="M12.65 8.65 9.65 13.65" strokeWidth="1.55" />
-      </svg>
-    )
-  }
-  if (id === 'integrations') {
-    return (
-      <svg className="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-        <circle cx="7" cy="12" r="2.3" />
-        <circle cx="17" cy="7.2" r="2.3" />
-        <circle cx="17" cy="16.8" r="2.3" />
-        <path d="M9.1 11.2 14.8 8.3M9.1 12.8l5.7 2.9" />
-      </svg>
-    )
-  }
+function AboutIcon() {
   return (
     <svg className="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-      <rect x="5" y="4.2" width="14" height="15.6" rx="1.6" />
-      <path d="M8 9h8M8 12.2h8M8 15.4h5" />
+      <circle cx="12" cy="8" r="3.1" />
+      <path d="M5.2 19.2c1.3-2.7 3.7-4 6.8-4s5.5 1.3 6.8 4" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function ReviewsIcon() {
+  return (
+    <svg className="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <path d="M5 6.5h14v9.2H9.2L5 19.2V6.5z" strokeLinejoin="round" />
+      <path d="M8.2 10.2h7.6M8.2 13h5" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function PricesIcon() {
+  return (
+    <svg className="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <path d="M4.5 12.2 12.2 4.5H19v6.8l-7.7 7.7L4.5 12.2z" strokeLinejoin="round" />
+      <circle cx="15.6" cy="8.4" r="1.05" />
+    </svg>
+  )
+}
+
+function ContactsIcon() {
+  return (
+    <svg className="nav__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <path d="M12 21s6.2-4.7 6.2-9.2a6.2 6.2 0 1 0-12.4 0C5.8 16.3 12 21 12 21z" strokeLinejoin="round" />
+      <circle cx="12" cy="11.6" r="1.9" />
     </svg>
   )
 }
