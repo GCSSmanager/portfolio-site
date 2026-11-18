@@ -1,5 +1,6 @@
 import type { CrmPageId } from '@/crm/pageConfig'
 import { AboutCrmArticle } from '@/crm/sections/AboutCrmArticle'
+import { CrmAboutUs } from '@/crm/sections/CrmAboutUs'
 import { CrmCases } from '@/crm/sections/CrmCases'
 import { CrmContacts } from '@/crm/sections/CrmContacts'
 import { CrmGuide } from '@/crm/sections/CrmGuide'
@@ -34,6 +35,7 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
           dealAlways={cfg.dealAlways}
         />
       ) : null}
+      {cfg.sections.includes('about-us') ? <CrmAboutUs /> : null}
       {cfg.sections.includes('fears') ? <CrmFears /> : null}
       {cfg.sections.includes('plans') ? <CrmPlans showPricing={cfg.showPricing} /> : null}
       {cfg.sections.includes('kit') ? <CrmKit /> : null}

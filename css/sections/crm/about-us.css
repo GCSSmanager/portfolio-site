@@ -1,0 +1,90 @@
+/* CRM — company block, first section after the hero */
+
+.crm-about-us {
+  background: var(--color-bg);
+}
+
+.crm-about-us__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.7fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
+}
+
+.crm-about-us__copy {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 46rem;
+}
+
+.crm-about-us__lead {
+  margin: 0;
+  max-width: 42rem;
+  font-family: var(--font-body);
+  font-size: var(--step-1);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--color-fg);
+}
+
+.crm-about-us__stats {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0.35rem 0 0.35rem 1.75rem;
+  border-left: 1px solid var(--color-line);
+}
+
+.crm-about-us__stats > div {
+  display: grid;
+  gap: 0.15rem;
+  padding-block: 1.15rem;
+}
+
+.crm-about-us__stats > div + div {
+  border-top: 1px solid var(--color-line);
+}
+
+.crm-about-us__stats dt {
+  order: 2;
+  margin: 0;
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-muted);
+}
+
+.crm-about-us__stats dd {
+  order: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 2.4rem + 2.4vw, 4.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: var(--color-fg);
+}
+
+@media (max-width: 48rem) {
+  .crm-about-us__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .crm-about-us__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .crm-about-us__stats > div {
+    padding: 1.15rem 0 0;
+  }
+
+  .crm-about-us__stats > div + div {
+    border-top: 0;
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--color-line);
+  }
+}

@@ -1,4 +1,3 @@
-import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { useCrmNav } from '@/hooks/useCrmNav'
 import { EMAIL_MAILTO, PHONE_DISPLAY, PHONE_TEL, TELEGRAM_URL } from '@/lib/contacts'
@@ -15,11 +14,6 @@ const linkClass = 'nav__link nav__link--section'
 export function CrmNav({ brandHref, showMenu = true, showReviews = false, showPrices = false }: CrmNavProps) {
   const { isOpen, toggle, close, burgerLabel, burgerAria } = useCrmNav()
 
-  const stay = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault()
-    close()
-  }
-
   return (
     <header className={`nav nav--crm${isOpen ? ' is-nav-open' : ''}`} id="crmNav">
       <div className="nav__bar">
@@ -33,7 +27,7 @@ export function CrmNav({ brandHref, showMenu = true, showReviews = false, showPr
 
           {showMenu ? (
           <nav className="nav__menu nav__menu--sections" id="crmNavMenu" aria-label="Разделы страницы">
-          <a className={linkClass} href="#" onClick={stay}>
+          <a className={linkClass} href="#about-us" onClick={close}>
             <AboutIcon />
             <span className="nav__link-text">О нас</span>
           </a>

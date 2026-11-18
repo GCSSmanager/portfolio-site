@@ -90,14 +90,6 @@ export function CrmHero(props: CrmHeroProps) {
             <div className="crm-hero__perks-card">
               <ul className="crm-hero__perks-list">
                 <li>
-                  <span className="crm-hero__perk-value">200+</span>
-                  <span className="crm-hero__perk-label">довольных клиентов</span>
-                </li>
-                <li>
-                  <span className="crm-hero__perk-value">10{'\u00a0'}лет</span>
-                  <span className="crm-hero__perk-label">опыта</span>
-                </li>
-                <li>
                   <span className="crm-hero__perk-value">от{'\u00a0'}1{'\u00a0'}недели</span>
                   <span className="crm-hero__perk-label">запуск</span>
                 </li>

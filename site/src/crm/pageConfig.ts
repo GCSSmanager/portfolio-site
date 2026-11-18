@@ -5,6 +5,7 @@ export type CrmPageId = 'custom' | 'free' | 'integrations' | 'about'
 
 export type CrmSectionId =
   | 'hero'
+  | 'about-us'
   | 'fears'
   | 'partners'
   | 'plans'
@@ -34,7 +35,7 @@ export type CrmPageConfig = CrmPageMeta & {
 export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   custom: {
     ...crmPages.custom,
-    sections: ['hero', 'fears', 'plans', 'process', 'reviews', 'cases', 'examples', 'guide', 'quiz', 'partners', 'contacts'],
+    sections: ['hero', 'about-us', 'fears', 'plans', 'process', 'reviews', 'cases', 'examples', 'guide', 'quiz', 'partners', 'contacts'],
     heroTitle: 'Программа учёта клиентов и заявок',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',
@@ -43,7 +44,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   },
   free: {
     ...crmPages.free,
-    sections: ['hero', 'fears', 'kit', 'reviews', 'cases', 'guide', 'partners', 'contacts'],
+    sections: ['hero', 'about-us', 'fears', 'kit', 'reviews', 'cases', 'guide', 'partners', 'contacts'],
     heroMore: 'Автосервис, ресторан, ремонт, риелторы и другие. Ставим мы, файл скачивать не нужно.',
     demoHref: '/crm/demo/free/',
     faqVariant: 'free',
@@ -51,7 +52,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   },
   integrations: {
     ...crmPages.integrations,
-    sections: ['hero', 'fears', 'integrations', 'process', 'reviews', 'cases', 'guide', 'quiz', 'partners', 'contacts'],
+    sections: ['hero', 'about-us', 'fears', 'integrations', 'process', 'reviews', 'cases', 'guide', 'quiz', 'partners', 'contacts'],
     heroTitle: 'Интеграции под ваш процесс',
     heroMark: 'без ежемесячной оплаты',
     heroCta: 'Оценить задачу',

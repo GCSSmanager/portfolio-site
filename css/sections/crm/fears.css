@@ -9,7 +9,8 @@
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
-.crm-fears__blob {
+.crm-fears__blob,
+.crm-about-us__blob {
   padding: 0.08em 0.34em 0.12em;
   color: var(--color-fg);
   background-color: transparent;
