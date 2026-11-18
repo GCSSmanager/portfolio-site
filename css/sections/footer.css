@@ -31,14 +31,6 @@
   color: var(--color-muted);
 }
 
-.footer__legal {
-  margin: 0;
-  max-width: 28rem;
-  font-size: 0.72rem;
-  line-height: 1.45;
-  color: var(--color-muted);
-}
-
 .footer__docs {
   display: flex;
   flex-wrap: wrap;

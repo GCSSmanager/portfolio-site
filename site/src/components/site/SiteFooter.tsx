@@ -21,9 +21,6 @@ export function SiteFooter({ variant = 'home', brandHref = '/' }: SiteFooterProp
               </span>
             </Link>
             <p className="footer__copy">&copy; {year} ГКСС</p>
-            <p className="footer__legal">
-              Луговский Сергей Алексеевич · самозанятый (НПД) · ИНН 673109224083
-            </p>
             <ul className="footer__docs" role="list">
               <li>
                 <Link to="/legal/privacy/">Политика конфиденциальности</Link>

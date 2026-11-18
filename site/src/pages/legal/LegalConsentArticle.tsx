@@ -45,7 +45,7 @@ export function LegalConsentArticle() {
 
             <p className="legal__party">
               Луговский Сергей Алексеевич
-              <span>Плательщик налога на профессиональный доход · ИНН 673109224083</span>
+              <span>ИНН 673109224083</span>
             </p>
             <h1 className="legal__title">Согласие пользователя сайта на обработку персональных данных</h1>
             <p className="legal__meta">Дата редакции: 24 октября 2026{'\u00a0'}г.</p>
