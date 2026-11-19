@@ -122,6 +122,124 @@
   color: #f5f2ea;
 }
 
+.crm-page .crm-pricing {
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.crm-pricing:has(.crm-bitrix-prices) .section__head {
+  margin-bottom: 2.3rem;
+}
+
+.crm-bitrix-prices {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 1.75rem;
+  margin: 0;
+  padding: 0.15rem 0;
+}
+
+.crm-bitrix-prices__col {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crm-bitrix-prices__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.38rem 0;
+  border-top: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
+}
+
+.crm-bitrix-prices__row:first-child {
+  border-top: 0;
+}
+
+.crm-bitrix-prices__col + .crm-bitrix-prices__col .crm-bitrix-prices__row:first-child {
+  border-top: 1px solid color-mix(in oklab, #f5f2ea 14%, transparent);
+}
+
+.crm-bitrix-prices__name,
+.crm-bitrix-prices__sum {
+  margin: 0;
+}
+
+.crm-bitrix-prices__name {
+  min-width: 0;
+  font-size: var(--step-0);
+  line-height: 1.35;
+  color: #f5f2ea;
+}
+
+.crm-bitrix-prices__detail {
+  display: block;
+  margin-top: 0.05rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: color-mix(in oklab, #f5f2ea 58%, transparent);
+}
+
+.crm-bitrix-prices__sum {
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: #f5f2ea;
+}
+
+.crm-bitrix-prices__note {
+  margin-left: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: color-mix(in oklab, #f5f2ea 58%, transparent);
+}
+
+.crm-pricing__foot--compact {
+  justify-items: start;
+  margin-top: 0.85rem;
+}
+
+.crm-pricing .crm-phone-lead.crm-pricing__send {
+  justify-content: flex-start;
+  max-width: 34rem;
+}
+
+.crm-pricing .crm-phone-lead.crm-pricing__send .crm-pricing__phone {
+  flex: 1 1 12rem;
+  width: auto;
+}
+
+.crm-pricing .crm-phone-lead.crm-pricing__send .crm-legal-note {
+  text-align: left;
+}
+
+.crm-pricing .crm-phone-lead.crm-pricing__send .crm-pricing__cta:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  background: #f5f2ea;
+  border-color: #f5f2ea;
+  color: #1b3022;
+  box-shadow: none;
+  transform: none;
+}
+
+@media (min-width: 52rem) {
+  .crm-bitrix-prices {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .crm-bitrix-prices__col + .crm-bitrix-prices__col .crm-bitrix-prices__row:first-child {
+    border-top: 0;
+  }
+}
+
 .crm-pricing__foot {
   display: grid;
   justify-items: end;

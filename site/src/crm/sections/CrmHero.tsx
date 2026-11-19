@@ -19,8 +19,28 @@ function PerksDemoButton() {
   )
 }
 
+function TitleShade({ title, yellow }: { title: string; yellow?: string }) {
+  if (!yellow) return <span className="crm-hero__shade">{title}</span>
+  const at = title.indexOf(yellow)
+  if (at < 0) return <span className="crm-hero__shade">{title}</span>
+  const before = title.slice(0, at).trimEnd()
+  const after = title.slice(at + yellow.length).trimStart()
+  return (
+    <>
+      {before ? <span className="crm-hero__shade">{before}</span> : null}
+      {before ? ' ' : null}
+      <span className="crm-hero__mark">{yellow}</span>
+      {after ? ' ' : null}
+      {after ? <span className="crm-hero__shade">{after}</span> : null}
+    </>
+  )
+}
+
 function heroAriaLabel(props: CrmHeroProps): string {
-  const lead = 'Аналог amoCRM и Битрикс24'
+  if (props.showStockTitle === false && props.heroTitle) {
+    return props.heroMark ? `${props.heroTitle}. ${props.heroMark}` : props.heroTitle
+  }
+  const lead = props.heroLead ?? 'Аналог amoCRM и Битрикс24'
   if (props.heroMark && props.heroTitle) return `${lead}. ${props.heroTitle} ${props.heroMark}`
   if (props.heroTitle) return `${lead}. ${props.heroTitle}`
   return `${lead}. Бесплатная программа для учёта клиентов`
@@ -28,12 +48,16 @@ function heroAriaLabel(props: CrmHeroProps): string {
 
 export function CrmHero(props: CrmHeroProps) {
   const {
+    heroLead,
     heroTitle,
+    heroYellow,
     heroMark,
     heroCta = 'Получить бесплатно',
     heroMore = 'аренда и риелторы, автосервис, ресторан, ремонт техники, и многие другие',
+    showStockTitle = true,
     demoHref,
     dealAlways,
+    showPortfolio = true,
   } = props
   const location = useLocation()
   const demoUrl = demoHref
@@ -57,23 +81,33 @@ export function CrmHero(props: CrmHeroProps) {
       <div className="crm-hero__inner">
         <div className="crm-hero__copy reveal">
           <div className="crm-hero__lede">
-            <h1 className="crm-hero__title">Аналог amoCRM и&nbsp;Битрикс</h1>
-            <p className="crm-hero__sub">
-              {heroMark && heroTitle ? (
-                <>
+            {showStockTitle ? (
+              <h1 className="crm-hero__title">{heroLead ?? <>Аналог amoCRM и&nbsp;Битрикс</>}</h1>
+            ) : null}
+            {showStockTitle ? (
+              <p className="crm-hero__sub">
+                {heroMark && heroTitle ? (
+                  <>
+                    <span className="crm-hero__shade">{heroTitle}</span>
+                    <br />
+                    <span className="crm-hero__mark">{heroMark}</span>
+                  </>
+                ) : heroTitle ? (
                   <span className="crm-hero__shade">{heroTitle}</span>
-                  <br />
-                  <span className="crm-hero__mark">{heroMark}</span>
-                </>
-              ) : heroTitle ? (
-                <span className="crm-hero__shade">{heroTitle}</span>
-              ) : (
-                <>
-                  <span className="crm-hero__mark">Бесплатная</span>{' '}
-                  <span className="crm-hero__shade">программа для учёта клиентов</span>
-                </>
-              )}
-            </p>
+                ) : (
+                  <>
+                    <span className="crm-hero__mark">Бесплатная</span>{' '}
+                    <span className="crm-hero__shade">программа для учёта клиентов</span>
+                  </>
+                )}
+              </p>
+            ) : (
+              <h1 className="crm-hero__sub">
+                {heroTitle ? <TitleShade title={heroTitle} yellow={heroYellow} /> : null}
+                {heroTitle && heroMark ? <br /> : null}
+                {heroMark ? <span className="crm-hero__mark">{heroMark}</span> : null}
+              </h1>
+            )}
             <div className="crm-hero__rule" aria-hidden="true" />
           </div>
           {dealAlways || props.heroMore != null ? (
@@ -98,9 +132,11 @@ export function CrmHero(props: CrmHeroProps) {
                   <span className="crm-hero__perk-label">поддержка</span>
                 </li>
               </ul>
-              <div className="crm-hero__perks-foot">
-                <PerksDemoButton />
-              </div>
+              {showPortfolio ? (
+                <div className="crm-hero__perks-foot">
+                  <PerksDemoButton />
+                </div>
+              ) : null}
             </div>
           </aside>
           <div className="crm-hero__lead-form">

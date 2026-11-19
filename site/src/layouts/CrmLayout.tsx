@@ -16,6 +16,7 @@ const metaByPath: Record<string, CrmPageMeta> = {
   '/crm/custom/': crmPages.custom,
   '/crm/free/': crmPages.free,
   '/crm/integrations/': crmPages.integrations,
+  '/crm/bitrix/': crmPages.bitrix,
   '/crm/about/': crmPages.about,
 }
 
@@ -23,6 +24,7 @@ const pageIdByPath: Record<string, CrmPageId> = {
   '/crm/custom/': 'custom',
   '/crm/free/': 'free',
   '/crm/integrations/': 'integrations',
+  '/crm/bitrix/': 'bitrix',
   '/crm/about/': 'about',
 }
 
@@ -33,6 +35,8 @@ export function CrmLayout() {
   const brandHref = meta.brandHref ?? `/crm/${meta.solution}/`
   const pageId = pageIdByPath[pathname]
   const sections = pageId ? crmPageConfig[pageId].sections : []
+  const priceSection = sections.includes('pricing') ? 'pricing' : 'examples'
+  const pricesBeforeReviews = sections.indexOf(priceSection) < sections.indexOf('reviews')
 
   return (
     <CrmUiProvider>
@@ -40,7 +44,9 @@ export function CrmLayout() {
         brandHref={brandHref}
         showMenu={pageId !== 'about'}
         showReviews={sections.includes('reviews')}
-        showPrices={sections.includes('examples')}
+        showPrices={sections.includes('examples') || sections.includes('pricing')}
+        pricesHref={sections.includes('pricing') ? '#pricing' : '#examples'}
+        pricesBeforeReviews={pricesBeforeReviews}
       />
       <Outlet context={meta} />
       <SiteFooter variant="crm" brandHref={brandHref} />

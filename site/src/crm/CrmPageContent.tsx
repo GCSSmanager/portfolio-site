@@ -1,6 +1,7 @@
 import type { CrmPageId } from '@/crm/pageConfig'
 import { AboutCrmArticle } from '@/crm/sections/AboutCrmArticle'
 import { CrmAboutUs } from '@/crm/sections/CrmAboutUs'
+import { CrmBitrixPrices } from '@/crm/sections/CrmBitrixPrices'
 import { CrmCases } from '@/crm/sections/CrmCases'
 import { CrmContacts } from '@/crm/sections/CrmContacts'
 import { CrmGuide } from '@/crm/sections/CrmGuide'
@@ -27,12 +28,16 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
     <>
       {cfg.sections.includes('hero') ? (
         <CrmHero
+          heroLead={cfg.heroLead}
           heroTitle={cfg.heroTitle}
+          heroYellow={cfg.heroYellow}
           heroMark={cfg.heroMark}
           heroCta={cfg.heroCta}
           heroMore={cfg.heroMore}
+          showStockTitle={cfg.showStockTitle}
           demoHref={cfg.demoHref}
           dealAlways={cfg.dealAlways}
+          showPortfolio={cfg.showPortfolio}
         />
       ) : null}
       {cfg.sections.includes('about-us') ? <CrmAboutUs /> : null}
@@ -40,6 +45,7 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
       {cfg.sections.includes('plans') ? <CrmPlans showPricing={cfg.showPricing} /> : null}
       {cfg.sections.includes('kit') ? <CrmKit /> : null}
       {cfg.sections.includes('integrations') ? <CrmIntegrations /> : null}
+      {cfg.sections.includes('pricing') ? <CrmBitrixPrices /> : null}
       {cfg.sections.includes('about') ? <AboutCrmArticle /> : null}
       {cfg.sections.includes('process') ? <CrmProcess /> : null}
       {cfg.sections.includes('reviews') ? <CrmReviews /> : null}

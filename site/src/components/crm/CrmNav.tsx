@@ -7,11 +7,20 @@ type CrmNavProps = {
   showMenu?: boolean
   showReviews?: boolean
   showPrices?: boolean
+  pricesHref?: string
+  pricesBeforeReviews?: boolean
 }
 
 const linkClass = 'nav__link nav__link--section'
 
-export function CrmNav({ brandHref, showMenu = true, showReviews = false, showPrices = false }: CrmNavProps) {
+export function CrmNav({
+  brandHref,
+  showMenu = true,
+  showReviews = false,
+  showPrices = false,
+  pricesHref = '#examples',
+  pricesBeforeReviews = false,
+}: CrmNavProps) {
   const { isOpen, toggle, close, burgerLabel, burgerAria } = useCrmNav()
 
   return (
@@ -31,14 +40,20 @@ export function CrmNav({ brandHref, showMenu = true, showReviews = false, showPr
             <AboutIcon />
             <span className="nav__link-text">О нас</span>
           </a>
+          {showPrices && pricesBeforeReviews ? (
+            <a className={linkClass} href={pricesHref} onClick={close}>
+              <PricesIcon />
+              <span className="nav__link-text">Цены</span>
+            </a>
+          ) : null}
           {showReviews ? (
             <a className={linkClass} href="#reviews" onClick={close}>
               <ReviewsIcon />
               <span className="nav__link-text">Отзывы</span>
             </a>
           ) : null}
-          {showPrices ? (
-            <a className={linkClass} href="#examples" onClick={close}>
+          {showPrices && !pricesBeforeReviews ? (
+            <a className={linkClass} href={pricesHref} onClick={close}>
               <PricesIcon />
               <span className="nav__link-text">Цены</span>
             </a>

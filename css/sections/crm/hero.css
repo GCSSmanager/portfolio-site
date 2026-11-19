@@ -752,3 +752,18 @@
     transform: none;
   }
 }
+
+.crm-page--bitrix .crm-hero__inner {
+  grid-template-columns: minmax(0, 32rem) minmax(2rem, 1fr) minmax(0, 24rem);
+}
+
+.crm-page--bitrix .crm-hero__copy,
+.crm-page--bitrix .crm-hero__sub {
+  max-width: 32rem;
+}
+
+@media (min-width: 50.0625rem) and (max-width: 68rem) {
+  .crm-page--bitrix .crm-hero__inner {
+    grid-template-columns: minmax(0, 32rem) minmax(0.75rem, 1fr) minmax(19rem, 24rem);
+  }
+}

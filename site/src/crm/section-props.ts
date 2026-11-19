@@ -11,12 +11,18 @@ export type CrmReviewKey =
 export type CrmCaseKey = 'flower' | 'pest' | 'clinic'
 
 export type CrmHeroProps = {
+  heroLead?: string
   heroTitle?: string
+  /** Фраза внутри заголовка на жёлтой кляксе. */
+  heroYellow?: string
   heroMark?: string
   heroCta?: string
   heroMore?: string
+  /** Без строки «Аналог amoCRM и Битрикс». */
+  showStockTitle?: boolean
   demoHref?: string
   dealAlways?: boolean
+  showPortfolio?: boolean
 }
 
 export type CrmPlansProps = {

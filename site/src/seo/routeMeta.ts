@@ -33,6 +33,11 @@ export const crmRouteSeo = {
       'Что такое CRM: кому нужна – крупный бизнес, интеграции, рост; чем отличается от таблицы и чата; когда не нужна.',
     canonical: `${SITE_ORIGIN}/crm/about/`,
   },
+  bitrix: {
+    title: 'Настройка Битрикс24 и amoCRM под ваши продажи | ГКСС',
+    description: 'Внедрим Битрикс24 и amoCRM: воронка, мессенджеры, звонки и права. Если готовой CRM мало – соберём свою.',
+    canonical: `${SITE_ORIGIN}/crm/bitrix/`,
+  },
 } as const satisfies Record<string, RouteSeo>
 
 export const legalRouteSeo = {
@@ -68,6 +73,7 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
   '/crm/free/': crmRouteSeo.free,
   '/crm/integrations/': crmRouteSeo.integrations,
   '/crm/about/': crmRouteSeo.about,
+  '/crm/bitrix/': crmRouteSeo.bitrix,
   '/crm/kp/': kpRouteSeo,
   '/crm/': crmRouteSeo.custom,
   '/legal/privacy/': legalRouteSeo.privacy,
@@ -80,7 +86,7 @@ export function seoForPathname(pathname: string): RouteSeo | undefined {
   return routeSeoByPath[withSlash]
 }
 
-const CRM_SERVICE_PATHS = new Set(['/crm/custom/', '/crm/free/', '/crm/integrations/', '/crm/'])
+const CRM_SERVICE_PATHS = new Set(['/crm/custom/', '/crm/free/', '/crm/integrations/', '/crm/bitrix/', '/crm/'])
 
 /** JSON-LD for client navigations; prerender uses the same rules. */
 export function jsonLdForPathname(pathname: string): { includeService: boolean } | null {

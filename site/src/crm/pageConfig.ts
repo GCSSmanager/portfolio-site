@@ -1,7 +1,7 @@
 import { crmPages } from '@/crm/meta'
 import type { CrmPageMeta } from '@/types/crm'
 
-export type CrmPageId = 'custom' | 'free' | 'integrations' | 'about'
+export type CrmPageId = 'custom' | 'free' | 'integrations' | 'about' | 'bitrix'
 
 export type CrmSectionId =
   | 'hero'
@@ -16,17 +16,22 @@ export type CrmSectionId =
   | 'reviews'
   | 'cases'
   | 'examples'
+  | 'pricing'
   | 'guide'
   | 'quiz'
   | 'contacts'
 
 export type CrmPageConfig = CrmPageMeta & {
   sections: CrmSectionId[]
+  heroLead?: string
   heroTitle?: string
+  heroYellow?: string
   heroMark?: string
   heroCta?: string
   heroMore?: string
+  showStockTitle?: boolean
   demoHref?: string
+  showPortfolio?: boolean
   showPricing?: boolean
   faqVariant?: 'free'
   showContactsDeal?: boolean
@@ -62,5 +67,15 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
     ...crmPages.about,
     sections: ['about', 'partners', 'contacts'],
     showContactsDeal: false,
+  },
+  bitrix: {
+    ...crmPages.bitrix,
+    sections: ['hero', 'about-us', 'pricing', 'process', 'reviews', 'cases', 'quiz', 'partners', 'contacts'],
+    heroTitle: 'Настройка Битрикс24 и amoCRM под ключ для вашего бизнеса',
+    heroYellow: 'под ключ',
+    heroMark: 'от\u00a03000\u00a0рублей',
+    showStockTitle: false,
+    heroCta: 'Оценить задачу',
+    showContactsDeal: true,
   },
 }

@@ -1,4 +1,4 @@
-export type CrmSolution = 'custom' | 'free' | 'integrations' | 'about'
+export type CrmSolution = 'custom' | 'free' | 'integrations' | 'about' | 'bitrix'
 
 export type CrmPageMeta = {
   title: string

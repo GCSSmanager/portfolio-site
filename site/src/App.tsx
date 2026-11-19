@@ -3,6 +3,7 @@ import { CrmLayout } from '@/layouts/CrmLayout'
 import { AboutCrmPage } from '@/pages/crm/AboutCrmPage'
 import { CrmCustomPage } from '@/pages/crm/CrmCustomPage'
 import { CrmFreePage } from '@/pages/crm/CrmFreePage'
+import { CrmBitrixPage } from '@/pages/crm/CrmBitrixPage'
 import { CrmIntegrationsPage } from '@/pages/crm/CrmIntegrationsPage'
 import { LegalConsentPage } from '@/pages/legal/LegalConsentPage'
 import { LegalPrivacyPage } from '@/pages/legal/LegalPrivacyPage'
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/crm/custom/" element={<CrmCustomPage />} />
         <Route path="/crm/free/" element={<CrmFreePage />} />
         <Route path="/crm/integrations/" element={<CrmIntegrationsPage />} />
+        <Route path="/crm/bitrix/" element={<CrmBitrixPage />} />
         <Route path="/crm/about/" element={<AboutCrmPage />} />
       </Route>
 

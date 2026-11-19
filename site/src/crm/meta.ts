@@ -28,4 +28,11 @@ export const crmPages: Record<string, CrmPageMeta> = {
     assistChips: ['Чья будет программа?', 'Что будет после запуска?', 'Сколько длится запуск?'],
     brandHref: '/crm/about/',
   },
+  bitrix: {
+    ...crmRouteSeo.bitrix,
+    solution: 'bitrix',
+    dealAlways: true,
+    assistChips: ['Настроить Битрикс24', 'Настроить amoCRM', 'Оценить задачу'],
+    brandHref: '/crm/bitrix/',
+  },
 }

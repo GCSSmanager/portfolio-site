@@ -19,6 +19,7 @@ const routes = [
   '/crm/custom/',
   '/crm/free/',
   '/crm/integrations/',
+  '/crm/bitrix/',
   '/crm/about/',
   '/crm/kp/',
   '/legal/privacy/',
@@ -26,7 +27,7 @@ const routes = [
   '/crm/',
 ] as const
 
-const serviceRoutes = new Set(['/crm/custom/', '/crm/free/', '/crm/integrations/', '/crm/'])
+const serviceRoutes = new Set(['/crm/custom/', '/crm/free/', '/crm/integrations/', '/crm/bitrix/', '/crm/'])
 
 function injectOptions(route: string) {
   if (route === '/crm/kp/') return { jsonLd: false as const }
