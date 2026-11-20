@@ -33,7 +33,6 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
           heroYellow={cfg.heroYellow}
           heroMark={cfg.heroMark}
           heroCta={cfg.heroCta}
-          heroMore={cfg.heroMore}
           showStockTitle={cfg.showStockTitle}
           demoHref={cfg.demoHref}
           dealAlways={cfg.dealAlways}

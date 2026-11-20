@@ -28,7 +28,6 @@ export type CrmPageConfig = CrmPageMeta & {
   heroYellow?: string
   heroMark?: string
   heroCta?: string
-  heroMore?: string
   showStockTitle?: boolean
   demoHref?: string
   showPortfolio?: boolean
@@ -50,7 +49,6 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   free: {
     ...crmPages.free,
     sections: ['hero', 'about-us', 'fears', 'kit', 'reviews', 'cases', 'guide', 'partners', 'contacts'],
-    heroMore: 'Автосервис, ресторан, ремонт, риелторы и другие. Ставим мы, файл скачивать не нужно.',
     demoHref: '/crm/demo/free/',
     faqVariant: 'free',
     showContactsDeal: true,
@@ -71,9 +69,9 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   bitrix: {
     ...crmPages.bitrix,
     sections: ['hero', 'about-us', 'pricing', 'process', 'reviews', 'cases', 'quiz', 'partners', 'contacts'],
-    heroTitle: 'Настройка Битрикс24 и amoCRM под ключ для вашего бизнеса',
+    heroLead: 'от\u00a03000\u00a0рублей',
+    heroTitle: 'Настройка Битрикс24 и amoCRM для вашего бизнеса под ключ',
     heroYellow: 'под ключ',
-    heroMark: 'от\u00a03000\u00a0рублей',
     showStockTitle: false,
     heroCta: 'Оценить задачу',
     showContactsDeal: true,

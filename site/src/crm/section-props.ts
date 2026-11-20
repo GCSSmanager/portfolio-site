@@ -17,7 +17,6 @@ export type CrmHeroProps = {
   heroYellow?: string
   heroMark?: string
   heroCta?: string
-  heroMore?: string
   /** Без строки «Аналог amoCRM и Битрикс». */
   showStockTitle?: boolean
   demoHref?: string

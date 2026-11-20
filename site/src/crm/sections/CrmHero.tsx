@@ -19,6 +19,19 @@ function PerksDemoButton() {
   )
 }
 
+function HeroLead({ text }: { text: string }) {
+  const parts = text.split(/(\d+)/)
+  return parts.map((part, index) =>
+    /^\d+$/.test(part) ? (
+      <span key={index} className="crm-hero__title-num">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  )
+}
+
 function TitleShade({ title, yellow }: { title: string; yellow?: string }) {
   if (!yellow) return <span className="crm-hero__shade">{title}</span>
   const at = title.indexOf(yellow)
@@ -38,7 +51,8 @@ function TitleShade({ title, yellow }: { title: string; yellow?: string }) {
 
 function heroAriaLabel(props: CrmHeroProps): string {
   if (props.showStockTitle === false && props.heroTitle) {
-    return props.heroMark ? `${props.heroTitle}. ${props.heroMark}` : props.heroTitle
+    const head = props.heroLead ? `${props.heroLead}. ${props.heroTitle}` : props.heroTitle
+    return props.heroMark ? `${head}. ${props.heroMark}` : head
   }
   const lead = props.heroLead ?? 'Аналог amoCRM и Битрикс24'
   if (props.heroMark && props.heroTitle) return `${lead}. ${props.heroTitle} ${props.heroMark}`
@@ -53,7 +67,6 @@ export function CrmHero(props: CrmHeroProps) {
     heroYellow,
     heroMark,
     heroCta = 'Получить бесплатно',
-    heroMore = 'аренда и риелторы, автосервис, ресторан, ремонт техники, и многие другие',
     showStockTitle = true,
     demoHref,
     dealAlways,
@@ -102,19 +115,21 @@ export function CrmHero(props: CrmHeroProps) {
                 )}
               </p>
             ) : (
-              <h1 className="crm-hero__sub">
-                {heroTitle ? <TitleShade title={heroTitle} yellow={heroYellow} /> : null}
-                {heroTitle && heroMark ? <br /> : null}
-                {heroMark ? <span className="crm-hero__mark">{heroMark}</span> : null}
-              </h1>
+              <>
+                {heroLead ? (
+                  <p className="crm-hero__title">
+                    <HeroLead text={heroLead} />
+                  </p>
+                ) : null}
+                <h1 className="crm-hero__sub">
+                  {heroTitle ? <TitleShade title={heroTitle} yellow={heroYellow} /> : null}
+                  {heroTitle && heroMark ? <br /> : null}
+                  {heroMark ? <span className="crm-hero__mark">{heroMark}</span> : null}
+                </h1>
+              </>
             )}
             <div className="crm-hero__rule" aria-hidden="true" />
           </div>
-          {dealAlways || props.heroMore != null ? (
-            <p className="crm-hero__text">
-              <span className="crm-hero__shade">{props.heroMore ?? heroMore}</span>
-            </p>
-          ) : null}
         </div>
 
         <div className="crm-hero__stage" aria-hidden="true" />
