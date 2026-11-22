@@ -44,11 +44,11 @@ export function CrmPageContent({ page }: CrmPageContentProps) {
       {cfg.sections.includes('plans') ? <CrmPlans showPricing={cfg.showPricing} /> : null}
       {cfg.sections.includes('kit') ? <CrmKit /> : null}
       {cfg.sections.includes('integrations') ? <CrmIntegrations /> : null}
-      {cfg.sections.includes('pricing') ? <CrmBitrixPrices /> : null}
       {cfg.sections.includes('about') ? <AboutCrmArticle /> : null}
       {cfg.sections.includes('process') ? <CrmProcess /> : null}
       {cfg.sections.includes('reviews') ? <CrmReviews /> : null}
       {cfg.sections.includes('cases') ? <CrmCases /> : null}
+      {cfg.sections.includes('pricing') ? <CrmBitrixPrices /> : null}
       {cfg.sections.includes('examples') ? <CrmSystemExamples /> : null}
       {cfg.sections.includes('guide') ? <CrmGuide faqVariant={cfg.faqVariant} /> : null}
       {cfg.sections.includes('quiz') ? <CrmQuiz /> : null}

@@ -68,7 +68,7 @@ export const crmPageConfig: Record<CrmPageId, CrmPageConfig> = {
   },
   bitrix: {
     ...crmPages.bitrix,
-    sections: ['hero', 'about-us', 'pricing', 'process', 'reviews', 'cases', 'quiz', 'partners', 'contacts'],
+    sections: ['hero', 'about-us', 'process', 'reviews', 'cases', 'pricing', 'quiz', 'partners', 'contacts'],
     heroLead: 'от\u00a03000\u00a0рублей',
     heroTitle: 'Настройка Битрикс24 и amoCRM для вашего бизнеса под ключ',
     heroYellow: 'под ключ',

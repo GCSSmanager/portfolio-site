@@ -22,8 +22,7 @@
   background: #ece8dc;
 }
 
-.crm-page--integrations .crm-process,
-.crm-page--bitrix .crm-process {
+.crm-page--integrations .crm-process {
   background: var(--color-bg);
 }
 
