@@ -1,7 +1,7 @@
 import { buildMetrikaPayload } from './metrika'
 
 const WORKER_ORIGIN = 'https://gcss-tg-leads.diatsht.workers.dev'
-const LEADS_ENDPOINT = `${WORKER_ORIGIN}/`
+const LEADS_ENDPOINT = 'https://namaste-smolensk.ru/api/lead/portfolio'
 const CHAT_ENDPOINT = `${WORKER_ORIGIN}/chat`
 const CHAT_POLL_ENDPOINT = `${WORKER_ORIGIN}/chat/poll`
 
@@ -13,6 +13,10 @@ const LEAD_ERROR_MESSAGES: Record<string, string> = {
   telegram_network:
     'Сейчас не удаётся отправить заявку онлайн. Позвоните нам по телефону +7 (996) 346-30-49 – разберёмся, пока сервис восстанавливается.',
   telegram_failed:
+    'Сейчас не удаётся отправить заявку онлайн. Позвоните нам по телефону +7 (996) 346-30-49 – разберёмся, пока сервис восстанавливается.',
+  max_network:
+    'Сейчас не удаётся отправить заявку онлайн. Позвоните нам по телефону +7 (996) 346-30-49 – разберёмся, пока сервис восстанавливается.',
+  max_failed:
     'Сейчас не удаётся отправить заявку онлайн. Позвоните нам по телефону +7 (996) 346-30-49 – разберёмся, пока сервис восстанавливается.',
   validation: 'Проверьте имя и телефон и попробуйте снова.',
   opened_at_required: 'Обновите страницу и отправьте заявку ещё раз.',
