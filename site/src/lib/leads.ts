@@ -1,9 +1,26 @@
 import { buildMetrikaPayload } from './metrika'
 
 const WORKER_ORIGIN = 'https://gcss-tg-leads.diatsht.workers.dev'
-const LEADS_ENDPOINT = 'https://namaste-smolensk.ru/api/lead/portfolio'
+const WORKER_LEADS_ENDPOINT = `${WORKER_ORIGIN}/`
+const MAX_LEADS_ENDPOINT = 'https://namaste-smolensk.ru/api/lead/portfolio'
 const CHAT_ENDPOINT = `${WORKER_ORIGIN}/chat`
 const CHAT_POLL_ENDPOINT = `${WORKER_ORIGIN}/chat/poll`
+
+const LEAD_ERROR_PRIORITY = [
+  'validation',
+  'opened_at_required',
+  'too_fast',
+  'rate_limited',
+  'misconfigured',
+  'telegram_failed',
+  'max_failed',
+  'telegram_network',
+  'max_network',
+  'method_not_allowed',
+  'invalid_json',
+  'network',
+  'unknown',
+]
 
 const LEAD_ERROR_MESSAGES: Record<string, string> = {
   rate_limited:
@@ -42,6 +59,39 @@ function getLeadErrorMessage(code?: string): string {
   return (code && LEAD_ERROR_MESSAGES[code]) || LEAD_ERROR_MESSAGES.unknown
 }
 
+function leadError(code: string): Error & { code: string } {
+  const error = new Error(getLeadErrorMessage(code)) as Error & { code: string }
+  error.code = code
+  return error
+}
+
+function pickLeadFailure(errors: unknown[]): Error {
+  const coded = errors.filter((error): error is Error & { code?: string } => error instanceof Error)
+  for (const code of LEAD_ERROR_PRIORITY) {
+    const match = coded.find((error) => error.code === code)
+    if (match) return match
+  }
+  return coded[0] ?? leadError('unknown')
+}
+
+async function postLead(endpoint: string, body: Record<string, unknown>): Promise<void> {
+  let response: Response
+  try {
+    response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+  } catch {
+    throw leadError('network')
+  }
+
+  const data = (await response.json().catch(() => ({}))) as { ok?: boolean; code?: string }
+  if (!response.ok || !data.ok) {
+    throw leadError(data.code || 'unknown')
+  }
+}
+
 export type CrmLeadPayload = {
   name: string
   phone: string
@@ -61,25 +111,13 @@ export async function sendCrmLead(payload: CrmLeadPayload): Promise<void> {
     body.metrika = await buildMetrikaPayload(metrikaGoal, lead)
   }
 
-  let response: Response
   try {
-    response = await fetch(LEADS_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    })
-  } catch {
-    const error = new Error(getLeadErrorMessage('network')) as Error & { code?: string }
-    error.code = 'network'
-    throw error
-  }
-
-  const data = (await response.json().catch(() => ({}))) as { ok?: boolean; code?: string }
-
-  if (!response.ok || !data.ok) {
-    const code = data.code || 'unknown'
-    const error = new Error(getLeadErrorMessage(code)) as Error & { code?: string }
-    error.code = code
+    await Promise.any([
+      postLead(WORKER_LEADS_ENDPOINT, body),
+      postLead(MAX_LEADS_ENDPOINT, body),
+    ])
+  } catch (error) {
+    if (error instanceof AggregateError) throw pickLeadFailure(error.errors)
     throw error
   }
 }
